@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2015/07/02 07:42:06.000.099,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\GroupedItems1.pas</Transaction>
+    <Transaction>2015/07/02 07:42:09.000.774,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\SplitItemDetail1.pas</Transaction>
+    <Transaction>2015/07/02 07:42:57.015,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\GroupedItems1.pas</Transaction>
+    <Transaction>2015/07/02 07:42:57.150,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\ItemDetail1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

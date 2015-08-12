@@ -1,0 +1,35 @@
+unit DM;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.FMTBcd, Data.DB, Datasnap.DBClient,
+  Datasnap.Provider, Data.SqlExpr, Data.DBXFirebird;
+
+type
+  TDataModule2 = class(TDataModule)
+    SQLConnection1: TSQLConnection;
+    qryPRO: TSQLQuery;
+    dspPRO: TDataSetProvider;
+    cdsPRO: TClientDataSet;
+    dsPRO: TDataSource;
+    qryCONSULTA: TSQLQuery;
+    dspCONSULTA: TDataSetProvider;
+    cdsCONSULTA: TClientDataSet;
+    dsCONSULTA: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule2: TDataModule2;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

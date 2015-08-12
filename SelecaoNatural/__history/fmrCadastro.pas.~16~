@@ -1,0 +1,100 @@
+unit fmrCadastro;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.DBGrids,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.StdCtrls;
+
+type
+  TfrmCadastro = class(TForm)
+    DBGrid1: TDBGrid;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    edCódigo: TEdit;
+    dbedDESCRICAO: TDBEdit;
+    dbedPRECO: TDBEdit;
+    Image1: TImage;
+    Image2: TImage;
+    procedure FormCreate(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+  private
+    { Private declarations }
+    function TestarCampos:String;
+    procedure AtualizarGrid;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastro: TfrmCadastro;
+
+implementation
+
+{$R *.dfm}
+
+uses DM;
+
+procedure TfrmCadastro.AtualizarGrid;
+begin
+    with DM.DataModule2.cdsCONSULTA do
+     begin
+          Close;
+          CommandText := ' select * from produto';
+          Open;
+
+     end;
+end;
+
+procedure TfrmCadastro.FormCreate(Sender: TObject);
+begin
+    AtualizarGrid;
+end;
+
+procedure TfrmCadastro.Image1Click(Sender: TObject);
+begin
+        edCódigo.Text := '0';
+        with dm.DataModule2.cdsPRO do
+        begin
+          close;
+          CommandText:= 'select * from produto';
+          Open;
+          Insert;
+        end;
+        Image2.Enabled := True;
+end;
+
+procedure TfrmCadastro.Image2Click(Sender: TObject);
+begin
+    if TestarCampos = '' then
+    begin
+        dm.DataModule2.cdsPRO.FieldByName('COD_PRODUTO').AsString := '0';
+        dm.DataModule2.cdsPRO.Post;
+        dm.DataModule2.cdsPRO.ApplyUpdates(0);
+        dm.DataModule2.Transacao.Commit;
+        edCódigo.Clear;
+        Image2.Enabled := False;
+        AtualizarGrid;
+    end
+    else
+      showmessage('Campos não preenchidos' + #13 + TestarCampos);
+end;
+
+function TfrmCadastro.TestarCampos: String;
+var
+retorno : String;
+begin
+    retorno := '';
+    if dbedDESCRICAO.Text = '' then
+        retorno := 'Descrição do item ';
+    if dbedPRECO.Text = '' then
+         retorno := retorno + #13 + 'Preço do Item';
+
+    Result := retorno;
+
+end;
+
+end.

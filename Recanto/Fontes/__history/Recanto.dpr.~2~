@@ -1,0 +1,16 @@
+program Recanto;
+
+uses
+  Vcl.Forms,
+  unLogin in 'unLogin.pas' {frmLogin},
+  unDM in 'unDM.pas' {DataModule1: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmLogin, frmLogin);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.Run;
+end.

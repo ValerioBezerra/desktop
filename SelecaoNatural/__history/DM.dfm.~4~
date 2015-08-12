@@ -1,0 +1,77 @@
+object DataModule2: TDataModule2
+  OldCreateOrder = False
+  Height = 425
+  Width = 662
+  object SQLConnection1: TSQLConnection
+    DriverName = 'Firebird'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverUnit=Data.DBXFirebird'
+      
+        'DriverPackageLoader=TDBXDynalinkDriverLoader,DbxCommonDriver210.' +
+        'bpl'
+      
+        'DriverAssemblyLoader=Borland.Data.TDBXDynalinkDriverLoader,Borla' +
+        'nd.Data.DbxCommonDriver,Version=21.0.0.0,Culture=neutral,PublicK' +
+        'eyToken=91d62ebb5b0d1b1b'
+      
+        'MetaDataPackageLoader=TDBXFirebirdMetaDataCommandFactory,DbxFire' +
+        'birdDriver210.bpl'
+      
+        'MetaDataAssemblyLoader=Borland.Data.TDBXFirebirdMetaDataCommandF' +
+        'actory,Borland.Data.DbxFirebirdDriver,Version=21.0.0.0,Culture=n' +
+        'eutral,PublicKeyToken=91d62ebb5b0d1b1b'
+      'GetDriverFunc=getSQLDriverINTERBASE'
+      'LibraryName=dbxfb.dll'
+      'LibraryNameOsx=libsqlfb.dylib'
+      'VendorLib=fbclient.dll'
+      'VendorLibWin64=fbclient.dll'
+      'VendorLibOsx=/Library/Frameworks/Firebird.framework/Firebird'
+      'Database=C:\BANCO\banco.fdb'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'Role=RoleName'
+      'MaxBlobSize=-1'
+      'LocaleCode=0000'
+      'IsolationLevel=ReadCommitted'
+      'SQLDialect=3'
+      'CommitRetain=False'
+      'WaitOnLocks=True'
+      'TrimChar=False'
+      'BlobSize=-1'
+      'ErrorResourceFile='
+      'RoleName=RoleName'
+      'ServerCharSet='
+      'Trim Char=False')
+    Connected = True
+    Left = 64
+    Top = 56
+  end
+  object qryPRO: TSQLQuery
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = SQLConnection1
+    Left = 48
+    Top = 152
+  end
+  object dspPRO: TDataSetProvider
+    DataSet = qryPRO
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 104
+    Top = 152
+  end
+  object cdsPRO: TClientDataSet
+    Active = True
+    Aggregates = <>
+    CommandText = 'select * from produto'
+    Params = <>
+    ProviderName = 'dspPRO'
+    Left = 168
+    Top = 160
+  end
+  object dsPRO: TDataSource
+    DataSet = cdsPRO
+    Left = 240
+    Top = 168
+  end
+end

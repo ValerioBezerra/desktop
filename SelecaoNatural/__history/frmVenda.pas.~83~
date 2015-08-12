@@ -1,0 +1,360 @@
+unit frmVenda;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.DBGrids,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.StdCtrls, Data.DB, Datasnap.DBClient;
+
+type
+  TForm2 = class(TForm)
+    DBGrid1: TDBGrid;
+    DBGrid2: TDBGrid;
+    Image2: TImage;
+    Label1: TLabel;
+    edTotal: TEdit;
+    Image3: TImage;
+    cdsPEDIDO: TClientDataSet;
+    dsPEDIDO: TDataSource;
+    cdsPEDIDOProduto: TStringField;
+    cdsPEDIDOVlrUnitario: TCurrencyField;
+    cdsPEDIDOVlrTotal: TCurrencyField;
+    cdsPEDIDOQuantidade: TFloatField;
+    Image1: TImage;
+    cdsPEDIDOcod_produto: TIntegerField;
+    Label2: TLabel;
+    edPagamento: TEdit;
+    Label3: TLabel;
+    edTroco: TEdit;
+    edCONSULTA: TEdit;
+    procedure FormCreate(Sender: TObject);
+    procedure SalvarPedido;
+    procedure Image2Click(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure DBGrid2CellClick(Column: TColumn);
+    procedure DBGrid2KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure Image3Click(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure edPagamentoChange(Sender: TObject);
+    procedure edPagamentoExit(Sender: TObject);
+    procedure edCONSULTAChange(Sender: TObject);
+    procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);
+
+  private
+    { Private declarations }
+    procedure CarregarProdutos;
+    procedure AtualizarTotal;
+    procedure ImprimirPedido;
+    function formatarString(texto:string;tamanho:integer):String;
+    function RetornarProduto(nome: string): string;
+  public
+    { Public declarations }
+    qtd,PedidoFormatado :String;
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+uses DM;
+
+procedure TForm2.AtualizarTotal;
+var
+ total,troco : currency;
+begin
+    total := 0;
+    troco := 0;
+    with cdsPEDIDO do
+    begin
+      First;
+      while not EOF do
+      begin
+        total := total + cdsPEDIDOVlrTotal.Value;
+        Next;
+      end;
+
+    end;
+    if edPagamento.Text <> '' then
+    begin
+        troco :=  StrToFloat(edPagamento.Text) - total;
+         edTroco.Text := 'R$ ' + Format('%f',[troco]);
+    end;
+    edTotal.Text := 'R$' + Format('%f',[total]);
+end;
+
+procedure TForm2.CarregarProdutos;
+begin
+    with DM.DataModule2.cdsCONSULTA do
+     begin
+          Close;
+          CommandText := ' select COD_PRODUTO,DESC_PRODUTO,PRECO_PRODUTO from produto order by DESC_PRODUTO';
+          Open;
+
+     end;
+end;
+
+procedure TForm2.DBGrid1DblClick(Sender: TObject);
+begin
+    Image1Click(Self);
+end;
+
+procedure TForm2.DBGrid1KeyPress(Sender: TObject; var Key: Char);
+begin
+     if ord(key) = VK_RETURN  then
+        Image1Click(Self);
+
+end;
+
+procedure TForm2.DBGrid2CellClick(Column: TColumn);
+begin
+      image2.Enabled := True;
+end;
+
+procedure TForm2.DBGrid2KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+          if key = VK_DELETE then
+          begin
+              if Application.MessageBox('Deseja excluir o item','Excluir',MB_OKCANCEL) = idOK then
+              begin
+
+              cdsPEDIDO.Delete;
+
+              end;
+
+
+
+          end;
+
+end;
+
+procedure TForm2.edCONSULTAChange(Sender: TObject);
+begin
+      dm.DataModule2.cdsCONSULTA.Close;
+      dm.DataModule2.cdsCONSULTA.CommandText := 'select COD_PRODUTO,DESC_PRODUTO,PRECO_PRODUTO from produto where ' +
+                                                ' DESC_PRODUTO like ''%' + edCONSULTA.Text + '%''' +
+                                                ' order by DESC_PRODUTO ' ;
+      dm.DataModule2.cdsCONSULTA.Open;
+end;
+
+procedure TForm2.edPagamentoChange(Sender: TObject);
+begin
+//       if (cdsPEDIDO.RecordCount > 0) and (length(edPagamento.Text) > 0) then
+//       begin
+//          AtualizarTotal;
+//       end
+//       else
+//       begin
+//           showmessage('Nenhum produto adicionado!');
+//           edPagamento.Clear;
+//
+//       end;
+end;
+
+procedure TForm2.edPagamentoExit(Sender: TObject);
+begin
+     if length(edPagamento.Text) > 0  then
+      begin
+         if strtoFloat(edPagamento.Text) > 0 then
+            AtualizarTotal;
+      end;
+end;
+
+function TForm2.formatarString(texto: string; tamanho: integer): String;
+begin
+
+      if length(texto) < tamanho then
+          begin
+              while length(texto) <> tamanho do
+                    texto := texto + ' ';
+          end
+          else if length(texto) > tamanho then
+          begin
+            Texto := Copy(Texto,0,tamanho);
+          end;
+
+     Result := texto;
+end;
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+      CarregarProdutos;
+
+end;
+
+
+
+procedure TForm2.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+   if KEY  = VK_F2  then
+        Image3Click(Self);
+end;
+
+procedure TForm2.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+     if ord(KEY)  = VK_F2  then
+        Image3Click(Self);
+end;
+
+procedure TForm2.Image1Click(Sender: TObject);
+var
+ qtd: String;
+begin
+
+       qtd := InputBox('Sistema de Vendas','Quantidade','1');
+       cdsPEDIDO.Append;
+       cdsPEDIDOQuantidade.Value := StrtoFloat(qtd);
+       cdsPEDIDOProduto.Value := dm.DataModule2.cdsCONSULTA.FieldByName('DESC_PRODUTO').AsString;
+       cdsPEDIDOVlrUnitario.Value := dm.DataModule2.cdsCONSULTA.FieldByName('PRECO_PRODUTO').AsCurrency;
+       cdsPEDIDOVlrTotal.Value := cdsPEDIDOVlrUnitario.Value * cdsPEDIDOQuantidade.Value;
+        cdsPEDIDOcod_produto.Value := dm.DataModule2.cdsCONSULTA.FieldByName('COD_PRODUTO').AsInteger;
+       AtualizarTotal;
+
+
+end;
+
+
+
+procedure TForm2.Image2Click(Sender: TObject);
+begin
+
+      if Application.MessageBox('Deseja excluir o item','Excluir',MB_OKCANCEL) = idOK then
+              begin
+
+                 cdsPEDIDO.Delete;
+
+              end;
+
+end;
+
+procedure TForm2.Image3Click(Sender: TObject);
+begin
+        if cdsPEDIDO.RecordCount > 0 then
+        begin
+
+            If  MessageDlg('Salvar e imprimir o pedido?',mtConfirmation,[mbyes,mbno],0)=mryes then
+            begin
+              SalvarPedido;
+
+            end;
+
+
+
+        end
+        else
+            showmessage('Pedido Vazio!');
+end;
+
+
+
+
+
+procedure TForm2.ImprimirPedido;
+var
+  Impressora: TextFile;
+  StringList: TStringList;
+  IX: Integer;
+begin
+  try
+    //Texto := StringReplace(Texto, '%20', ' ', [rfReplaceAll]);
+    StringList := TStringList.Create;
+    StringList.Delimiter       := '|';
+    StringList.StrictDelimiter := True;
+    StringList.DelimitedText   := PedidoFormatado;
+
+    AssignFile(Impressora, 'LPT1');
+    Rewrite(Impressora);
+    for IX := 0 to (StringList.Count - 1) do
+      Writeln(Impressora, StringList[IX]);
+    Writeln(Impressora, '');
+    Writeln(Impressora, '');
+    Writeln(Impressora, '');
+    CloseFile(Impressora);
+  finally
+    StringList.Free;
+  End;
+
+
+end;
+
+function TForm2.RetornarProduto(nome: string): string;
+begin
+   dm.DataModule2.cdsGRAVAR.Close;
+   dm.DataModule2.cdsGRAVAR.CommandText := 'select * from produto where desc_produto = ' + QuotedStr(nome);
+   dm.DataModule2.cdsGRAVAR.Open;
+   if dm.DataModule2.cdsGRAVAR.RecordCount > 0 then
+      Result := dm.DataModule2.cdsGRAVAR.FieldByName('cod_produto').AsString
+   else
+      Result := 'Produto não encontrado';
+end;
+
+procedure TForm2.SalvarPedido;
+var
+codigo,seqproxped : integer;
+total : currency;
+begin
+       seqproxped := 0;
+      //pegando o codigo do pedido pelo banco
+      dm.DataModule2.cdsGRAVAR.Close;
+      dm.DataModule2.cdsGRAVAR.CommandText := 'select gen_id(gen_ped,1) as codigo from rdb$database';
+      dm.DataModule2.cdsGRAVAR.Open;
+      codigo := dm.DataModule2.cdsGRAVAR.FieldByName('codigo').AsInteger;
+     //gravando o pedido
+      dm.DataModule2.cdsPEDIDO.Close;
+      dm.DataModule2.cdsPEDIDO.CommandText := 'select * from pedido';
+      dm.DataModule2.cdsPEDIDO.Open;
+      dm.DataModule2.cdsPEDIDO.Insert;
+      dm.DataModule2.cdsPEDIDO.FieldByName('COD_PEDIDO').AsInteger := codigo;
+      PedidoFormatado := '           SELECAO NATURAL           |';
+      PedidoFormatado := PedidoFormatado + '           CUPOM NAO-FISCAL           |';
+      PedidoFormatado := PedidoFormatado + 'Pedido: ' + VartoStr(codigo) +  '          Data: ' + VartoStr(now) + '||';
+      dm.DataModule2.cdsPEDIDO.FieldByName('DATA_PEDIDO').AsDateTime := now;
+      dm.DataModule2.cdsPEDIDO.Post;
+      dm.DataModule2.cdsPEDIDO.ApplyUpdates(0);
+
+      PedidoFormatado := PedidoFormatado + 'Produto             Qtde    VlrUni   VlrTotal|';
+     //gravando os itens do pedido
+        cdsPEDIDO.First;
+        while not cdsPEDIDO.Eof do
+        begin
+          seqproxped := seqproxped + 1;
+          dm.DataModule2.cdsPROXPED.Close;
+          dm.DataModule2.cdsPROXPED.CommandText := 'select * from proxped';
+          dm.DataModule2.cdsPROXPED.Open;
+          dm.DataModule2.cdsPROXPED.Insert;
+          dm.DataModule2.cdsPROXPED.FieldByName('COD_PEDIDO').AsInteger := codigo;
+          dm.DataModule2.cdsPROXPED.FieldByName('seq_proxped').AsInteger := seqproxped;
+          dm.DataModule2.cdsPROXPED.FieldByName('CODPRODUTO_PROXPED').AsString := RetornarProduto(cdsPEDIDOProduto.Value);
+          dm.DataModule2.cdsPROXPED.FieldByName('QTD_PROXPED').AsCurrency := cdsPEDIDOQuantidade.Value;
+          dm.DataModule2.cdsPROXPED.FieldByName('VLRUNI_PROXPED').AsCurrency := cdsPEDIDOVlrUnitario.Value;
+          Total := Total + cdsPEDIDOVlrTotal.Value;
+          dm.DataModule2.cdsPROXPED.Post;
+          dm.DataModule2.cdsPROXPED.ApplyUpdates(0);
+          PedidoFormatado := PedidoFormatado + formatarString(cdsPEDIDOProduto.Value,20)  + formatarString(cdsPEDIDOQuantidade.Text,8) +
+                             formatarString(cdsPEDIDOVlrUnitario.Text,10) + formatarString(cdsPEDIDOVlrTotal.Text,10) + '|';
+          cdsPEDIDO.Next;
+
+        end;
+        PedidoFormatado := PedidoFormatado + '|Total:  R$'  + formatarString(VartoStr(Total),37);
+        PedidoFormatado := PedidoFormatado + '|Dinheiro:  ' + formatarString(edPagamento.Text,37);
+        PedidoFormatado := PedidoFormatado + '|Troco: '+  formatarString(edtroco.Text,42);
+        PedidoFormatado := PedidoFormatado + '|                 Volte Sempre!                 ';
+        PedidoFormatado := PedidoFormatado + '||||||';
+        ImprimirPedido;
+        dm.DataModule2.Transacao.Commit;
+        cdsPEDIDO.EmptyDataSet;
+        edTotal.Clear;
+        edtroco.Clear;
+        edPagamento.Clear;
+
+end;
+
+end.

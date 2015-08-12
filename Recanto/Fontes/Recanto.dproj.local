@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2015/07/31 14:26:53.000.867,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2015/07/31 14:27:05.000.153,C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.pas=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\unLogin.pas</Transaction>
+    <Transaction>2015/07/31 14:27:05.000.153,C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.dfm=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\unLogin.dfm</Transaction>
+    <Transaction>2015/07/31 14:35:55.000.265,C:\Users\Elison\Documents\Embarcadero\Studio\Projects\unLogin.dfm=C:\Recanto\Fontes\unLogin.dfm</Transaction>
+    <Transaction>2015/07/31 14:35:55.000.265,C:\Users\Elison\Documents\Embarcadero\Studio\Projects\unLogin.pas=C:\Recanto\Fontes\unLogin.pas</Transaction>
+    <Transaction>2015/07/31 14:36:05.000.259,C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Recanto\Fontes\Recanto.dproj</Transaction>
+    <Transaction>2015/07/31 20:24:51.000.314,=C:\Recanto\Fontes\Unit1.pas</Transaction>
+    <Transaction>2015/07/31 20:28:13.000.810,C:\Recanto\Fontes\unDM.pas=C:\Recanto\Fontes\Unit1.pas</Transaction>
+    <Transaction>2015/07/31 20:28:13.000.810,C:\Recanto\Fontes\unDM.dfm=C:\Recanto\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2015/07/31 20:32:49.000.172,=C:\Recanto\Fontes\Unit1.pas</Transaction>
+    <Transaction>2015/07/31 20:33:33.000.525,C:\Recanto\Fontes\unConsUSUARIO.pas=C:\Recanto\Fontes\Unit1.pas</Transaction>
+    <Transaction>2015/07/31 20:33:33.000.525,C:\Recanto\Fontes\unConsUSUARIO.dfm=C:\Recanto\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2015/08/11 20:17:50.564,=C:\Recanto\Fontes\Unit2.pas</Transaction>
+    <Transaction>2015/08/11 20:52:46.823,C:\Recanto\Fontes\unPrincipal.dfm=C:\Recanto\Fontes\Unit2.dfm</Transaction>
+    <Transaction>2015/08/11 20:52:46.823,C:\Recanto\Fontes\unPrincipal.pas=C:\Recanto\Fontes\Unit2.pas</Transaction>
+  </Transactions>
+</BorlandProject>
