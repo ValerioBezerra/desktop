@@ -1,0 +1,7 @@
+inherited frmCadCLI: TfrmCadCLI
+  Caption = 'frmCADCLI'
+  ExplicitWidth = 603
+  ExplicitHeight = 249
+  PixelsPerInch = 96
+  TextHeight = 13
+end

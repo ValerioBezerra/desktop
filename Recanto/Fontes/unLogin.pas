@@ -24,6 +24,9 @@ type
     procedure Image3Click(Sender: TObject);
     function testarSenha:String;
     procedure Image4Click(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edSenhaUsuarioKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -37,7 +40,7 @@ implementation
 
 {$R *.dfm}
 
-uses unDM, unConsUSUARIO;
+uses unDM, unConsUSUARIO, unPrincipal;
 
 procedure TfrmLogin.edCodUsuarioExit(Sender: TObject);
 begin
@@ -51,6 +54,26 @@ begin
        else
            edNomeUsuario.Text  := 'Usuário não cadastrado';
      end;
+end;
+
+procedure TfrmLogin.edSenhaUsuarioKeyPress(Sender: TObject; var Key: Char);
+begin
+     if ord(Key) = VK_RETURN then
+        Image3Click(Self);
+end;
+
+procedure TfrmLogin.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+        if ord(Key) = VK_RETURN then
+        Image3Click(Self);
+end;
+
+procedure TfrmLogin.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+   if ord(Key) = VK_RETURN then
+        Image3Click(Self);
+
 end;
 
 procedure TfrmLogin.Image1Click(Sender: TObject);
@@ -72,7 +95,10 @@ begin
       else
        begin
             if testarSenha() = 'OK' then
-                showmessage('Abrir Tela Principal')
+               begin
+                 Application.CreateForm(TFrmPrincipal,frmPrincipal);
+                 frmPrincipal.ShowModal;
+               end
             else
                  showmessage('Senha incorreta!');
 

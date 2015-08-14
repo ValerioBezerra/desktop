@@ -1,0 +1,25 @@
+unit unCadCli;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmPadrao, Data.DB, Datasnap.DBClient,
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.Buttons;
+
+type
+  TfrmPadrao_1 = class(TfrmPadrao_)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPadrao_1: TfrmPadrao_1;
+
+implementation
+
+{$R *.dfm}
+
+end.

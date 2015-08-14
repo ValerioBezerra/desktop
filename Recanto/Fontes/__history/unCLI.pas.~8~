@@ -1,0 +1,27 @@
+unit unCLI;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmPadrao, Data.DB, Datasnap.DBClient,
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.Buttons;
+
+type
+  TfrmCLI = class(TfrmPadrao_)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCLI: TfrmCLI;
+
+implementation
+
+{$R *.dfm}
+
+uses unCadCLI;
+
+end.

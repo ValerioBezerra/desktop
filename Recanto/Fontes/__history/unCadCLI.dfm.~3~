@@ -1,0 +1,7 @@
+inherited frmPadraoManutencao_1: TfrmPadraoManutencao_1
+  Caption = 'frmCADCLI'
+  ExplicitWidth = 603
+  ExplicitHeight = 249
+  PixelsPerInch = 96
+  TextHeight = 13
+end

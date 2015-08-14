@@ -22,6 +22,8 @@ type
     procedure edCodUsuarioExit(Sender: TObject);
     function TestarCampos:String;
     procedure Image3Click(Sender: TObject);
+    function testarSenha:String;
+    procedure Image4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,7 +37,7 @@ implementation
 
 {$R *.dfm}
 
-uses unDM, unConsUSUARIO;
+uses unDM, unConsUSUARIO, unPrincipal;
 
 procedure TfrmLogin.edCodUsuarioExit(Sender: TObject);
 begin
@@ -65,8 +67,33 @@ end;
 
 procedure TfrmLogin.Image3Click(Sender: TObject);
 begin
-      if TestarCampos <> 'OK' then
-          showmessage(TestarCampos);
+      if TestarCampos <> '' then
+          showmessage(TestarCampos)
+      else
+       begin
+            if testarSenha() = 'OK' then
+               begin
+                 Application.CreateForm(TFrmPrincipal,frmPrincipal);
+                 frmPrincipal.ShowModal;
+               end
+            else
+                 showmessage('Senha incorreta!');
+
+       end;
+
+
+end;
+
+procedure TfrmLogin.Image4Click(Sender: TObject);
+var
+buttonSelected : Integer;
+begin
+  buttonSelected := MessageDlg('Deseja fechar o sistema?',mtCustom,
+                               [mbYes,mbNo], 0);
+
+
+   if buttonSelected = mrYes    then
+       Application.Terminate;
 
 end;
 
@@ -74,7 +101,7 @@ function TfrmLogin.TestarCampos: String;
 var
  retorno :string;
 begin
-     retorno := 'OK';
+     retorno := '';
      if edNomeUsuario.Text = 'Usuário não informado' then
             retorno := 'Usuário não informado';
      if edNomeUsuario.Text = '' then
@@ -82,6 +109,21 @@ begin
      if edSenhaUsuario.Text = '' then
             retorno := retorno + #13 + 'Senha não informada';
      Result := retorno;
+end;
+
+function TfrmLogin.testarSenha: String;
+begin
+      with DataModule1.cdsCONSULTA do
+      begin
+        close;
+        CommandText := 'select * from usuario where codigo_usu = ' + edCodUsuario.Text +
+                       ' and senha_usu = ' + quotedStr(edSenhaUsuario.Text);
+        Open;
+        if not isempty then
+            Result := 'OK'
+        else
+             Result := 'ERRO';
+      end;
 end;
 
 end.

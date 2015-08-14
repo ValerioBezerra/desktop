@@ -1,0 +1,5 @@
+inherited frmPadrao_1: TfrmPadrao_1
+  Caption = 'frmPadrao_1'
+  PixelsPerInch = 96
+  TextHeight = 13
+end

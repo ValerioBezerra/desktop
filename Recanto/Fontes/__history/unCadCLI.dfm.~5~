@@ -1,0 +1,8 @@
+inherited frmCadCLI: TfrmCadCLI
+  Caption = 'frmCADCLI'
+  OnCreate = FormCreate
+  ExplicitWidth = 603
+  ExplicitHeight = 249
+  PixelsPerInch = 96
+  TextHeight = 13
+end

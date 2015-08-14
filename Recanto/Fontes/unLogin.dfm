@@ -12,6 +12,8 @@ object frmLogin: TfrmLogin
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnKeyDown = FormKeyDown
+  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -2243,6 +2245,8 @@ object frmLogin: TfrmLogin
     Top = 212
     Width = 217
     Height = 21
+    PasswordChar = '*'
     TabOrder = 1
+    OnKeyPress = edSenhaUsuarioKeyPress
   end
 end

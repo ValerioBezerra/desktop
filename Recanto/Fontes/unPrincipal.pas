@@ -7,9 +7,12 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
 
 type
-  TForm2 = class(TForm)
+  TfrmPRINCIPAL = class(TForm)
     MainMenu1: TMainMenu;
     Cadastro1: TMenuItem;
+    ContasaReceber1: TMenuItem;
+    Cliente1: TMenuItem;
+    procedure Cliente1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -17,10 +20,18 @@ type
   end;
 
 var
-  Form2: TForm2;
+  frmPRINCIPAL: TfrmPRINCIPAL;
 
 implementation
 
 {$R *.dfm}
+
+uses unCLI;
+
+procedure TfrmPRINCIPAL.Cliente1Click(Sender: TObject);
+begin
+     Application.CreateForm(TfrmCli,frmCLI);
+     frmClI.ShowModal;
+end;
 
 end.

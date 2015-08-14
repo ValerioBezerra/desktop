@@ -100,7 +100,23 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unPrincipal.pas">
-            <Form>Form2</Form>
+            <Form>frmPRINCIPAL</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="C:\valerio\delphi\Formularios\frmPadrao.pas">
+            <Form>frmPadrao_</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="C:\valerio\delphi\Formularios\frmPadraoManutencao.pas">
+            <Form>frmPadraoManutencao_</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unCLI.pas">
+            <Form>frmCLI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unCadCLI.pas">
+            <Form>frmCadCLI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
