@@ -140,4 +140,34 @@ object DataModule1: TDataModule1
     Left = 232
     Top = 296
   end
+  object qryFUNCIONARIO: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from FORNECEDOR')
+    Left = 40
+    Top = 352
+  end
+  object dspFUNCIONARIO: TDataSetProvider
+    DataSet = qryFUNCIONARIO
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 104
+    Top = 352
+  end
+  object cdsFUNCIONARIO: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from FUNCIONARIO'
+    Params = <>
+    ProviderName = 'dspFUNCIONARIO'
+    Left = 160
+    Top = 352
+  end
+  object dsFUNCIONARIO: TDataSource
+    DataSet = cdsFUNCIONARIO
+    Left = 224
+    Top = 352
+  end
 end

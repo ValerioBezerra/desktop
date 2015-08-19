@@ -28,8 +28,8 @@ type
     dsFORNECEDOR: TDataSource;
     qryFUNCIONARIO: TIBQuery;
     dspFUNCIONARIO: TDataSetProvider;
-    cdsFUNCIONARIO: TClientDataSet;
-    dsFUNCIONARIO: TDataSource;
+    ClientDataSet1: TClientDataSet;
+    DataSource1: TDataSource;
   private
     { Private declarations }
   public

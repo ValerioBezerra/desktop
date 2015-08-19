@@ -119,6 +119,14 @@
             <Form>frmCadFOR</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="unFUN.pas">
+            <Form>frmFUN</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unCadFUN.pas">
+            <Form>frmCadFUN</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <DCCReference Include="unCLI.pas">
             <Form>frmCLI</Form>
             <FormType>dfm</FormType>

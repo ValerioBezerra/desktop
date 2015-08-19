@@ -38,7 +38,6 @@ object frmPRINCIPAL: TfrmPRINCIPAL
         Caption = 'Folha de Pagamento'
         object Funcionrio1: TMenuItem
           Caption = 'Funcion'#225'rio'
-          OnClick = Funcionrio1Click
         end
       end
     end

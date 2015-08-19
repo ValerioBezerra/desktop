@@ -26,10 +26,6 @@ type
     dspFORNECEDOR: TDataSetProvider;
     cdsFORNECEDOR: TClientDataSet;
     dsFORNECEDOR: TDataSource;
-    qryFUNCIONARIO: TIBQuery;
-    dspFUNCIONARIO: TDataSetProvider;
-    cdsFUNCIONARIO: TClientDataSet;
-    dsFUNCIONARIO: TDataSource;
   private
     { Private declarations }
   public

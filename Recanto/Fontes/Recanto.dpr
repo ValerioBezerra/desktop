@@ -10,6 +10,8 @@ uses
   frmPadraoManutencao in 'C:\valerio\delphi\Formularios\frmPadraoManutencao.pas' {frmPadraoManutencao_},
   unFOR in 'unFOR.pas' {frmFOR},
   unCadFOR in 'unCadFOR.pas' {frmCadFOR},
+  unFUN in 'unFUN.pas' {frmFUN},
+  unCadFUN in 'unCadFUN.pas' {frmCadFUN},
   unCLI in 'unCLI.pas' {frmCLI},
   unCadCLI in 'unCadCLI.pas' {frmCadCLI};
 
