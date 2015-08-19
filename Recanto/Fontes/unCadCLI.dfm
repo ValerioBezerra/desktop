@@ -10,34 +10,42 @@ inherited frmCadCLI: TfrmCadCLI
   inherited pnlBotoes: TPanel
     Left = 495
     Height = 382
+    ExplicitLeft = 495
+    ExplicitHeight = 382
     inherited Panel5: TPanel
       Height = 372
+      ExplicitHeight = 372
     end
     inherited Panel6: TPanel
       Top = 372
+      ExplicitTop = 372
     end
     inherited Panel7: TPanel
       Height = 372
+      ExplicitHeight = 372
     end
   end
   inherited stbInformacao: TStatusBar
     Top = 394
     Width = 616
+    ExplicitTop = 394
+    ExplicitWidth = 616
   end
   inherited stbStatus: TStatusBar
     Top = 413
     Width = 616
+    ExplicitTop = 413
+    ExplicitWidth = 616
   end
   inherited Panel1: TPanel
     Width = 616
+    ExplicitWidth = 616
   end
   inherited pnlPrincipal: TPanel
     Width = 495
     Height = 382
-    ExplicitLeft = 3
-    ExplicitTop = 8
     ExplicitWidth = 495
-    ExplicitHeight = 560
+    ExplicitHeight = 382
     object Label1: TLabel
       Left = 16
       Top = 6
@@ -151,6 +159,7 @@ inherited frmCadCLI: TfrmCadCLI
       DataField = 'CPF_CLI'
       DataSource = DataModule1.dsCLIENTE
       TabOrder = 2
+      OnEnter = DBEdit3Enter
     end
     object DBEdit4: TDBEdit
       Left = 232
@@ -165,7 +174,8 @@ inherited frmCadCLI: TfrmCadCLI
       Left = 13
       Top = 163
       Width = 356
-      Height = 46
+      Height = 55
+      AutoSize = False
       DataField = 'ENDERECO_CLI'
       DataSource = DataModule1.dsCLIENTE
       TabOrder = 4
@@ -195,7 +205,7 @@ inherited frmCadCLI: TfrmCadCLI
       Height = 21
       DataField = 'UF_CLI'
       DataSource = DataModule1.dsCLIENTE
-      TabOrder = 7
+      TabOrder = 8
     end
     object DBEdit10: TDBEdit
       Left = 8
@@ -204,7 +214,7 @@ inherited frmCadCLI: TfrmCadCLI
       Height = 21
       DataField = 'TELEFONE_CLI'
       DataSource = DataModule1.dsCLIENTE
-      TabOrder = 8
+      TabOrder = 9
     end
     object DBEdit11: TDBEdit
       Left = 213
@@ -213,7 +223,7 @@ inherited frmCadCLI: TfrmCadCLI
       Height = 21
       DataField = 'CELULAR_CLI'
       DataSource = DataModule1.dsCLIENTE
-      TabOrder = 9
+      TabOrder = 10
     end
     object DBEdit8: TDBEdit
       Left = 13
@@ -222,7 +232,7 @@ inherited frmCadCLI: TfrmCadCLI
       Height = 21
       DataField = 'CIDADE_CLI'
       DataSource = DataModule1.dsCLIENTE
-      TabOrder = 10
+      TabOrder = 7
     end
   end
 end

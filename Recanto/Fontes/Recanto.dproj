@@ -111,6 +111,14 @@
             <Form>frmPadraoManutencao_</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="unFOR.pas">
+            <Form>frmFOR</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unCadFOR.pas">
+            <Form>frmCadFOR</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <DCCReference Include="unCLI.pas">
             <Form>frmCLI</Form>
             <FormType>dfm</FormType>
@@ -142,6 +150,8 @@
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k210.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp210.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k210.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp210.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment>

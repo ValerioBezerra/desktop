@@ -11,6 +11,8 @@ type
   TfrmCLI = class(TfrmPadrao_)
     procedure btnNovoClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+    procedure btnApagarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,6 +28,35 @@ implementation
 
 uses unCadCLI, unDM;
 
+procedure TfrmCLI.btnApagarClick(Sender: TObject);
+var
+buttonSelected : Integer;
+begin
+  buttonSelected := MessageDlg('Confirma a exclusão do registro?',mtCustom,
+                               [mbYes,mbNo], 0);
+
+
+   if buttonSelected = mrYes    then
+      begin
+        cdspadrao.Close;
+        cdsPadrao.CommandText := 'select * from cliente where codigo_cli = ' + cdsConsulta.FieldByName('CODIGO_CLI').AsString;
+        cdspadrao.Open;
+         inherited;
+      end;
+
+end;
+
+procedure TfrmCLI.btnEditarClick(Sender: TObject);
+begin
+
+   Application.CreateForm(TFrmCADCLI,frmCadCLI);
+   cdsPadrao.Open;
+   cdsPadrao.Edit;
+  frmCadCli.ShowModal;
+  inherited;
+
+end;
+
 procedure TfrmCLI.btnNovoClick(Sender: TObject);
 begin
   inherited;
@@ -40,6 +71,7 @@ begin
   inherited;
     cdsPadrao := DataModule1.cdsCLIENTE;
     cdsConsulta := DataModule1.cdsCONSULTA;
+
     campos := '*';
     tabela := 'CLIENTE';
     where := '';

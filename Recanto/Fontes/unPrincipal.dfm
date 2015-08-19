@@ -4,7 +4,7 @@ object frmPRINCIPAL: TfrmPRINCIPAL
   Caption = 'Sistema de Controle - Recanto'
   ClientHeight = 569
   ClientWidth = 909
-  Color = clBtnFace
+  Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -27,6 +27,28 @@ object frmPRINCIPAL: TfrmPRINCIPAL
           OnClick = Cliente1Click
         end
       end
+      object ContasaPagar1: TMenuItem
+        Caption = 'Contas a Pagar'
+        object Fornecedor1: TMenuItem
+          Caption = 'Fornecedor'
+          OnClick = Fornecedor1Click
+        end
+      end
+      object FolhadePagamento1: TMenuItem
+        Caption = 'Folha de Pagamento'
+        object Funcionrio1: TMenuItem
+          Caption = 'Funcion'#225'rio'
+        end
+      end
+    end
+    object Movimento1: TMenuItem
+      Caption = 'Movimento'
+    end
+    object Relatrios1: TMenuItem
+      Caption = 'Relat'#243'rios'
+    end
+    object Sair1: TMenuItem
+      Caption = 'Sair'
     end
   end
 end

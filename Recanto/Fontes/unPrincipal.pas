@@ -12,7 +12,15 @@ type
     Cadastro1: TMenuItem;
     ContasaReceber1: TMenuItem;
     Cliente1: TMenuItem;
+    ContasaPagar1: TMenuItem;
+    Fornecedor1: TMenuItem;
+    Movimento1: TMenuItem;
+    Relatrios1: TMenuItem;
+    Sair1: TMenuItem;
+    FolhadePagamento1: TMenuItem;
+    Funcionrio1: TMenuItem;
     procedure Cliente1Click(Sender: TObject);
+    procedure Fornecedor1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,12 +34,18 @@ implementation
 
 {$R *.dfm}
 
-uses unCLI;
+uses unCLI, unFOR;
 
 procedure TfrmPRINCIPAL.Cliente1Click(Sender: TObject);
 begin
      Application.CreateForm(TfrmCli,frmCLI);
      frmClI.ShowModal;
+end;
+
+procedure TfrmPRINCIPAL.Fornecedor1Click(Sender: TObject);
+begin
+    Application.CreateForm(TfrmFor,frmFor);
+     frmFor.ShowModal;
 end;
 
 end.

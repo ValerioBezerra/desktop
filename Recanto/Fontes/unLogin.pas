@@ -18,6 +18,7 @@ type
     Image2: TImage;
     Image3: TImage;
     Image4: TImage;
+    Image5: TImage;
     procedure Image1Click(Sender: TObject);
     procedure edCodUsuarioExit(Sender: TObject);
     function TestarCampos:String;
@@ -98,6 +99,7 @@ begin
                begin
                  Application.CreateForm(TFrmPrincipal,frmPrincipal);
                  frmPrincipal.ShowModal;
+                 edSenhaUsuario.Clear;
                end
             else
                  showmessage('Senha incorreta!');

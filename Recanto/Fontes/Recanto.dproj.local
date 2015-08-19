@@ -4,21 +4,21 @@
     <Transaction>2015/07/31 14:26:53.000.867,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
     <Transaction>2015/07/31 14:27:05.000.153,C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.pas=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\unLogin.pas</Transaction>
     <Transaction>2015/07/31 14:27:05.000.153,C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.dfm=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\unLogin.dfm</Transaction>
-    <Transaction>2015/07/31 14:35:55.000.265,C:\Users\Elison\Documents\Embarcadero\Studio\Projects\unLogin.dfm=C:\Recanto\Fontes\unLogin.dfm</Transaction>
     <Transaction>2015/07/31 14:35:55.000.265,C:\Users\Elison\Documents\Embarcadero\Studio\Projects\unLogin.pas=C:\Recanto\Fontes\unLogin.pas</Transaction>
+    <Transaction>2015/07/31 14:35:55.000.265,C:\Users\Elison\Documents\Embarcadero\Studio\Projects\unLogin.dfm=C:\Recanto\Fontes\unLogin.dfm</Transaction>
     <Transaction>2015/07/31 14:36:05.000.259,C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Recanto\Fontes\Recanto.dproj</Transaction>
     <Transaction>2015/07/31 20:24:51.000.314,=C:\Recanto\Fontes\Unit1.pas</Transaction>
-    <Transaction>2015/07/31 20:28:13.000.810,C:\Recanto\Fontes\unDM.pas=C:\Recanto\Fontes\Unit1.pas</Transaction>
     <Transaction>2015/07/31 20:28:13.000.810,C:\Recanto\Fontes\unDM.dfm=C:\Recanto\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2015/07/31 20:28:13.000.810,C:\Recanto\Fontes\unDM.pas=C:\Recanto\Fontes\Unit1.pas</Transaction>
     <Transaction>2015/07/31 20:32:49.000.172,=C:\Recanto\Fontes\Unit1.pas</Transaction>
-    <Transaction>2015/07/31 20:33:33.000.525,C:\Recanto\Fontes\unConsUSUARIO.dfm=C:\Recanto\Fontes\Unit1.dfm</Transaction>
     <Transaction>2015/07/31 20:33:33.000.525,C:\Recanto\Fontes\unConsUSUARIO.pas=C:\Recanto\Fontes\Unit1.pas</Transaction>
+    <Transaction>2015/07/31 20:33:33.000.525,C:\Recanto\Fontes\unConsUSUARIO.dfm=C:\Recanto\Fontes\Unit1.dfm</Transaction>
     <Transaction>2015/08/11 20:17:50.000.564,=C:\Recanto\Fontes\Unit2.pas</Transaction>
-    <Transaction>2015/08/11 20:52:46.000.823,C:\Recanto\Fontes\unPrincipal.dfm=C:\Recanto\Fontes\Unit2.dfm</Transaction>
     <Transaction>2015/08/11 20:52:46.000.823,C:\Recanto\Fontes\unPrincipal.pas=C:\Recanto\Fontes\Unit2.pas</Transaction>
+    <Transaction>2015/08/11 20:52:46.000.823,C:\Recanto\Fontes\unPrincipal.dfm=C:\Recanto\Fontes\Unit2.dfm</Transaction>
     <Transaction>2015/08/13 12:21:53.000.822,=C:\Recanto\Fontes\Unit3.pas</Transaction>
-    <Transaction>2015/08/13 12:22:13.000.618,C:\Recanto\Fontes\Unit3.dfm=C:\Recanto\Fontes\unCadCli.dfm</Transaction>
     <Transaction>2015/08/13 12:22:13.000.618,C:\Recanto\Fontes\Unit3.pas=C:\Recanto\Fontes\unCadCli.pas</Transaction>
+    <Transaction>2015/08/13 12:22:13.000.618,C:\Recanto\Fontes\Unit3.dfm=C:\Recanto\Fontes\unCadCli.dfm</Transaction>
     <Transaction>2015/08/13 12:50:59.000.459,=C:\valerio\delphi\Formularios\frmPadrao.pas</Transaction>
     <Transaction>2015/08/13 12:59:46.000.421,C:\Recanto\Fontes\unCadCli.pas=</Transaction>
     <Transaction>2015/08/13 13:03:09.000.005,=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\Unit1.pas</Transaction>
@@ -30,9 +30,15 @@
     <Transaction>2015/08/13 13:06:40.000.384,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCLI.pas=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\Unit1.pas</Transaction>
     <Transaction>2015/08/13 13:06:40.000.384,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCLI.dfm=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\Unit1.dfm</Transaction>
     <Transaction>2015/08/13 13:06:51.000.452,=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\Unit1.pas</Transaction>
-    <Transaction>2015/08/13 13:07:09.000.694,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCadCLI.pas=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\Unit1.pas</Transaction>
     <Transaction>2015/08/13 13:07:09.000.694,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCadCLI.dfm=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2015/08/13 13:07:09.000.694,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCadCLI.pas=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\Unit1.pas</Transaction>
     <Transaction>2015/08/13 13:22:25.000.684,=C:\valerio\delphi\Util\util.pas</Transaction>
     <Transaction>2015/08/13 13:22:40.000.295,C:\valerio\delphi\Util\util.pas=</Transaction>
+    <Transaction>2015/08/15 12:56:21.000.259,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unFOR.pas=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCLI.pas</Transaction>
+    <Transaction>2015/08/15 12:56:21.000.259,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unFOR.dfm=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCLI.dfm</Transaction>
+    <Transaction>2015/08/15 12:56:50.000.607,=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCLI.pas</Transaction>
+    <Transaction>2015/08/15 16:08:58.000.999,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCadCLI.pas=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCadFOR.pas</Transaction>
+    <Transaction>2015/08/15 16:08:58.000.999,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCadCLI.dfm=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCadFOR.dfm</Transaction>
+    <Transaction>2015/08/15 16:09:17.000.770,=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unCadCLI.pas</Transaction>
   </Transactions>
 </BorlandProject>

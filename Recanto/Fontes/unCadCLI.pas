@@ -33,6 +33,8 @@ type
     DBEdit8: TDBEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure DBEdit3Enter(Sender: TObject);
   private
     { Private declarations }
   public
@@ -48,10 +50,25 @@ implementation
 
 uses unDM;
 
+procedure TfrmCadCLI.btnSalvarClick(Sender: TObject);
+begin
+  inherited;
+   DataModule1.Transacao.Commit;
+   cdsPadrao.Close;
+   btnSalvar.Enabled := false;
+end;
+
+procedure TfrmCadCLI.DBEdit3Enter(Sender: TObject);
+begin
+  inherited;
+  dbedit3.Field.EditMask := '000.000.000-00;1;_';
+end;
+
 procedure TfrmCadCLI.FormCreate(Sender: TObject);
 begin
   inherited;
-  cdsPadrao := DataModule1.cdsUSUARIO;
+
+  cdsPadrao := DataModule1.cdsCLIENTE;
 end;
 
 procedure TfrmCadCLI.FormShow(Sender: TObject);

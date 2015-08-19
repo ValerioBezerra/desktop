@@ -22,17 +22,10 @@ type
     dspCLIENTE: TDataSetProvider;
     cdsCLIENTE: TClientDataSet;
     dsCLIENTE: TDataSource;
-    cdsCLIENTECODIGO_CLI: TIntegerField;
-    cdsCLIENTENOME_CLI: TWideStringField;
-    cdsCLIENTECPF_CLI: TWideStringField;
-    cdsCLIENTEIDENTIDADE_CLI: TWideStringField;
-    cdsCLIENTEENDERECO_CLI: TWideStringField;
-    cdsCLIENTENUMEND_CLI: TWideStringField;
-    cdsCLIENTEBAIRRO_CLI: TWideStringField;
-    cdsCLIENTEUF_CLI: TWideStringField;
-    cdsCLIENTETELEFONE_CLI: TWideStringField;
-    cdsCLIENTECELULAR_CLI: TWideStringField;
-    cdsCLIENTECIDADE_CLI: TIntegerField;
+    qryFORNECEDOR: TIBQuery;
+    dspFORNECEDOR: TDataSetProvider;
+    cdsFORNECEDOR: TClientDataSet;
+    dsFORNECEDOR: TDataSource;
   private
     { Private declarations }
   public

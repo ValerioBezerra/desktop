@@ -8,6 +8,8 @@ uses
   unPrincipal in 'unPrincipal.pas' {frmPRINCIPAL},
   frmPadrao in 'C:\valerio\delphi\Formularios\frmPadrao.pas' {frmPadrao_},
   frmPadraoManutencao in 'C:\valerio\delphi\Formularios\frmPadraoManutencao.pas' {frmPadraoManutencao_},
+  unFOR in 'unFOR.pas' {frmFOR},
+  unCadFOR in 'unCadFOR.pas' {frmCadFOR},
   unCLI in 'unCLI.pas' {frmCLI},
   unCadCLI in 'unCadCLI.pas' {frmCadCLI};
 
@@ -22,7 +24,5 @@ begin
   Application.CreateForm(TfrmPRINCIPAL, frmPRINCIPAL);
   Application.CreateForm(TfrmPadrao_, frmPadrao_);
   Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
-  Application.CreateForm(TfrmCLI, frmCLI);
-  Application.CreateForm(TfrmCadCLI, frmCadCLI);
   Application.Run;
 end.

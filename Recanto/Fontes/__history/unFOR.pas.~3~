@@ -1,0 +1,82 @@
+unit unFOR;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, frmPadrao, Data.DB, Datasnap.DBClient,
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.Buttons;
+
+type
+  TfrmFOR = class(TfrmPadrao_)
+    procedure btnNovoClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+    procedure btnApagarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmFOR: TfrmFOR;
+
+implementation
+
+{$R *.dfm}
+
+uses unCadCLI, unDM;
+
+procedure TfrmFOR.btnApagarClick(Sender: TObject);
+var
+buttonSelected : Integer;
+begin
+  buttonSelected := MessageDlg('Confirma a exclusão do registro?',mtCustom,
+                               [mbYes,mbNo], 0);
+
+
+   if buttonSelected = mrYes    then
+      begin
+        cdspadrao.Close;
+        cdsPadrao.CommandText := 'select * from fornecedor where codigo_for = ' + cdsConsulta.FieldByName('CODIGO_FOR').AsString;
+        cdspadrao.Open;
+         inherited;
+      end;
+
+end;
+
+procedure TfrmFOR.btnEditarClick(Sender: TObject);
+begin
+
+   Application.CreateForm(TFrmCADCLI,frmCadCLI);
+   cdsPadrao.Open;
+   cdsPadrao.Edit;
+  frmCadCli.ShowModal;
+  inherited;
+
+end;
+
+procedure TfrmFOR.btnNovoClick(Sender: TObject);
+begin
+  inherited;
+  Application.CreateForm(TFrmCADCLI,frmCadCLI);
+   cdsPadrao.Open;
+   cdsPadrao.Insert;
+  frmCadCli.ShowModal;
+end;
+
+procedure TfrmFOR.FormCreate(Sender: TObject);
+begin
+  inherited;
+    cdsPadrao := DataModule1.cddsFORNECEDOR;
+    cdsConsulta := DataModule1.cdsCONSULTA;
+
+    campos := '*';
+    tabela := 'FORNECEDOR';
+    where := '';
+    join := '';
+    campoConsulta := 'NOME_FOR';
+end;
+
+end.
