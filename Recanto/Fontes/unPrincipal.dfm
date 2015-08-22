@@ -44,6 +44,13 @@ object frmPRINCIPAL: TfrmPRINCIPAL
     end
     object Movimento1: TMenuItem
       Caption = 'Movimento'
+      object ContasaPagar2: TMenuItem
+        Caption = 'Contas a Pagar'
+        object tulo1: TMenuItem
+          Caption = 'T'#237'tulo'
+          OnClick = tulo1Click
+        end
+      end
     end
     object Relatrios1: TMenuItem
       Caption = 'Relat'#243'rios'

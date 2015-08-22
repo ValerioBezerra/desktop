@@ -56,7 +56,9 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'select * from FORNECEDOR')
+      
+        'select * from PAGTIT LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = ' +
+        'CODFOR_PAGTIT')
     Left = 313
     Top = 27
   end
@@ -69,7 +71,9 @@ object DataModule1: TDataModule1
   object cdsCONSULTA: TClientDataSet
     Active = True
     Aggregates = <>
-    CommandText = 'select * from FORNECEDOR'
+    CommandText = 
+      'select * from PAGTIT LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = ' +
+      'CODFOR_PAGTIT'
     Params = <>
     ProviderName = 'dspCONSULTA'
     Left = 433
@@ -169,5 +173,40 @@ object DataModule1: TDataModule1
     DataSet = cdsFUNCIONARIO
     Left = 224
     Top = 352
+  end
+  object qryPAGTIT: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      
+        'select * from PAGTIT LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = ' +
+        'CODFOR_PAGTIT')
+    Left = 368
+    Top = 160
+  end
+  object dspPAGTIT: TDataSetProvider
+    DataSet = qryPAGTIT
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 432
+    Top = 160
+  end
+  object cdsPAGTIT: TClientDataSet
+    Active = True
+    Aggregates = <>
+    CommandText = 
+      'select * from PAGTIT LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = ' +
+      'CODFOR_PAGTIT'
+    Params = <>
+    ProviderName = 'dspPAGTIT'
+    Left = 488
+    Top = 160
+  end
+  object dsPAGTIT: TDataSource
+    DataSet = cdsPAGTIT
+    Left = 552
+    Top = 160
   end
 end

@@ -19,9 +19,12 @@ type
     Sair1: TMenuItem;
     FolhadePagamento1: TMenuItem;
     Funcionrio1: TMenuItem;
+    ContasaPagar2: TMenuItem;
+    tulo1: TMenuItem;
     procedure Cliente1Click(Sender: TObject);
     procedure Fornecedor1Click(Sender: TObject);
     procedure Funcionrio1Click(Sender: TObject);
+    procedure tulo1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,7 +38,7 @@ implementation
 
 {$R *.dfm}
 
-uses unCLI, unFOR, unFUN;
+uses unCLI, unFOR, unFUN, unPAGTIT;
 
 procedure TfrmPRINCIPAL.Cliente1Click(Sender: TObject);
 begin
@@ -53,6 +56,12 @@ procedure TfrmPRINCIPAL.Funcionrio1Click(Sender: TObject);
 begin
      Application.CreateForm(TfrmFun,frmFun);
      frmFun.ShowModal;
+end;
+
+procedure TfrmPRINCIPAL.tulo1Click(Sender: TObject);
+begin
+        Application.CreateForm(TfrmPAGTIT,frmPAGTIT);
+     frmPAGTIT.ShowModal;
 end;
 
 end.

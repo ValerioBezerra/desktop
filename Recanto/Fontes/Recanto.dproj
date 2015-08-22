@@ -127,6 +127,14 @@
             <Form>frmCadFUN</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="unPAGTIT.pas">
+            <Form>frmPAGTIT</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unMOVPAGTIT.pas">
+            <Form>frmMOVPAGTIT</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <DCCReference Include="unCLI.pas">
             <Form>frmCLI</Form>
             <FormType>dfm</FormType>

@@ -44,8 +44,6 @@ inherited frmCadFOR: TfrmCadFOR
   inherited pnlPrincipal: TPanel
     Width = 495
     Height = 382
-    ExplicitLeft = 3
-    ExplicitTop = -160
     ExplicitWidth = 495
     ExplicitHeight = 382
     object Label1: TLabel
@@ -161,6 +159,7 @@ inherited frmCadFOR: TfrmCadFOR
       DataField = 'CPFCNPJ_FOR'
       DataSource = DataModule1.dsFORNECEDOR
       TabOrder = 3
+      OnEnter = DBEdit3Enter
     end
     object DBEdit4: TDBEdit
       Left = 232

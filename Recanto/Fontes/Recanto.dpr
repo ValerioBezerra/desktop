@@ -12,6 +12,8 @@ uses
   unCadFOR in 'unCadFOR.pas' {frmCadFOR},
   unFUN in 'unFUN.pas' {frmFUN},
   unCadFUN in 'unCadFUN.pas' {frmCadFUN},
+  unPAGTIT in 'unPAGTIT.pas' {frmPAGTIT},
+  unMOVPAGTIT in 'unMOVPAGTIT.pas' {frmMOVPAGTIT},
   unCLI in 'unCLI.pas' {frmCLI},
   unCadCLI in 'unCadCLI.pas' {frmCadCLI};
 
@@ -26,5 +28,7 @@ begin
   Application.CreateForm(TfrmPRINCIPAL, frmPRINCIPAL);
   Application.CreateForm(TfrmPadrao_, frmPadrao_);
   Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
+  Application.CreateForm(TfrmCLI, frmCLI);
+  Application.CreateForm(TfrmCadCLI, frmCadCLI);
   Application.Run;
 end.

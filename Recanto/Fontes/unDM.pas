@@ -30,6 +30,10 @@ type
     dspFUNCIONARIO: TDataSetProvider;
     cdsFUNCIONARIO: TClientDataSet;
     dsFUNCIONARIO: TDataSource;
+    qryPAGTIT: TIBQuery;
+    dspPAGTIT: TDataSetProvider;
+    cdsPAGTIT: TClientDataSet;
+    dsPAGTIT: TDataSource;
   private
     { Private declarations }
   public

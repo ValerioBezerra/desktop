@@ -1,0 +1,259 @@
+inherited frmCadFOR: TfrmCadFOR
+  Caption = 'Cadastro - Fornecedor'
+  ClientHeight = 432
+  ClientWidth = 616
+  OnCreate = FormCreate
+  ExplicitWidth = 622
+  ExplicitHeight = 461
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlBotoes: TPanel
+    Left = 495
+    Height = 382
+    ExplicitLeft = 495
+    ExplicitHeight = 382
+    inherited Panel5: TPanel
+      Height = 372
+      ExplicitHeight = 372
+    end
+    inherited Panel6: TPanel
+      Top = 372
+      ExplicitTop = 372
+    end
+    inherited Panel7: TPanel
+      Height = 372
+      ExplicitHeight = 372
+    end
+  end
+  inherited stbInformacao: TStatusBar
+    Top = 394
+    Width = 616
+    ExplicitTop = 394
+    ExplicitWidth = 616
+  end
+  inherited stbStatus: TStatusBar
+    Top = 413
+    Width = 616
+    ExplicitTop = 413
+    ExplicitWidth = 616
+  end
+  inherited Panel1: TPanel
+    Width = 616
+    ExplicitWidth = 616
+  end
+  inherited pnlPrincipal: TPanel
+    Width = 495
+    Height = 382
+    ExplicitLeft = 3
+    ExplicitTop = -160
+    ExplicitWidth = 495
+    ExplicitHeight = 382
+    object Label1: TLabel
+      Left = 16
+      Top = 6
+      Width = 33
+      Height = 13
+      Caption = 'C'#243'digo'
+      FocusControl = DBEdit1
+    end
+    object Label2: TLabel
+      Left = 13
+      Top = 52
+      Width = 27
+      Height = 13
+      Caption = 'Nome'
+      FocusControl = DBEdit2
+    end
+    object Label3: TLabel
+      Left = 16
+      Top = 98
+      Width = 43
+      Height = 13
+      Caption = 'Cpf/Cnpj'
+      FocusControl = DBEdit3
+    end
+    object Label4: TLabel
+      Left = 232
+      Top = 98
+      Width = 87
+      Height = 13
+      Caption = 'Inscri'#231#227'o Estadual'
+      FocusControl = DBEdit4
+    end
+    object Label5: TLabel
+      Left = 13
+      Top = 144
+      Width = 45
+      Height = 13
+      Caption = 'Endere'#231'o'
+      FocusControl = DBEdit5
+    end
+    object Label6: TLabel
+      Left = 375
+      Top = 144
+      Width = 37
+      Height = 13
+      Caption = 'N'#250'mero'
+      FocusControl = DBEdit6
+    end
+    object Label7: TLabel
+      Left = 13
+      Top = 224
+      Width = 28
+      Height = 13
+      Caption = 'Bairro'
+      FocusControl = DBEdit7
+    end
+    object Label8: TLabel
+      Left = 13
+      Top = 270
+      Width = 33
+      Height = 13
+      Caption = 'Cidade'
+    end
+    object Label9: TLabel
+      Left = 251
+      Top = 270
+      Width = 33
+      Height = 13
+      Caption = 'Estado'
+      FocusControl = DBEdit9
+    end
+    object Label10: TLabel
+      Left = 13
+      Top = 316
+      Width = 42
+      Height = 13
+      Caption = 'Telefone'
+      FocusControl = DBEdit10
+    end
+    object Label11: TLabel
+      Left = 213
+      Top = 316
+      Width = 33
+      Height = 13
+      Caption = 'Celular'
+      FocusControl = DBEdit11
+    end
+    object DBEdit1: TDBEdit
+      Left = 13
+      Top = 25
+      Width = 134
+      Height = 21
+      DataField = 'CODIGO_FOR'
+      DataSource = DataModule1.dsFORNECEDOR
+      TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 13
+      Top = 71
+      Width = 462
+      Height = 21
+      DataField = 'NOME_FOR'
+      DataSource = DataModule1.dsFORNECEDOR
+      TabOrder = 2
+    end
+    object DBEdit3: TDBEdit
+      Left = 13
+      Top = 117
+      Width = 199
+      Height = 21
+      DataField = 'CPFCNPJ_FOR'
+      DataSource = DataModule1.dsFORNECEDOR
+      TabOrder = 3
+    end
+    object DBEdit4: TDBEdit
+      Left = 232
+      Top = 117
+      Width = 199
+      Height = 21
+      DataField = 'INSCEST_FOR'
+      DataSource = DataModule1.dsFORNECEDOR
+      TabOrder = 4
+    end
+    object DBEdit5: TDBEdit
+      Left = 13
+      Top = 163
+      Width = 356
+      Height = 55
+      AutoSize = False
+      DataField = 'ENDERECO_FOR'
+      DataSource = DataModule1.dsFORNECEDOR
+      TabOrder = 5
+    end
+    object DBEdit6: TDBEdit
+      Left = 375
+      Top = 163
+      Width = 82
+      Height = 21
+      DataField = 'NUM_FOR'
+      DataSource = DataModule1.dsFORNECEDOR
+      TabOrder = 6
+    end
+    object DBEdit7: TDBEdit
+      Left = 13
+      Top = 243
+      Width = 394
+      Height = 21
+      DataField = 'BAIRRO_FOR'
+      DataSource = DataModule1.dsFORNECEDOR
+      TabOrder = 7
+    end
+    object DBEdit9: TDBEdit
+      Left = 252
+      Top = 289
+      Width = 30
+      Height = 21
+      DataField = 'UF_FOR'
+      DataSource = DataModule1.dsFORNECEDOR
+      TabOrder = 9
+    end
+    object DBEdit10: TDBEdit
+      Left = 8
+      Top = 335
+      Width = 199
+      Height = 21
+      DataField = 'TELEFONE_FOR'
+      DataSource = DataModule1.dsFORNECEDOR
+      TabOrder = 10
+    end
+    object DBEdit11: TDBEdit
+      Left = 213
+      Top = 335
+      Width = 199
+      Height = 21
+      DataField = 'CELULAR_FOR'
+      DataSource = DataModule1.dsFORNECEDOR
+      TabOrder = 11
+    end
+    object DBEdit8: TDBEdit
+      Left = 13
+      Top = 289
+      Width = 232
+      Height = 21
+      DataField = 'CIDADE_FOR'
+      DataSource = DataModule1.dsFORNECEDOR
+      TabOrder = 8
+    end
+    object DBRadioGroup1: TDBRadioGroup
+      Left = 213
+      Top = 25
+      Width = 199
+      Height = 38
+      Columns = 2
+      DataField = 'PFPJ_FOR'
+      DataSource = DataModule1.dsFORNECEDOR
+      Items.Strings = (
+        'Pessoa F'#237'sica'
+        'Pessoa Jur'#237'dica')
+      TabOrder = 1
+      Values.Strings = (
+        '1'
+        '2')
+    end
+  end
+  inherited timer: TTimer
+    Left = 435
+    Top = 16
+  end
+end

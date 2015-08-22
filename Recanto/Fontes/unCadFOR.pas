@@ -35,6 +35,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
+    procedure DBEdit3Enter(Sender: TObject);
   private
     { Private declarations }
   public
@@ -56,6 +57,21 @@ begin
    DataModule1.Transacao.Commit;
    cdsPadrao.Close;
    btnSalvar.Enabled := false;
+end;
+
+procedure TfrmCadFOR.DBEdit3Enter(Sender: TObject);
+begin
+  inherited;
+    if DBRadioGroup1.ItemIndex = 0 then
+         dbedit3.Field.EditMask := '000.000.000-00;1;_'
+    else if DBRadioGroup1.ItemIndex = 1 then
+          dbedit3.Field.EditMask := '00.000.000/0000-00;1;_'
+    else
+      begin
+        showmessage('Selecione Pessoa Jurídica ou Física!');
+        DBRadioGroup1.SetFocus;
+      end;
+
 end;
 
 procedure TfrmCadFOR.FormCreate(Sender: TObject);
