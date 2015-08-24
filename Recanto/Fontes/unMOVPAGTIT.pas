@@ -23,14 +23,6 @@ type
     DBEdit6: TDBEdit;
     Label7: TLabel;
     DBEdit7: TDBEdit;
-    Label8: TLabel;
-    Label9: TLabel;
-    DBEdit9: TDBEdit;
-    Label10: TLabel;
-    DBEdit10: TDBEdit;
-    Label11: TLabel;
-    DBEdit11: TDBEdit;
-    DBEdit8: TDBEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);

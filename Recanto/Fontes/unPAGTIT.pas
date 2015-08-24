@@ -79,11 +79,19 @@ begin
      where := '';
      if CheckBox1.Checked then
      begin
+          if DateTimePicker1.Date > DateTimePicker2.Date then
+          begin
+                 showmessage('Data Inicial não pode ser maior que Data Final!');
+                 Exit;
+          end
+          else
+          begin
 
           if RadioGroup2.ItemIndex = 0 then
-              where := where + 'and DATAEMISSAO_PAGTTIT Between ' + VartoStr(DateTimePicker1.Date) + 'and ' + VartoStr(DateTimePicker2.Date)
+              where := where + 'and DATAEMISSAO_PAGTTIT between ' +  QuotedStr(StringReplace((DatetoStr(DateTimePicker1.Date)),'/','.', [rfReplaceAll, rfIgnoreCase])) + 'and ' + QuotedStr(StringReplace((DatetoStr(DateTimePicker2.Date)),'/','.', [rfReplaceAll, rfIgnoreCase]))
           else
-              where := where + 'and DATAVENC_PAGTIT Between ' + VartoStr(DateTimePicker1.Date) + 'and ' + VartoStr(DateTimePicker2.Date);
+              where := where + 'and DATAVENC_PAGTIT between ' + QuotedStr(StringReplace((DatetoStr(DateTimePicker1.Date)),'/','.', [rfReplaceAll, rfIgnoreCase])) + 'and ' + QuotedStr(StringReplace((DatetoStr(DateTimePicker2.Date)),'/','.', [rfReplaceAll, rfIgnoreCase]));
+          end;
      end;
 
      if RadioGroup1.ItemIndex = 0 then
@@ -108,6 +116,8 @@ begin
   inherited;
     cdsPadrao := DataModule1.cdsPAGTIT;
     cdsConsulta := DataModule1.cdsCONSULTA;
+
+
 
     campos := '*';
     tabela := 'PAGTIT';

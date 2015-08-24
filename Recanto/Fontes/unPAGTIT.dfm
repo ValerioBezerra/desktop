@@ -10,22 +10,22 @@ inherited frmPAGTIT: TfrmPAGTIT
     Left = 657
     Height = 272
     ExplicitLeft = 657
-    ExplicitHeight = 228
+    ExplicitHeight = 272
     inherited Panel4: TPanel
       Height = 262
-      ExplicitHeight = 218
+      ExplicitHeight = 262
     end
     inherited Panel5: TPanel
       Height = 262
-      ExplicitHeight = 218
+      ExplicitHeight = 262
     end
     inherited Panel6: TPanel
       Top = 262
-      ExplicitTop = 218
+      ExplicitTop = 262
     end
     inherited Panel7: TPanel
       Height = 262
-      ExplicitHeight = 218
+      ExplicitHeight = 262
       inherited btnNovo: TBitBtn
         OnClick = btnNovoClick
       end
@@ -34,13 +34,13 @@ inherited frmPAGTIT: TfrmPAGTIT
   inherited stbStatus: TStatusBar
     Top = 284
     Width = 794
-    ExplicitTop = 240
+    ExplicitTop = 284
     ExplicitWidth = 794
   end
   inherited stbInformacao: TStatusBar
     Top = 303
     Width = 794
-    ExplicitTop = 259
+    ExplicitTop = 303
     ExplicitWidth = 794
   end
   inherited Panel1: TPanel
@@ -51,11 +51,11 @@ inherited frmPAGTIT: TfrmPAGTIT
     Width = 646
     Height = 272
     ExplicitWidth = 646
-    ExplicitHeight = 228
+    ExplicitHeight = 272
     object Label1: TLabel [0]
       Left = 135
       Top = 244
-      Width = 25
+      Width = 6
       Height = 13
       Caption = 'a'
     end
@@ -153,6 +153,6 @@ inherited frmPAGTIT: TfrmPAGTIT
   end
   inherited Panel3: TPanel
     Height = 272
-    ExplicitHeight = 228
+    ExplicitHeight = 272
   end
 end
