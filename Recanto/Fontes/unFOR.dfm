@@ -54,7 +54,6 @@ inherited frmFOR: TfrmFOR
     ExplicitHeight = 228
     inherited dbgdPadrao: TDBGrid
       Width = 634
-      DataSource = DataModule1.dsCONSULTA
       Columns = <
         item
           Expanded = False

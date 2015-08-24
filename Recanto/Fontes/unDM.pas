@@ -40,19 +40,9 @@ type
     cdsPAGTITDATAVENC_PAGTIT: TDateField;
     cdsPAGTITVALORTOTAL_PAGTIT: TBCDField;
     cdsPAGTITVALORPAGO_PAGTIT: TBCDField;
-    cdsPAGTITCODFOR_PAGTIT: TIntegerField;
-    cdsPAGTITCODIGO_FOR: TIntegerField;
     cdsPAGTITNOME_FOR: TWideStringField;
-    cdsPAGTITCPFCNPJ_FOR: TWideStringField;
-    cdsPAGTITENDERECO_FOR: TWideStringField;
-    cdsPAGTITNUM_FOR: TIntegerField;
-    cdsPAGTITBAIRRO_FOR: TWideStringField;
-    cdsPAGTITCIDADE_FOR: TWideStringField;
-    cdsPAGTITUF_FOR: TWideStringField;
-    cdsPAGTITTELEFONE_FOR: TWideStringField;
-    cdsPAGTITCELULAR_FOR: TWideStringField;
-    cdsPAGTITINSCEST_FOR: TWideStringField;
-    cdsPAGTITPFPJ_FOR: TIntegerField;
+    cdsPAGTITVALORABERTO: TBCDField;
+    cdsPAGTITCODIGO_FOR: TIntegerField;
   private
     { Private declarations }
   public

@@ -15,7 +15,6 @@ type
     DBEdit2: TDBEdit;
     Label3: TLabel;
     DBEdit3: TDBEdit;
-    Label4: TLabel;
     DBEdit4: TDBEdit;
     Label5: TLabel;
     DBEdit5: TDBEdit;
@@ -23,10 +22,11 @@ type
     DBEdit6: TDBEdit;
     Label7: TLabel;
     DBEdit7: TDBEdit;
+    Label8: TLabel;
+    DBEdit8: TDBEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
-    procedure DBEdit3Enter(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,17 +50,11 @@ begin
    btnSalvar.Enabled := false;
 end;
 
-procedure TfrmMOVPAGTIT.DBEdit3Enter(Sender: TObject);
-begin
-  inherited;
-  dbedit3.Field.EditMask := '000.000.000-00;1;_';
-end;
-
 procedure TfrmMOVPAGTIT.FormCreate(Sender: TObject);
 begin
   inherited;
 
-  cdsPadrao := DataModule1.cdsCLIENTE;
+  cdsPadrao := DataModule1.cdsPAGTIT;
 end;
 
 procedure TfrmMOVPAGTIT.FormShow(Sender: TObject);

@@ -56,12 +56,13 @@ end;
 
 procedure TfrmPAGTIT.btnEditarClick(Sender: TObject);
 begin
-
+ where := where +' and SEQ_PAGTIT =' + DataModule1.cdsCONSULTA.FieldByName('SEQ_PAGTIT').AsString;
+  inherited;
    Application.CreateForm(TFrmMOVPAGTIT,frmMOVPAGTIT);
    cdsPadrao.Open;
    cdsPadrao.Edit;
   frmMOVPAGTIT.ShowModal;
-  inherited;
+
 
 end;
 
@@ -119,7 +120,8 @@ begin
 
 
 
-    campos := '*';
+    campos := ' SEQ_PAGTIT, ORIGEM_PAGTIT,DATAEMISSAO_PAGTTIT,DATAVENC_PAGTIT,VALORTOTAL_PAGTIT,VALORPAGO_PAGTIT,' +
+              ' CODFOR_PAGTIT,NOME_FOR,CODIGO_FOR,(VALORTOTAL_PAGTIT - VALORPAGO_PAGTIT) AS VALORABERTO ';
     tabela := 'PAGTIT';
     where := '';
     join := 'LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = CODFOR_PAGTIT ';

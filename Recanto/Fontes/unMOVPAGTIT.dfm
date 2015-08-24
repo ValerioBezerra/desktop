@@ -44,8 +44,6 @@ inherited frmMOVPAGTIT: TfrmMOVPAGTIT
   inherited pnlPrincipal: TPanel
     Width = 495
     Height = 382
-    ExplicitLeft = 3
-    ExplicitTop = 6
     ExplicitWidth = 495
     ExplicitHeight = 382
     object Label1: TLabel
@@ -72,16 +70,8 @@ inherited frmMOVPAGTIT: TfrmMOVPAGTIT
       Caption = 'Vencimento'
       FocusControl = DBEdit3
     end
-    object Label4: TLabel
-      Left = 13
-      Top = 144
-      Width = 68
-      Height = 13
-      Caption = 'CODIGO_FOR'
-      FocusControl = DBEdit4
-    end
     object Label5: TLabel
-      Left = 95
+      Left = 16
       Top = 144
       Width = 55
       Height = 13
@@ -103,6 +93,13 @@ inherited frmMOVPAGTIT: TfrmMOVPAGTIT
       Height = 13
       Caption = 'Valor Pago'
       FocusControl = DBEdit7
+    end
+    object Label8: TLabel
+      Left = 24
+      Top = 272
+      Width = 64
+      Height = 13
+      Caption = 'Valor a Pagar'
     end
     object DBEdit1: TDBEdit
       Left = 13
@@ -170,6 +167,22 @@ inherited frmMOVPAGTIT: TfrmMOVPAGTIT
       DataSource = DataModule1.dsPAGTIT
       ReadOnly = True
       TabOrder = 6
+    end
+    object DBEdit8: TDBEdit
+      Left = 24
+      Top = 291
+      Width = 105
+      Height = 24
+      Color = clInfoBk
+      DataField = 'VALORABERTO'
+      DataSource = DataModule1.dsPAGTIT
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 7
     end
   end
 end
