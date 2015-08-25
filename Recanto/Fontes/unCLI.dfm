@@ -1,5 +1,5 @@
 inherited frmCLI: TfrmCLI
-  Caption = 'Cadastro - Cliente'
+  Caption = 'Clientes'
   ClientHeight = 278
   ClientWidth = 794
   ExplicitWidth = 800

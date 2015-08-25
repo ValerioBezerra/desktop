@@ -1,5 +1,5 @@
 inherited frmFOR: TfrmFOR
-  Caption = 'Cadastro - Cliente'
+  Caption = 'Fornecedores'
   ClientHeight = 278
   ClientWidth = 794
   ExplicitWidth = 800
