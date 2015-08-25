@@ -43,6 +43,10 @@ type
     cdsPAGTITNOME_FOR: TWideStringField;
     cdsPAGTITVALORABERTO: TBCDField;
     cdsPAGTITCODIGO_FOR: TIntegerField;
+    qryTELASCONSULTA: TIBQuery;
+    dspTELASCONSULTA: TDataSetProvider;
+    cdsTELASCONSULTA: TClientDataSet;
+    dsTELASCONSULTA: TDataSource;
   private
     { Private declarations }
   public

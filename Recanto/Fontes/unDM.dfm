@@ -28,13 +28,13 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from USUARIO')
     Left = 40
-    Top = 160
+    Top = 216
   end
   object dspUSUARIO: TDataSetProvider
     DataSet = qryUSUARIO
     Options = [poAllowCommandText, poUseQuoteChar]
     Left = 104
-    Top = 160
+    Top = 216
   end
   object cdsUSUARIO: TClientDataSet
     Aggregates = <>
@@ -42,12 +42,12 @@ object DataModule1: TDataModule1
     Params = <>
     ProviderName = 'dspUSUARIO'
     Left = 160
-    Top = 160
+    Top = 216
   end
   object dsUSUARIO: TDataSource
     DataSet = cdsUSUARIO
     Left = 224
-    Top = 160
+    Top = 216
   end
   object qryCONSULTA: TIBQuery
     Database = Banco
@@ -93,13 +93,13 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from CLIENTE')
     Left = 48
-    Top = 240
+    Top = 296
   end
   object dspCLIENTE: TDataSetProvider
     DataSet = qryCLIENTE
     Options = [poAllowCommandText, poUseQuoteChar]
     Left = 112
-    Top = 240
+    Top = 296
   end
   object cdsCLIENTE: TClientDataSet
     Aggregates = <>
@@ -107,12 +107,12 @@ object DataModule1: TDataModule1
     Params = <>
     ProviderName = 'dspCLIENTE'
     Left = 168
-    Top = 240
+    Top = 296
   end
   object dsCLIENTE: TDataSource
     DataSet = cdsCLIENTE
     Left = 232
-    Top = 240
+    Top = 296
   end
   object qryFORNECEDOR: TIBQuery
     Database = Banco
@@ -123,13 +123,13 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from FORNECEDOR')
     Left = 48
-    Top = 296
+    Top = 352
   end
   object dspFORNECEDOR: TDataSetProvider
     DataSet = qryFORNECEDOR
     Options = [poAllowCommandText, poUseQuoteChar]
     Left = 112
-    Top = 296
+    Top = 352
   end
   object cdsFORNECEDOR: TClientDataSet
     Aggregates = <>
@@ -137,12 +137,12 @@ object DataModule1: TDataModule1
     Params = <>
     ProviderName = 'dspFORNECEDOR'
     Left = 168
-    Top = 296
+    Top = 352
   end
   object dsFORNECEDOR: TDataSource
     DataSet = cdsFORNECEDOR
     Left = 232
-    Top = 296
+    Top = 352
   end
   object qryFUNCIONARIO: TIBQuery
     Database = Banco
@@ -153,13 +153,13 @@ object DataModule1: TDataModule1
     SQL.Strings = (
       'select * from FORNECEDOR')
     Left = 40
-    Top = 352
+    Top = 408
   end
   object dspFUNCIONARIO: TDataSetProvider
     DataSet = qryFUNCIONARIO
     Options = [poAllowCommandText, poUseQuoteChar]
     Left = 104
-    Top = 352
+    Top = 408
   end
   object cdsFUNCIONARIO: TClientDataSet
     Aggregates = <>
@@ -167,12 +167,12 @@ object DataModule1: TDataModule1
     Params = <>
     ProviderName = 'dspFUNCIONARIO'
     Left = 160
-    Top = 352
+    Top = 408
   end
   object dsFUNCIONARIO: TDataSource
     DataSet = cdsFUNCIONARIO
     Left = 224
-    Top = 352
+    Top = 408
   end
   object qryPAGTIT: TIBQuery
     Database = Banco
@@ -186,14 +186,14 @@ object DataModule1: TDataModule1
         'GTIT,VALORTOTAL_PAGTIT,VALORPAGO_PAGTIT, NOME_FOR,CODIGO_FOR,(VA' +
         'LORTOTAL_PAGTIT - VALORPAGO_PAGTIT) AS VALORABERTO from PAGTIT L' +
         'EFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = CODFOR_PAGTIT')
-    Left = 368
-    Top = 160
+    Left = 408
+    Top = 192
   end
   object dspPAGTIT: TDataSetProvider
     DataSet = qryPAGTIT
     Options = [poAllowCommandText, poUseQuoteChar]
-    Left = 432
-    Top = 160
+    Left = 472
+    Top = 192
   end
   object cdsPAGTIT: TClientDataSet
     Aggregates = <>
@@ -204,8 +204,8 @@ object DataModule1: TDataModule1
       'EFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = CODFOR_PAGTIT'
     Params = <>
     ProviderName = 'dspPAGTIT'
-    Left = 488
-    Top = 160
+    Left = 528
+    Top = 192
     object cdsPAGTITSEQ_PAGTIT: TIntegerField
       FieldName = 'SEQ_PAGTIT'
       Required = True
@@ -244,7 +244,41 @@ object DataModule1: TDataModule1
   end
   object dsPAGTIT: TDataSource
     DataSet = cdsPAGTIT
-    Left = 552
-    Top = 160
+    Left = 592
+    Top = 192
+  end
+  object qryTELASCONSULTA: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      
+        'select * from PAGTIT LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = ' +
+        'CODFOR_PAGTIT')
+    Left = 313
+    Top = 83
+  end
+  object dspTELASCONSULTA: TDataSetProvider
+    DataSet = qryTELASCONSULTA
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 377
+    Top = 83
+  end
+  object cdsTELASCONSULTA: TClientDataSet
+    Aggregates = <>
+    CommandText = 
+      'select * from PAGTIT LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = ' +
+      'CODFOR_PAGTIT'
+    Params = <>
+    ProviderName = 'dspTELASCONSULTA'
+    Left = 433
+    Top = 83
+  end
+  object dsTELASCONSULTA: TDataSource
+    DataSet = cdsTELASCONSULTA
+    Left = 497
+    Top = 83
   end
 end

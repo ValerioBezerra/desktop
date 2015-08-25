@@ -94,6 +94,13 @@ inherited frmPAGTIT: TfrmPAGTIT
           FieldName = 'VALORTOTAL_PAGTIT'
           Title.Caption = 'Valor'
           Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'VALORABERTO'
+          Title.Caption = 'Valor a Pagar'
+          Width = 68
+          Visible = True
         end>
     end
     object RadioGroup1: TRadioGroup

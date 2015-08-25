@@ -95,8 +95,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="unConsUSUARIO.pas">
-            <Form>Form1</Form>
+        <DCCReference Include="unConsFORNECEDOR.pas">
+            <Form>fmrConsFORNECEDOR</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unPrincipal.pas">
@@ -127,8 +127,8 @@
             <Form>frmCadFUN</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unPAGTIT.pas">
-            <Form>frmPAGTIT</Form>
+        <DCCReference Include="unPAGBXA.pas">
+            <Form>frmPAGBXA</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unMOVPAGTIT.pas">
@@ -141,6 +141,14 @@
         </DCCReference>
         <DCCReference Include="unCadCLI.pas">
             <Form>frmCadCLI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unConsUSUARIO.pas">
+            <Form>Form1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unPAGTIT.pas">
+            <Form>frmPAGTIT</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

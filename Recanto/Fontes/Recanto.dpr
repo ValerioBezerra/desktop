@@ -4,7 +4,7 @@ uses
   Vcl.Forms,
   unLogin in 'unLogin.pas' {frmLogin},
   unDM in 'unDM.pas' {DataModule1: TDataModule},
-  unConsUSUARIO in 'unConsUSUARIO.pas' {Form1},
+  unConsFORNECEDOR in 'unConsFORNECEDOR.pas' {fmrConsFORNECEDOR},
   unPrincipal in 'unPrincipal.pas' {frmPRINCIPAL},
   frmPadrao in 'C:\valerio\delphi\Formularios\frmPadrao.pas' {frmPadrao_},
   frmPadraoManutencao in 'C:\valerio\delphi\Formularios\frmPadraoManutencao.pas' {frmPadraoManutencao_},
@@ -12,10 +12,12 @@ uses
   unCadFOR in 'unCadFOR.pas' {frmCadFOR},
   unFUN in 'unFUN.pas' {frmFUN},
   unCadFUN in 'unCadFUN.pas' {frmCadFUN},
-  unPAGTIT in 'unPAGTIT.pas' {frmPAGTIT},
+  unPAGBXA in 'unPAGBXA.pas' {frmPAGBXA},
   unMOVPAGTIT in 'unMOVPAGTIT.pas' {frmMOVPAGTIT},
   unCLI in 'unCLI.pas' {frmCLI},
-  unCadCLI in 'unCadCLI.pas' {frmCadCLI};
+  unCadCLI in 'unCadCLI.pas' {frmCadCLI},
+  unConsUSUARIO in 'unConsUSUARIO.pas' {Form1},
+  unPAGTIT in 'unPAGTIT.pas' {frmPAGTIT};
 
 {$R *.res}
 
@@ -24,11 +26,12 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmLogin, frmLogin);
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfmrConsFORNECEDOR, fmrConsFORNECEDOR);
   Application.CreateForm(TfrmPRINCIPAL, frmPRINCIPAL);
   Application.CreateForm(TfrmPadrao_, frmPadrao_);
   Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
   Application.CreateForm(TfrmCLI, frmCLI);
   Application.CreateForm(TfrmCadCLI, frmCadCLI);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

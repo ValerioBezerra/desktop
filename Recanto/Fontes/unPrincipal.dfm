@@ -50,6 +50,9 @@ object frmPRINCIPAL: TfrmPRINCIPAL
           Caption = 'T'#237'tulo'
           OnClick = tulo1Click
         end
+        object BaixadeTtulo1: TMenuItem
+          Caption = 'Baixa de T'#237'tulo'
+        end
       end
     end
     object Relatrios1: TMenuItem

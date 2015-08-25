@@ -48,12 +48,13 @@ end;
 
 procedure TfrmCLI.btnEditarClick(Sender: TObject);
 begin
-
+   where  := where + 'AND CODIGO_CLI = ' + DataModule1.cdsCONSULTA.FieldByName('CODIGO_CLI').AsString;
+   inherited;
    Application.CreateForm(TFrmCADCLI,frmCadCLI);
    cdsPadrao.Open;
    cdsPadrao.Edit;
   frmCadCli.ShowModal;
-  inherited;
+
 
 end;
 

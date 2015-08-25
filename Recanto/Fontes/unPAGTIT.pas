@@ -61,6 +61,7 @@ begin
    Application.CreateForm(TFrmMOVPAGTIT,frmMOVPAGTIT);
    cdsPadrao.Open;
    cdsPadrao.Edit;
+   frmMOVPAGTIT.DBEdit4Exit(Self);
   frmMOVPAGTIT.ShowModal;
 
 
