@@ -11,8 +11,37 @@ object frmRELCLI: TfrmRELCLI
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poMainFormCenter
   PixelsPerInch = 96
   TextHeight = 13
+  object RadioGroup1: TRadioGroup
+    Left = 24
+    Top = 24
+    Width = 129
+    Height = 57
+    Caption = 'Ordem'
+    Items.Strings = (
+      'Sequencia'
+      'Alfab'#233'tica')
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 144
+    Top = 224
+    Width = 75
+    Height = 25
+    Caption = 'Visualizar'
+    TabOrder = 1
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 225
+    Top = 224
+    Width = 75
+    Height = 25
+    Caption = 'Sair'
+    TabOrder = 2
+  end
   object ppReport1: TppReport
     AutoStop = False
     DataPipeline = ppBDEPipeline1
@@ -62,26 +91,77 @@ object frmRELCLI: TfrmRELCLI
     XLSSettings.Author = 'ReportBuilder'
     XLSSettings.Subject = 'Report'
     XLSSettings.Title = 'Report'
-    Left = 304
-    Top = 160
+    Left = 456
+    Top = 64
     Version = '16.02'
     mmColumnWidth = 0
     DataPipelineName = 'ppBDEPipeline1'
     object ppHeaderBand1: TppHeaderBand
       Background.Brush.Style = bsClear
       mmBottomOffset = 0
-      mmHeight = 16404
+      mmHeight = 18256
       mmPrintPosition = 0
-      object ppImage1: TppImage
+      object ppLabel12: TppLabel
         DesignLayer = ppDesignLayer1
-        UserName = 'Image1'
-        AlignHorizontal = ahCenter
-        AlignVertical = avCenter
-        MaintainAspectRatio = False
-        mmHeight = 13229
-        mmLeft = 2117
-        mmTop = 529
-        mmWidth = 13229
+        UserName = 'Label12'
+        Caption = 'Recanto Madre Paulina'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 13
+        Font.Style = [fsBold]
+        FormField = False
+        TextAlignment = taCentered
+        Transparent = True
+        mmHeight = 5027
+        mmLeft = 79111
+        mmTop = 3704
+        mmWidth = 47625
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel13: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label13'
+        Caption = 'Relat'#243'rio Detalhado de Clientes'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 74348
+        mmTop = 10054
+        mmWidth = 58738
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppSystemVariable1: TppSystemVariable
+        DesignLayer = ppDesignLayer1
+        UserName = 'SystemVariable1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        mmHeight = 4762
+        mmLeft = 174361
+        mmTop = 8996
+        mmWidth = 21166
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLine1: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line1'
+        Weight = 0.750000000000000000
+        mmHeight = 3969
+        mmLeft = 1058
+        mmTop = 15610
+        mmWidth = 201348
         BandType = 0
         LayerName = Foreground
       end
@@ -90,13 +170,13 @@ object frmRELCLI: TfrmRELCLI
       Background1.Brush.Style = bsClear
       Background2.Brush.Style = bsClear
       mmBottomOffset = 0
-      mmHeight = 52652
+      mmHeight = 45773
       mmPrintPosition = 0
       object ppLabel1: TppLabel
         DesignLayer = ppDesignLayer1
         UserName = 'Label1'
         AutoSize = False
-        Caption = 'CODIGO_CLI'
+        Caption = 'C'#243'digo:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -107,7 +187,7 @@ object frmRELCLI: TfrmRELCLI
         mmHeight = 4763
         mmLeft = 7673
         mmTop = 3175
-        mmWidth = 26458
+        mmWidth = 18521
         BandType = 4
         LayerName = Foreground
       end
@@ -124,9 +204,9 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 35190
+        mmLeft = 25665
         mmTop = 3175
-        mmWidth = 32808
+        mmWidth = 24342
         BandType = 4
         LayerName = Foreground
       end
@@ -134,7 +214,7 @@ object frmRELCLI: TfrmRELCLI
         DesignLayer = ppDesignLayer1
         UserName = 'Label2'
         AutoSize = False
-        Caption = 'NOME_CLI'
+        Caption = 'Nome:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -143,9 +223,9 @@ object frmRELCLI: TfrmRELCLI
         FormField = False
         Transparent = True
         mmHeight = 4763
-        mmLeft = 7673
-        mmTop = 9525
-        mmWidth = 22225
+        mmLeft = 53711
+        mmTop = 3175
+        mmWidth = 14817
         BandType = 4
         LayerName = Foreground
       end
@@ -162,8 +242,8 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 30956
-        mmTop = 9525
+        mmLeft = 70908
+        mmTop = 3175
         mmWidth = 128059
         BandType = 4
         LayerName = Foreground
@@ -172,7 +252,7 @@ object frmRELCLI: TfrmRELCLI
         DesignLayer = ppDesignLayer1
         UserName = 'Label3'
         AutoSize = False
-        Caption = 'CPF_CLI'
+        Caption = 'Cpf:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -182,8 +262,8 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         mmHeight = 4763
         mmLeft = 7673
-        mmTop = 17463
-        mmWidth = 18521
+        mmTop = 9260
+        mmWidth = 11642
         BandType = 4
         LayerName = Foreground
       end
@@ -200,9 +280,9 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 27252
-        mmTop = 17463
-        mmWidth = 48683
+        mmLeft = 19844
+        mmTop = 9260
+        mmWidth = 54504
         BandType = 4
         LayerName = Foreground
       end
@@ -210,7 +290,7 @@ object frmRELCLI: TfrmRELCLI
         DesignLayer = ppDesignLayer1
         UserName = 'Label4'
         AutoSize = False
-        Caption = 'IDENTIDADE_CLI'
+        Caption = 'Identidade:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -219,9 +299,9 @@ object frmRELCLI: TfrmRELCLI
         FormField = False
         Transparent = True
         mmHeight = 4763
-        mmLeft = 95779
-        mmTop = 17463
-        mmWidth = 34925
+        mmLeft = 79640
+        mmTop = 9260
+        mmWidth = 23019
         BandType = 4
         LayerName = Foreground
       end
@@ -238,8 +318,8 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 131763
-        mmTop = 17463
+        mmLeft = 103717
+        mmTop = 9260
         mmWidth = 48683
         BandType = 4
         LayerName = Foreground
@@ -248,7 +328,7 @@ object frmRELCLI: TfrmRELCLI
         DesignLayer = ppDesignLayer1
         UserName = 'Label5'
         AutoSize = False
-        Caption = 'ENDERECO_CLI'
+        Caption = 'Endere'#231'o:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -258,8 +338,8 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         mmHeight = 4763
         mmLeft = 7673
-        mmTop = 24342
-        mmWidth = 33867
+        mmTop = 16140
+        mmWidth = 22225
         BandType = 4
         LayerName = Foreground
       end
@@ -276,8 +356,8 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 42598
-        mmTop = 24342
+        mmLeft = 30163
+        mmTop = 16140
         mmWidth = 159809
         BandType = 4
         LayerName = Foreground
@@ -286,7 +366,7 @@ object frmRELCLI: TfrmRELCLI
         DesignLayer = ppDesignLayer1
         UserName = 'Label6'
         AutoSize = False
-        Caption = 'NUMEND_CLI'
+        Caption = 'N'#250'mero:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -295,9 +375,9 @@ object frmRELCLI: TfrmRELCLI
         FormField = False
         Transparent = True
         mmHeight = 4763
-        mmLeft = 9260
-        mmTop = 31221
-        mmWidth = 28046
+        mmLeft = 7673
+        mmTop = 21696
+        mmWidth = 18521
         BandType = 4
         LayerName = Foreground
       end
@@ -314,8 +394,8 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 38365
-        mmTop = 31221
+        mmLeft = 30163
+        mmTop = 21696
         mmWidth = 20108
         BandType = 4
         LayerName = Foreground
@@ -324,7 +404,7 @@ object frmRELCLI: TfrmRELCLI
         DesignLayer = ppDesignLayer1
         UserName = 'Label7'
         AutoSize = False
-        Caption = 'BAIRRO_CLI'
+        Caption = 'Bairro'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -333,9 +413,9 @@ object frmRELCLI: TfrmRELCLI
         FormField = False
         Transparent = True
         mmHeight = 4763
-        mmLeft = 68792
-        mmTop = 31221
-        mmWidth = 25400
+        mmLeft = 61119
+        mmTop = 21696
+        mmWidth = 16669
         BandType = 4
         LayerName = Foreground
       end
@@ -352,9 +432,9 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 95250
-        mmTop = 31221
-        mmWidth = 96309
+        mmLeft = 76200
+        mmTop = 21696
+        mmWidth = 98425
         BandType = 4
         LayerName = Foreground
       end
@@ -362,7 +442,7 @@ object frmRELCLI: TfrmRELCLI
         DesignLayer = ppDesignLayer1
         UserName = 'Label8'
         AutoSize = False
-        Caption = 'CIDADE_CLI'
+        Caption = 'Cidade:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -372,8 +452,8 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         mmHeight = 4763
         mmLeft = 7673
-        mmTop = 38100
-        mmWidth = 25929
+        mmTop = 26723
+        mmWidth = 17463
         BandType = 4
         LayerName = Foreground
       end
@@ -390,8 +470,8 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 34660
-        mmTop = 38100
+        mmLeft = 30163
+        mmTop = 26723
         mmWidth = 96309
         BandType = 4
         LayerName = Foreground
@@ -400,7 +480,7 @@ object frmRELCLI: TfrmRELCLI
         DesignLayer = ppDesignLayer1
         UserName = 'Label9'
         AutoSize = False
-        Caption = 'UF_CLI'
+        Caption = 'Estado:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -409,8 +489,8 @@ object frmRELCLI: TfrmRELCLI
         FormField = False
         Transparent = True
         mmHeight = 4763
-        mmLeft = 142346
-        mmTop = 38100
+        mmLeft = 130175
+        mmTop = 26723
         mmWidth = 15346
         BandType = 4
         LayerName = Foreground
@@ -428,8 +508,8 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 158750
-        mmTop = 38100
+        mmLeft = 147638
+        mmTop = 26723
         mmWidth = 7408
         BandType = 4
         LayerName = Foreground
@@ -438,7 +518,7 @@ object frmRELCLI: TfrmRELCLI
         DesignLayer = ppDesignLayer1
         UserName = 'Label10'
         AutoSize = False
-        Caption = 'TELEFONE_CLI'
+        Caption = 'Telefone:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -447,9 +527,9 @@ object frmRELCLI: TfrmRELCLI
         FormField = False
         Transparent = True
         mmHeight = 4763
-        mmLeft = 9260
-        mmTop = 45773
-        mmWidth = 32015
+        mmLeft = 7673
+        mmTop = 33073
+        mmWidth = 19579
         BandType = 4
         LayerName = Foreground
       end
@@ -466,8 +546,8 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 42333
-        mmTop = 45773
+        mmLeft = 30163
+        mmTop = 33073
         mmWidth = 48683
         BandType = 4
         LayerName = Foreground
@@ -476,7 +556,7 @@ object frmRELCLI: TfrmRELCLI
         DesignLayer = ppDesignLayer1
         UserName = 'Label11'
         AutoSize = False
-        Caption = 'CELULAR_CLI'
+        Caption = 'Celular:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -485,9 +565,9 @@ object frmRELCLI: TfrmRELCLI
         FormField = False
         Transparent = True
         mmHeight = 4763
-        mmLeft = 101600
-        mmTop = 45773
-        mmWidth = 29369
+        mmLeft = 95250
+        mmTop = 33073
+        mmWidth = 17463
         BandType = 4
         LayerName = Foreground
       end
@@ -504,9 +584,21 @@ object frmRELCLI: TfrmRELCLI
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 132027
-        mmTop = 45773
+        mmLeft = 115623
+        mmTop = 33073
         mmWidth = 48683
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppLine2: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line2'
+        Pen.Style = psDot
+        Weight = 0.750000000000000000
+        mmHeight = 3969
+        mmLeft = 2381
+        mmTop = 40481
+        mmWidth = 201348
         BandType = 4
         LayerName = Foreground
       end
@@ -530,8 +622,8 @@ object frmRELCLI: TfrmRELCLI
   object ppBDEPipeline1: TppBDEPipeline
     DataSource = DataModule1.dsCLIENTE
     UserName = 'BDEPipeline1'
-    Left = 392
-    Top = 152
+    Left = 528
+    Top = 64
     object ppBDEPipeline1ppField1: TppField
       Alignment = taRightJustify
       FieldAlias = 'CODIGO_CLI'
@@ -610,6 +702,14 @@ object frmRELCLI: TfrmRELCLI
       FieldLength = 15
       DisplayWidth = 15
       Position = 10
+    end
+    object ppBDEPipeline1ppField12: TppField
+      FieldAlias = 'DTACAD_CLI'
+      FieldName = 'DTACAD_CLI'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 11
     end
   end
 end

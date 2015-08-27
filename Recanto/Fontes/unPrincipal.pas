@@ -32,6 +32,7 @@ type
     procedure Fornecedor1Click(Sender: TObject);
     procedure Funcionrio1Click(Sender: TObject);
     procedure tulo1Click(Sender: TObject);
+    procedure Clientes1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,12 +46,18 @@ implementation
 
 {$R *.dfm}
 
-uses unCLI, unFOR, unFUN, unPAGTIT;
+uses unCLI, unFOR, unFUN, unPAGTIT, unRELCLI;
 
 procedure TfrmPRINCIPAL.Cliente1Click(Sender: TObject);
 begin
      Application.CreateForm(TfrmCli,frmCLI);
      frmClI.ShowModal;
+end;
+
+procedure TfrmPRINCIPAL.Clientes1Click(Sender: TObject);
+begin
+      Application.CreateForm(TfrmRELCLI,frmRELCLI);
+     frmRELCLI.ShowModal;
 end;
 
 procedure TfrmPRINCIPAL.Fornecedor1Click(Sender: TObject);

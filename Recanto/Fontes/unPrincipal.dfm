@@ -61,6 +61,7 @@ object frmPRINCIPAL: TfrmPRINCIPAL
         Caption = 'Contas a Receber'
         object Clientes1: TMenuItem
           Caption = 'Clientes'
+          OnClick = Clientes1Click
         end
         object tulos1: TMenuItem
           Caption = 'T'#237'tulos'

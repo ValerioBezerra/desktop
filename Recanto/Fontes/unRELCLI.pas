@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ppBands, ppCache, ppClass,
   ppDesignLayer, ppParameter, ppComm, ppRelatv, ppProd, ppReport, ppCtrls,
-  ppPrnabl, ppDB, ppDBPipe, ppDBBDE;
+  ppPrnabl, ppDB, ppDBPipe, ppDBBDE, Vcl.StdCtrls, Vcl.ExtCtrls, ppVar;
 
 type
   TfrmRELCLI = class(TForm)
@@ -40,7 +40,15 @@ type
     ppDBText10: TppDBText;
     ppLabel11: TppLabel;
     ppDBText11: TppDBText;
-    ppImage1: TppImage;
+    ppLabel12: TppLabel;
+    RadioGroup1: TRadioGroup;
+    Button1: TButton;
+    Button2: TButton;
+    ppLabel13: TppLabel;
+    ppSystemVariable1: TppSystemVariable;
+    ppLine1: TppLine;
+    ppLine2: TppLine;
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,5 +63,10 @@ implementation
 {$R *.dfm}
 
 uses unDM;
+
+procedure TfrmRELCLI.Button1Click(Sender: TObject);
+begin
+   ppReport1.Print;
+end;
 
 end.
