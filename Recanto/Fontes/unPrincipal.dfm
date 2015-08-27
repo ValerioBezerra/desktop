@@ -54,6 +54,13 @@ object frmPRINCIPAL: TfrmPRINCIPAL
           Caption = 'Baixa de T'#237'tulo'
         end
       end
+      object ContasaReceber3: TMenuItem
+        Caption = 'Contas a Receber'
+        object tulo2: TMenuItem
+          Caption = 'T'#237'tulo'
+          OnClick = tulo2Click
+        end
+      end
     end
     object Relatrios1: TMenuItem
       Caption = 'Relat'#243'rios'

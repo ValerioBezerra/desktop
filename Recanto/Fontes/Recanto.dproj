@@ -147,12 +147,16 @@
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unPAGTIT.pas">
-            <Form>frmPAGTIT</Form>
+        <DCCReference Include="unRECTIT.pas">
+            <Form>frmRECTIT</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unRELCLI.pas">
             <Form>frmRELCLI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unPAGTIT.pas">
+            <Form>frmPAGTIT</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

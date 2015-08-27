@@ -57,8 +57,10 @@ object DataModule1: TDataModule1
     ParamCheck = True
     SQL.Strings = (
       
-        'select * from PAGTIT LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = ' +
-        'CODFOR_PAGTIT')
+        'select SEQ_RECTIT, ORIGEM_RECTIT,DATAEMISSAO_RECTIT,DATAVENC_REC' +
+        'TIT,VALORTOTAL_RECTIT,VALORPAGO_RECTIT, NOME_CLI,CODIGO_CLI,(VAL' +
+        'ORTOTAL_RECTIT - VALORPAGO_RECTIT) AS VALORABERTO from RECTIT LE' +
+        'FT OUTER JOIN CLIENTE ON CODIGO_CLI = CODCLI_RECTIT')
     Left = 313
     Top = 27
   end
@@ -72,8 +74,10 @@ object DataModule1: TDataModule1
     Active = True
     Aggregates = <>
     CommandText = 
-      'select * from PAGTIT LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = ' +
-      'CODFOR_PAGTIT'
+      'select SEQ_RECTIT, ORIGEM_RECTIT,DATAEMISSAO_RECTIT,DATAVENC_REC' +
+      'TIT,VALORTOTAL_RECTIT,VALORPAGO_RECTIT, NOME_CLI,CODIGO_CLI,(VAL' +
+      'ORTOTAL_RECTIT - VALORPAGO_RECTIT) AS VALORABERTO from RECTIT LE' +
+      'FT OUTER JOIN CLIENTE ON CODIGO_CLI = CODCLI_RECTIT'
     Params = <>
     ProviderName = 'dspCONSULTA'
     Left = 433
@@ -102,6 +106,7 @@ object DataModule1: TDataModule1
     Top = 296
   end
   object cdsCLIENTE: TClientDataSet
+    Active = True
     Aggregates = <>
     CommandText = 'select * from CLIENTE'
     Params = <>
@@ -280,5 +285,78 @@ object DataModule1: TDataModule1
     DataSet = cdsTELASCONSULTA
     Left = 497
     Top = 83
+  end
+  object qryRECTIT: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      
+        'select SEQ_RECTIT, ORIGEM_RECTIT,DATAEMISSAO_RECTIT,DATAVENC_REC' +
+        'TIT,VALORTOTAL_RECTIT,VALORPAGO_RECTIT, NOME_CLI,CODIGO_CLI,(VAL' +
+        'ORTOTAL_RECTIT - VALORPAGO_RECTIT) AS VALORABERTO from RECTIT LE' +
+        'FT OUTER JOIN CLIENTE ON CODIGO_CLI = CODCLI_RECTIT')
+    Left = 410
+    Top = 246
+  end
+  object dspRECTIT: TDataSetProvider
+    DataSet = qryRECTIT
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 474
+    Top = 246
+  end
+  object cdsRECTIT: TClientDataSet
+    Aggregates = <>
+    CommandText = 
+      'select SEQ_RECTIT, ORIGEM_RECTIT,DATAEMISSAO_RECTIT,DATAVENC_REC' +
+      'TIT,VALORTOTAL_RECTIT,VALORPAGO_RECTIT, NOME_CLI,CODIGO_CLI,(VAL' +
+      'ORTOTAL_RECTIT - VALORPAGO_RECTIT) AS VALORABERTO from RECTIT LE' +
+      'FT OUTER JOIN CLIENTE ON CODIGO_CLI = CODCLI_RECTIT'
+    Params = <>
+    ProviderName = 'dspRECTIT'
+    Left = 530
+    Top = 246
+    object cdsRECTITSEQ_RECTIT: TIntegerField
+      FieldName = 'SEQ_RECTIT'
+      Required = True
+    end
+    object cdsRECTITORIGEM_RECTIT: TIntegerField
+      FieldName = 'ORIGEM_RECTIT'
+    end
+    object cdsRECTITDATAEMISSAO_RECTIT: TDateField
+      FieldName = 'DATAEMISSAO_RECTIT'
+    end
+    object cdsRECTITDATAVENC_RECTIT: TDateField
+      FieldName = 'DATAVENC_RECTIT'
+    end
+    object cdsRECTITVALORTOTAL_RECTIT: TBCDField
+      FieldName = 'VALORTOTAL_RECTIT'
+      Precision = 18
+      Size = 2
+    end
+    object cdsRECTITVALORPAGO_RECTIT: TBCDField
+      FieldName = 'VALORPAGO_RECTIT'
+      Precision = 18
+      Size = 2
+    end
+    object cdsRECTITNOME_CLI: TWideStringField
+      FieldName = 'NOME_CLI'
+      Size = 40
+    end
+    object cdsRECTITCODIGO_CLI: TIntegerField
+      FieldName = 'CODIGO_CLI'
+    end
+    object cdsRECTITVALORABERTO: TBCDField
+      FieldName = 'VALORABERTO'
+      Precision = 18
+      Size = 2
+    end
+  end
+  object dsRECTIT: TDataSource
+    DataSet = cdsRECTIT
+    Left = 594
+    Top = 246
   end
 end

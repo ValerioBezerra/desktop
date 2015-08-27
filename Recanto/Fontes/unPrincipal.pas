@@ -28,11 +28,14 @@ type
     Fornecedores1: TMenuItem;
     tulos1: TMenuItem;
     tulos2: TMenuItem;
+    ContasaReceber3: TMenuItem;
+    tulo2: TMenuItem;
     procedure Cliente1Click(Sender: TObject);
     procedure Fornecedor1Click(Sender: TObject);
     procedure Funcionrio1Click(Sender: TObject);
     procedure tulo1Click(Sender: TObject);
     procedure Clientes1Click(Sender: TObject);
+    procedure tulo2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,7 +49,7 @@ implementation
 
 {$R *.dfm}
 
-uses unCLI, unFOR, unFUN, unPAGTIT, unRELCLI;
+uses unCLI, unFOR, unFUN, unPAGTIT, unRELCLI, unRECTIT;
 
 procedure TfrmPRINCIPAL.Cliente1Click(Sender: TObject);
 begin
@@ -76,6 +79,12 @@ procedure TfrmPRINCIPAL.tulo1Click(Sender: TObject);
 begin
         Application.CreateForm(TfrmPAGTIT,frmPAGTIT);
      frmPAGTIT.ShowModal;
+end;
+
+procedure TfrmPRINCIPAL.tulo2Click(Sender: TObject);
+begin
+   Application.CreateForm(TfrmRECTIT,frmRECTIT);
+     frmRECTIT.ShowModal;
 end;
 
 end.

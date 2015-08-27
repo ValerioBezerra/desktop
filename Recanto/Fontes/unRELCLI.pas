@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ppBands, ppCache, ppClass,
   ppDesignLayer, ppParameter, ppComm, ppRelatv, ppProd, ppReport, ppCtrls,
-  ppPrnabl, ppDB, ppDBPipe, ppDBBDE, Vcl.StdCtrls, Vcl.ExtCtrls, ppVar;
+  ppPrnabl, ppDB, ppDBPipe, ppDBBDE, Vcl.StdCtrls, Vcl.ExtCtrls, ppVar,DBClient;
 
 type
   TfrmRELCLI = class(TForm)
@@ -41,18 +41,40 @@ type
     ppLabel11: TppLabel;
     ppDBText11: TppDBText;
     ppLabel12: TppLabel;
-    RadioGroup1: TRadioGroup;
+    rdgOrdem: TRadioGroup;
     Button1: TButton;
     Button2: TButton;
     ppLabel13: TppLabel;
     ppSystemVariable1: TppSystemVariable;
     ppLine1: TppLine;
     ppLine2: TppLine;
+    rdgFormato: TRadioGroup;
+    ppReport2: TppReport;
+    ppHeaderBand2: TppHeaderBand;
+    ppLabel14: TppLabel;
+    ppLabel15: TppLabel;
+    ppSystemVariable2: TppSystemVariable;
+    ppLine3: TppLine;
+    ppDetailBand2: TppDetailBand;
+    ppLabel16: TppLabel;
+    ppDBText12: TppDBText;
+    ppLabel17: TppLabel;
+    ppDBText13: TppDBText;
+    ppFooterBand2: TppFooterBand;
+    ppDesignLayers2: TppDesignLayers;
+    ppDesignLayer2: TppDesignLayer;
+    ppParameterList2: TppParameterList;
+    ppLine5: TppLine;
     procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
+
+    procedure prepararSQL;
   public
     { Public declarations }
+    cdspadrao : TClientDataSet;
   end;
 
 var
@@ -66,7 +88,34 @@ uses unDM;
 
 procedure TfrmRELCLI.Button1Click(Sender: TObject);
 begin
-   ppReport1.Print;
+   prepararSQL;
+    if rdgFormato.ItemIndex = 0 then
+       ppReport1.Print
+    else
+       ppReport2.Print;
+end;
+
+procedure TfrmRELCLI.Button2Click(Sender: TObject);
+begin
+   Close;
+end;
+
+procedure TfrmRELCLI.FormCreate(Sender: TObject);
+begin
+    cdspadrao := DataModule1.cdsCLIENTE;
+end;
+
+procedure TfrmRELCLI.prepararSQL;
+begin
+    cdspadrao.Close;
+    cdspadrao.CommandText := 'select * from cliente';
+    cdspadrao.Open;
+
+    if rdgOrdem.ItemIndex = 0 then
+       cdspadrao.CommandText := cdspadrao.CommandText + 'order by codigo_cli'
+    else
+      cdspadrao.CommandText := cdspadrao.CommandText + 'order by nome_cli';
+
 end;
 
 end.

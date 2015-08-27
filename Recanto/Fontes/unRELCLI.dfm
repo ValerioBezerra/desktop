@@ -12,16 +12,18 @@ object frmRELCLI: TfrmRELCLI
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object RadioGroup1: TRadioGroup
+  object rdgOrdem: TRadioGroup
     Left = 24
     Top = 24
     Width = 129
     Height = 57
     Caption = 'Ordem'
+    ItemIndex = 1
     Items.Strings = (
-      'Sequencia'
+      'C'#243'digo'
       'Alfab'#233'tica')
     TabOrder = 0
   end
@@ -41,6 +43,19 @@ object frmRELCLI: TfrmRELCLI
     Height = 25
     Caption = 'Sair'
     TabOrder = 2
+    OnClick = Button2Click
+  end
+  object rdgFormato: TRadioGroup
+    Left = 159
+    Top = 24
+    Width = 97
+    Height = 57
+    Caption = 'Formato'
+    ItemIndex = 1
+    Items.Strings = (
+      'Anal'#237'tico'
+      'Sint'#233'tico')
+    TabOrder = 3
   end
   object ppReport1: TppReport
     AutoStop = False
@@ -710,6 +725,240 @@ object frmRELCLI: TfrmRELCLI
       DataType = dtDate
       DisplayWidth = 10
       Position = 11
+    end
+  end
+  object ppReport2: TppReport
+    AutoStop = False
+    DataPipeline = ppBDEPipeline1
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.PaperName = 'Letter'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.SaveDeviceSettings = False
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 279400
+    PrinterSetup.mmPaperWidth = 215900
+    PrinterSetup.PaperSize = 1
+    ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
+    DeviceType = 'Screen'
+    DefaultFileDeviceType = 'PDF'
+    EmailSettings.ReportFormat = 'PDF'
+    LanguageID = 'Default'
+    OpenFile = False
+    OutlineSettings.CreateNode = True
+    OutlineSettings.CreatePageNodes = True
+    OutlineSettings.Enabled = True
+    OutlineSettings.Visible = True
+    ThumbnailSettings.Enabled = True
+    ThumbnailSettings.Visible = True
+    ThumbnailSettings.DeadSpace = 30
+    PDFSettings.EmbedFontOptions = [efUseSubset]
+    PDFSettings.EncryptSettings.AllowCopy = True
+    PDFSettings.EncryptSettings.AllowInteract = True
+    PDFSettings.EncryptSettings.AllowModify = True
+    PDFSettings.EncryptSettings.AllowPrint = True
+    PDFSettings.EncryptSettings.Enabled = False
+    PDFSettings.EncryptSettings.KeyLength = kl40Bit
+    PDFSettings.FontEncoding = feAnsi
+    PDFSettings.ImageCompressionLevel = 25
+    RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
+    RTFSettings.DefaultFont.Color = clWindowText
+    RTFSettings.DefaultFont.Height = -13
+    RTFSettings.DefaultFont.Name = 'Arial'
+    RTFSettings.DefaultFont.Style = []
+    TextFileName = '($MyDocuments)\Report.pdf'
+    TextSearchSettings.DefaultString = '<FindText>'
+    TextSearchSettings.Enabled = True
+    XLSSettings.AppName = 'ReportBuilder'
+    XLSSettings.Author = 'ReportBuilder'
+    XLSSettings.Subject = 'Report'
+    XLSSettings.Title = 'Report'
+    Left = 480
+    Top = 136
+    Version = '16.02'
+    mmColumnWidth = 0
+    DataPipelineName = 'ppBDEPipeline1'
+    object ppHeaderBand2: TppHeaderBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 23019
+      mmPrintPosition = 0
+      object ppLabel14: TppLabel
+        DesignLayer = ppDesignLayer2
+        UserName = 'Label12'
+        Caption = 'Recanto Madre Paulina'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 13
+        Font.Style = [fsBold]
+        FormField = False
+        TextAlignment = taCentered
+        Transparent = True
+        mmHeight = 5027
+        mmLeft = 79111
+        mmTop = 3704
+        mmWidth = 47625
+        BandType = 0
+        LayerName = Foreground1
+      end
+      object ppLabel15: TppLabel
+        DesignLayer = ppDesignLayer2
+        UserName = 'Label13'
+        Caption = 'Relat'#243'rio Sint'#233'tico de Clientes'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 74348
+        mmTop = 10054
+        mmWidth = 55827
+        BandType = 0
+        LayerName = Foreground1
+      end
+      object ppSystemVariable2: TppSystemVariable
+        DesignLayer = ppDesignLayer2
+        UserName = 'SystemVariable1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        mmHeight = 4762
+        mmLeft = 174361
+        mmTop = 8996
+        mmWidth = 21166
+        BandType = 0
+        LayerName = Foreground1
+      end
+      object ppLine3: TppLine
+        DesignLayer = ppDesignLayer2
+        UserName = 'Line1'
+        Weight = 0.750000000000000000
+        mmHeight = 3969
+        mmLeft = 1058
+        mmTop = 15610
+        mmWidth = 201348
+        BandType = 0
+        LayerName = Foreground1
+      end
+      object ppLabel16: TppLabel
+        DesignLayer = ppDesignLayer2
+        UserName = 'Label1'
+        AutoSize = False
+        Caption = 'C'#243'digo:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 8202
+        mmTop = 16137
+        mmWidth = 18521
+        BandType = 0
+        LayerName = Foreground1
+      end
+      object ppLabel17: TppLabel
+        DesignLayer = ppDesignLayer2
+        UserName = 'Label2'
+        AutoSize = False
+        Caption = 'Nome:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 41275
+        mmTop = 16137
+        mmWidth = 14817
+        BandType = 0
+        LayerName = Foreground1
+      end
+      object ppLine5: TppLine
+        DesignLayer = ppDesignLayer2
+        UserName = 'Line5'
+        Weight = 0.750000000000000000
+        mmHeight = 2381
+        mmLeft = 1322
+        mmTop = 20635
+        mmWidth = 201348
+        BandType = 0
+        LayerName = Foreground1
+      end
+    end
+    object ppDetailBand2: TppDetailBand
+      Background1.Brush.Style = bsClear
+      Background2.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 6085
+      mmPrintPosition = 0
+      object ppDBText12: TppDBText
+        DesignLayer = ppDesignLayer2
+        UserName = 'DBText1'
+        DataField = 'CODIGO_CLI'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 4763
+        mmLeft = 8202
+        mmTop = 525
+        mmWidth = 24342
+        BandType = 4
+        LayerName = Foreground1
+      end
+      object ppDBText13: TppDBText
+        DesignLayer = ppDesignLayer2
+        UserName = 'DBText2'
+        DataField = 'NOME_CLI'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 4763
+        mmLeft = 41275
+        mmTop = 525
+        mmWidth = 128059
+        BandType = 4
+        LayerName = Foreground1
+      end
+    end
+    object ppFooterBand2: TppFooterBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 13229
+      mmPrintPosition = 0
+    end
+    object ppDesignLayers2: TppDesignLayers
+      object ppDesignLayer2: TppDesignLayer
+        UserName = 'Foreground1'
+        LayerType = ltBanded
+        Index = 0
+      end
+    end
+    object ppParameterList2: TppParameterList
     end
   end
 end

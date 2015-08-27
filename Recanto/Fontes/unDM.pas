@@ -47,6 +47,19 @@ type
     dspTELASCONSULTA: TDataSetProvider;
     cdsTELASCONSULTA: TClientDataSet;
     dsTELASCONSULTA: TDataSource;
+    qryRECTIT: TIBQuery;
+    dspRECTIT: TDataSetProvider;
+    cdsRECTIT: TClientDataSet;
+    dsRECTIT: TDataSource;
+    cdsRECTITSEQ_RECTIT: TIntegerField;
+    cdsRECTITORIGEM_RECTIT: TIntegerField;
+    cdsRECTITDATAEMISSAO_RECTIT: TDateField;
+    cdsRECTITDATAVENC_RECTIT: TDateField;
+    cdsRECTITVALORTOTAL_RECTIT: TBCDField;
+    cdsRECTITVALORPAGO_RECTIT: TBCDField;
+    cdsRECTITNOME_CLI: TWideStringField;
+    cdsRECTITCODIGO_CLI: TIntegerField;
+    cdsRECTITVALORABERTO: TBCDField;
   private
     { Private declarations }
   public
