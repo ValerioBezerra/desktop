@@ -22,6 +22,12 @@ type
     ContasaPagar2: TMenuItem;
     tulo1: TMenuItem;
     BaixadeTtulo1: TMenuItem;
+    ContasaReceber2: TMenuItem;
+    Clientes1: TMenuItem;
+    ContasaPagar3: TMenuItem;
+    Fornecedores1: TMenuItem;
+    tulos1: TMenuItem;
+    tulos2: TMenuItem;
     procedure Cliente1Click(Sender: TObject);
     procedure Fornecedor1Click(Sender: TObject);
     procedure Funcionrio1Click(Sender: TObject);

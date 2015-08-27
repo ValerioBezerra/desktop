@@ -57,6 +57,24 @@ object frmPRINCIPAL: TfrmPRINCIPAL
     end
     object Relatrios1: TMenuItem
       Caption = 'Relat'#243'rios'
+      object ContasaReceber2: TMenuItem
+        Caption = 'Contas a Receber'
+        object Clientes1: TMenuItem
+          Caption = 'Clientes'
+        end
+        object tulos1: TMenuItem
+          Caption = 'T'#237'tulos'
+        end
+      end
+      object ContasaPagar3: TMenuItem
+        Caption = 'Contas a Pagar'
+        object Fornecedores1: TMenuItem
+          Caption = 'Fornecedores'
+        end
+        object tulos2: TMenuItem
+          Caption = 'T'#237'tulos'
+        end
+      end
     end
     object Sair1: TMenuItem
       Caption = 'Sair'

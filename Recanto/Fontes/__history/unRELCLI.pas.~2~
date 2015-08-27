@@ -1,0 +1,32 @@
+unit unRELCLI;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ppBands, ppCache, ppClass,
+  ppDesignLayer, ppParameter, ppComm, ppRelatv, ppProd, ppReport;
+
+type
+  TfrmRELCLI = class(TForm)
+    ppReport1: TppReport;
+    ppParameterList1: TppParameterList;
+    ppDesignLayers1: TppDesignLayers;
+    ppDesignLayer1: TppDesignLayer;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand1: TppDetailBand;
+    ppFooterBand1: TppFooterBand;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRELCLI: TfrmRELCLI;
+
+implementation
+
+{$R *.dfm}
+
+end.

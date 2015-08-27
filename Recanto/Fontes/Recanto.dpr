@@ -17,7 +17,8 @@ uses
   unCLI in 'unCLI.pas' {frmCLI},
   unCadCLI in 'unCadCLI.pas' {frmCadCLI},
   unConsUSUARIO in 'unConsUSUARIO.pas' {Form1},
-  unPAGTIT in 'unPAGTIT.pas' {frmPAGTIT};
+  unPAGTIT in 'unPAGTIT.pas' {frmPAGTIT},
+  unRELCLI in 'unRELCLI.pas' {frmRELCLI};
 
 {$R *.res}
 
@@ -33,5 +34,6 @@ begin
   Application.CreateForm(TfrmCLI, frmCLI);
   Application.CreateForm(TfrmCadCLI, frmCadCLI);
   Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmRELCLI, frmRELCLI);
   Application.Run;
 end.
