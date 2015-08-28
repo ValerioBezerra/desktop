@@ -78,6 +78,7 @@ object frmPRINCIPAL: TfrmPRINCIPAL
         Caption = 'Contas a Pagar'
         object Fornecedores1: TMenuItem
           Caption = 'Fornecedores'
+          OnClick = Fornecedores1Click
         end
         object tulos2: TMenuItem
           Caption = 'T'#237'tulos'

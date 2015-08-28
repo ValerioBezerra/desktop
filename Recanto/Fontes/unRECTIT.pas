@@ -34,7 +34,7 @@ implementation
 
 {$R *.dfm}
 
-uses unCadCLI, unDM, unMOVPAGTIT;
+uses unCadCLI, unDM, unMOVRECTIT;
 
 procedure TfrmRECTIT.btnApagarClick(Sender: TObject);
 var
@@ -47,7 +47,7 @@ begin
    if buttonSelected = mrYes    then
       begin
         cdspadrao.Close;
-        cdsPadrao.CommandText := 'select * from PAGTIT where SEQ_RECTIT = ' + cdsConsulta.FieldByName('SEQ_RECTIT').AsString;
+        cdsPadrao.CommandText := 'select * from RECTIT where SEQ_RECTIT = ' + cdsConsulta.FieldByName('SEQ_RECTIT').AsString;
         cdspadrao.Open;
          inherited;
       end;
@@ -58,11 +58,11 @@ procedure TfrmRECTIT.btnEditarClick(Sender: TObject);
 begin
  where := where +' and SEQ_RECTIT =' + DataModule1.cdsCONSULTA.FieldByName('SEQ_RECTIT').AsString;
   inherited;
-   Application.CreateForm(TFrmMOVPAGTIT,frmMOVPAGTIT);
+   Application.CreateForm(TfrmMOVRECTIT,frmMOVRECTIT);
    cdsPadrao.Open;
    cdsPadrao.Edit;
-   frmMOVPAGTIT.DBEdit4Exit(Self);
-  frmMOVPAGTIT.ShowModal;
+   frmMOVRECTIT.DBEdit4Exit(Self);
+  frmMOVRECTIT.ShowModal;
 
 
 end;
@@ -70,10 +70,10 @@ end;
 procedure TfrmRECTIT.btnNovoClick(Sender: TObject);
 begin
   inherited;
-  Application.CreateForm(TFrmMOVPAGTIT,frmMOVPAGTIT);
+  Application.CreateForm(TfrmMOVRECTIT,frmMOVRECTIT);
    cdsPadrao.Open;
    cdsPadrao.Insert;
-  frmMOVPAGTIT.ShowModal;
+  frmMOVRECTIT.ShowModal;
 end;
 
 procedure TfrmRECTIT.btnPesquisarClick(Sender: TObject);

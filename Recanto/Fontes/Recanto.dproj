@@ -95,8 +95,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="unConsFORNECEDOR.pas">
-            <Form>fmrConsFORNECEDOR</Form>
+        <DCCReference Include="unConsCLIENTE.pas">
+            <Form>fmrConsCLIENTE</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unPrincipal.pas">
@@ -131,8 +131,8 @@
             <Form>frmPAGBXA</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unMOVPAGTIT.pas">
-            <Form>frmMOVPAGTIT</Form>
+        <DCCReference Include="unMOVRECTIT.pas">
+            <Form>frmMOVRECTIT</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unCLI.pas">
@@ -151,12 +151,24 @@
             <Form>frmRECTIT</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unRELCLI.pas">
-            <Form>frmRELCLI</Form>
+        <DCCReference Include="unRELFOR.pas">
+            <Form>frmRELFOR</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unPAGTIT.pas">
             <Form>frmPAGTIT</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unMOVPAGTIT.pas">
+            <Form>frmMOVPAGTIT</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unConsFORNECEDOR.pas">
+            <Form>fmrConsFORNECEDOR</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unRELCLI.pas">
+            <Form>frmRELCLI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
