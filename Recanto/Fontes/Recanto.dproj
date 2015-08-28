@@ -95,8 +95,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="unConsCLIENTE.pas">
-            <Form>fmrConsCLIENTE</Form>
+        <DCCReference Include="unConsGRP.pas">
+            <Form>fmrConsGRP</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unPrincipal.pas">
@@ -131,8 +131,8 @@
             <Form>frmPAGBXA</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unMOVRECTIT.pas">
-            <Form>frmMOVRECTIT</Form>
+        <DCCReference Include="unCADITE.pas">
+            <Form>frmCadITE</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unTER.pas">
@@ -147,8 +147,8 @@
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unRECTIT.pas">
-            <Form>frmRECTIT</Form>
+        <DCCReference Include="unITE.pas">
+            <Form>frmITE</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unRELFOR.pas">
@@ -171,12 +171,32 @@
             <Form>frmRELCLI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="unGRP.pas">
+            <Form>frmGRP</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unCadGRP.pas">
+            <Form>frmCadGRP</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <DCCReference Include="unCLI.pas">
             <Form>frmCLI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unCadCLI.pas">
             <Form>frmCadCLI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unRECTIT.pas">
+            <Form>frmRECTIT</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unMOVRECTIT.pas">
+            <Form>frmMOVRECTIT</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unConsCLIENTE.pas">
+            <Form>fmrConsCLIENTE</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

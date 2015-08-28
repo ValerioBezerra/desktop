@@ -48,6 +48,17 @@ object frmPRINCIPAL: TfrmPRINCIPAL
           OnClick = erapias1Click
         end
       end
+      object Estoque1: TMenuItem
+        Caption = 'Estoque'
+        object Grupo1: TMenuItem
+          Caption = 'Grupo'
+          OnClick = Grupo1Click
+        end
+        object Item1: TMenuItem
+          Caption = 'Item'
+          OnClick = Item1Click
+        end
+      end
     end
     object Movimento1: TMenuItem
       Caption = 'Movimento'

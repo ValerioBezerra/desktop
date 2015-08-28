@@ -32,6 +32,9 @@ type
     tulo2: TMenuItem;
     Hospedagem1: TMenuItem;
     erapias1: TMenuItem;
+    Estoque1: TMenuItem;
+    Grupo1: TMenuItem;
+    Item1: TMenuItem;
     procedure Cliente1Click(Sender: TObject);
     procedure Fornecedor1Click(Sender: TObject);
     procedure Funcionrio1Click(Sender: TObject);
@@ -40,6 +43,8 @@ type
     procedure tulo2Click(Sender: TObject);
     procedure Fornecedores1Click(Sender: TObject);
     procedure erapias1Click(Sender: TObject);
+    procedure Grupo1Click(Sender: TObject);
+    procedure Item1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -53,7 +58,8 @@ implementation
 
 {$R *.dfm}
 
-uses unCLI, unFOR, unFUN, unPAGTIT, unRELCLI, unRECTIT, unRELFOR, unTER;
+uses unCLI, unFOR, unFUN, unPAGTIT, unRELCLI, unRECTIT, unRELFOR, unTER, unGRP,
+  unITE;
 
 procedure TfrmPRINCIPAL.Cliente1Click(Sender: TObject);
 begin
@@ -89,6 +95,18 @@ procedure TfrmPRINCIPAL.Funcionrio1Click(Sender: TObject);
 begin
      Application.CreateForm(TfrmFun,frmFun);
      frmFun.ShowModal;
+end;
+
+procedure TfrmPRINCIPAL.Grupo1Click(Sender: TObject);
+begin
+      Application.CreateForm(TfrmGRP,frmGRP);
+     frmGRP.ShowModal;
+end;
+
+procedure TfrmPRINCIPAL.Item1Click(Sender: TObject);
+begin
+    Application.CreateForm(TfrmITE,frmITE);
+     frmITE.ShowModal;
 end;
 
 procedure TfrmPRINCIPAL.tulo1Click(Sender: TObject);

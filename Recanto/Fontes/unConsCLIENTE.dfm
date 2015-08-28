@@ -38,7 +38,7 @@ object fmrConsCLIENTE: TfmrConsCLIENTE
       item
         Expanded = False
         FieldName = 'NOME_CLI'
-        Title.Caption = 'Fornecedor'
+        Title.Caption = 'Nome'
         Width = 240
         Visible = True
       end>

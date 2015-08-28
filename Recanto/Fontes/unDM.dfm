@@ -1,14 +1,17 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Height = 611
+  Height = 651
   Width = 954
   object Banco: TIBDatabase
     Connected = True
-    DatabaseName = 'C:\Recanto\Banco\RECANTO.FDB'
+    DatabaseName = 
+      'C:\Users\Elison\Documents\GitHub\desktop\Recanto\Banco\RECANTO.F' +
+      'DB'
     Params.Strings = (
       'user_name=sysdba'
       'password=masterkey')
     LoginPrompt = False
+    DefaultTransaction = Transacao
     ServerType = 'IBServer'
     Left = 56
     Top = 40
@@ -56,7 +59,7 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'select * from HOSTER')
+      'select * from ESTITE')
     Left = 313
     Top = 27
   end
@@ -69,7 +72,7 @@ object DataModule1: TDataModule1
   object cdsCONSULTA: TClientDataSet
     Active = True
     Aggregates = <>
-    CommandText = 'select * from HOSTER'
+    CommandText = 'select * from ESTITE'
     Params = <>
     ProviderName = 'dspCONSULTA'
     Left = 433
@@ -327,5 +330,66 @@ object DataModule1: TDataModule1
     DataSet = cdsHOSTER
     Left = 212
     Top = 468
+  end
+  object qryESTGRP: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from ESTGRP')
+    Left = 30
+    Top = 523
+  end
+  object dspESTGRP: TDataSetProvider
+    DataSet = qryESTGRP
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 94
+    Top = 523
+  end
+  object cdsESTGRP: TClientDataSet
+    Active = True
+    Aggregates = <>
+    CommandText = 'select * from ESTGRP'
+    Params = <>
+    ProviderName = 'dspESTGRP'
+    Left = 150
+    Top = 523
+  end
+  object dsESTGRP: TDataSource
+    DataSet = cdsESTGRP
+    Left = 214
+    Top = 523
+  end
+  object qryESTITE: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from ESTITE')
+    Left = 33
+    Top = 577
+  end
+  object dspESTITE: TDataSetProvider
+    DataSet = qryESTITE
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 97
+    Top = 577
+  end
+  object cdsESTITE: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from ESTITE'
+    Params = <>
+    ProviderName = 'dspESTITE'
+    Left = 153
+    Top = 577
+  end
+  object dsESTITE: TDataSource
+    DataSet = cdsESTITE
+    Left = 217
+    Top = 577
   end
 end
