@@ -135,12 +135,12 @@
             <Form>frmMOVRECTIT</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unCLI.pas">
-            <Form>frmCLI</Form>
+        <DCCReference Include="unTER.pas">
+            <Form>frmTER</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unCadCLI.pas">
-            <Form>frmCadCLI</Form>
+        <DCCReference Include="unCadTER.pas">
+            <Form>frmCadTER</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unConsUSUARIO.pas">
@@ -169,6 +169,14 @@
         </DCCReference>
         <DCCReference Include="unRELCLI.pas">
             <Form>frmRELCLI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unCLI.pas">
+            <Form>frmCLI</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unCadCLI.pas">
+            <Form>frmCadCLI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

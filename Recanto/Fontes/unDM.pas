@@ -60,6 +60,14 @@ type
     cdsRECTITNOME_CLI: TWideStringField;
     cdsRECTITCODIGO_CLI: TIntegerField;
     cdsRECTITVALORABERTO: TBCDField;
+    qryHOSTER: TIBQuery;
+    dspHOSTER: TDataSetProvider;
+    cdsHOSTER: TClientDataSet;
+    dsHOSTER: TDataSource;
+    cdsHOSTERCODIGO_TER: TIntegerField;
+    cdsHOSTERNOME_TER: TWideStringField;
+    cdsHOSTERPRECO_TER: TBCDField;
+    cdsHOSTERDURACAO_TER: TTimeField;
   private
     { Private declarations }
   public

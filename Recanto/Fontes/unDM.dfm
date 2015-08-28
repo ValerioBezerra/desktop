@@ -56,11 +56,7 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      
-        'select SEQ_RECTIT, ORIGEM_RECTIT,DATAEMISSAO_RECTIT,DATAVENC_REC' +
-        'TIT,VALORTOTAL_RECTIT,VALORPAGO_RECTIT, NOME_CLI,CODIGO_CLI,(VAL' +
-        'ORTOTAL_RECTIT - VALORPAGO_RECTIT) AS VALORABERTO from RECTIT LE' +
-        'FT OUTER JOIN CLIENTE ON CODIGO_CLI = CODCLI_RECTIT')
+      'select * from HOSTER')
     Left = 313
     Top = 27
   end
@@ -73,11 +69,7 @@ object DataModule1: TDataModule1
   object cdsCONSULTA: TClientDataSet
     Active = True
     Aggregates = <>
-    CommandText = 
-      'select SEQ_RECTIT, ORIGEM_RECTIT,DATAEMISSAO_RECTIT,DATAVENC_REC' +
-      'TIT,VALORTOTAL_RECTIT,VALORPAGO_RECTIT, NOME_CLI,CODIGO_CLI,(VAL' +
-      'ORTOTAL_RECTIT - VALORPAGO_RECTIT) AS VALORABERTO from RECTIT LE' +
-      'FT OUTER JOIN CLIENTE ON CODIGO_CLI = CODCLI_RECTIT'
+    CommandText = 'select * from HOSTER'
     Params = <>
     ProviderName = 'dspCONSULTA'
     Left = 433
@@ -137,6 +129,7 @@ object DataModule1: TDataModule1
     Top = 352
   end
   object cdsFORNECEDOR: TClientDataSet
+    Active = True
     Aggregates = <>
     CommandText = 'select * from FORNECEDOR'
     Params = <>
@@ -358,5 +351,51 @@ object DataModule1: TDataModule1
     DataSet = cdsRECTIT
     Left = 594
     Top = 246
+  end
+  object qryHOSTER: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from HOSTER')
+    Left = 28
+    Top = 468
+  end
+  object dspHOSTER: TDataSetProvider
+    DataSet = qryHOSTER
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 92
+    Top = 468
+  end
+  object cdsHOSTER: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from HOSTER'
+    Params = <>
+    ProviderName = 'dspHOSTER'
+    Left = 148
+    Top = 468
+    object cdsHOSTERCODIGO_TER: TIntegerField
+      FieldName = 'CODIGO_TER'
+      Required = True
+    end
+    object cdsHOSTERNOME_TER: TWideStringField
+      FieldName = 'NOME_TER'
+      Size = 30
+    end
+    object cdsHOSTERPRECO_TER: TBCDField
+      FieldName = 'PRECO_TER'
+      Precision = 18
+      Size = 2
+    end
+    object cdsHOSTERDURACAO_TER: TTimeField
+      FieldName = 'DURACAO_TER'
+    end
+  end
+  object dsHOSTER: TDataSource
+    DataSet = cdsHOSTER
+    Left = 212
+    Top = 468
   end
 end

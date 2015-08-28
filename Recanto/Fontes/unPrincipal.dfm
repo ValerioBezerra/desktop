@@ -41,6 +41,13 @@ object frmPRINCIPAL: TfrmPRINCIPAL
           OnClick = Funcionrio1Click
         end
       end
+      object Hospedagem1: TMenuItem
+        Caption = 'Hospedagem'
+        object erapias1: TMenuItem
+          Caption = 'Terapias'
+          OnClick = erapias1Click
+        end
+      end
     end
     object Movimento1: TMenuItem
       Caption = 'Movimento'

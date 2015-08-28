@@ -14,15 +14,17 @@ uses
   unCadFUN in 'unCadFUN.pas' {frmCadFUN},
   unPAGBXA in 'unPAGBXA.pas' {frmPAGBXA},
   unMOVRECTIT in 'unMOVRECTIT.pas' {frmMOVRECTIT},
-  unCLI in 'unCLI.pas' {frmCLI},
-  unCadCLI in 'unCadCLI.pas' {frmCadCLI},
+  unTER in 'unTER.pas' {frmTER},
+  unCadTER in 'unCadTER.pas' {frmCadTER},
   unConsUSUARIO in 'unConsUSUARIO.pas' {Form1},
   unRECTIT in 'unRECTIT.pas' {frmRECTIT},
   unRELFOR in 'unRELFOR.pas' {frmRELFOR},
   unPAGTIT in 'unPAGTIT.pas' {frmPAGTIT},
   unMOVPAGTIT in 'unMOVPAGTIT.pas' {frmMOVPAGTIT},
   unConsFORNECEDOR in 'unConsFORNECEDOR.pas' {fmrConsFORNECEDOR},
-  unRELCLI in 'unRELCLI.pas' {frmRELCLI};
+  unRELCLI in 'unRELCLI.pas' {frmRELCLI},
+  unCLI in 'unCLI.pas' {frmCLI},
+  unCadCLI in 'unCadCLI.pas' {frmCadCLI};
 
 {$R *.res}
 
@@ -31,12 +33,9 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmLogin, frmLogin);
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TfmrConsCLIENTE, fmrConsCLIENTE);
   Application.CreateForm(TfrmPRINCIPAL, frmPRINCIPAL);
   Application.CreateForm(TfrmPadrao_, frmPadrao_);
   Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
-  Application.CreateForm(TfrmCLI, frmCLI);
-  Application.CreateForm(TfrmCadCLI, frmCadCLI);
   Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

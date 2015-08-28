@@ -30,6 +30,8 @@ type
     tulos2: TMenuItem;
     ContasaReceber3: TMenuItem;
     tulo2: TMenuItem;
+    Hospedagem1: TMenuItem;
+    erapias1: TMenuItem;
     procedure Cliente1Click(Sender: TObject);
     procedure Fornecedor1Click(Sender: TObject);
     procedure Funcionrio1Click(Sender: TObject);
@@ -37,6 +39,7 @@ type
     procedure Clientes1Click(Sender: TObject);
     procedure tulo2Click(Sender: TObject);
     procedure Fornecedores1Click(Sender: TObject);
+    procedure erapias1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,7 +53,7 @@ implementation
 
 {$R *.dfm}
 
-uses unCLI, unFOR, unFUN, unPAGTIT, unRELCLI, unRECTIT, unRELFOR;
+uses unCLI, unFOR, unFUN, unPAGTIT, unRELCLI, unRECTIT, unRELFOR, unTER;
 
 procedure TfrmPRINCIPAL.Cliente1Click(Sender: TObject);
 begin
@@ -62,6 +65,12 @@ procedure TfrmPRINCIPAL.Clientes1Click(Sender: TObject);
 begin
       Application.CreateForm(TfrmRELCLI,frmRELCLI);
      frmRELCLI.ShowModal;
+end;
+
+procedure TfrmPRINCIPAL.erapias1Click(Sender: TObject);
+begin
+    Application.CreateForm(TfrmTER,frmTER);
+     frmTER.ShowModal;
 end;
 
 procedure TfrmPRINCIPAL.Fornecedor1Click(Sender: TObject);
