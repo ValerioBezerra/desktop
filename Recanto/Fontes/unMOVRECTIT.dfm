@@ -73,9 +73,9 @@ inherited frmMOVRECTIT: TfrmMOVRECTIT
     object Label5: TLabel
       Left = 16
       Top = 144
-      Width = 55
+      Width = 33
       Height = 13
-      Caption = 'Fornecedor'
+      Caption = 'Cliente'
     end
     object Label6: TLabel
       Left = 16
@@ -1637,7 +1637,7 @@ inherited frmMOVRECTIT: TfrmMOVRECTIT
       Top = 163
       Width = 65
       Height = 21
-      DataField = 'CODIGO_CLI'
+      DataField = 'CODCLI_RECTIT'
       DataSource = DataModule1.dsRECTIT
       TabOrder = 3
       OnExit = DBEdit4Exit

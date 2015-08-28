@@ -67,32 +67,33 @@ inherited frmRECTIT: TfrmRECTIT
       Columns = <
         item
           Expanded = False
-          FieldName = 'SEQ_PAGTIT'
+          FieldName = 'SEQ_RECTIT'
           Title.Caption = 'Sequencia'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'NOME_FOR'
-          Title.Caption = 'Fornecedor'
+          FieldName = 'NOME_CLI'
+          Title.Caption = 'Cliente'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'DATAEMISSAO_PAGTTIT'
+          FieldName = 'DATAEMISSAO_RECTIT'
           Title.Caption = 'Emiss'#227'o'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'DATAVENC_PAGTIT'
+          FieldName = 'DATAVENC_RECTIT'
           Title.Caption = 'Vencimento'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'VALORTOTAL_PAGTIT'
+          FieldName = 'VALORTOTAL_RECTIT'
           Title.Caption = 'Valor'
+          Width = 45
           Visible = True
         end
         item

@@ -63,17 +63,18 @@ begin
    cdsPadrao.Edit;
    frmMOVRECTIT.DBEdit4Exit(Self);
   frmMOVRECTIT.ShowModal;
-
+      btnPesquisarClick(Self);
 
 end;
 
 procedure TfrmRECTIT.btnNovoClick(Sender: TObject);
 begin
-  inherited;
+
   Application.CreateForm(TfrmMOVRECTIT,frmMOVRECTIT);
    cdsPadrao.Open;
    cdsPadrao.Insert;
   frmMOVRECTIT.ShowModal;
+    inherited;
 end;
 
 procedure TfrmRECTIT.btnPesquisarClick(Sender: TObject);
@@ -122,7 +123,7 @@ begin
 
 
     campos := ' SEQ_RECTIT, ORIGEM_RECTIT,DATAEMISSAO_RECTIT,DATAVENC_RECTIT,VALORTOTAL_RECTIT,' +
-              ' VALORPAGO_RECTIT, NOME_CLI,CODIGO_CLI,(VALORTOTAL_RECTIT - VALORPAGO_RECTIT) AS VALORABERTO ';
+              ' VALORPAGO_RECTIT,CODCLI_RECTIT,(VALORTOTAL_RECTIT - VALORPAGO_RECTIT) AS VALORABERTO ';
     tabela := 'RECTIT';
     where := '';
     join := 'LEFT OUTER JOIN CLIENTE ON CODIGO_CLI = CODCLI_RECTIT ';

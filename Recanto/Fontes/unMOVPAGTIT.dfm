@@ -1637,7 +1637,7 @@ inherited frmMOVPAGTIT: TfrmMOVPAGTIT
       Top = 163
       Width = 65
       Height = 21
-      DataField = 'CODIGO_FOR'
+      DataField = 'CODFOR_PAGTIT'
       DataSource = DataModule1.dsPAGTIT
       TabOrder = 3
       OnExit = DBEdit4Exit
