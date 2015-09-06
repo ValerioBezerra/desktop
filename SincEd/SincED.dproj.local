@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/09/11 13:22:59.000.848,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/03/21 16:10:05.000.437,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/03/21 16:10:34.000.210,E:\Projetos\ED\Impressão\SincEd\frmPrincipal.dfm=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2015/03/21 16:10:34.000.210,E:\Projetos\ED\Impressão\SincEd\frmPrincipal.pas=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/03/21 16:10:47.000.026,E:\Projetos\ED\Impressão\SincEd\SincED.dproj=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2015/03/21 16:11:41.000.742,=E:\Projetos\ED\Impressão\SincEd\declaracoes.pas</Transaction>
+    <Transaction>2015/03/21 16:14:01.000.777,=E:\Projetos\ED\Impressão\SincEd\Unit1.pas</Transaction>
+    <Transaction>2015/03/21 16:42:06.000.008,=E:\Projetos\ED\Impressão\SincEd\Unit1.pas</Transaction>
+    <Transaction>2015/03/21 16:43:27.000.902,E:\Projetos\ED\Impressão\SincEd\CarregarDados.pas=E:\Projetos\ED\Impressão\SincEd\Unit1.pas</Transaction>
+    <Transaction>2015/03/22 02:15:29.000.972,E:\Projetos\ED\Impressão\SincEd\declaracoes.pas=</Transaction>
+  </Transactions>
+</BorlandProject>

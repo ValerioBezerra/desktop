@@ -1,0 +1,16 @@
+unit CarregarDados;
+
+interface
+
+function retornarDadosPedidos:integer;
+
+implementation
+
+function retornarDadosPedidos:integer;
+begin
+
+
+
+  result := 1;
+end;
+end.
