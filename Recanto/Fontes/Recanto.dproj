@@ -111,12 +111,12 @@
             <Form>frmPadraoManutencao_</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unFOR.pas">
-            <Form>frmFOR</Form>
+        <DCCReference Include="unTMO.pas">
+            <Form>frmTMO</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unCadFOR.pas">
-            <Form>frmCadFOR</Form>
+        <DCCReference Include="unCadTMO.pas">
+            <Form>frmCadTMO</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unFUN.pas">
@@ -197,6 +197,14 @@
         </DCCReference>
         <DCCReference Include="unConsCLIENTE.pas">
             <Form>fmrConsCLIENTE</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unFOR.pas">
+            <Form>frmFOR</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unCadFOR.pas">
+            <Form>frmCadFOR</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

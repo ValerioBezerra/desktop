@@ -35,6 +35,10 @@ type
     Estoque1: TMenuItem;
     Grupo1: TMenuItem;
     Item1: TMenuItem;
+    ipodeMovimento1: TMenuItem;
+    Estoque2: TMenuItem;
+    Movimento2: TMenuItem;
+    Compra1: TMenuItem;
     procedure Cliente1Click(Sender: TObject);
     procedure Fornecedor1Click(Sender: TObject);
     procedure Funcionrio1Click(Sender: TObject);
@@ -45,6 +49,7 @@ type
     procedure erapias1Click(Sender: TObject);
     procedure Grupo1Click(Sender: TObject);
     procedure Item1Click(Sender: TObject);
+    procedure ipodeMovimento1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -59,7 +64,7 @@ implementation
 {$R *.dfm}
 
 uses unCLI, unFOR, unFUN, unPAGTIT, unRELCLI, unRECTIT, unRELFOR, unTER, unGRP,
-  unITE;
+  unITE, unTMO;
 
 procedure TfrmPRINCIPAL.Cliente1Click(Sender: TObject);
 begin
@@ -101,6 +106,12 @@ procedure TfrmPRINCIPAL.Grupo1Click(Sender: TObject);
 begin
       Application.CreateForm(TfrmGRP,frmGRP);
      frmGRP.ShowModal;
+end;
+
+procedure TfrmPRINCIPAL.ipodeMovimento1Click(Sender: TObject);
+begin
+    Application.CreateForm(TfrmTMO,frmTMO);
+     frmTMO.ShowModal;
 end;
 
 procedure TfrmPRINCIPAL.Item1Click(Sender: TObject);

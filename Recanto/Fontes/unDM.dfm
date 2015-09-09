@@ -1,7 +1,7 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Height = 651
-  Width = 954
+  Height = 751
+  Width = 1033
   object Banco: TIBDatabase
     Connected = True
     DatabaseName = 
@@ -59,7 +59,7 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'select * from ESTITE')
+      'select * from ESTTMO')
     Left = 313
     Top = 27
   end
@@ -72,7 +72,7 @@ object DataModule1: TDataModule1
   object cdsCONSULTA: TClientDataSet
     Active = True
     Aggregates = <>
-    CommandText = 'select * from ESTITE'
+    CommandText = 'select * from ESTTMO'
     Params = <>
     ProviderName = 'dspCONSULTA'
     Left = 433
@@ -391,5 +391,35 @@ object DataModule1: TDataModule1
     DataSet = cdsESTITE
     Left = 217
     Top = 577
+  end
+  object qryESTTMO: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from ESTITE')
+    Left = 36
+    Top = 637
+  end
+  object dspESTTMO: TDataSetProvider
+    DataSet = qryESTTMO
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 100
+    Top = 637
+  end
+  object cdsESTTMO: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from ESTTMO'
+    Params = <>
+    ProviderName = 'dspESTTMO'
+    Left = 156
+    Top = 637
+  end
+  object dsESTTMO: TDataSource
+    DataSet = cdsESTTMO
+    Left = 220
+    Top = 637
   end
 end

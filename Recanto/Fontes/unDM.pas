@@ -58,6 +58,10 @@ type
     dspESTITE: TDataSetProvider;
     cdsESTITE: TClientDataSet;
     dsESTITE: TDataSource;
+    qryESTTMO: TIBQuery;
+    dspESTTMO: TDataSetProvider;
+    cdsESTTMO: TClientDataSet;
+    dsESTTMO: TDataSource;
   private
     { Private declarations }
   public

@@ -8,8 +8,8 @@ uses
   unPrincipal in 'unPrincipal.pas' {frmPRINCIPAL},
   frmPadrao in 'C:\valerio\delphi\Formularios\frmPadrao.pas' {frmPadrao_},
   frmPadraoManutencao in 'C:\valerio\delphi\Formularios\frmPadraoManutencao.pas' {frmPadraoManutencao_},
-  unFOR in 'unFOR.pas' {frmFOR},
-  unCadFOR in 'unCadFOR.pas' {frmCadFOR},
+  unTMO in 'unTMO.pas' {frmTMO},
+  unCadTMO in 'unCadTMO.pas' {frmCadTMO},
   unFUN in 'unFUN.pas' {frmFUN},
   unCadFUN in 'unCadFUN.pas' {frmCadFUN},
   unPAGBXA in 'unPAGBXA.pas' {frmPAGBXA},
@@ -29,7 +29,9 @@ uses
   unCadCLI in 'unCadCLI.pas' {frmCadCLI},
   unRECTIT in 'unRECTIT.pas' {frmRECTIT},
   unMOVRECTIT in 'unMOVRECTIT.pas' {frmMOVRECTIT},
-  unConsCLIENTE in 'unConsCLIENTE.pas' {fmrConsCLIENTE};
+  unConsCLIENTE in 'unConsCLIENTE.pas' {fmrConsCLIENTE},
+  unFOR in 'unFOR.pas' {frmFOR},
+  unCadFOR in 'unCadFOR.pas' {frmCadFOR};
 
 {$R *.res}
 

@@ -58,6 +58,10 @@ object frmPRINCIPAL: TfrmPRINCIPAL
           Caption = 'Item'
           OnClick = Item1Click
         end
+        object ipodeMovimento1: TMenuItem
+          Caption = 'Tipo de Movimento'
+          OnClick = ipodeMovimento1Click
+        end
       end
     end
     object Movimento1: TMenuItem
@@ -77,6 +81,15 @@ object frmPRINCIPAL: TfrmPRINCIPAL
         object tulo2: TMenuItem
           Caption = 'T'#237'tulo'
           OnClick = tulo2Click
+        end
+      end
+      object Estoque2: TMenuItem
+        Caption = 'Estoque'
+        object Movimento2: TMenuItem
+          Caption = 'Movimento'
+        end
+        object Compra1: TMenuItem
+          Caption = 'Compra'
         end
       end
     end
