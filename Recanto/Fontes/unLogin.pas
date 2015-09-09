@@ -103,6 +103,7 @@ begin
                end
             else
                  showmessage('Senha incorreta!');
+                 edSenhaUsuario.Clear;
 
        end;
 
