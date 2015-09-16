@@ -422,7 +422,7 @@ object DataModule1: TDataModule1
     Left = 220
     Top = 637
   end
-  object qryESTMOV: TIBQuery
+  object IBQuery1: TIBQuery
     Database = Banco
     Transaction = Transacao
     BufferChunks = 1000
@@ -437,13 +437,13 @@ object DataModule1: TDataModule1
     Left = 411
     Top = 303
   end
-  object dspESTMOV: TDataSetProvider
-    DataSet = qryESTMOV
+  object DataSetProvider1: TDataSetProvider
+    DataSet = IBQuery1
     Options = [poAllowCommandText, poUseQuoteChar]
     Left = 475
     Top = 303
   end
-  object cdsESTMOV: TClientDataSet
+  object ClientDataSet1: TClientDataSet
     Aggregates = <>
     CommandText = 
       'select SEQ_RECTIT, ORIGEM_RECTIT,DATAEMISSAO_RECTIT,DATAVENC_REC' +
@@ -451,12 +451,12 @@ object DataModule1: TDataModule1
       'L_RECTIT - VALORPAGO_RECTIT) AS VALORABERTO from RECTIT LEFT OUT' +
       'ER JOIN CLIENTE ON CODIGO_CLI = CODCLI_RECTIT'
     Params = <>
-    ProviderName = 'dspESTMOV'
+    ProviderName = 'dspRECTIT'
     Left = 531
     Top = 303
   end
-  object dsESTMOV: TDataSource
-    DataSet = cdsESTMOV
+  object DataSource1: TDataSource
+    DataSet = ClientDataSet1
     Left = 595
     Top = 303
   end

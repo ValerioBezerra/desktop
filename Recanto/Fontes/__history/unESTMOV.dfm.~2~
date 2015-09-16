@@ -1,5 +1,5 @@
 inherited frmESTMOV: TfrmESTMOV
-  Caption = 'Movimento - Controle de Estoque'
+  Caption = 'Movimento - Contas a Pagar'
   ClientHeight = 322
   ClientWidth = 794
   ExplicitWidth = 800

@@ -62,10 +62,6 @@ type
     dspESTTMO: TDataSetProvider;
     cdsESTTMO: TClientDataSet;
     dsESTTMO: TDataSource;
-    qryESTMOV: TIBQuery;
-    dspESTMOV: TDataSetProvider;
-    cdsESTMOV: TClientDataSet;
-    dsESTMOV: TDataSource;
   private
     { Private declarations }
   public
