@@ -19,8 +19,8 @@ uses
   unConsUSUARIO in 'unConsUSUARIO.pas' {Form1},
   unITE in 'unITE.pas' {frmITE},
   unRELFOR in 'unRELFOR.pas' {frmRELFOR},
-  unPAGTIT in 'unPAGTIT.pas' {frmPAGTIT},
-  unMOVPAGTIT in 'unMOVPAGTIT.pas' {frmMOVPAGTIT},
+  unESTMOV in 'unESTMOV.pas' {frmESTMOV},
+  unMOVESTMOV in 'unMOVESTMOV.pas' {frmMOVESTMOV},
   unConsFORNECEDOR in 'unConsFORNECEDOR.pas' {fmrConsFORNECEDOR},
   unRELCLI in 'unRELCLI.pas' {frmRELCLI},
   unGRP in 'unGRP.pas' {frmGRP},
@@ -31,7 +31,9 @@ uses
   unMOVRECTIT in 'unMOVRECTIT.pas' {frmMOVRECTIT},
   unConsCLIENTE in 'unConsCLIENTE.pas' {fmrConsCLIENTE},
   unFOR in 'unFOR.pas' {frmFOR},
-  unCadFOR in 'unCadFOR.pas' {frmCadFOR};
+  unCadFOR in 'unCadFOR.pas' {frmCadFOR},
+  unPAGTIT in 'unPAGTIT.pas' {frmPAGTIT},
+  unMOVPAGTIT in 'unMOVPAGTIT.pas' {frmMOVPAGTIT};
 
 {$R *.res}
 

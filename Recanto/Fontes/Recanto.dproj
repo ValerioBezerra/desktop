@@ -155,12 +155,12 @@
             <Form>frmRELFOR</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unPAGTIT.pas">
-            <Form>frmPAGTIT</Form>
+        <DCCReference Include="unESTMOV.pas">
+            <Form>frmESTMOV</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unMOVPAGTIT.pas">
-            <Form>frmMOVPAGTIT</Form>
+        <DCCReference Include="unMOVESTMOV.pas">
+            <Form>frmMOVESTMOV</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unConsFORNECEDOR.pas">
@@ -205,6 +205,14 @@
         </DCCReference>
         <DCCReference Include="unCadFOR.pas">
             <Form>frmCadFOR</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unPAGTIT.pas">
+            <Form>frmPAGTIT</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unMOVPAGTIT.pas">
+            <Form>frmMOVPAGTIT</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
