@@ -429,7 +429,11 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'select * from ESTMOV')
+      
+        'select SEQ_RECTIT, ORIGEM_RECTIT,DATAEMISSAO_RECTIT,DATAVENC_REC' +
+        'TIT,VALORTOTAL_RECTIT,VALORPAGO_RECTIT, NOME_CLI,CODIGO_CLI,(VAL' +
+        'ORTOTAL_RECTIT - VALORPAGO_RECTIT) AS VALORABERTO from RECTIT LE' +
+        'FT OUTER JOIN CLIENTE ON CODIGO_CLI = CODCLI_RECTIT')
     Left = 411
     Top = 303
   end
@@ -440,9 +444,12 @@ object DataModule1: TDataModule1
     Top = 303
   end
   object cdsESTMOV: TClientDataSet
-    Active = True
     Aggregates = <>
-    CommandText = 'select * from ESTMOV'
+    CommandText = 
+      'select SEQ_RECTIT, ORIGEM_RECTIT,DATAEMISSAO_RECTIT,DATAVENC_REC' +
+      'TIT,VALORTOTAL_RECTIT,VALORPAGO_RECTIT, CODCLI_RECTIT,(VALORTOTA' +
+      'L_RECTIT - VALORPAGO_RECTIT) AS VALORABERTO from RECTIT LEFT OUT' +
+      'ER JOIN CLIENTE ON CODIGO_CLI = CODCLI_RECTIT'
     Params = <>
     ProviderName = 'dspESTMOV'
     Left = 531

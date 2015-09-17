@@ -11,30 +11,30 @@ inherited frmMOVESTMOV: TfrmMOVESTMOV
     Left = 495
     Height = 456
     ExplicitLeft = 495
-    ExplicitHeight = 456
+    ExplicitHeight = 382
     inherited Panel5: TPanel
       Height = 446
-      ExplicitHeight = 446
+      ExplicitHeight = 372
     end
     inherited Panel6: TPanel
       Top = 446
-      ExplicitTop = 446
+      ExplicitTop = 372
     end
     inherited Panel7: TPanel
       Height = 446
-      ExplicitHeight = 446
+      ExplicitHeight = 372
     end
   end
   inherited stbInformacao: TStatusBar
     Top = 468
     Width = 616
-    ExplicitTop = 468
+    ExplicitTop = 394
     ExplicitWidth = 616
   end
   inherited stbStatus: TStatusBar
     Top = 487
     Width = 616
-    ExplicitTop = 487
+    ExplicitTop = 419
     ExplicitWidth = 616
   end
   inherited Panel1: TPanel
@@ -44,6 +44,8 @@ inherited frmMOVESTMOV: TfrmMOVESTMOV
   inherited pnlPrincipal: TPanel
     Width = 495
     Height = 456
+    ExplicitLeft = 3
+    ExplicitTop = 8
     ExplicitWidth = 495
     ExplicitHeight = 456
     object Label1: TLabel
@@ -3156,19 +3158,6 @@ inherited frmMOVESTMOV: TfrmMOVESTMOV
       Height = 21
       Color = clInfoBk
       TabOrder = 6
-    end
-    object DBRadioGroup1: TDBRadioGroup
-      Left = 256
-      Top = 25
-      Width = 185
-      Height = 105
-      Caption = 'Origem'
-      DataField = 'ORIGEM_MOV'
-      DataSource = DataModule1.dsESTMOV
-      Items.Strings = (
-        'Digitado'
-        'Hospedagem - Consumo')
-      TabOrder = 7
     end
   end
 end

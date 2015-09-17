@@ -24,7 +24,6 @@ type
     Image2: TImage;
     Edit1: TEdit;
     Label3: TLabel;
-    DBRadioGroup1: TDBRadioGroup;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
