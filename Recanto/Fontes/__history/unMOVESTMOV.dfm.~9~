@@ -3147,7 +3147,7 @@ inherited frmMOVESTMOV: TfrmMOVESTMOV
       DataField = 'CODITE_MOV'
       DataSource = DataModule1.dsESTMOV
       TabOrder = 5
-      OnExit = DBEdit3Exit
+      OnExit = DBEdit4Exit
     end
     object Edit1: TEdit
       Left = 108

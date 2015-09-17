@@ -60,12 +60,12 @@ begin
      with DataModule1.cdsTELASCONSULTA do
      begin
        close;
-       CommandText := 'select * from estite where CODIGO_ITE = ' + dbedit4.Text;
+       CommandText := 'select * from esttmo where CODIGO_TMO = ' + dbedit4.Text;
        Open;
        if not IsEmpty then
-          ednomefornecedor.Text := FieldByName('DESCRICAO_ITE').AsString
+          ednomefornecedor.Text := FieldByName('DESCRICAO_TMO').AsString
        else
-           ednomefornecedor.Text  := 'Item não cadastrado';
+           ednomefornecedor.Text  := 'Tipo de movimento não cadastrado';
      end;
 end;
 

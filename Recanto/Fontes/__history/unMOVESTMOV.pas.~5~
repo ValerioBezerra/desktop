@@ -30,7 +30,6 @@ type
     procedure btnSalvarClick(Sender: TObject);
     procedure Image1Click(Sender: TObject);
     procedure DBEdit4Exit(Sender: TObject);
-    procedure DBEdit3Exit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,21 +51,6 @@ begin
    DataModule1.Transacao.Commit;
    cdsPadrao.Close;
    btnSalvar.Enabled := false;
-end;
-
-procedure TfrmMOVESTMOV.DBEdit3Exit(Sender: TObject);
-begin
-  inherited;
-     with DataModule1.cdsTELASCONSULTA do
-     begin
-       close;
-       CommandText := 'select * from estite where CODIGO_ITE = ' + dbedit4.Text;
-       Open;
-       if not IsEmpty then
-          ednomefornecedor.Text := FieldByName('DESCRICAO_ITE').AsString
-       else
-           ednomefornecedor.Text  := 'Item não cadastrado';
-     end;
 end;
 
 procedure TfrmMOVESTMOV.DBEdit4Exit(Sender: TObject);

@@ -3117,8 +3117,8 @@ inherited frmMOVESTMOV: TfrmMOVESTMOV
       Top = 163
       Width = 65
       Height = 21
-      DataField = 'CODTMO_MOV'
-      DataSource = DataModule1.dsESTMOV
+      DataField = 'CODFOR_PAGTIT'
+      DataSource = DataModule1.dsPAGTIT
       TabOrder = 2
       OnExit = DBEdit4Exit
     end
@@ -3144,10 +3144,10 @@ inherited frmMOVESTMOV: TfrmMOVESTMOV
       Top = 221
       Width = 65
       Height = 21
-      DataField = 'CODITE_MOV'
-      DataSource = DataModule1.dsESTMOV
+      DataField = 'CODFOR_PAGTIT'
+      DataSource = DataModule1.dsPAGTIT
       TabOrder = 5
-      OnExit = DBEdit3Exit
+      OnExit = DBEdit4Exit
     end
     object Edit1: TEdit
       Left = 108
@@ -3161,7 +3161,7 @@ inherited frmMOVESTMOV: TfrmMOVESTMOV
       Left = 256
       Top = 25
       Width = 185
-      Height = 68
+      Height = 105
       Caption = 'Origem'
       DataField = 'ORIGEM_MOV'
       DataSource = DataModule1.dsESTMOV
