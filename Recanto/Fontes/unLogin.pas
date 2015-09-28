@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
-  Vcl.StdCtrls, Vcl.Imaging.jpeg;
+  Vcl.StdCtrls, Vcl.Imaging.jpeg,inifiles;
 
 type
   TfrmLogin = class(TForm)
@@ -28,6 +28,8 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure edSenhaUsuarioKeyPress(Sender: TObject; var Key: Char);
+    function conectarBanco : Boolean;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,6 +44,28 @@ implementation
 {$R *.dfm}
 
 uses unDM, unConsUSUARIO, unPrincipal;
+
+function TfrmLogin.conectarBanco: Boolean;
+var
+arquivo_ini : TIniFile;
+ip_banco,path_banco : String;
+begin
+   arquivo_ini := TIniFile.Create(ExtractFilePath(Application.ExeName)+ '\CONFIG.INI');
+   ip_banco := arquivo_ini.ReadString('BANCO','IP','');
+   path_banco := arquivo_ini.ReadString('BANCO','PATH','');
+   try
+
+     DataModule1.Banco.Close;
+     DataModule1.Banco.DatabaseName := ip_banco + ':' + path_banco;
+     DataModule1.Banco.Connected := True;
+     Result := DataModule1.Banco.Connected;
+   Except
+      Result := False
+   end;
+
+
+
+end;
 
 procedure TfrmLogin.edCodUsuarioExit(Sender: TObject);
 begin
@@ -74,6 +98,16 @@ procedure TfrmLogin.FormKeyPress(Sender: TObject; var Key: Char);
 begin
    if ord(Key) = VK_RETURN then
         Image3Click(Self);
+
+end;
+
+procedure TfrmLogin.FormShow(Sender: TObject);
+begin
+    if conectarBanco = false then
+    begin
+      showmessage('Não foi possível conectar ao banco de dados, a aplicação será finalizada.');
+      Application.Terminate;
+    end;
 
 end;
 

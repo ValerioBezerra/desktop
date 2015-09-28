@@ -3,7 +3,6 @@ object DataModule1: TDataModule1
   Height = 751
   Width = 1033
   object Banco: TIBDatabase
-    Connected = True
     DatabaseName = 
       'C:\Users\Elison\Documents\GitHub\desktop\Recanto\Banco\RECANTO.F' +
       'DB'
@@ -17,7 +16,6 @@ object DataModule1: TDataModule1
     Top = 40
   end
   object Transacao: TIBTransaction
-    Active = True
     DefaultDatabase = Banco
     Left = 128
     Top = 40
