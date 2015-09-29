@@ -18,6 +18,10 @@ type
     cdsUSUARIO: TClientDataSet;
     dsUSUARIO: TDataSource;
     Transacao: TIBTransaction;
+    qryLICENCA: TIBQuery;
+    dspLICENCA: TDataSetProvider;
+    cdsLICENCA: TClientDataSet;
+    dsLICENCA: TDataSource;
   private
     { Private declarations }
   public

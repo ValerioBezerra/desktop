@@ -49,6 +49,8 @@ object DM: TDM
     BufferChunks = 1000
     CachedUpdates = False
     ParamCheck = True
+    SQL.Strings = (
+      'select * from licenca')
     Left = 45
     Top = 176
   end
@@ -75,5 +77,34 @@ object DM: TDM
     DefaultDatabase = Banco
     Left = 144
     Top = 32
+  end
+  object qryLICENCA: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    Left = 49
+    Top = 241
+  end
+  object dspLICENCA: TDataSetProvider
+    DataSet = qryLICENCA
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 121
+    Top = 241
+  end
+  object cdsLICENCA: TClientDataSet
+    Active = True
+    Aggregates = <>
+    CommandText = 'select * from licenca'
+    Params = <>
+    ProviderName = 'dspUSUARIO'
+    Left = 193
+    Top = 241
+  end
+  object dsLICENCA: TDataSource
+    DataSet = cdsLICENCA
+    Left = 265
+    Top = 249
   end
 end

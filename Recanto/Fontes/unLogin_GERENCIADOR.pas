@@ -43,7 +43,7 @@ implementation
 
 {$R *.dfm}
 
-uses unDM, unConsUSUARIO, DM_GERENCIADOR;
+uses unDM, unConsUSUARIO, DM_GERENCIADOR, unMenuGerenciador;
 
 function TfrmLogin.conectarBanco: Boolean;
 var
@@ -132,12 +132,12 @@ begin
        begin
             if testarSenha() = 'OK' then
                begin
-              //   Application.CreateForm(TFrmPrincipal,frmPrincipal);
-               //  frmPrincipal.ShowModal;
+                 Application.CreateForm(TMenuGerenciador,MenuGerenciador);
+                 MenuGerenciador.ShowModal;
                  edSenhaUsuario.Clear;
                end
             else
-                 showmessage('Senha incorreta!');
+                 showmessage('Senha incorreta ou usuário não autorizado!');
                  edSenhaUsuario.Clear;
 
        end;
@@ -178,7 +178,7 @@ begin
       begin
         close;
         CommandText := 'select * from usuario where codigo_usu = ' + edCodUsuario.Text +
-                       ' and senha_usu = ' + quotedStr(edSenhaUsuario.Text);
+                       ' and senha_usu = ' + quotedStr(edSenhaUsuario.Text) + 'and gerenciador_usu = 1';
         Open;
         if not isempty then
             Result := 'OK'

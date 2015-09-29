@@ -98,6 +98,14 @@
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="unMenuGerenciador.pas">
+            <Form>MenuGerenciador</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unLicenca.pas">
+            <Form>frmLicenca</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
