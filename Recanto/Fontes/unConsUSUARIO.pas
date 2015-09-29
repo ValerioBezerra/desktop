@@ -27,11 +27,11 @@ implementation
 
 {$R *.dfm}
 
-uses unDM;
+uses unDM, DM_GERENCIADOR;
 
 procedure TForm1.btConsultarClick(Sender: TObject);
 begin
-     with DataModule1.cdsUSUARIO do
+     with Dm.cdsUSUARIO do
      begin
        close;
        CommandText := 'select * from usuario where nome_usu like ''%' + edConsultar.Text + '%''';
@@ -46,7 +46,7 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-         with DataModule1.cdsUSUARIO do
+         with Dm.cdsUSUARIO do
          begin
            Close;
            CommandText := 'select * from usuario';

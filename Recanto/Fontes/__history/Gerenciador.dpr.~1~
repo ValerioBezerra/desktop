@@ -1,0 +1,16 @@
+program Gerenciador;
+
+uses
+  Vcl.Forms,
+  DM_GERENCIADOR in 'DM_GERENCIADOR.pas' {DataModule3: TDataModule},
+  unLogin_GERENCIADOR in 'unLogin_GERENCIADOR.pas' {frmLogin};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TDataModule3, DataModule3);
+  Application.CreateForm(TfrmLogin, frmLogin);
+  Application.Run;
+end.

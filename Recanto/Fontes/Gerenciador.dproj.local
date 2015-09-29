@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2015/09/12 11:35:38.000.469,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2015/09/29 17:52:45.029,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2015/09/29 17:53:00.471,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2015/09/29 17:59:38.957,=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unLogin.pas</Transaction>
+    <Transaction>2015/09/29 17:59:53.061,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unLogin_GERENCIADOR.pas=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unLogin.pas</Transaction>
+    <Transaction>2015/09/29 17:59:53.061,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unLogin_GERENCIADOR.dfm=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unLogin.dfm</Transaction>
+    <Transaction>2015/09/29 18:00:52.217,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\DM_GERENCIADOR.dfm=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit3.dfm</Transaction>
+    <Transaction>2015/09/29 18:00:52.217,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\DM_GERENCIADOR.pas=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2015/09/29 18:01:03.583,C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\Gerenciador.dproj=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2015/09/29 18:02:13.833,=C:\Users\Elison\Documents\GitHub\desktop\Recanto\Fontes\unConsUSUARIO.pas</Transaction>
+  </Transactions>
+</BorlandProject>

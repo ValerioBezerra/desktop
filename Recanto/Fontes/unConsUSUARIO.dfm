@@ -20,7 +20,7 @@ object Form1: TForm1
     Top = 8
     Width = 361
     Height = 185
-    DataSource = DataModule1.dsUSUARIO
+    DataSource = DM.dsUSUARIO
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
