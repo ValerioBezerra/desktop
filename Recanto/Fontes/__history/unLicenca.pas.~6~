@@ -1,0 +1,76 @@
+unit unLicenca;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,DateUtils;
+
+type
+  TfrmLicenca = class(TForm)
+    Label1: TLabel;
+    btValidar: TButton;
+    btSalvar: TButton;
+    btSair: TButton;
+    Label2: TLabel;
+    edVencimento: TEdit;
+    edCodigo: TEdit;
+    procedure btValidarClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+        function validarLicenca(Codigo:String):Boolean;
+  end;
+
+var
+  frmLicenca: TfrmLicenca;
+
+implementation
+
+{$R *.dfm}
+
+uses DM_GERENCIADOR;
+
+{ TfrmLicenca }
+
+procedure TfrmLicenca.btValidarClick(Sender: TObject);
+begin
+   if validarLicenca(edCodigo.Text) then
+     showmessage('OK');
+end;
+
+function TfrmLicenca.validarLicenca(Codigo: String): Boolean;
+var
+bloco1,bloco2,bloco3,bloco4 :String;
+resultado : Boolean;
+begin
+  resultado := True;
+  if Codigo.Length = 12 then
+  begin
+
+      bloco1 := Copy(Codigo,0,3);
+      bloco2 := Copy(Codigo,4,3);
+      bloco3 := copy(Codigo,7,3);
+      bloco4 := Copy(Codigo,10,3);
+
+         if bloco1 <> VartoStr(ord('e') + Dayof(now)) then
+              result := false;
+         if bloco2 <> VartoStr(ord('e') + Monthof(now)) then
+                 result := false;
+         if bloco3 <> VartoStr(ord('n') + Yearof(now)) then
+                  result := false;
+         if bloco4 <> VartoStr(ord('v') + Dayof(now) + 30) then
+                   result := false;
+
+
+  end
+  else
+  begin
+     showmessage('Licença inválida!');
+      resultado := false;
+  end;
+end;
+
+end.

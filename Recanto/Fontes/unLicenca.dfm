@@ -28,22 +28,14 @@ object frmLicenca: TfrmLicenca
     Height = 13
     Caption = 'Vencimento:'
   end
-  object DBEdit1: TDBEdit
-    Left = 26
-    Top = 27
-    Width = 287
-    Height = 21
-    DataField = 'COD_LICENCA'
-    DataSource = DM.dsLICENCA
-    TabOrder = 0
-  end
   object btValidar: TButton
     Left = 48
     Top = 72
     Width = 75
     Height = 25
     Caption = 'Validar'
-    TabOrder = 1
+    TabOrder = 0
+    OnClick = btValidarClick
   end
   object btSalvar: TButton
     Left = 129
@@ -51,7 +43,7 @@ object frmLicenca: TfrmLicenca
     Width = 75
     Height = 25
     Caption = 'Salvar'
-    TabOrder = 2
+    TabOrder = 1
   end
   object btSair: TButton
     Left = 210
@@ -59,7 +51,7 @@ object frmLicenca: TfrmLicenca
     Width = 75
     Height = 25
     Caption = 'Sair'
-    TabOrder = 3
+    TabOrder = 2
   end
   object edVencimento: TEdit
     Left = 344
@@ -68,6 +60,15 @@ object frmLicenca: TfrmLicenca
     Height = 21
     Color = clInactiveBorder
     ReadOnly = True
+    TabOrder = 3
+  end
+  object edCodigo: TEdit
+    Left = 26
+    Top = 27
+    Width = 287
+    Height = 21
+    MaxLength = 13
+    NumbersOnly = True
     TabOrder = 4
   end
 end
