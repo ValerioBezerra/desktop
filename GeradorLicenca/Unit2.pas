@@ -17,6 +17,8 @@ type
     DateTimePicker1: TDateTimePicker;
     Label2: TLabel;
     procedure Button1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,5 +43,28 @@ begin
 
      edSenha.Text := bloco1 + bloco2+ bloco3 + bloco4;
 end;
+
+procedure TForm2.Button2Click(Sender: TObject);
+begin
+   Application.Terminate;
+end;
+
+procedure TForm2.FormShow(Sender: TObject);
+var
+  senha : string;
+
+begin
+
+  repeat
+    senha := InputBox('Gerador de Licença', 'Informe a senha', '');
+  until senha <> '';
+
+  if senha <> 'K1ng@eenv_' then
+  begin
+     showmessage('Senha incorreta, a aplicação será finalizada!');
+     Application.Terminate;
+  end;
+end;
+
 
 end.

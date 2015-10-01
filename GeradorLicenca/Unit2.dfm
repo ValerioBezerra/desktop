@@ -11,6 +11,7 @@ object Form2: TForm2
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
@@ -7193,6 +7194,7 @@ object Form2: TForm2
     Height = 25
     Caption = 'Sair'
     TabOrder = 2
+    OnClick = Button2Click
   end
   object DateTimePicker1: TDateTimePicker
     Left = 8
