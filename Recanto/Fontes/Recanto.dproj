@@ -167,8 +167,8 @@
             <Form>fmrConsFORNECEDOR</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unRELCLI.pas">
-            <Form>frmRELCLI</Form>
+        <DCCReference Include="unRELPREVREC.pas">
+            <Form>frmRELPREVREC</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unGRP.pas">
@@ -213,6 +213,10 @@
         </DCCReference>
         <DCCReference Include="unMOVPAGTIT.pas">
             <Form>frmMOVPAGTIT</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unRELCLI.pas">
+            <Form>frmRELCLI</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

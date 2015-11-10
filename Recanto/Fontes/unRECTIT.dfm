@@ -26,9 +26,6 @@ inherited frmRECTIT: TfrmRECTIT
     inherited Panel7: TPanel
       Height = 262
       ExplicitHeight = 262
-      inherited btnNovo: TBitBtn
-        OnClick = btnNovoClick
-      end
     end
   end
   inherited stbStatus: TStatusBar

@@ -2,9 +2,9 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2015/09/12 11:35:38.000.469,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2015/09/30 12:02:54.961,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2015/09/30 12:04:42.550,C:\Users\Elison\Documents\GitHub\desktop\GeradorLicenca\Unit2.dfm=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
-    <Transaction>2015/09/30 12:04:42.550,C:\Users\Elison\Documents\GitHub\desktop\GeradorLicenca\Unit2.pas=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2015/09/30 12:04:55.628,C:\Users\Elison\Documents\GitHub\desktop\GeradorLicenca\GerarLicenca.dproj=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2015/09/30 12:02:54.000.961,=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2015/09/30 12:04:42.000.550,C:\Users\Elison\Documents\GitHub\desktop\GeradorLicenca\Unit2.dfm=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2015/09/30 12:04:42.000.550,C:\Users\Elison\Documents\GitHub\desktop\GeradorLicenca\Unit2.pas=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2015/09/30 12:04:55.000.628,C:\Users\Elison\Documents\GitHub\desktop\GeradorLicenca\GerarLicenca.dproj=C:\Users\Elison\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
   </Transactions>
 </BorlandProject>

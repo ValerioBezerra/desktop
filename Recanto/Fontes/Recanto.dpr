@@ -22,7 +22,7 @@ uses
   unESTMOV in 'unESTMOV.pas' {frmESTMOV},
   unMOVESTMOV in 'unMOVESTMOV.pas' {frmMOVESTMOV},
   unConsFORNECEDOR in 'unConsFORNECEDOR.pas' {fmrConsFORNECEDOR},
-  unRELCLI in 'unRELCLI.pas' {frmRELCLI},
+  unRELPREVREC in 'unRELPREVREC.pas' {frmRELPREVREC},
   unGRP in 'unGRP.pas' {frmGRP},
   unCadGRP in 'unCadGRP.pas' {frmCadGRP},
   unCLI in 'unCLI.pas' {frmCLI},
@@ -33,7 +33,8 @@ uses
   unFOR in 'unFOR.pas' {frmFOR},
   unCadFOR in 'unCadFOR.pas' {frmCadFOR},
   unPAGTIT in 'unPAGTIT.pas' {frmPAGTIT},
-  unMOVPAGTIT in 'unMOVPAGTIT.pas' {frmMOVPAGTIT};
+  unMOVPAGTIT in 'unMOVPAGTIT.pas' {frmMOVPAGTIT},
+  unRELCLI in 'unRELCLI.pas' {frmRELCLI};
 
 {$R *.res}
 
@@ -42,9 +43,7 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmLogin, frmLogin);
   Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TfrmPRINCIPAL, frmPRINCIPAL);
   Application.CreateForm(TfrmPadrao_, frmPadrao_);
   Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
-  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

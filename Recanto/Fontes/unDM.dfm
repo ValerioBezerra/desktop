@@ -3,9 +3,10 @@ object DataModule1: TDataModule1
   Height = 751
   Width = 1033
   object Banco: TIBDatabase
+    Connected = True
     DatabaseName = 
-      'C:\Users\Elison\Documents\GitHub\desktop\Recanto\Banco\RECANTO.F' +
-      'DB'
+      '127.0.0.1:C:\Users\Elison\Documents\GitHub\desktop\Recanto\Banco' +
+      '\RECANTO.FDB'
     Params.Strings = (
       'user_name=sysdba'
       'password=masterkey')
@@ -68,7 +69,6 @@ object DataModule1: TDataModule1
     Top = 27
   end
   object cdsCONSULTA: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 'select * from ESTTMO'
     Params = <>
@@ -99,7 +99,6 @@ object DataModule1: TDataModule1
     Top = 296
   end
   object cdsCLIENTE: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 'select * from CLIENTE'
     Params = <>
@@ -130,7 +129,6 @@ object DataModule1: TDataModule1
     Top = 352
   end
   object cdsFORNECEDOR: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 'select * from FORNECEDOR'
     Params = <>
@@ -347,7 +345,6 @@ object DataModule1: TDataModule1
     Top = 523
   end
   object cdsESTGRP: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 'select * from ESTGRP'
     Params = <>
@@ -438,7 +435,6 @@ object DataModule1: TDataModule1
     Top = 303
   end
   object cdsESTMOV: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 'select * from ESTMOV'
     Params = <>
