@@ -22,7 +22,7 @@ uses
   unESTMOV in 'unESTMOV.pas' {frmESTMOV},
   unMOVESTMOV in 'unMOVESTMOV.pas' {frmMOVESTMOV},
   unConsFORNECEDOR in 'unConsFORNECEDOR.pas' {fmrConsFORNECEDOR},
-  unRELPREVREC in 'unRELPREVREC.pas' {frmRELPREVREC},
+  unRELPREVPAG in 'unRELPREVPAG.pas' {frmRELPREVPAG},
   unGRP in 'unGRP.pas' {frmGRP},
   unCadGRP in 'unCadGRP.pas' {frmCadGRP},
   unCLI in 'unCLI.pas' {frmCLI},
@@ -34,7 +34,8 @@ uses
   unCadFOR in 'unCadFOR.pas' {frmCadFOR},
   unPAGTIT in 'unPAGTIT.pas' {frmPAGTIT},
   unMOVPAGTIT in 'unMOVPAGTIT.pas' {frmMOVPAGTIT},
-  unRELCLI in 'unRELCLI.pas' {frmRELCLI};
+  unRELCLI in 'unRELCLI.pas' {frmRELCLI},
+  unRELPREVREC in 'unRELPREVREC.pas' {frmRELPREVREC};
 
 {$R *.res}
 

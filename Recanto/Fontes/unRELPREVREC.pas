@@ -28,19 +28,12 @@ type
     ppLabel4: TppLabel;
     ppDBText4: TppDBText;
     ppLabel5: TppLabel;
-    ppDBText5: TppDBText;
     ppLabel6: TppLabel;
     ppDBText6: TppDBText;
     ppLabel7: TppLabel;
     ppDBText7: TppDBText;
     ppLabel8: TppLabel;
     ppDBText8: TppDBText;
-    ppLabel9: TppLabel;
-    ppDBText9: TppDBText;
-    ppLabel10: TppLabel;
-    ppDBText10: TppDBText;
-    ppLabel11: TppLabel;
-    ppDBText11: TppDBText;
     ppLabel12: TppLabel;
     rdgOpcao: TRadioGroup;
     Button1: TButton;
@@ -69,9 +62,33 @@ type
     DateTimePicker1: TDateTimePicker;
     DateTimePicker2: TDateTimePicker;
     Label1: TLabel;
+    ppLabel18: TppLabel;
+    ppLabel19: TppLabel;
+    ppDBText14: TppDBText;
+    ppDBText15: TppDBText;
+    varTotal: TppVariable;
+    ppLabel20: TppLabel;
+    ppLabel9: TppLabel;
+    varTotalAnalitico: TppVariable;
+    lblOrigem: TppLabel;
+    ppLine4: TppLine;
+    ppLine6: TppLine;
+    ppLabel10: TppLabel;
+    varDataInicial: TppVariable;
+    ppLabel11: TppLabel;
+    varDataFinal: TppVariable;
+    ppLabel21: TppLabel;
+    varDataInicialAnalitico: TppVariable;
+    ppLabel22: TppLabel;
+    varDataFinalAnalitico: TppVariable;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure ppDetailBand2AfterPrint(Sender: TObject);
+    procedure ppDetailBand1AfterPrint(Sender: TObject);
+    procedure ppDetailBand1BeforePrint(Sender: TObject);
+    procedure ppFooterBand2BeforePrint(Sender: TObject);
+    procedure ppFooterBand1BeforePrint(Sender: TObject);
   private
     { Private declarations }
 
@@ -106,16 +123,49 @@ end;
 
 procedure TfrmRELPREVREC.FormCreate(Sender: TObject);
 begin
-    cdspadrao := DataModule1.cdsCLIENTE;
+    cdspadrao := DataModule1.cdsRECTIT;
+end;
+
+procedure TfrmRELPREVREC.ppDetailBand1AfterPrint(Sender: TObject);
+begin
+    varTotalAnalitico.Value := varTotalAnalitico.Value + cdspadrao.FieldByName('VALORABERTO').AsCurrency;
+end;
+
+procedure TfrmRELPREVREC.ppDetailBand1BeforePrint(Sender: TObject);
+begin
+   if cdspadrao.FieldByName('ORIGEM_RECTIT').AsInteger = 0 then
+       lblOrigem.Caption := 'Digitado'
+   else
+       lblOrigem.Caption := 'Gerado';
+
+end;
+
+procedure TfrmRELPREVREC.ppDetailBand2AfterPrint(Sender: TObject);
+begin
+      varTotal.Value := varTotal.Value + cdspadrao.FieldByName('VALORABERTO').AsCurrency;
+end;
+
+procedure TfrmRELPREVREC.ppFooterBand1BeforePrint(Sender: TObject);
+begin
+     varDataInicialAnalitico.Value := DateTimePicker1.Date;
+   varDataFinalAnalitico.Value := DateTimePicker2.Date;
+end;
+
+procedure TfrmRELPREVREC.ppFooterBand2BeforePrint(Sender: TObject);
+begin
+   varDatainicial.Value := DateTimePicker1.Date;
+   varDataFinal.Value := DateTimePicker2.Date;
 end;
 
 procedure TfrmRELPREVREC.prepararSQL;
 var
 where :String;
 begin
+    varTotal.Value := 0;
     cdspadrao.Close;
-    cdspadrao.CommandText := 'select * from rectit left outer join cliente on CODIGO_CLI = CODCLI_RECTIT where 1=1 ';
-
+    cdspadrao.CommandText := ' select SEQ_RECTIT, ORIGEM_RECTIT,DATAEMISSAO_RECTIT,DATAVENC_RECTIT,VALORTOTAL_RECTIT,NOME_CLI,' +
+                             ' VALORPAGO_RECTIT, CODCLI_RECTIT,(VALORTOTAL_RECTIT - VALORPAGO_RECTIT) AS VALORABERTO from RECTIT' +
+                              ' LEFT OUTER JOIN CLIENTE ON CODIGO_CLI = CODCLI_RECTIT where 1=1';
       if DateTimePicker1.Date > DateTimePicker2.Date then
           begin
                  showmessage('Data Inicial não pode ser maior que Data Final!');

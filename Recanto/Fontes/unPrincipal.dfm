@@ -104,6 +104,10 @@ object frmPRINCIPAL: TfrmPRINCIPAL
         object tulos1: TMenuItem
           Caption = 'T'#237'tulos'
         end
+        object PrevisodeRecebimento1: TMenuItem
+          Caption = 'Previs'#227'o de Recebimento'
+          OnClick = PrevisodeRecebimento1Click
+        end
       end
       object ContasaPagar3: TMenuItem
         Caption = 'Contas a Pagar'
@@ -113,6 +117,10 @@ object frmPRINCIPAL: TfrmPRINCIPAL
         end
         object tulos2: TMenuItem
           Caption = 'T'#237'tulos'
+        end
+        object PrevisodePagamento1: TMenuItem
+          Caption = 'Previs'#227'o de Pagamento'
+          OnClick = PrevisodePagamento1Click
         end
       end
     end

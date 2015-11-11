@@ -39,6 +39,8 @@ type
     Estoque2: TMenuItem;
     Movimento2: TMenuItem;
     Compra1: TMenuItem;
+    PrevisodeRecebimento1: TMenuItem;
+    PrevisodePagamento1: TMenuItem;
     procedure Cliente1Click(Sender: TObject);
     procedure Fornecedor1Click(Sender: TObject);
     procedure Funcionrio1Click(Sender: TObject);
@@ -50,6 +52,8 @@ type
     procedure Grupo1Click(Sender: TObject);
     procedure Item1Click(Sender: TObject);
     procedure ipodeMovimento1Click(Sender: TObject);
+    procedure PrevisodeRecebimento1Click(Sender: TObject);
+    procedure PrevisodePagamento1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -64,7 +68,7 @@ implementation
 {$R *.dfm}
 
 uses unCLI, unFOR, unFUN, unPAGTIT, unRELCLI, unRECTIT, unRELFOR, unTER, unGRP,
-  unITE, unTMO;
+  unITE, unTMO, unRELPREVREC, unRELPREVPAG;
 
 procedure TfrmPRINCIPAL.Cliente1Click(Sender: TObject);
 begin
@@ -118,6 +122,18 @@ procedure TfrmPRINCIPAL.Item1Click(Sender: TObject);
 begin
     Application.CreateForm(TfrmITE,frmITE);
      frmITE.ShowModal;
+end;
+
+procedure TfrmPRINCIPAL.PrevisodePagamento1Click(Sender: TObject);
+begin
+   Application.CreateForm(TfrmRELPREVPAG,frmRELPREVPAG);
+     frmRELPREVPAG.ShowModal;
+end;
+
+procedure TfrmPRINCIPAL.PrevisodeRecebimento1Click(Sender: TObject);
+begin
+     Application.CreateForm(TfrmRELPREVREC,frmRELPREVREC);
+     frmRELPREVREC.ShowModal;
 end;
 
 procedure TfrmPRINCIPAL.tulo1Click(Sender: TObject);

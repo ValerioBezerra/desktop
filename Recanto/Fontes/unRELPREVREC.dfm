@@ -98,6 +98,8 @@ object frmRELPREVREC: TfrmRELPREVREC
     PrinterSetup.mmPaperHeight = 279400
     PrinterSetup.mmPaperWidth = 215900
     PrinterSetup.PaperSize = 1
+    AllowPrintToArchive = True
+    AllowPrintToFile = True
     ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
     DeviceType = 'Screen'
     DefaultFileDeviceType = 'PDF'
@@ -125,6 +127,7 @@ object frmRELPREVREC: TfrmRELPREVREC
     RTFSettings.DefaultFont.Height = -13
     RTFSettings.DefaultFont.Name = 'Arial'
     RTFSettings.DefaultFont.Style = []
+    SavePrinterSetup = True
     TextFileName = '($MyDocuments)\Report.pdf'
     TextSearchSettings.DefaultString = '<FindText>'
     TextSearchSettings.Enabled = True
@@ -164,7 +167,7 @@ object frmRELPREVREC: TfrmRELPREVREC
       object ppLabel13: TppLabel
         DesignLayer = ppDesignLayer1
         UserName = 'Label13'
-        Caption = 'Relat'#243'rio Previs'#227'o de Recebimento'
+        Caption = 'Relat'#243'rio Anal'#237'tico Previs'#227'o de Recebimento'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -173,9 +176,9 @@ object frmRELPREVREC: TfrmRELPREVREC
         FormField = False
         Transparent = True
         mmHeight = 4763
-        mmLeft = 74348
+        mmLeft = 70908
         mmTop = 10054
-        mmWidth = 65617
+        mmWidth = 82286
         BandType = 0
         LayerName = Foreground
       end
@@ -208,10 +211,12 @@ object frmRELPREVREC: TfrmRELPREVREC
       end
     end
     object ppDetailBand1: TppDetailBand
+      AfterPrint = ppDetailBand1AfterPrint
+      BeforePrint = ppDetailBand1BeforePrint
       Background1.Brush.Style = bsClear
       Background2.Brush.Style = bsClear
       mmBottomOffset = 0
-      mmHeight = 45773
+      mmHeight = 40481
       mmPrintPosition = 0
       object ppLabel1: TppLabel
         DesignLayer = ppDesignLayer1
@@ -221,7 +226,7 @@ object frmRELPREVREC: TfrmRELPREVREC
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         FormField = False
         Transparent = True
@@ -235,12 +240,12 @@ object frmRELPREVREC: TfrmRELPREVREC
       object ppDBText1: TppDBText
         DesignLayer = ppDesignLayer1
         UserName = 'DBText1'
-        DataField = 'CODIGO_CLI'
+        DataField = 'SEQ_RECTIT'
         DataPipeline = ppBDEPipeline1
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
@@ -255,11 +260,11 @@ object frmRELPREVREC: TfrmRELPREVREC
         DesignLayer = ppDesignLayer1
         UserName = 'Label2'
         AutoSize = False
-        Caption = 'Nome:'
+        Caption = 'Cliente:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         FormField = False
         Transparent = True
@@ -278,7 +283,7 @@ object frmRELPREVREC: TfrmRELPREVREC
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
@@ -293,37 +298,37 @@ object frmRELPREVREC: TfrmRELPREVREC
         DesignLayer = ppDesignLayer1
         UserName = 'Label3'
         AutoSize = False
-        Caption = 'Cpf:'
+        Caption = 'Emiss'#227'o:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         FormField = False
         Transparent = True
         mmHeight = 4763
         mmLeft = 7673
         mmTop = 9260
-        mmWidth = 11642
+        mmWidth = 17463
         BandType = 4
         LayerName = Foreground
       end
       object ppDBText3: TppDBText
         DesignLayer = ppDesignLayer1
         UserName = 'DBText3'
-        DataField = 'CPF_CLI'
+        DataField = 'DATAEMISSAO_RECTIT'
         DataPipeline = ppBDEPipeline1
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 19844
+        mmLeft = 27517
         mmTop = 9260
-        mmWidth = 54504
+        mmWidth = 45244
         BandType = 4
         LayerName = Foreground
       end
@@ -331,11 +336,11 @@ object frmRELPREVREC: TfrmRELPREVREC
         DesignLayer = ppDesignLayer1
         UserName = 'Label4'
         AutoSize = False
-        Caption = 'Identidade:'
+        Caption = 'Vencimento:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         FormField = False
         Transparent = True
@@ -349,12 +354,12 @@ object frmRELPREVREC: TfrmRELPREVREC
       object ppDBText4: TppDBText
         DesignLayer = ppDesignLayer1
         UserName = 'DBText4'
-        DataField = 'IDENTIDADE_CLI'
+        DataField = 'DATAVENC_RECTIT'
         DataPipeline = ppBDEPipeline1
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
@@ -369,37 +374,18 @@ object frmRELPREVREC: TfrmRELPREVREC
         DesignLayer = ppDesignLayer1
         UserName = 'Label5'
         AutoSize = False
-        Caption = 'Endere'#231'o:'
+        Caption = 'Origem:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         FormField = False
         Transparent = True
         mmHeight = 4763
         mmLeft = 7673
-        mmTop = 16140
+        mmTop = 15345
         mmWidth = 22225
-        BandType = 4
-        LayerName = Foreground
-      end
-      object ppDBText5: TppDBText
-        DesignLayer = ppDesignLayer1
-        UserName = 'DBText5'
-        DataField = 'ENDERECO_CLI'
-        DataPipeline = ppBDEPipeline1
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Arial'
-        Font.Size = 12
-        Font.Style = []
-        Transparent = True
-        DataPipelineName = 'ppBDEPipeline1'
-        mmHeight = 4763
-        mmLeft = 30163
-        mmTop = 16140
-        mmWidth = 159809
         BandType = 4
         LayerName = Foreground
       end
@@ -407,37 +393,38 @@ object frmRELPREVREC: TfrmRELPREVREC
         DesignLayer = ppDesignLayer1
         UserName = 'Label6'
         AutoSize = False
-        Caption = 'N'#250'mero:'
+        Caption = 'Valor Total:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         FormField = False
         Transparent = True
         mmHeight = 4763
         mmLeft = 7673
         mmTop = 21696
-        mmWidth = 18521
+        mmWidth = 22225
         BandType = 4
         LayerName = Foreground
       end
       object ppDBText6: TppDBText
         DesignLayer = ppDesignLayer1
         UserName = 'DBText6'
-        DataField = 'NUMEND_CLI'
+        DataField = 'VALORTOTAL_RECTIT'
         DataPipeline = ppBDEPipeline1
+        DisplayFormat = '$ #,0.00'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 30163
+        mmLeft = 32283
         mmTop = 21696
-        mmWidth = 20108
+        mmWidth = 20903
         BandType = 4
         LayerName = Foreground
       end
@@ -445,37 +432,38 @@ object frmRELPREVREC: TfrmRELPREVREC
         DesignLayer = ppDesignLayer1
         UserName = 'Label7'
         AutoSize = False
-        Caption = 'Bairro'
+        Caption = 'Valor Pago:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         FormField = False
         Transparent = True
         mmHeight = 4763
         mmLeft = 61119
         mmTop = 21696
-        mmWidth = 16669
+        mmWidth = 23283
         BandType = 4
         LayerName = Foreground
       end
       object ppDBText7: TppDBText
         DesignLayer = ppDesignLayer1
         UserName = 'DBText7'
-        DataField = 'BAIRRO_CLI'
+        DataField = 'VALORPAGO_RECTIT'
         DataPipeline = ppBDEPipeline1
+        DisplayFormat = '$ #,0.00'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 76200
+        mmLeft = 87310
         mmTop = 21696
-        mmWidth = 98425
+        mmWidth = 85725
         BandType = 4
         LayerName = Foreground
       end
@@ -483,151 +471,38 @@ object frmRELPREVREC: TfrmRELPREVREC
         DesignLayer = ppDesignLayer1
         UserName = 'Label8'
         AutoSize = False
-        Caption = 'Cidade:'
+        Caption = 'Valor Aberto:'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
+        Font.Size = 11
         Font.Style = []
         FormField = False
         Transparent = True
         mmHeight = 4763
-        mmLeft = 7673
-        mmTop = 26723
-        mmWidth = 17463
+        mmLeft = 59267
+        mmTop = 29104
+        mmWidth = 26194
         BandType = 4
         LayerName = Foreground
       end
       object ppDBText8: TppDBText
         DesignLayer = ppDesignLayer1
         UserName = 'DBText8'
-        DataField = 'CIDADE_CLI'
+        DataField = 'VALORABERTO'
         DataPipeline = ppBDEPipeline1
+        DisplayFormat = '$ #,0.00'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
-        Font.Size = 12
-        Font.Style = []
+        Font.Size = 11
+        Font.Style = [fsBold]
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 30163
-        mmTop = 26723
-        mmWidth = 96309
-        BandType = 4
-        LayerName = Foreground
-      end
-      object ppLabel9: TppLabel
-        DesignLayer = ppDesignLayer1
-        UserName = 'Label9'
-        AutoSize = False
-        Caption = 'Estado:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Arial'
-        Font.Size = 12
-        Font.Style = []
-        FormField = False
-        Transparent = True
-        mmHeight = 4763
-        mmLeft = 130175
-        mmTop = 26723
-        mmWidth = 15346
-        BandType = 4
-        LayerName = Foreground
-      end
-      object ppDBText9: TppDBText
-        DesignLayer = ppDesignLayer1
-        UserName = 'DBText9'
-        DataField = 'UF_CLI'
-        DataPipeline = ppBDEPipeline1
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Arial'
-        Font.Size = 12
-        Font.Style = []
-        Transparent = True
-        DataPipelineName = 'ppBDEPipeline1'
-        mmHeight = 4763
-        mmLeft = 147638
-        mmTop = 26723
-        mmWidth = 7408
-        BandType = 4
-        LayerName = Foreground
-      end
-      object ppLabel10: TppLabel
-        DesignLayer = ppDesignLayer1
-        UserName = 'Label10'
-        AutoSize = False
-        Caption = 'Telefone:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Arial'
-        Font.Size = 12
-        Font.Style = []
-        FormField = False
-        Transparent = True
-        mmHeight = 4763
-        mmLeft = 7673
-        mmTop = 33073
-        mmWidth = 19579
-        BandType = 4
-        LayerName = Foreground
-      end
-      object ppDBText10: TppDBText
-        DesignLayer = ppDesignLayer1
-        UserName = 'DBText10'
-        DataField = 'TELEFONE_CLI'
-        DataPipeline = ppBDEPipeline1
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Arial'
-        Font.Size = 12
-        Font.Style = []
-        Transparent = True
-        DataPipelineName = 'ppBDEPipeline1'
-        mmHeight = 4763
-        mmLeft = 30163
-        mmTop = 33073
-        mmWidth = 48683
-        BandType = 4
-        LayerName = Foreground
-      end
-      object ppLabel11: TppLabel
-        DesignLayer = ppDesignLayer1
-        UserName = 'Label11'
-        AutoSize = False
-        Caption = 'Celular:'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Arial'
-        Font.Size = 12
-        Font.Style = []
-        FormField = False
-        Transparent = True
-        mmHeight = 4763
-        mmLeft = 95250
-        mmTop = 33073
-        mmWidth = 17463
-        BandType = 4
-        LayerName = Foreground
-      end
-      object ppDBText11: TppDBText
-        DesignLayer = ppDesignLayer1
-        UserName = 'DBText11'
-        DataField = 'CELULAR_CLI'
-        DataPipeline = ppBDEPipeline1
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Name = 'Arial'
-        Font.Size = 12
-        Font.Style = []
-        Transparent = True
-        DataPipelineName = 'ppBDEPipeline1'
-        mmHeight = 4763
-        mmLeft = 115623
-        mmTop = 33073
-        mmWidth = 48683
+        mmLeft = 87310
+        mmTop = 29104
+        mmWidth = 85461
         BandType = 4
         LayerName = Foreground
       end
@@ -638,17 +513,158 @@ object frmRELPREVREC: TfrmRELPREVREC
         Weight = 0.750000000000000000
         mmHeight = 3969
         mmLeft = 2381
-        mmTop = 40481
+        mmTop = 35181
         mmWidth = 201348
+        BandType = 4
+        LayerName = Foreground
+      end
+      object lblOrigem: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'lblOrigem'
+        Caption = 'lblOrigem'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 11
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4498
+        mmLeft = 33338
+        mmTop = 15346
+        mmWidth = 16668
         BandType = 4
         LayerName = Foreground
       end
     end
     object ppFooterBand1: TppFooterBand
+      BeforePrint = ppFooterBand1BeforePrint
       Background.Brush.Style = bsClear
       mmBottomOffset = 0
-      mmHeight = 13229
+      mmHeight = 9790
       mmPrintPosition = 0
+      object ppLabel9: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label9'
+        Caption = 'Total'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4762
+        mmLeft = 165365
+        mmTop = 3173
+        mmWidth = 8996
+        BandType = 8
+        LayerName = Foreground
+      end
+      object varTotalAnalitico: TppVariable
+        DesignLayer = ppDesignLayer1
+        UserName = 'varTotalAnalitico'
+        BlankWhenZero = False
+        CalcOrder = 0
+        DataType = dtCurrency
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 176742
+        mmTop = 3173
+        mmWidth = 20373
+        BandType = 8
+        LayerName = Foreground
+      end
+      object ppLine4: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line3'
+        Weight = 0.750000000000000000
+        mmHeight = 3969
+        mmLeft = 1058
+        mmTop = 789
+        mmWidth = 201348
+        BandType = 8
+        LayerName = Foreground
+      end
+      object ppLabel21: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label101'
+        Caption = 'Per'#237'odo:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4762
+        mmLeft = 5292
+        mmTop = 4763
+        mmWidth = 16669
+        BandType = 8
+        LayerName = Foreground
+      end
+      object varDataInicialAnalitico: TppVariable
+        DesignLayer = ppDesignLayer1
+        UserName = 'varDataInicial1'
+        BlankWhenZero = False
+        CalcOrder = 1
+        DataType = dtDate
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        mmHeight = 4762
+        mmLeft = 24606
+        mmTop = 4763
+        mmWidth = 20638
+        BandType = 8
+        LayerName = Foreground
+      end
+      object ppLabel22: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label22'
+        Caption = 'a'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 47361
+        mmTop = 4763
+        mmWidth = 2381
+        BandType = 8
+        LayerName = Foreground
+      end
+      object varDataFinalAnalitico: TppVariable
+        DesignLayer = ppDesignLayer1
+        UserName = 'varDataFinal1'
+        BlankWhenZero = False
+        CalcOrder = 2
+        DataType = dtDate
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 52917
+        mmTop = 5027
+        mmWidth = 23548
+        BandType = 8
+        LayerName = Foreground
+      end
     end
     object ppDesignLayers1: TppDesignLayers
       object ppDesignLayer1: TppDesignLayer
@@ -671,7 +687,7 @@ object frmRELPREVREC: TfrmRELPREVREC
       FieldName = 'SEQ_RECTIT'
       FieldLength = 0
       DataType = dtInteger
-      DisplayWidth = 0
+      DisplayWidth = 10
       Position = 0
     end
     object ppBDEPipeline1ppField2: TppField
@@ -751,6 +767,8 @@ object frmRELPREVREC: TfrmRELPREVREC
     PrinterSetup.mmPaperHeight = 279400
     PrinterSetup.mmPaperWidth = 215900
     PrinterSetup.PaperSize = 1
+    AllowPrintToArchive = True
+    AllowPrintToFile = True
     ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
     DeviceType = 'Screen'
     DefaultFileDeviceType = 'PDF'
@@ -817,7 +835,7 @@ object frmRELPREVREC: TfrmRELPREVREC
       object ppLabel15: TppLabel
         DesignLayer = ppDesignLayer2
         UserName = 'Label13'
-        Caption = 'Relat'#243'rio Sint'#233'tico de Clientes'
+        Caption = 'Relat'#243'rio Sint'#233'tico - Previs'#227'o de Recebimento'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -828,7 +846,7 @@ object frmRELPREVREC: TfrmRELPREVREC
         mmHeight = 4763
         mmLeft = 74348
         mmTop = 10054
-        mmWidth = 55827
+        mmWidth = 85196
         BandType = 0
         LayerName = Foreground1
       end
@@ -863,7 +881,7 @@ object frmRELPREVREC: TfrmRELPREVREC
         DesignLayer = ppDesignLayer2
         UserName = 'Label1'
         AutoSize = False
-        Caption = 'C'#243'digo:'
+        Caption = 'Emiss'#227'o'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -882,7 +900,7 @@ object frmRELPREVREC: TfrmRELPREVREC
         DesignLayer = ppDesignLayer2
         UserName = 'Label2'
         AutoSize = False
-        Caption = 'Nome:'
+        Caption = 'Cliente'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -891,7 +909,7 @@ object frmRELPREVREC: TfrmRELPREVREC
         FormField = False
         Transparent = True
         mmHeight = 4763
-        mmLeft = 41275
+        mmLeft = 68835
         mmTop = 16137
         mmWidth = 14817
         BandType = 0
@@ -908,8 +926,47 @@ object frmRELPREVREC: TfrmRELPREVREC
         BandType = 0
         LayerName = Foreground1
       end
+      object ppLabel18: TppLabel
+        DesignLayer = ppDesignLayer2
+        UserName = 'Label18'
+        AutoSize = False
+        Caption = 'Valor'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 178856
+        mmTop = 15610
+        mmWidth = 14817
+        BandType = 0
+        LayerName = Foreground1
+      end
+      object ppLabel19: TppLabel
+        DesignLayer = ppDesignLayer2
+        UserName = 'Label19'
+        AutoSize = False
+        Caption = 'Vencimento'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 38144
+        mmTop = 16136
+        mmWidth = 23283
+        BandType = 0
+        LayerName = Foreground1
+      end
     end
     object ppDetailBand2: TppDetailBand
+      AfterPrint = ppDetailBand2AfterPrint
       Background1.Brush.Style = bsClear
       Background2.Brush.Style = bsClear
       mmBottomOffset = 0
@@ -918,7 +975,7 @@ object frmRELPREVREC: TfrmRELPREVREC
       object ppDBText12: TppDBText
         DesignLayer = ppDesignLayer2
         UserName = 'DBText1'
-        DataField = 'CODIGO_CLI'
+        DataField = 'DATAEMISSAO_RECTIT'
         DataPipeline = ppBDEPipeline1
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -947,18 +1004,180 @@ object frmRELPREVREC: TfrmRELPREVREC
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 41275
+        mmLeft = 69586
         mmTop = 525
-        mmWidth = 128059
+        mmWidth = 99748
+        BandType = 4
+        LayerName = Foreground1
+      end
+      object ppDBText14: TppDBText
+        DesignLayer = ppDesignLayer2
+        UserName = 'DBText14'
+        DataField = 'DATAVENC_RECTIT'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 4763
+        mmLeft = 38100
+        mmTop = 529
+        mmWidth = 24342
+        BandType = 4
+        LayerName = Foreground1
+      end
+      object ppDBText15: TppDBText
+        DesignLayer = ppDesignLayer2
+        UserName = 'DBText15'
+        DataField = 'VALORABERTO'
+        DataPipeline = ppBDEPipeline1
+        DisplayFormat = '$ #,0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 4763
+        mmLeft = 180179
+        mmTop = 529
+        mmWidth = 22225
         BandType = 4
         LayerName = Foreground1
       end
     end
     object ppFooterBand2: TppFooterBand
+      BeforePrint = ppFooterBand2BeforePrint
       Background.Brush.Style = bsClear
       mmBottomOffset = 0
-      mmHeight = 13229
+      mmHeight = 9790
       mmPrintPosition = 0
+      object varTotal: TppVariable
+        DesignLayer = ppDesignLayer2
+        UserName = 'varTotal'
+        BlankWhenZero = False
+        CalcOrder = 0
+        DataType = dtCurrency
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        mmHeight = 4762
+        mmLeft = 181769
+        mmTop = 3436
+        mmWidth = 14552
+        BandType = 8
+        LayerName = Foreground1
+      end
+      object ppLabel20: TppLabel
+        DesignLayer = ppDesignLayer2
+        UserName = 'Label20'
+        Caption = 'Total'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 160338
+        mmTop = 3436
+        mmWidth = 8996
+        BandType = 8
+        LayerName = Foreground1
+      end
+      object ppLine6: TppLine
+        DesignLayer = ppDesignLayer2
+        UserName = 'Line6'
+        Weight = 0.750000000000000000
+        mmHeight = 3969
+        mmLeft = 1323
+        mmTop = 1588
+        mmWidth = 201348
+        BandType = 8
+        LayerName = Foreground1
+      end
+      object ppLabel10: TppLabel
+        DesignLayer = ppDesignLayer2
+        UserName = 'Label10'
+        Caption = 'Per'#237'odo:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4762
+        mmLeft = 5292
+        mmTop = 4763
+        mmWidth = 16669
+        BandType = 8
+        LayerName = Foreground1
+      end
+      object varDataInicial: TppVariable
+        DesignLayer = ppDesignLayer2
+        UserName = 'varDataInicial'
+        BlankWhenZero = False
+        CalcOrder = 1
+        DataType = dtDate
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        mmHeight = 4762
+        mmLeft = 24606
+        mmTop = 4763
+        mmWidth = 20638
+        BandType = 8
+        LayerName = Foreground1
+      end
+      object ppLabel11: TppLabel
+        DesignLayer = ppDesignLayer2
+        UserName = 'Label11'
+        Caption = 'a'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        FormField = False
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 47361
+        mmTop = 4759
+        mmWidth = 2381
+        BandType = 8
+        LayerName = Foreground1
+      end
+      object varDataFinal: TppVariable
+        DesignLayer = ppDesignLayer2
+        UserName = 'varDataFinal'
+        BlankWhenZero = False
+        CalcOrder = 2
+        DataType = dtDate
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 52917
+        mmTop = 5027
+        mmWidth = 23548
+        BandType = 8
+        LayerName = Foreground1
+      end
     end
     object ppDesignLayers2: TppDesignLayers
       object ppDesignLayer2: TppDesignLayer
