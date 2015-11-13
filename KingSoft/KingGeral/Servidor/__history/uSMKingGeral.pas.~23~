@@ -1,0 +1,78 @@
+unit uSMKingGeral;
+
+interface
+
+uses System.SysUtils, System.Classes, System.Json,
+    Datasnap.DSServer, Datasnap.DSAuth, DataSnap.DSProviderDataModuleAdapter,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, FireDAC.Phys.FB, FireDAC.Phys.FBDef, Data.DB,
+  FireDAC.Comp.Client, Dialogs, FireDAC.Stan.Param, FireDAC.DatS,
+  FireDAC.DApt.Intf, FireDAC.DApt, Datasnap.Provider, FireDAC.Comp.DataSet,
+  FireDAC.Phys.IBBase, uParametro;
+
+type
+  TSMKingGeral = class(TDSServerModule)
+    FDConnection: TFDConnection;
+    FDQConsulta: TFDQuery;
+    DSPConsulta: TDataSetProvider;
+    FDPhysFBDriverLink: TFDPhysFBDriverLink;
+    procedure DSServerModuleCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    function TestarDados(Parametro: TParametro): String;
+    procedure StartTrasation;
+    procedure Commit;
+    procedure RollBack;
+  end;
+
+implementation
+
+
+{$R *.dfm}
+
+
+uses System.StrUtils, uConexao;
+
+procedure TSMKingGeral.Commit;
+begin
+  if (FDConnection.InTransaction) then
+    FDConnection.Commit;
+end;
+
+procedure TSMKingGeral.DSServerModuleCreate(Sender: TObject);
+var
+  Conexao: TConexao;
+begin
+  Conexao := TConexao.Create;
+
+  FDConnection.Close;
+  FDConnection.Params.Values['DriverID']  := 'FB';
+  FDConnection.Params.Values['Database']  := Conexao.DataBase;
+  FDConnection.Params.Values['User_Name'] := 'SYSDBA';
+  FDConnection.Params.Values['Password']  := 'masterkey';
+  FDConnection.Params.Values['Protocol']  := 'TCPIP';
+  FDConnection.Params.Values['Server']    := Conexao.Server;
+  FDPhysFBDriverLink.VendorLib            := Conexao.VendorLib;
+end;
+
+procedure TSMKingGeral.RollBack;
+begin
+  if (FDConnection.InTransaction) then
+    FDConnection.Rollback;
+end;
+
+procedure TSMKingGeral.StartTrasation;
+begin
+  FDConnection.StartTransaction;
+end;
+
+function TSMKingGeral.TestarDados(Parametro: TParametro): String;
+begin
+
+end;
+
+end.
+

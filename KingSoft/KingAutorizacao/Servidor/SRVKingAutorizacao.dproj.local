@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2015/10/31 10:58:33.000.114,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/10/31 10:58:37.000.591,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2015/10/31 10:58:45.000.172,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
+    <Transaction>2015/11/13 13:26:23.915,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/11/13 13:26:24.000,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2015/11/13 13:26:24.224,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
+    <Transaction>2015/11/13 13:26:42.155,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uKingAutorizacao.pas=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/11/13 13:26:42.155,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uKingAutorizacao.dfm=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2015/11/13 13:26:48.724,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uSCKingAutorizacao.pas=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
+    <Transaction>2015/11/13 13:26:48.724,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uSCKingAutorizacao.dfm=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.dfm</Transaction>
+    <Transaction>2015/11/13 13:26:53.830,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uSMKingAutorizacao.pas=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2015/11/13 13:26:53.830,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uSMKingAutorizacao.dfm=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.dfm</Transaction>
+    <Transaction>2015/11/13 13:27:01.773,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\SRVKingAutorizacao.dproj=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

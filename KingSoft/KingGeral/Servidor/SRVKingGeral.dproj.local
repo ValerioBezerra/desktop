@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2015/10/31 10:58:33.000.114,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/10/31 10:58:37.000.591,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2015/10/31 10:58:45.000.172,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
+    <Transaction>2015/11/12 22:45:19.000.726,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2015/11/12 22:45:19.000.234,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/11/12 22:45:19.000.812,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
+    <Transaction>2015/11/12 22:47:19.000.179,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\uKingGeral.dfm=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2015/11/12 22:47:19.000.179,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\uKingGeral.pas=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/11/12 22:47:31.000.034,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\uSCKingGeral.pas=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
+    <Transaction>2015/11/12 22:47:31.000.034,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\uSCKingGeral.dfm=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.dfm</Transaction>
+    <Transaction>2015/11/12 22:47:37.000.914,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\uSMKingGeral.dfm=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.dfm</Transaction>
+    <Transaction>2015/11/12 22:47:37.000.914,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\uSMKingGeral.pas=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2015/11/12 22:47:47.000.137,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\SRVKingGeral.dproj=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2015/11/12 22:50:25.000.741,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uConexao.pas</Transaction>
+    <Transaction>2015/11/12 23:09:18.092,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uConexao.pas</Transaction>
+  </Transactions>
+</BorlandProject>
