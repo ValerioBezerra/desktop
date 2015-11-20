@@ -8,7 +8,7 @@ uses
   Datasnap.DSConnect;
 
 type
-  TClientModule1 = class(TDataModule)
+  TcmKingGeral = class(TDataModule)
     SQLConnection: TSQLConnection;
     DSProviderConnection: TDSProviderConnection;
     cdsConsulta: TClientDataSet;
@@ -26,7 +26,7 @@ type
 end;
 
 var
-  ClientModule1: TClientModule1;
+  cmKingGeral: TcmKingGeral;
 
 implementation
 
@@ -34,19 +34,19 @@ implementation
 
 {$R *.dfm}
 
-constructor TClientModule1.Create(AOwner: TComponent);
+constructor TcmKingGeral.Create(AOwner: TComponent);
 begin
   inherited;
   FInstanceOwner := True;
 end;
 
-destructor TClientModule1.Destroy;
+destructor TcmKingGeral.Destroy;
 begin
   FSMKingGeralClient.Free;
   inherited;
 end;
 
-function TClientModule1.GetSMKingGeralClient: TSMKingGeralClient;
+function TcmKingGeral.GetSMKingGeralClient: TSMKingGeralClient;
 begin
   if FSMKingGeralClient = nil then
   begin

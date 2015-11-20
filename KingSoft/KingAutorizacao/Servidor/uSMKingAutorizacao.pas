@@ -18,6 +18,16 @@ type
     dspConsulta: TDataSetProvider;
     fdqAUT_PER: TFDQuery;
     dspAUT_PER: TDataSetProvider;
+    fdqAUT_USU: TFDQuery;
+    dspAUT_USU: TDataSetProvider;
+    fdqAUT_MOD: TFDQuery;
+    dspAUT_MOD: TDataSetProvider;
+    fdqAUT_PRO: TFDQuery;
+    dspAUT_PRO: TDataSetProvider;
+    fdqAUT_APE: TFDQuery;
+    dspAUT_APE: TDataSetProvider;
+    fdqAUT_AUS: TFDQuery;
+    dspAUT_AUS: TDataSetProvider;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -35,7 +45,7 @@ implementation
 {$R *.dfm}
 
 
-uses System.StrUtils, uConexao;
+uses System.StrUtils, uConfiguracao;
 
 procedure TSMKingAutorizacao.Commit;
 begin
@@ -45,18 +55,18 @@ end;
 
 procedure TSMKingAutorizacao.DSServerModuleCreate(Sender: TObject);
 var
-  Conexao: TConexao;
+  Configuracao: TConfiguracao;
 begin
-  Conexao := TConexao.Create;
+  Configuracao := TConfiguracao.Create;
 
   FDConnection.Close;
   FDConnection.Params.Values['DriverID']  := 'FB';
-  FDConnection.Params.Values['Database']  := Conexao.DataBase;
+  FDConnection.Params.Values['Database']  := Configuracao.DataBase;
   FDConnection.Params.Values['User_Name'] := 'SYSDBA';
   FDConnection.Params.Values['Password']  := 'masterkey';
   FDConnection.Params.Values['Protocol']  := 'TCPIP';
-  FDConnection.Params.Values['Server']    := Conexao.Server;
-  FDPhysFBDriverLink.VendorLib            := Conexao.VendorLib;
+  FDConnection.Params.Values['Server']    := Configuracao.Server;
+  FDPhysFBDriverLink.VendorLib            := Configuracao.VendorLib;
 end;
 
 procedure TSMKingAutorizacao.RollBack;

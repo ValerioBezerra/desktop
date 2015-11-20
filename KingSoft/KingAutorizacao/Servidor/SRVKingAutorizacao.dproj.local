@@ -4,15 +4,20 @@
     <Transaction>2015/10/31 10:58:33.000.114,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2015/10/31 10:58:37.000.591,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
     <Transaction>2015/10/31 10:58:45.000.172,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
-    <Transaction>2015/11/13 13:26:23.915,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2015/11/13 13:26:24.000,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
-    <Transaction>2015/11/13 13:26:24.224,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
-    <Transaction>2015/11/13 13:26:42.155,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uKingAutorizacao.pas=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2015/11/13 13:26:42.155,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uKingAutorizacao.dfm=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2015/11/13 13:26:48.724,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uSCKingAutorizacao.pas=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
-    <Transaction>2015/11/13 13:26:48.724,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uSCKingAutorizacao.dfm=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.dfm</Transaction>
-    <Transaction>2015/11/13 13:26:53.830,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uSMKingAutorizacao.pas=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
-    <Transaction>2015/11/13 13:26:53.830,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uSMKingAutorizacao.dfm=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.dfm</Transaction>
-    <Transaction>2015/11/13 13:27:01.773,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\SRVKingAutorizacao.dproj=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2015/11/13 13:26:23.000.915,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/11/13 13:26:24.000.000,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2015/11/13 13:26:24.000.224,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
+    <Transaction>2015/11/13 13:26:42.000.155,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uKingAutorizacao.dfm</Transaction>
+    <Transaction>2015/11/13 13:26:42.000.155,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uKingAutorizacao.pas</Transaction>
+    <Transaction>2015/11/13 13:26:48.000.724,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uSCKingAutorizacao.pas</Transaction>
+    <Transaction>2015/11/13 13:26:48.000.724,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uSCKingAutorizacao.dfm</Transaction>
+    <Transaction>2015/11/13 13:26:53.000.830,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uSMKingAutorizacao.dfm</Transaction>
+    <Transaction>2015/11/13 13:26:53.000.830,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\uSMKingAutorizacao.pas</Transaction>
+    <Transaction>2015/11/13 13:27:01.000.773,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Servidor\SRVKingAutorizacao.dproj</Transaction>
+    <Transaction>2015/11/13 13:31:02.000.931,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uParametro.pas</Transaction>
+    <Transaction>2015/11/13 13:31:02.000.912,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uConexao.pas</Transaction>
+    <Transaction>2015/11/19 23:16:44.064,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uConfig.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uConexao.pas</Transaction>
+    <Transaction>2015/11/19 23:17:27.396,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uConfigug.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uConfig.pas</Transaction>
+    <Transaction>2015/11/19 23:17:35.296,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uConfiguracao.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uConfigug.pas</Transaction>
   </Transactions>
 </BorlandProject>

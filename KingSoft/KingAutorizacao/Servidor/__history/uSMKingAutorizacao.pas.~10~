@@ -14,8 +14,10 @@ type
   TSMKingAutorizacao = class(TDSServerModule)
     FDConnection: TFDConnection;
     FDPhysFBDriverLink: TFDPhysFBDriverLink;
-    FDQConsulta: TFDQuery;
-    DSPConsulta: TDataSetProvider;
+    fdqConsulta: TFDQuery;
+    dspConsulta: TDataSetProvider;
+    fdqAUT_PER: TFDQuery;
+    dspAUT_PER: TDataSetProvider;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -35,6 +37,12 @@ implementation
 
 uses System.StrUtils, uConexao;
 
+procedure TSMKingAutorizacao.Commit;
+begin
+  if (FDConnection.InTransaction) then
+    FDConnection.Commit;
+end;
+
 procedure TSMKingAutorizacao.DSServerModuleCreate(Sender: TObject);
 var
   Conexao: TConexao;
@@ -49,6 +57,22 @@ begin
   FDConnection.Params.Values['Protocol']  := 'TCPIP';
   FDConnection.Params.Values['Server']    := Conexao.Server;
   FDPhysFBDriverLink.VendorLib            := Conexao.VendorLib;
+end;
+
+procedure TSMKingAutorizacao.RollBack;
+begin
+  if (FDConnection.InTransaction) then
+    FDConnection.Rollback;
+end;
+
+procedure TSMKingAutorizacao.StartTransaction;
+begin
+  FDConnection.StartTransaction;
+end;
+
+function TSMKingAutorizacao.TestarDados(Parametro: TParametro): String;
+begin
+
 end;
 
 end.

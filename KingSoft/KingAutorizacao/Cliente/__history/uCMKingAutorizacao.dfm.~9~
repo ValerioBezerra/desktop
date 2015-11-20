@@ -1,0 +1,67 @@
+object cmKingAutorizacao: TcmKingAutorizacao
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 271
+  Width = 415
+  object SQLConnection: TSQLConnection
+    DriverName = 'DataSnap'
+    LoginPrompt = False
+    Params.Strings = (
+      'Port=201502'
+      'HostName=127.0.0.1'
+      'CommunicationProtocol=tcp/ip'
+      'DatasnapContext=datasnap/')
+    Connected = True
+    Left = 48
+    Top = 40
+  end
+  object DSProviderConnection: TDSProviderConnection
+    ServerClassName = 'TSMKingAutorizacao'
+    Connected = True
+    SQLConnection = SQLConnection
+    Left = 152
+    Top = 40
+  end
+  object cdsConsulta: TClientDataSet
+    Aggregates = <>
+    CommandText = 'SELECT * FROM GER_EMP WHERE 1 = 0'
+    Params = <>
+    ProviderName = 'dspConsulta'
+    RemoteServer = DSProviderConnection
+    Left = 348
+    Top = 16
+  end
+  object dsConsulta: TDataSource
+    DataSet = cdsConsulta
+    Left = 348
+    Top = 64
+  end
+  object cdsAUT_PER: TClientDataSet
+    Aggregates = <>
+    CommandText = 'SELECT * FROM AUT_PER WHERE 1 = 0'
+    Params = <>
+    ProviderName = 'dspConsulta'
+    RemoteServer = DSProviderConnection
+    Left = 44
+    Top = 120
+  end
+  object dsAUT_PER: TDataSource
+    DataSet = cdsAUT_PER
+    Left = 44
+    Top = 168
+  end
+  object cdsAUT_USU: TClientDataSet
+    Aggregates = <>
+    CommandText = 'SELECT * FROM AUT_USU WHERE 1 = 0'
+    Params = <>
+    ProviderName = 'dspConsulta'
+    RemoteServer = DSProviderConnection
+    Left = 132
+    Top = 120
+  end
+  object dsAUT_USU: TDataSource
+    DataSet = cdsAUT_USU
+    Left = 132
+    Top = 168
+  end
+end

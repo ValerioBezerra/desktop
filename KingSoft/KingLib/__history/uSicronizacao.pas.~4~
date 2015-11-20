@@ -1,0 +1,39 @@
+unit uSicronizacao;
+
+interface
+
+uses
+  SysUtils, Forms, Dialogs, IniFiles;
+
+type
+  TSicronizacao = class
+  private
+    FServer: String;
+    FPath: String;
+  public
+    constructor Create;
+    property Server: String read FServer write FServer;
+    property Path: String read FPath write FPath;
+end;
+
+implementation
+
+{ TConexao }
+
+constructor TSicronizacao.Create;
+var
+  IniFile: TIniFile;
+begin
+  if (FileExists(ExtractFilePath(Application.ExeName) + 'sinc.ini')) then
+    begin
+      IniFile := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'sinc.ini');
+      Server  := IniFile.ReadString('Sincronizacao', 'Server', '');
+      Path    := IniFile.ReadString('Sincronizacao', 'Path', '');
+      IniFile.Free;
+    end
+  else
+    ShowMessage('Arquivo sinc.ini não encontrado');
+end;
+
+end.
+

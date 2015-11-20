@@ -13,8 +13,8 @@
     <Transaction>2015/11/12 23:03:02.000.803,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\ClientModuleUnit1.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\CMKingGeral.pas</Transaction>
     <Transaction>2015/11/12 23:03:02.000.803,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\ClientModuleUnit1.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\CMKingGeral.dfm</Transaction>
     <Transaction>2015/11/12 23:03:09.000.891,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\ClientClassesUnit1.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\CCKingGeral.pas</Transaction>
-    <Transaction>2015/11/12 23:07:23.195,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uCMKingGeral.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\CMKingGeral.pas</Transaction>
-    <Transaction>2015/11/12 23:07:23.195,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uCMKingGeral.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\CMKingGeral.dfm</Transaction>
-    <Transaction>2015/11/12 23:07:38.511,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uCCKingGeral.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\CCKingGeral.pas</Transaction>
+    <Transaction>2015/11/12 23:07:23.000.195,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uCMKingGeral.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\CMKingGeral.pas</Transaction>
+    <Transaction>2015/11/12 23:07:23.000.195,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uCMKingGeral.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\CMKingGeral.dfm</Transaction>
+    <Transaction>2015/11/12 23:07:38.000.511,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uCCKingGeral.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\CCKingGeral.pas</Transaction>
   </Transactions>
 </BorlandProject>

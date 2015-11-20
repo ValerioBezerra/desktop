@@ -34,7 +34,7 @@ implementation
 {$R *.dfm}
 
 
-uses System.StrUtils, uConexao;
+uses System.StrUtils, uConfiguracao;
 
 procedure TSMKingGeral.Commit;
 begin
@@ -44,18 +44,18 @@ end;
 
 procedure TSMKingGeral.DSServerModuleCreate(Sender: TObject);
 var
-  Conexao: TConexao;
+  Configuracao: TConfiguracao;
 begin
-  Conexao := TConexao.Create;
+  Configuracao := TConfiguracao.Create;
 
   FDConnection.Close;
   FDConnection.Params.Values['DriverID']  := 'FB';
-  FDConnection.Params.Values['Database']  := Conexao.DataBase;
+  FDConnection.Params.Values['Database']  := Configuracao.DataBase;
   FDConnection.Params.Values['User_Name'] := 'SYSDBA';
   FDConnection.Params.Values['Password']  := 'masterkey';
   FDConnection.Params.Values['Protocol']  := 'TCPIP';
-  FDConnection.Params.Values['Server']    := Conexao.Server;
-  FDPhysFBDriverLink.VendorLib            := Conexao.VendorLib;
+  FDConnection.Params.Values['Server']    := Configuracao.Server;
+  FDPhysFBDriverLink.VendorLib            := Configuracao.VendorLib;
 end;
 
 procedure TSMKingGeral.RollBack;

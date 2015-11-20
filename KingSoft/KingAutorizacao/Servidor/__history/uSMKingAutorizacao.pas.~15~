@@ -14,15 +14,29 @@ type
   TSMKingAutorizacao = class(TDSServerModule)
     FDConnection: TFDConnection;
     FDPhysFBDriverLink: TFDPhysFBDriverLink;
-    FDQConsulta: TFDQuery;
-    DSPConsulta: TDataSetProvider;
+    fdqConsulta: TFDQuery;
+    dspConsulta: TDataSetProvider;
+    fdqAUT_PER: TFDQuery;
+    dspAUT_PER: TDataSetProvider;
+    fdqAUT_USU: TFDQuery;
+    dspAUT_USU: TDataSetProvider;
+    fdqAUT_MOD: TFDQuery;
+    dspAUT_MOD: TDataSetProvider;
+    fdqAUT_PRO: TFDQuery;
+    dspAUT_PRO: TDataSetProvider;
+    fdqAUT_APE: TFDQuery;
+    dspAUT_APE: TDataSetProvider;
+    fdqAUT_AUS: TFDQuery;
+    dspAUT_AUS: TDataSetProvider;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    function EchoString(Value: string): string;
-    function ReverseString(Value: string): string;
+    function TestarDados(Parametro: TParametro): String;
+    procedure StartTransaction;
+    procedure Commit;
+    procedure RollBack;
   end;
 
 implementation
@@ -31,13 +45,19 @@ implementation
 {$R *.dfm}
 
 
-uses System.StrUtils, uConexao;
+uses System.StrUtils, uConfig;
+
+procedure TSMKingAutorizacao.Commit;
+begin
+  if (FDConnection.InTransaction) then
+    FDConnection.Commit;
+end;
 
 procedure TSMKingAutorizacao.DSServerModuleCreate(Sender: TObject);
 var
-  Conexao: TConexao;
+  Config: TConfig;
 begin
-  Conexao := TConexao.Create;
+  Config := TConfig.Create;
 
   FDConnection.Close;
   FDConnection.Params.Values['DriverID']  := 'FB';
@@ -47,6 +67,22 @@ begin
   FDConnection.Params.Values['Protocol']  := 'TCPIP';
   FDConnection.Params.Values['Server']    := Conexao.Server;
   FDPhysFBDriverLink.VendorLib            := Conexao.VendorLib;
+end;
+
+procedure TSMKingAutorizacao.RollBack;
+begin
+  if (FDConnection.InTransaction) then
+    FDConnection.Rollback;
+end;
+
+procedure TSMKingAutorizacao.StartTransaction;
+begin
+  FDConnection.StartTransaction;
+end;
+
+function TSMKingAutorizacao.TestarDados(Parametro: TParametro): String;
+begin
+
 end;
 
 end.

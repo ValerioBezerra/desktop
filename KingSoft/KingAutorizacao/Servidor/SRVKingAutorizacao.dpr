@@ -6,7 +6,9 @@ uses
   IdHTTPWebBrokerBridge,
   uKingAutorizacao in 'uKingAutorizacao.pas' {Form1},
   uSMKingAutorizacao in 'uSMKingAutorizacao.pas' {SMKingAutorizacao: TDSServerModule},
-  uSCKingAutorizacao in 'uSCKingAutorizacao.pas' {SCKingAutorizacao: TDataModule};
+  uSCKingAutorizacao in 'uSCKingAutorizacao.pas' {SCKingAutorizacao: TDataModule},
+  uConfiguracao in '..\..\KingLib\uConfiguracao.pas',
+  uParametro in '..\..\KingLib\uParametro.pas';
 
 {$R *.res}
 

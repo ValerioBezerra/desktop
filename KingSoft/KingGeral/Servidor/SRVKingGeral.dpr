@@ -7,8 +7,8 @@ uses
   uKingGeral in 'uKingGeral.pas' {frmKingGeral},
   uSMKingGeral in 'uSMKingGeral.pas' {SMKingGeral: TDSServerModule},
   uSCKingGeral in 'uSCKingGeral.pas' {SCKingGeral: TDataModule},
-  uConexao in '..\..\KingLib\uConexao.pas';
-
+  uParametro in '..\..\KingLib\uParametro.pas',
+  uConfiguracao in '..\..\KingLib\uConfiguracao.pas';
 
 {$R *.res}
 

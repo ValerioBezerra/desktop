@@ -1,4 +1,4 @@
-object ClientModule1: TClientModule1
+object cmKingGeral: TcmKingGeral
   OldCreateOrder = False
   Height = 271
   Width = 415
@@ -9,19 +9,16 @@ object ClientModule1: TClientModule1
       'Port=201501'
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/')
-    Connected = True
     Left = 48
     Top = 40
   end
   object DSProviderConnection: TDSProviderConnection
     ServerClassName = 'TSMKingGeral'
-    Connected = True
     SQLConnection = SQLConnection
     Left = 152
     Top = 40
   end
   object cdsConsulta: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 'SELECT * FROM GER_EMP'
     Params = <>
