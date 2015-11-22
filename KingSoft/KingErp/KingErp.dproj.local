@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2015/10/31 10:58:33.000.114,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/10/31 10:58:37.000.591,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2015/10/31 10:58:45.000.172,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\ServerContainerUnit1.pas</Transaction>
+    <Transaction>2015/11/13 18:08:04.000.742,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/11/20 12:25:22.000.268,=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/11/20 12:25:53.000.382,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingErp\uLogin.dfm</Transaction>
+    <Transaction>2015/11/20 12:25:53.000.382,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingErp\uLogin.pas</Transaction>
+    <Transaction>2015/11/20 12:25:59.000.205,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingErp\KingErp.dproj</Transaction>
+    <Transaction>2015/11/22 17:43:55.445,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uCMKingAutorizacao.pas</Transaction>
+    <Transaction>2015/11/22 17:44:50.835,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uCCKingAutorizacao.pas</Transaction>
+    <Transaction>2015/11/22 17:45:19.967,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uParametro.pas</Transaction>
+    <Transaction>2015/11/22 17:45:30.928,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uSicronizacao.pas</Transaction>
+  </Transactions>
+</BorlandProject>
