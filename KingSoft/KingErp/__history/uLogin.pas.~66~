@@ -109,7 +109,7 @@ begin
     begin
       cmKingAutorizacao.cdsAUT_USU.Close;
       cmKingAutorizacao.cdsAUT_USU.CommandText := ' SELECT * FROM AUT_USU ' +
-                                                  ' WHERE AUT_LOGIN_USU = ' + QuotedStr(edLogin.Text);
+                                                  ' WHERE AUT_LOGIN_USU = ' + edLogin.Text;
       cmKingAutorizacao.cdsAUT_USU.Open;
 
       if (cmKingAutorizacao.cdsAUT_USU.IsEmpty) then
@@ -122,8 +122,7 @@ begin
           cmKingAutorizacao.cdsAUT_USU.First;
           if (cmKingAutorizacao.cdsAUT_USU.FieldByName('AUT_SENHA_USU').AsString <> TUtil.RetornarMD5(edSenha.Text)) then
             begin
-              Mensagem  := Mensagem + Separador + ' - Senha incorreta';
-              Separador := #13;
+
             end;
         end;
     end;

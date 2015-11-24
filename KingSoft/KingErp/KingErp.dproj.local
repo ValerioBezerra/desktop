@@ -9,9 +9,10 @@
     <Transaction>2015/11/20 12:25:53.000.382,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingErp\uLogin.dfm</Transaction>
     <Transaction>2015/11/20 12:25:53.000.382,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingErp\uLogin.pas</Transaction>
     <Transaction>2015/11/20 12:25:59.000.205,C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingErp\KingErp.dproj</Transaction>
-    <Transaction>2015/11/22 17:43:55.445,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uCMKingAutorizacao.pas</Transaction>
-    <Transaction>2015/11/22 17:44:50.835,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uCCKingAutorizacao.pas</Transaction>
-    <Transaction>2015/11/22 17:45:19.967,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uParametro.pas</Transaction>
-    <Transaction>2015/11/22 17:45:30.928,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uSicronizacao.pas</Transaction>
+    <Transaction>2015/11/22 17:43:55.000.445,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uCMKingAutorizacao.pas</Transaction>
+    <Transaction>2015/11/22 17:44:50.000.835,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uCCKingAutorizacao.pas</Transaction>
+    <Transaction>2015/11/22 17:45:19.000.967,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uParametro.pas</Transaction>
+    <Transaction>2015/11/22 17:45:30.000.928,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uSicronizacao.pas</Transaction>
+    <Transaction>2015/11/24 12:45:58.000.556,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uUtil.pas</Transaction>
   </Transactions>
 </BorlandProject>

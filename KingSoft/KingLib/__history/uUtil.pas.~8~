@@ -1,0 +1,44 @@
+unit uUtil;
+
+interface
+
+uses
+  Forms, Windows, SysUtils;
+
+type
+  TUtil = class
+  public
+    class function ExibirMensagem(const Mensagem: String; Tipo: Char): Boolean;
+end;
+
+implementation
+
+{ TSicronizacao }
+
+
+{ TUtil }
+
+class function TUtil.ExibirMensagem(const Mensagem: String; Tipo: Char): Boolean;
+begin
+  if (Tipo = 'A') then
+    begin
+      Application.MessageBox(PChar(Copy(Mensagem, 4, (Length(Mensagem) - 3))), 'InfoVale Sistemas', MB_OK + MB_ICONWARNING);
+      Result := false;
+    end
+  else if (Tipo = 'E') then
+    begin
+      Application.MessageBox(PChar(Copy(Mensagem, 4, (Length(Mensagem) - 3))), 'InfoVale Sistemas', MB_OK + MB_ICONERROR);
+      Result := false;
+    end
+  else
+    begin
+      if (Trim(Mensagem) <> '') then
+        begin
+          Application.MessageBox(PChar(Mensagem), 'InfoVale', MB_OK + MB_ICONINFORMATION);
+        end;
+      Result := true;
+    end;
+end;
+
+end.
+

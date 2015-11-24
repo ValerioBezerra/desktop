@@ -1,0 +1,32 @@
+unit uUtil;
+
+interface
+
+uses
+  Forms, Windows, SysUtils;
+
+type
+  TUtil = class
+  public
+    class procedure ExibirMensagem(const Mensagem: String; Tipo: Char);
+end;
+
+implementation
+
+{ TSicronizacao }
+
+
+{ TUtil }
+
+class procedure TUtil.ExibirMensagem(const Mensagem: String; Tipo: Char);
+begin
+  if (Tipo = 'A') then
+    Application.MessageBox(PChar(Copy(Mensagem, 4, (Length(Mensagem) - 3))), 'King Soft', MB_OK + MB_ICONWARNING)
+  else if (Tipo = 'E') then
+    Application.MessageBox(PChar(Copy(Mensagem, 4, (Length(Mensagem) - 3))), 'King Soft', MB_OK + MB_ICONERROR)
+  else
+    Application.MessageBox(PChar(Mensagem), 'King Soft', MB_OK + MB_ICONINFORMATION);
+end;
+
+end.
+

@@ -8,8 +8,7 @@ uses
   uCMKingAutorizacao in '..\KingAutorizacao\Cliente\uCMKingAutorizacao.pas' {cmKingAutorizacao: TDataModule},
   uCCKingAutorizacao in '..\KingAutorizacao\Cliente\uCCKingAutorizacao.pas',
   uParametro in '..\KingLib\uParametro.pas',
-  uSicronizacao in '..\KingLib\uSicronizacao.pas',
-  uUtil in '..\KingLib\uUtil.pas';
+  uSicronizacao in '..\KingLib\uSicronizacao.pas';
 
 {$R *.res}
 

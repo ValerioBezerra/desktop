@@ -63,7 +63,7 @@ object frmLogin: TfrmLogin
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object cbEmpresa: TComboBox
+  object cbEmpresas: TComboBox
     Left = 9
     Top = 20
     Width = 274
@@ -71,7 +71,7 @@ object frmLogin: TfrmLogin
     Style = csDropDownList
     TabOrder = 0
   end
-  object edtLogin: TEdit
+  object edLogin: TEdit
     Left = 9
     Top = 66
     Width = 155
@@ -79,7 +79,7 @@ object frmLogin: TfrmLogin
     MaxLength = 20
     TabOrder = 1
   end
-  object Edit1: TEdit
+  object edSenha: TEdit
     Left = 9
     Top = 102
     Width = 155
@@ -88,12 +88,13 @@ object frmLogin: TfrmLogin
     PasswordChar = #8226
     TabOrder = 2
   end
-  object Button1: TButton
+  object btnEntrar: TButton
     Left = 9
     Top = 133
     Width = 274
     Height = 25
     Caption = 'Entrar'
     TabOrder = 3
+    OnClick = btnEntrarClick
   end
 end
