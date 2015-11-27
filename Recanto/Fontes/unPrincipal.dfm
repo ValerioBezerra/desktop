@@ -92,6 +92,13 @@ object frmPRINCIPAL: TfrmPRINCIPAL
           Caption = 'Compra'
         end
       end
+      object Oramento1: TMenuItem
+        Caption = 'Or'#231'amento'
+        object Novo1: TMenuItem
+          Caption = 'Novo'
+          OnClick = Novo1Click
+        end
+      end
     end
     object Relatrios1: TMenuItem
       Caption = 'Relat'#243'rios'

@@ -35,7 +35,9 @@ uses
   unPAGTIT in 'unPAGTIT.pas' {frmPAGTIT},
   unMOVPAGTIT in 'unMOVPAGTIT.pas' {frmMOVPAGTIT},
   unRELCLI in 'unRELCLI.pas' {frmRELCLI},
-  unRELPREVREC in 'unRELPREVREC.pas' {frmRELPREVREC};
+  unRELPREVREC in 'unRELPREVREC.pas' {frmRELPREVREC},
+  unMOVPAGBXA in 'unMOVPAGBXA.pas' {frmPadraoManutencao_1},
+  unORCAMENTO in 'unORCAMENTO.pas' {frmORCAMENTO};
 
 {$R *.res}
 
@@ -46,5 +48,7 @@ begin
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TfrmPadrao_, frmPadrao_);
   Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
+  Application.CreateForm(TfrmPadraoManutencao_1, frmPadraoManutencao_1);
+  Application.CreateForm(TfrmORCAMENTO, frmORCAMENTO);
   Application.Run;
 end.
