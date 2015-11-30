@@ -1,0 +1,37 @@
+unit uKingAutorizacao;
+
+interface
+
+uses
+  SysUtils;
+
+type
+  TKingAutorizacao = class
+  public
+    class procedure AbrirPrograma;
+end;
+
+implementation
+
+{ TKingAutorizacao }
+
+uses uUtil, uCMKingAutorizacao;
+
+
+
+{ TKingAutorizacao }
+
+class procedure TKingAutorizacao.AbrirPrograma;
+begin
+  try
+    TUtil.CarregarClasses(cmKingAutorizacao.cdsConsulta);
+  except
+    on E: Exception do
+      begin
+        TUtil.ExibirMensagem(E.Message, 'E');
+      end;
+  end;
+end;
+
+end.
+

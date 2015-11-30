@@ -1,0 +1,65 @@
+unit uCarregarAutorizacoes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TfrmCarregarAutorizacoes = class(TForm)
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCarregarAutorizacoes: TfrmCarregarAutorizacoes;
+
+implementation
+
+{$R *.dfm}
+
+uses uCMKingAutorizacao, uKingErp;
+
+procedure TfrmCarregarAutorizacoes.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  Action := caFree;
+end;
+
+procedure TfrmCarregarAutorizacoes.FormShow(Sender: TObject);
+begin
+  Application.CreateForm(TfrmKingErp, frmKingErp);
+
+  cmKingAutorizacao.cdsAUT_MOD.Filtered := False;
+  cmKingAutorizacao.cdsAUT_MOD.Filter   := 'AUT_SIGLA_MOD <> ' + QuotedStr('AUT');
+  cmKingAutorizacao.cdsAUT_MOD.Filtered := True;
+
+
+  cmKingAutorizacao.cdsAUT_MOD.First;
+  while not(cmKingAutorizacao.cdsAUT_MOD.Eof) do
+    begin
+      frmKingErp.AdicionarModuloCadastro;
+      cmKingAutorizacao.cdsAUT_MOD.Next;
+    end;
+
+  cmKingAutorizacao.cdsAUT_MOD.Filtered := False;
+  cmKingAutorizacao.cdsAUT_MOD.Filter   := 'AUT_SIGLA_MOD = ' + QuotedStr('AUT');
+  cmKingAutorizacao.cdsAUT_MOD.Filtered := True;
+
+  cmKingAutorizacao.cdsAUT_MOD.First;
+  while not(cmKingAutorizacao.cdsAUT_MOD.Eof) do
+    begin
+      frmKingErp.AdicionarModuloCadastro;
+      cmKingAutorizacao.cdsAUT_MOD.Next;
+    end;
+
+  frmKingErp.ShowModal;
+  Self.Close;
+end;
+
+end.

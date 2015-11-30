@@ -3,31 +3,43 @@ unit uKingAutorizacao;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  SysUtils;
 
 type
-  TForm1 = class(TForm)
-    Button1: TButton;
-    procedure Button1Click(Sender: TObject);
-  private
-    { Private declarations }
+  TKingAutorizacao = class
   public
-    { Public declarations }
-  end;
-
-var
-  Form1: TForm1;
+    class procedure AbrirPrograma;
+end;
 
 implementation
 
-{$R *.dfm}
+{ TKingAutorizacao }
 
-uses uCMKingAutorizacao;
+uses uUtil, uCMKingAutorizacao;
 
-procedure TForm1.Button1Click(Sender: TObject);
+
+
+{ TKingAutorizacao }
+
+class procedure TKingAutorizacao.AbrirPrograma;
 begin
-  cmKingAutorizacao.SQLConnection.Open;
+  try
+    TUtil.CarregarClasses(cmKingAutorizacao.cdsConsulta);
+
+    if (TUtil.Programa.Modulo.Sigla = 'AUT') then
+      begin
+        if (TUtil.Programa.Codigo = '002') then
+          begin
+            TUtil.ExibirMensagem(TUtil.Programa.Descricao);
+          end;
+      end;
+  except
+    on E: Exception do
+      begin
+        TUtil.ExibirMensagem(E.Message, 'E');
+      end;
+  end;
 end;
 
 end.
+

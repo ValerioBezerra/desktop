@@ -9,7 +9,9 @@ uses
   uCCKingAutorizacao in '..\KingAutorizacao\Cliente\uCCKingAutorizacao.pas',
   uParametro in '..\KingLib\uParametro.pas',
   uSicronizacao in '..\KingLib\uSicronizacao.pas',
-  uUtil in '..\KingLib\uUtil.pas';
+  uUtil in '..\KingLib\uUtil.pas',
+  uCarregarAutorizacoes in 'uCarregarAutorizacoes.pas' {frmCarregarAutorizacoes},
+  uKingErp in 'uKingErp.pas' {frmKingErp};
 
 {$R *.res}
 
@@ -17,7 +19,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Aqua Light Slate');
-  Application.CreateForm(TfrmLogin, frmLogin);
   Application.CreateForm(TcmKingAutorizacao, cmKingAutorizacao);
+  Application.CreateForm(TfrmLogin, frmLogin);
   Application.Run;
 end.

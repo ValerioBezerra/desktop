@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.Imaging.pngimage;
 
 type
   TfrmLogin = class(TForm)
@@ -16,6 +17,7 @@ type
     Label3: TLabel;
     edSenha: TEdit;
     btnEntrar: TButton;
+    Image1: TImage;
     procedure FormShow(Sender: TObject);
     procedure btnEntrarClick(Sender: TObject);
   private
@@ -33,13 +35,48 @@ implementation
 
 {$R *.dfm}
 
-uses uCMKingAutorizacao, uUtil;
+uses uCMKingAutorizacao, uUtil, uCarregarAutorizacoes, uKingErp;
 
 procedure TfrmLogin.btnEntrarClick(Sender: TObject);
 begin
   if (TestarAutorizacao) then
     begin
+      cmKingAutorizacao.cdsAUT_MOD.Close;
+      cmKingAutorizacao.cdsAUT_MOD.CommandText := ' SELECT MAX(AUT_ORDEM_MOD) AS AUT_ORDEM_MOD, ' +
+                                                  '        MAX(AUT_DESCRICAO_MOD) AS AUT_DESCRICAO_MOD, ' +
+                                                  '        AUT_ID_MOD, ' +
+                                                  '        MAX(AUT_SIGLA_MOD) AS AUT_SIGLA_MOD, ' +
+                                                  '        MAX(AUT_EXECUTAVEL_MOD) AS AUT_EXECUTAVEL_MOD, ' +
+                                                  '        MAX(AUT_GEREMP_APE) AS EMPRESA ' +
+                                                  ' FROM AUT_APE ' +
+                                                  ' INNER JOIN AUT_PRO ON AUT_ID_PRO = AUT_AUTPRO_APE ' +
+                                                  ' INNER JOIN AUT_MOD ON AUT_ID_MOD = AUT_AUTMOD_PRO ' +
+                                                  ' WHERE AUT_GEREMP_APE = ' + IntToStr(CodigosEmpresas[cbEmpresas.ItemIndex]) +
+                                                  '   AND AUT_AUTPER_APE = ' + IntToStr(cmKingAutorizacao.cdsAUT_USU.FieldByName('AUT_AUTPER_USU').AsInteger) +
+                                                  ' GROUP BY AUT_ID_MOD ' +
+                                                  ' UNION ' +
+                                                  ' SELECT MAX(AUT_ORDEM_MOD) AS AUT_ORDEM_MOD, ' +
+                                                  '        MAX(AUT_DESCRICAO_MOD) AS AUT_DESCRICAO_MOD, ' +
+                                                  '        AUT_ID_MOD, ' +
+                                                  '        MAX(AUT_SIGLA_MOD) AS AUT_SIGLA_MOD, ' +
+                                                  '        MAX(AUT_EXECUTAVEL_MOD) AS AUT_EXECUTAVEL_MOD, ' +
+                                                  '        MAX(AUT_GEREMP_AUS) AS EMPRESA ' +
+                                                  ' FROM AUT_AUS ' +
+                                                  ' INNER JOIN AUT_PRO ON AUT_ID_PRO = AUT_AUTPRO_AUS ' +
+                                                  ' INNER JOIN AUT_MOD ON AUT_ID_MOD = AUT_AUTMOD_PRO ' +
+                                                  ' WHERE AUT_GEREMP_AUS = ' + IntToStr(CodigosEmpresas[cbEmpresas.ItemIndex]) +
+                                                  '   AND AUT_AUTUSU_AUS = ' + IntToStr(cmKingAutorizacao.cdsAUT_USU.FieldByName('AUT_ID_USU').AsInteger) +
+                                                  ' GROUP BY AUT_ID_MOD ';
+      cmKingAutorizacao.cdsAUT_MOD.Open;
 
+      if (cmKingAutorizacao.cdsAUT_MOD.IsEmpty) then
+        TUtil.ExibirMensagem('Usuário sem autorização nesta empresa', 'E')
+      else
+        begin
+          Application.CreateForm(TfrmCarregarAutorizacoes, frmCarregarAutorizacoes);
+          frmCarregarAutorizacoes.RazaoSocialEmpresa := cbEmpresas.Items[cbEmpresas.ItemIndex];
+          frmCarregarAutorizacoes.ShowModal;
+        end;
     end;
 end;
 
@@ -131,7 +168,7 @@ begin
   if (Trim(Mensagem) <> '') then
      TUtil.ExibirMensagem('Corrija o(s) seguintes erros: ' + #13 + Mensagem, 'E');
 
-  Result := (Trim(Mensagem) <> '');
+  Result := (Trim(Mensagem) = '');
 end;
 
 end.

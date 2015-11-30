@@ -71,6 +71,7 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <Debugger_RunParams>AUT002 1 2 e10adc3949ba59abbe56e057f20f883e</Debugger_RunParams>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_ExeOutput>C:\KingErp\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -86,10 +87,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="uKingAutorizacao.pas">
-            <Form>Form1</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="uCCKingAutorizacao.pas"/>
         <DCCReference Include="uCMKingAutorizacao.pas">
             <Form>cmKingAutorizacao</Form>
@@ -98,6 +95,13 @@
         </DCCReference>
         <DCCReference Include="..\..\KingLib\uSicronizacao.pas"/>
         <DCCReference Include="..\..\KingLib\uParametro.pas"/>
+        <DCCReference Include="..\..\KingLib\uEmpresa.pas"/>
+        <DCCReference Include="..\..\KingLib\uModulo.pas"/>
+        <DCCReference Include="..\..\KingLib\uPrograma.pas"/>
+        <DCCReference Include="..\..\KingLib\uUsuario.pas"/>
+        <DCCReference Include="..\..\KingLib\uUtil.pas"/>
+        <DCCReference Include="..\..\KingLib\uPerfil.pas"/>
+        <DCCReference Include="uKingAutorizacao.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

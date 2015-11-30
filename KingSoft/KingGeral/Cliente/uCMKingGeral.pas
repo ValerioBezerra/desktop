@@ -3,7 +3,7 @@ unit uCMKingGeral;
 interface
 
 uses
-  System.SysUtils, System.Classes, CCKingGeral, Data.DBXDataSnap,
+  System.SysUtils, System.Classes, uCCKingGeral, Data.DBXDataSnap,
   IPPeerClient, Data.DBXCommon, Data.DB, Data.SqlExpr, Datasnap.DBClient,
   Datasnap.DSConnect;
 

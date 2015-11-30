@@ -19,7 +19,7 @@ end;
 
 implementation
 
-{ TConexao }
+{ TParametro }
 
 constructor TParametro.Create(AIdEmpresa: Integer; ATabela, AOperacao: String; ADados: OleVariant);
 begin

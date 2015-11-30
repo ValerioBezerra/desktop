@@ -1,0 +1,25 @@
+unit uUsuario;
+
+interface
+
+uses
+  Forms, Windows, SysUtils, IdGlobal, IdHash, IdHashMessageDigest;
+
+type
+  TPrograma = class
+  private
+    FId: Integer;
+    FRazaoSocial: String;
+    FFantasial: String;
+  public
+    property Id: Integer read FId write FId;
+    property RazaoSocial: String read FRazaoSocial write FRazaoSocial;
+    property Fantasial: String read FFantasial write FFantasial;
+end;
+
+implementation
+
+{ TPrograma }
+
+end.
+

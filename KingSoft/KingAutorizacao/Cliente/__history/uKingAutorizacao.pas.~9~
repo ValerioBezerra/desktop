@@ -1,0 +1,28 @@
+unit uKingAutorizacao;
+
+interface
+
+type
+  TKingAutorizacao = class
+  public
+    class procedure AbrirPrograma;
+end;
+
+implementation
+
+{ TKingAutorizacao }
+
+uses uUtil, uCMKingAutorizacao;
+
+
+
+{ TKingAutorizacao }
+
+class procedure TKingAutorizacao.AbrirPrograma;
+begin
+  TUtil.CarregarClasses(cmKingAutorizacao.cdsConsulta);
+  TUtil.ExibirMensagem('Funcionou');
+end;
+
+end.
+
