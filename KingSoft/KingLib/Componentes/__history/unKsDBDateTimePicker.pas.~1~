@@ -1,0 +1,108 @@
+unit unVzDBDateTimePicker;
+
+interface
+
+uses
+SysUtils, Classes, Controls, ComCtrls, Forms, Dialogs, Graphics, DBCtrls,
+DB, stdctrls;
+
+type
+  TVzDBDateTimePicker = class(TDateTimePicker)
+  private
+    { Private declarations }
+    FDataLink : TFieldDataLink;
+    function  GetDataField:String;
+    function  GetDataSource:TDataSource;
+    function  GetField: TField;
+    procedure SetDataField(const Value : string);
+    procedure SetDataSource(const Value : TDataSource);
+    procedure DataChange(Sender:TObject);
+    procedure UpdateData(Sender:TObject);
+    procedure Change;override;
+  protected
+    { Protected declarations }
+  public
+    { Public declarations }
+    constructor Create(AOwner:TComponent);override;
+    destructor Destroy;override;
+    property Field: TField read GetField;
+   published
+    { Published declarations }
+    property DataSource : TDataSource read GetDataSource write SetDataSource;
+    property DataField : String read GetDataField write SetDataField;
+end;
+
+procedure Register;
+
+implementation
+
+{ TDBDateTimePicker }
+
+procedure TVzDBDateTimePicker.Change;
+begin
+  FDataLink.Modified;
+  inherited Change;
+  Try
+    FDataLink.Edit;
+    FDataLink.UpdateRecord;
+  Except
+  End;
+end;
+
+constructor TVzDBDateTimePicker.Create(AOwner: TComponent);
+begin
+  inherited;
+  FDataLink := TFieldDataLink.Create;
+  FDataLink.OnDataChange := DataChange;
+  FDataLink.OnUpdateData := UpdateData;
+  FDataLink.Control := self;
+  Width := 100;
+end;
+
+procedure TVzDBDateTimePicker.DataChange(Sender: TObject);
+begin
+  Date := FDataLink.Field.AsDateTime;
+end;
+
+destructor TVzDBDateTimePicker.Destroy;
+begin
+  FDataLink.Free;
+  inherited;
+end;
+
+function TVzDBDateTimePicker.GetDataField: String;
+begin
+  Result := FDataLink.FieldName;
+end;
+
+function TVzDBDateTimePicker.GetDataSource: TDataSource;
+begin
+  Result := FDataLink.DataSource;
+end;
+
+function TVzDBDateTimePicker.GetField: TField;
+begin
+  Result := FDataLink.Field;
+end;
+
+procedure TVzDBDateTimePicker.SetDataField(const Value: string);
+begin
+  FDataLink.FieldName := Value;
+end;
+
+procedure TVzDBDateTimePicker.SetDataSource(const Value: TDataSource);
+begin
+  FDataLink.DataSource := Value;
+end;
+
+procedure TVzDBDateTimePicker.UpdateData(Sender: TObject);
+begin
+  FDataLink.Field.AsDateTime := FDataLink.Field.AsDateTime;
+end;
+
+procedure Register;
+begin
+  RegisterComponents('Virtualizze', [TVzDBDateTimePicker]);
+end;
+
+end.

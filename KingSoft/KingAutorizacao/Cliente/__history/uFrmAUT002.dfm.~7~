@@ -1,0 +1,12 @@
+inherited frmAUT002: TfrmAUT002
+  Caption = 'frmAUT002'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlPrincipal: TPanel
+    inherited gpFiltro: TGroupBox
+      inherited edConsulta: TEdit
+        Hint = '(F1) Consultar itens'
+      end
+    end
+  end
+end

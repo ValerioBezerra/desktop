@@ -12,14 +12,21 @@ uses
   uUsuario in '..\..\KingLib\uUsuario.pas',
   uUtil in '..\..\KingLib\uUtil.pas',
   uPerfil in '..\..\KingLib\uPerfil.pas',
-  uKingAutorizacao in 'uKingAutorizacao.pas';
+  uKingAutorizacao in 'uKingAutorizacao.pas',
+  uFrmPadraoConsulta in '..\..\KingLib\uFrmPadraoConsulta.pas' {frmPadraoConsulta},
+  Vcl.Themes,
+  Vcl.Styles,
+  uFrmAUT002Consulta in 'uFrmAUT002Consulta.pas' {frmAUT002Consulta};
 
 {$R *.res}
 
 begin
   Application.Initialize;
+  Application.ShowMainForm      := False;
   Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Aqua Light Slate');
   Application.CreateForm(TcmKingAutorizacao, cmKingAutorizacao);
-  TKingAutorizacao.AbrirPrograma;
   Application.Run;
+  TKingAutorizacao.AbrirPrograma;
+  Application.Terminate;
 end.

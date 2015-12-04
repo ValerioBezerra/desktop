@@ -16,13 +16,21 @@
     <Transaction>2015/11/19 23:14:13.000.628,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\ClientModuleUnit1.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uCMKingAutorizacao.pas</Transaction>
     <Transaction>2015/11/19 23:22:16.000.472,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uSicronizacao.pas</Transaction>
     <Transaction>2015/11/19 23:24:32.000.957,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uParametro.pas</Transaction>
-    <Transaction>2015/11/30 00:16:06.101,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uEmpresa.pas</Transaction>
-    <Transaction>2015/11/30 00:29:11.215,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uModulo.pas</Transaction>
-    <Transaction>2015/11/30 00:29:11.238,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uPrograma.pas</Transaction>
-    <Transaction>2015/11/30 00:29:11.259,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uUsuario.pas</Transaction>
-    <Transaction>2015/11/30 00:39:13.366,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uUtil.pas</Transaction>
-    <Transaction>2015/11/30 01:22:50.113,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uPerfil.pas</Transaction>
-    <Transaction>2015/11/30 01:34:15.305,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uKingAutorizacao.pas=</Transaction>
-    <Transaction>2015/11/30 01:36:03.185,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uKingAutorizacao.pas</Transaction>
+    <Transaction>2015/11/30 00:16:06.000.101,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uEmpresa.pas</Transaction>
+    <Transaction>2015/11/30 00:29:11.000.259,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uUsuario.pas</Transaction>
+    <Transaction>2015/11/30 00:29:11.000.215,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uModulo.pas</Transaction>
+    <Transaction>2015/11/30 00:29:11.000.238,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uPrograma.pas</Transaction>
+    <Transaction>2015/11/30 00:39:13.000.366,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uUtil.pas</Transaction>
+    <Transaction>2015/11/30 01:22:50.000.113,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uPerfil.pas</Transaction>
+    <Transaction>2015/11/30 01:34:15.000.305,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uKingAutorizacao.pas=</Transaction>
+    <Transaction>2015/11/30 01:36:03.000.185,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uKingAutorizacao.pas</Transaction>
+    <Transaction>2015/11/30 13:13:44.000.137,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\Unit1.pas</Transaction>
+    <Transaction>2015/11/30 13:15:03.000.730,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uFrmPadraoConsulta.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\Unit1.pas</Transaction>
+    <Transaction>2015/11/30 13:15:03.000.730,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uFrmPadraoConsulta.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\Unit1.dfm</Transaction>
+    <Transaction>2015/12/01 12:53:27.000.812,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\Unit1.pas</Transaction>
+    <Transaction>2015/12/01 12:53:59.000.668,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\Unit1.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uFrmAUT002.pas</Transaction>
+    <Transaction>2015/12/01 12:53:59.000.668,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\Unit1.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uFrmAUT002.dfm</Transaction>
+    <Transaction>2015/12/03 23:10:13.471,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uFrmAUT002Consulta.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uFrmAUT002.pas</Transaction>
+    <Transaction>2015/12/03 23:10:13.471,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uFrmAUT002Consulta.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingAutorizacao\Cliente\uFrmAUT002.dfm</Transaction>
   </Transactions>
 </BorlandProject>

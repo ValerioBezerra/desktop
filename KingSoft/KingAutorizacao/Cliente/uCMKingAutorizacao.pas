@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Classes, uCCKingAutorizacao, Data.DBXDataSnap,
   IPPeerClient, Data.DBXCommon, Data.DB, Data.SqlExpr, Datasnap.DBClient,
-  Datasnap.DSConnect;
+  Datasnap.DSConnect, uParametro;
 
 type
   TcmKingAutorizacao = class(TDataModule)
@@ -36,6 +36,7 @@ type
     destructor Destroy; override;
     property InstanceOwner: Boolean read FInstanceOwner write FInstanceOwner;
     property SMKingAutorizacaoClient: TSMKingAutorizacaoClient read GetSMKingAutorizacaoClient write FSMKingAutorizacaoClient;
+    function TestarDados(AIdEmpresa: Integer; ATabela, AOperacao: String; ADados: Variant): Boolean;
 
 end;
 
@@ -78,6 +79,16 @@ begin
     FSMKingAutorizacaoClient:= TSMKingAutorizacaoClient.Create(SQLConnection.DBXConnection, FInstanceOwner);
   end;
   Result := FSMKingAutorizacaoClient;
+end;
+
+function TcmKingAutorizacao.TestarDados(AIdEmpresa: Integer; ATabela, AOperacao: String; ADados: Variant): Boolean;
+var
+  Parametro: TParametro;
+begin
+  Parametro := TParametro.Create(AIdEmpresa, ATabela, AOperacao, ADados);
+  SMKingAutorizacaoClient.TestarDados(Parametro);
+
+  Result := False;
 end;
 
 end.

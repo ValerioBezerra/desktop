@@ -3,7 +3,7 @@ unit uKingAutorizacao;
 interface
 
 uses
-  SysUtils;
+  SysUtils, Forms;
 
 type
   TKingAutorizacao = class
@@ -15,7 +15,7 @@ implementation
 
 { TKingAutorizacao }
 
-uses uUtil, uCMKingAutorizacao;
+uses uUtil, uCMKingAutorizacao, uFrmPadraoConsulta, uFrmAUT002Consulta;
 
 
 
@@ -30,7 +30,8 @@ begin
       begin
         if (TUtil.Programa.Codigo = '002') then
           begin
-            TUtil.ExibirMensagem(TUtil.Programa.Descricao);
+            Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);
+            frmAUT002Consulta.ShowModal;
           end;
       end;
   except

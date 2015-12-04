@@ -1,0 +1,35 @@
+unit uFrmAUT002;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFrmPadraoConsulta, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.ComCtrls, Vcl.Grids, Vcl.DBGrids, unKsDBGrid, Vcl.ExtCtrls,
+  Data.DB, Datasnap.DBClient;
+
+type
+  TfrmAUT002 = class(TfrmPadraoConsulta)
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmAUT002: TfrmAUT002;
+
+implementation
+
+{$R *.dfm}
+
+uses uCMKingAutorizacao;
+
+procedure TfrmAUT002.FormCreate(Sender: TObject);
+begin
+  inherited;
+  Campos := '*';
+end;
+
+end.

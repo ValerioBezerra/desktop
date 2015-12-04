@@ -3,7 +3,8 @@ unit uUtil;
 interface
 
 uses
-  Forms, Windows, SysUtils, IdGlobal, IdHash, IdHashMessageDigest, uEmpresa, uUsuario, uPrograma, Data.DB, Datasnap.DBClient;
+  Forms, Windows, SysUtils, IdGlobal, IdHash, IdHashMessageDigest, Vcl.Controls,
+  uEmpresa, uUsuario, uPrograma, Data.DB, Datasnap.DBClient;
 
 type
   TUtil = class
@@ -16,7 +17,9 @@ type
     class procedure CarregarUsuario(cds: TClientDataSet);
     class procedure CarregarModuloPrograma(cds: TClientDataSet);
     class procedure ExibirMensagem(const Mensagem: String; Tipo: Char = ' ');
+    class function  ExibirPergunta(const Mensagem: String): Boolean;
     class function  RetornarMD5(const Valor: String): String;
+    class function  MoverHint(Form: TForm): String;
 end;
 
 implementation
@@ -153,6 +156,28 @@ begin
     Application.MessageBox(PChar(Mensagem), 'King Soft', MB_OK + MB_ICONINFORMATION);
 end;
 
+
+class function TUtil.ExibirPergunta(const Mensagem: String): Boolean;
+begin
+  Result := (Application.MessageBox(PChar(Mensagem), 'King Soft', MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES);
+end;
+
+class function TUtil.MoverHint(Form: TForm): String;
+var
+  I: Integer;
+begin
+  for I := 0 to Form.ComponentCount - 1 do
+    begin
+      if (Form.ActiveControl = Form.components[I]) then
+        begin
+          if (form.components[I] is TControl) then
+            begin
+              if (Trim((form.components[I] as TControl).Hint) <> '') then
+                Result := (form.components[I] as TControl).Hint;
+            end;
+        end;
+    end;
+end;
 
 class function TUtil.RetornarMD5(const Valor: String): String;
 var

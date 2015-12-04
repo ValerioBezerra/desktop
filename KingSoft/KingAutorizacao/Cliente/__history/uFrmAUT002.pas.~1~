@@ -1,0 +1,25 @@
+unit uFrmAUT002;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFrmPadraoConsulta, Vcl.StdCtrls,
+  Vcl.Buttons, Vcl.ComCtrls, Vcl.Grids, Vcl.DBGrids, unKsDBGrid, Vcl.ExtCtrls;
+
+type
+  TfrmPadraoConsulta1 = class(TfrmPadraoConsulta)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPadraoConsulta1: TfrmPadraoConsulta1;
+
+implementation
+
+{$R *.dfm}
+
+end.

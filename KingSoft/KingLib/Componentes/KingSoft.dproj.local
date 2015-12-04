@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2015/11/30 12:49:46.708,=rtl.dcp</Transaction>
+    <Transaction>2015/11/30 12:50:13.762,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\Componentes\KingSoft.dproj=C:\Users\valerio\Documents\Embarcadero\Studio\Projects\Package1.dproj</Transaction>
+    <Transaction>2015/11/30 12:51:35.311,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\Componentes\unKsDateEdit.pas</Transaction>
+    <Transaction>2015/11/30 12:51:35.345,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\Componentes\unKsDBDateEdit.pas</Transaction>
+    <Transaction>2015/11/30 12:51:35.376,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\Componentes\unKsDBDateTimePicker.pas</Transaction>
+    <Transaction>2015/11/30 12:51:35.409,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\Componentes\unKsDBGrid.pas</Transaction>
+    <Transaction>2015/11/30 12:51:35.441,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\Componentes\unKsDBNumberEdit.pas</Transaction>
+    <Transaction>2015/11/30 12:51:35.467,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\Componentes\unKsNumberEdit.pas</Transaction>
+    <Transaction>2015/11/30 12:55:54.516,=vcl.dcp</Transaction>
+    <Transaction>2015/11/30 12:55:54.539,=dbrtl.dcp</Transaction>
+    <Transaction>2015/11/30 12:55:54.569,=vcldb.dcp</Transaction>
+  </Transactions>
+</BorlandProject>
