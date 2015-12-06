@@ -2,7 +2,6 @@ program KingAutorizacao;
 
 uses
   Vcl.Forms,
-  uCCKingAutorizacao in 'uCCKingAutorizacao.pas',
   uCMKingAutorizacao in 'uCMKingAutorizacao.pas' {cmKingAutorizacao: TDataModule},
   uSicronizacao in '..\..\KingLib\uSicronizacao.pas',
   uParametro in '..\..\KingLib\uParametro.pas',
@@ -16,6 +15,10 @@ uses
   uFrmPadraoConsulta in '..\..\KingLib\uFrmPadraoConsulta.pas' {frmPadraoConsulta},
   Vcl.Themes,
   Vcl.Styles,
+  uFrmAUT003Consulta in 'uFrmAUT003Consulta.pas' {frmAUT003Consulta},
+  uFrmPadrao in '..\..\KingLib\uFrmPadrao.pas' {frmPadrao},
+  uFrmAUT002 in 'uFrmAUT002.pas' {frmAUT002},
+  uCCKingAutorizacao in 'uCCKingAutorizacao.pas',
   uFrmAUT002Consulta in 'uFrmAUT002Consulta.pas' {frmAUT002Consulta};
 
 {$R *.res}

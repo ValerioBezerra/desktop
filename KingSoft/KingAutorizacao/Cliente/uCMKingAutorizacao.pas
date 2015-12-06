@@ -47,7 +47,7 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses uSicronizacao;
+uses uSicronizacao, uUtil;
 
 {$R *.dfm}
 
@@ -82,13 +82,8 @@ begin
 end;
 
 function TcmKingAutorizacao.TestarDados(AIdEmpresa: Integer; ATabela, AOperacao: String; ADados: Variant): Boolean;
-var
-  Parametro: TParametro;
 begin
-  Parametro := TParametro.Create(AIdEmpresa, ATabela, AOperacao, ADados);
-  SMKingAutorizacaoClient.TestarDados(Parametro);
-
-  Result := False;
+  Result := TUtil.TestarRetorno(AOperacao, SMKingAutorizacaoClient.TestarDados(TParametro.Create(AIdEmpresa, ATabela, AOperacao), ADados));
 end;
 
 end.

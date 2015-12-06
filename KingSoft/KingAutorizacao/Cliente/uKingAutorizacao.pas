@@ -15,7 +15,8 @@ implementation
 
 { TKingAutorizacao }
 
-uses uUtil, uCMKingAutorizacao, uFrmPadraoConsulta, uFrmAUT002Consulta;
+uses uUtil, uCMKingAutorizacao, uFrmPadraoConsulta, uFrmAUT002Consulta,
+  uFrmAUT003Consulta;
 
 
 
@@ -32,6 +33,12 @@ begin
           begin
             Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);
             frmAUT002Consulta.ShowModal;
+          end;
+
+        if (TUtil.Programa.Codigo = '003') then
+          begin
+            Application.CreateForm(TfrmAUT003Consulta, frmAUT003Consulta);
+            frmAUT003Consulta.ShowModal;
           end;
       end;
   except

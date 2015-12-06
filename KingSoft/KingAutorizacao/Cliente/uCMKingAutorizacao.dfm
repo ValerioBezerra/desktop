@@ -11,13 +11,11 @@ object cmKingAutorizacao: TcmKingAutorizacao
       'HostName=127.0.0.1'
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/')
-    Connected = True
     Left = 48
     Top = 40
   end
   object DSProviderConnection: TDSProviderConnection
     ServerClassName = 'TSMKingAutorizacao'
-    Connected = True
     SQLConnection = SQLConnection
     Left = 152
     Top = 40

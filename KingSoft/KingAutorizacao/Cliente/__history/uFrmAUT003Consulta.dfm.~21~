@@ -1,0 +1,172 @@
+inherited frmAUT003Consulta: TfrmAUT003Consulta
+  Caption = 'frmAUT003Consulta'
+  ClientWidth = 635
+  OnKeyDown = FormKeyDown
+  ExplicitWidth = 641
+  ExplicitHeight = 286
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Panel1: TPanel
+    Width = 635
+  end
+  inherited pnlPrincipal: TPanel
+    Width = 515
+    inherited gpFiltro: TGroupBox
+      Height = 50
+      ExplicitHeight = 50
+      object sbAUT002: TSpeedButton [0]
+        Left = 294
+        Top = 21
+        Width = 23
+        Height = 23
+      end
+      object Label1: TLabel [1]
+        Left = 264
+        Top = 10
+        Width = 24
+        Height = 13
+        Caption = 'Perfil'
+      end
+      inherited cbContido: TCheckBox
+        Left = 192
+        Top = 24
+        ExplicitLeft = 192
+        ExplicitTop = 24
+      end
+      inherited edConsulta: TEdit
+        Left = 13
+        Top = 22
+        Width = 173
+        ExplicitLeft = 13
+        ExplicitTop = 22
+        ExplicitWidth = 173
+      end
+      inherited cbConsulta: TComboBox
+        Left = 3
+        Top = 53
+        Visible = False
+        ExplicitLeft = 3
+        ExplicitTop = 53
+      end
+      object neAUT_AUTPER_USU: TKsNumberEdit
+        Left = 263
+        Top = 22
+        Width = 33
+        Height = 21
+        Hint = '(F1) Consultar Perfis'
+        Decimals = 0
+        Negativo = True
+        MaxLength = 3
+        ShowSeparator = True
+        TabOrder = 3
+      end
+      object edAUT_DESCRICAO_PER: TEdit
+        Left = 315
+        Top = 22
+        Width = 159
+        Height = 21
+        Enabled = False
+        TabOrder = 4
+      end
+    end
+    inherited KsDBGrid: TKsDBGrid
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'AUT_ID_USU'
+          Title.Alignment = taRightJustify
+          Title.Caption = 'Id'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = [fsBold]
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'AUT_NOME_USU'
+          Title.Caption = 'Nome'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = [fsBold]
+          Width = 250
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'AUT_DESCRICAO_PER'
+          Title.Caption = 'Perfil'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = [fsBold]
+          Width = 130
+          Visible = True
+        end>
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'AUT_ID_USU'
+          Title.Alignment = taRightJustify
+          Title.Caption = 'Id'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = [fsBold]
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'AUT_NOME_USU'
+          Title.Caption = 'Nome'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = [fsBold]
+          Width = 250
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'AUT_DESCRICAO_PER'
+          Title.Caption = 'Perfil'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = [fsBold]
+          Width = 130
+          Visible = True
+        end>
+    end
+  end
+  inherited stbInformacao: TStatusBar
+    Width = 635
+  end
+  inherited pnlBotoes: TPanel
+    Left = 515
+    inherited btnNovo: TBitBtn
+      OnClick = btnNovoClick
+    end
+    inherited btnEditar: TBitBtn
+      OnClick = btnEditarClick
+    end
+  end
+  inherited Panel2: TPanel
+    Left = 627
+  end
+  inherited cdsConsulta: TClientDataSet
+    CommandText = 
+      'SELECT * FROM AUT_USU LEFT OUTER JOIN AUT_PER ON AUT_ID_PER = AU' +
+      'T_AUTPER_USU WHERE 1 = 0'
+    ProviderName = 'dspConsulta'
+    RemoteServer = cmKingAutorizacao.DSProviderConnection
+  end
+end

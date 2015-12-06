@@ -34,11 +34,11 @@ requires
   vcldb;
 
 contains
-  unKsDateEdit in 'unKsDateEdit.pas',
-  unKsDBDateEdit in 'unKsDBDateEdit.pas',
-  unKsDBDateTimePicker in 'unKsDBDateTimePicker.pas',
-  unKsDBGrid in 'unKsDBGrid.pas',
-  unKsDBNumberEdit in 'unKsDBNumberEdit.pas',
-  unKsNumberEdit in 'unKsNumberEdit.pas';
+  uKsDateEdit in 'uKsDateEdit.pas',
+  uKsDBDateEdit in 'uKsDBDateEdit.pas',
+  uKsDBDateTimePicker in 'uKsDBDateTimePicker.pas',
+  uKsDBGrid in 'uKsDBGrid.pas',
+  uKsDBNumberEdit in 'uKsDBNumberEdit.pas',
+  uKsNumberEdit in 'uKsNumberEdit.pas';
 
 end.

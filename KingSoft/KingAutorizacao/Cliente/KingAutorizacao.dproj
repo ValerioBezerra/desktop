@@ -73,7 +73,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <Icon_MainIcon>KingAutorizacao_Icon.ico</Icon_MainIcon>
-        <Debugger_RunParams>AUT002 1 2 e10adc3949ba59abbe56e057f20f883e</Debugger_RunParams>
+        <Debugger_RunParams>AUT003 1 2 e10adc3949ba59abbe56e057f20f883e</Debugger_RunParams>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_ExeOutput>C:\KingErp\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -89,7 +89,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="uCCKingAutorizacao.pas"/>
         <DCCReference Include="uCMKingAutorizacao.pas">
             <Form>cmKingAutorizacao</Form>
             <FormType>dfm</FormType>
@@ -108,6 +107,19 @@
             <Form>frmPadraoConsulta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="uFrmAUT003Consulta.pas">
+            <Form>frmAUT003Consulta</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\..\KingLib\uFrmPadrao.pas">
+            <Form>frmPadrao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uFrmAUT002.pas">
+            <Form>frmAUT002</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uCCKingAutorizacao.pas"/>
         <DCCReference Include="uFrmAUT002Consulta.pas">
             <Form>frmAUT002Consulta</Form>
             <FormType>dfm</FormType>
@@ -485,7 +497,7 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <DataSnapProxyLookup>
-                <uCCKingAutorizacao>{66A7AAD4-4D8C-4237-9081-2C39077BD8EA}</uCCKingAutorizacao>
+                <uCCKingAutorizacao>{3C774CF3-608E-4A1B-9437-50A8F578EE05}</uCCKingAutorizacao>
             </DataSnapProxyLookup>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>

@@ -1,0 +1,34 @@
+program KingAutorizacao;
+
+uses
+  Vcl.Forms,
+  uCCKingAutorizacao in 'uCCKingAutorizacao.pas',
+  uCMKingAutorizacao in 'uCMKingAutorizacao.pas' {cmKingAutorizacao: TDataModule},
+  uSicronizacao in '..\..\KingLib\uSicronizacao.pas',
+  uParametro in '..\..\KingLib\uParametro.pas',
+  uEmpresa in '..\..\KingLib\uEmpresa.pas',
+  uModulo in '..\..\KingLib\uModulo.pas',
+  uPrograma in '..\..\KingLib\uPrograma.pas',
+  uUsuario in '..\..\KingLib\uUsuario.pas',
+  uUtil in '..\..\KingLib\uUtil.pas',
+  uPerfil in '..\..\KingLib\uPerfil.pas',
+  uKingAutorizacao in 'uKingAutorizacao.pas',
+  uFrmPadraoConsulta in '..\..\KingLib\uFrmPadraoConsulta.pas' {frmPadraoConsulta},
+  Vcl.Themes,
+  Vcl.Styles,
+  uFrmAUT002Consulta in 'uFrmAUT002Consulta.pas' {frmAUT002Consulta},
+  uFrmPadrao in '..\..\KingLib\uFrmPadrao.pas' {frmPadrao};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.ShowMainForm      := False;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Aqua Light Slate');
+  Application.CreateForm(TcmKingAutorizacao, cmKingAutorizacao);
+  Application.CreateForm(TfrmPadrao, frmPadrao);
+  Application.Run;
+  TKingAutorizacao.AbrirPrograma;
+  Application.Terminate;
+end.

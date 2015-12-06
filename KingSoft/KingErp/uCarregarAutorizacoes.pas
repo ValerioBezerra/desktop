@@ -57,7 +57,6 @@ begin
     end;
 
   Close;
-  frmKingErp.ShowModal;
 end;
 
 end.

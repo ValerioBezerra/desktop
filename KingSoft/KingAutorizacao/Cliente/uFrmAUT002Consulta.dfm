@@ -1,5 +1,6 @@
 inherited frmAUT002Consulta: TfrmAUT002Consulta
   Caption = 'frmAUT002Consulta'
+  OnKeyDown = FormKeyDown
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlPrincipal: TPanel
@@ -23,11 +24,6 @@ inherited frmAUT002Consulta: TfrmAUT002Consulta
         item
           Expanded = False
           FieldName = 'AUT_ID_PER'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
           Title.Alignment = taRightJustify
           Title.Caption = 'Id'
           Title.Font.Charset = DEFAULT_CHARSET
@@ -40,11 +36,6 @@ inherited frmAUT002Consulta: TfrmAUT002Consulta
         item
           Expanded = False
           FieldName = 'AUT_DESCRICAO_PER'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
           Title.Caption = 'Descri'#231#227'o'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -59,11 +50,6 @@ inherited frmAUT002Consulta: TfrmAUT002Consulta
         item
           Expanded = False
           FieldName = 'AUT_ID_PER'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
           Title.Alignment = taRightJustify
           Title.Caption = 'Id'
           Title.Font.Charset = DEFAULT_CHARSET
@@ -76,11 +62,6 @@ inherited frmAUT002Consulta: TfrmAUT002Consulta
         item
           Expanded = False
           FieldName = 'AUT_DESCRICAO_PER'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Tahoma'
-          Font.Style = []
           Title.Caption = 'Descri'#231#227'o'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
@@ -90,6 +71,14 @@ inherited frmAUT002Consulta: TfrmAUT002Consulta
           Width = 380
           Visible = True
         end>
+    end
+  end
+  inherited pnlBotoes: TPanel
+    inherited btnNovo: TBitBtn
+      OnClick = btnNovoClick
+    end
+    inherited btnEditar: TBitBtn
+      OnClick = btnEditarClick
     end
   end
   inherited cdsConsulta: TClientDataSet

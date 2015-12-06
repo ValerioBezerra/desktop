@@ -8,7 +8,8 @@ uses System.SysUtils, System.Classes, System.Json,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
   FireDAC.Phys, FireDAC.Phys.FB, FireDAC.Phys.FBDef, FireDAC.Stan.Param,
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, Datasnap.Provider, Data.DB,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.Phys.IBBase, uParametro;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.Phys.IBBase, uParametro,
+  Datasnap.DBClient;
 
 type
   TSMKingAutorizacao = class(TDSServerModule)
@@ -31,9 +32,12 @@ type
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
+    cdsTestarDados: TClientDataSet;
+    function Consultar(Tabela, Where: String): Boolean;
+    function TestarAUT_PER(Parametro: TParametro): String;
   public
     { Public declarations }
-    function TestarDados(Parametro: TParametro): String;
+    function TestarDados(Parametro: TParametro; Dados: OleVariant): String;
     procedure StartTransaction;
     procedure Commit;
     procedure RollBack;
@@ -51,6 +55,14 @@ procedure TSMKingAutorizacao.Commit;
 begin
   if (FDConnection.InTransaction) then
     FDConnection.Commit;
+end;
+
+function TSMKingAutorizacao.Consultar(Tabela, Where: String): Boolean;
+begin
+  fdqConsulta.Close;
+  fdqConsulta.Open('SELECT * FROM ' + Tabela + ' ' + Where);
+
+  Result := not(fdqConsulta.IsEmpty);
 end;
 
 procedure TSMKingAutorizacao.DSServerModuleCreate(Sender: TObject);
@@ -80,9 +92,46 @@ begin
   FDConnection.StartTransaction;
 end;
 
-function TSMKingAutorizacao.TestarDados(Parametro: TParametro): String;
+function TSMKingAutorizacao.TestarAUT_PER(Parametro: TParametro): String;
+var
+  Retorno: String;
+  Separador: String;
 begin
+  Retorno   := '';
+  Separador := '';
 
+  if (Parametro.Operacao <> 'D') then
+    begin
+      if ((cdsTestarDados.FieldByName('AUT_DESCRICAO_PER').AsString) = '') then
+        begin
+          Retorno   := Retorno + Separador + ' - Descrição não preenchida.';
+          Separador := #13;
+        end;
+    end
+  else
+    begin  
+      if (Consultar('AUT_USU', 'WHERE AUT_AUTPER_USU = ' + IntToStr(cdsTestarDados.FieldByName('AUT_ID_PER').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Há usuário(s) cadastrado(s) com este perfil.';
+          Separador := #13;
+        end;
+      if (Consultar('AUT_APE', 'WHERE AUT_AUTPER_APE = ' + IntToStr(cdsTestarDados.FieldByName('AUT_ID_PER').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Há autorizações para este perfil.';
+          Separador := #13;
+        end;
+    end;
+
+  Result := Retorno;
+end;
+
+function TSMKingAutorizacao.TestarDados(Parametro: TParametro; Dados: OleVariant): String;
+begin
+  cdsTestarDados := TClientDataSet.Create(Self);
+  cdsTestarDados.Data := Dados;
+
+  if (Parametro.Tabela = 'AUT_PER') then
+    Result := TestarAUT_PER(Parametro);
 end;
 
 end.

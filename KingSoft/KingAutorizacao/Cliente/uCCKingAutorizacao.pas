@@ -1,6 +1,6 @@
 // 
 // Created by the DataSnap proxy generator.
-// 19/11/2015 11:13:36 PM
+// 06/12/2015 12:24:20 AM
 // 
 
 unit uCCKingAutorizacao;
@@ -22,7 +22,7 @@ type
     constructor Create(ADBXConnection: TDBXConnection; AInstanceOwner: Boolean); overload;
     destructor Destroy; override;
     procedure DSServerModuleCreate(Sender: TObject);
-    function TestarDados(Parametro: TParametro): string;
+    function TestarDados(Parametro: TParametro; Dados: OleVariant): string;
     procedure StartTransaction;
     procedure Commit;
     procedure RollBack;
@@ -55,7 +55,7 @@ begin
   FDSServerModuleCreateCommand.ExecuteUpdate;
 end;
 
-function TSMKingAutorizacaoClient.TestarDados(Parametro: TParametro): string;
+function TSMKingAutorizacaoClient.TestarDados(Parametro: TParametro; Dados: OleVariant): string;
 begin
   if FTestarDadosCommand = nil then
   begin
@@ -77,8 +77,9 @@ begin
       FreeAndNil(FMarshal)
     end
     end;
+  FTestarDadosCommand.Parameters[1].Value.AsVariant := Dados;
   FTestarDadosCommand.ExecuteUpdate;
-  Result := FTestarDadosCommand.Parameters[1].Value.GetWideString;
+  Result := FTestarDadosCommand.Parameters[2].Value.GetWideString;
 end;
 
 procedure TSMKingAutorizacaoClient.StartTransaction;

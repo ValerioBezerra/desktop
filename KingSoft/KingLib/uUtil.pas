@@ -3,8 +3,8 @@ unit uUtil;
 interface
 
 uses
-  Forms, Windows, SysUtils, IdGlobal, IdHash, IdHashMessageDigest, Vcl.Controls,
-  uEmpresa, uUsuario, uPrograma, Data.DB, Datasnap.DBClient;
+  Forms, Windows, SysUtils, IdGlobal, IdHash, IdHashMessageDigest, Vcl.Controls, DBCtrls, Graphics, Mask, StdCtrls,
+  uEmpresa, uUsuario, uPrograma, Data.DB, Datasnap.DBClient, uKsNumberEdit, uKsDBNumberEdit, uKsDateEdit, uKsDBDateEdit;
 
 type
   TUtil = class
@@ -16,8 +16,11 @@ type
     class procedure CarregarEmpresa(cds: TClientDataSet);
     class procedure CarregarUsuario(cds: TClientDataSet);
     class procedure CarregarModuloPrograma(cds: TClientDataSet);
+    class procedure CorElementoEmFoco(Formulario: TForm);
+    class procedure IniciarClientDataSet(cds: TClientDataSet);
     class procedure ExibirMensagem(const Mensagem: String; Tipo: Char = ' ');
     class function  ExibirPergunta(const Mensagem: String): Boolean;
+    class function  TestarRetorno(const Operacao, Retorno: String): Boolean;
     class function  RetornarMD5(const Valor: String): String;
     class function  MoverHint(Form: TForm): String;
 end;
@@ -146,6 +149,104 @@ begin
     end;
 end;
 
+class procedure TUtil.CorElementoEmFoco(Formulario: TForm);
+var
+ I: Integer;
+begin
+  for I := 0 to Formulario.ComponentCount - 1 do
+    begin
+      if (Formulario.Components[I] is TDBEdit) and
+         ((Formulario.Components[I] as TDBEdit).Tag in [0,5]) and
+         ((Formulario.Components[I] as TDBEdit).Enabled and not((Formulario.Components[I] as TDBEdit).ReadOnly)) then
+        begin
+          if (Formulario.ActiveControl = Formulario.Components[I]) then
+            (Formulario.Components[I] as TDBEdit).Color := clMaroon
+          else
+            (Formulario.Components[I] as TDBEdit).Color := clWindow;
+        end;
+
+      if (Formulario.Components[I] is TKsNumberEdit) and
+         ((Formulario.Components[I] as TKsNumberEdit).Tag in [0,5]) and
+         ((Formulario.Components[I] as TKsNumberEdit).Enabled and not((Formulario.Components[I] as TKsNumberEdit).ReadOnly)) then
+        begin
+          if (Formulario.ActiveControl = Formulario.Components[I]) then
+            (Formulario.Components[I] as TKsNumberEdit).Color := clSkyBlue
+          else
+            (Formulario.Components[I] as TKsNumberEdit).Color := clWindow;
+        end;
+
+      if (Formulario.Components[I] is TKsDBNumberEdit) and
+         ((Formulario.Components[I] as TKsDBNumberEdit).Tag in [0,5]) and
+         ((Formulario.Components[I] as TKsDBNumberEdit).Enabled and not((Formulario.Components[I] as TKsDBNumberEdit).ReadOnly)) then
+        begin
+          if (Formulario.ActiveControl = Formulario.Components[I]) then
+            (Formulario.Components[I] as TKsDBNumberEdit).Color := clSkyBlue
+          else
+            (Formulario.Components[I] as TKsDBNumberEdit).Color := clWindow;
+        end;
+
+      if (Formulario.Components[I] is TEdit) and
+         ((Formulario.Components[I] as TEdit).Tag in [0,5]) and
+         ((Formulario.Components[I] as TEdit).Enabled and not((Formulario.Components[I] as TEdit).ReadOnly)) then
+        begin
+          if (Formulario.ActiveControl = Formulario.Components[I]) then
+            (Formulario.Components[I] as TEdit).Color := clSkyBlue
+          else
+            (Formulario.Components[I] as TEdit).Color := clWindow;
+        end;
+
+      if (Formulario.Components[I] is TDBMemo) and
+         ((Formulario.Components[I] as TDBMemo).Tag in [0,5]) and
+         ((Formulario.Components[I] as TDBMemo).Enabled and not((Formulario.Components[I] as TDBMemo).ReadOnly)) then
+        begin
+          if (Formulario.ActiveControl = Formulario.Components[I]) then
+            (Formulario.Components[I] as TDBMemo).Color := clSkyBlue
+          else
+            (Formulario.Components[I] as TDBMemo).Color := clWindow;
+        end;
+
+      if (Formulario.Components[I] is TMemo) and
+         ((Formulario.Components[I] as TMemo).Tag in [0,5]) and
+         ((Formulario.Components[I] as TMemo).Enabled and not((Formulario.Components[I] as TMemo).ReadOnly)) then
+        begin
+          if (Formulario.ActiveControl = Formulario.Components[I]) then
+            (Formulario.Components[I] as TMemo).Color := clSkyBlue
+          else
+            (Formulario.Components[I] as TMemo).Color := clWindow;
+        end;
+
+      if (Formulario.Components[I] is TMaskEdit) and
+         ((Formulario.Components[I] as TMaskEdit).Tag in [0,5]) and
+         ((Formulario.Components[I] as TMaskEdit).Enabled and not((Formulario.Components[I] as TMaskEdit).ReadOnly)) then
+        begin
+          if (Formulario.ActiveControl = Formulario.Components[I]) then
+            (Formulario.Components[I] as TMaskEdit).Color := clSkyBlue
+          else
+            (Formulario.Components[I] as TMaskEdit).Color := clWindow;
+        end;
+
+      if (Formulario.Components[I] is TKsDateEdit) and
+         ((Formulario.Components[I] as TKsDateEdit).Tag in [0,5]) and
+         ((Formulario.Components[I] as TKsDateEdit).Enabled and not((Formulario.Components[I] as TKsDateEdit).ReadOnly)) then
+        begin
+          if (Formulario.ActiveControl = Formulario.Components[I]) then
+            (Formulario.Components[I] as TKsDateEdit).Color := clSkyBlue
+          else
+            (Formulario.Components[I] as TKsDateEdit).Color := clWindow;
+        end;
+
+      if (Formulario.Components[I] is TKsDBDateEdit) and
+         ((Formulario.Components[I] as TKsDBDateEdit).Tag in [0,5]) and
+         ((Formulario.Components[I] as TKsDBDateEdit).Enabled and not((Formulario.Components[I] as TKsDBDateEdit).ReadOnly)) then
+        begin
+          if (Formulario.ActiveControl = Formulario.Components[I]) then
+            (Formulario.Components[I] as TKsDBDateEdit).Color := clSkyBlue
+          else
+            (Formulario.Components[I] as TKsDBDateEdit).Color := clWindow;
+        end;
+    end;
+end;
+
 class procedure TUtil.ExibirMensagem(const Mensagem: String; Tipo: Char);
 begin
   if (Tipo = 'A') then
@@ -160,6 +261,20 @@ end;
 class function TUtil.ExibirPergunta(const Mensagem: String): Boolean;
 begin
   Result := (Application.MessageBox(PChar(Mensagem), 'King Soft', MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES);
+end;
+
+class procedure TUtil.IniciarClientDataSet(cds: TClientDataSet);
+var
+  I: integer;
+begin
+  for I := 0 to cds.FieldCount - 1 do
+    begin
+      if ((cds.Fields[I].DataType = ftFixedChar) or (cds.Fields[I].DataType = ftWideString) or (cds.Fields[I].DataType = ftString) or (cds.Fields[I].DataType = ftBlob) or (cds.Fields[I].DataType = ftMemo)) then
+        cds.Fields[I].Value := '';
+
+      if (cds.Fields[I].DataType = ftInteger) or (cds.Fields[I].DataType = ftFloat) or (cds.Fields[I].DataType = ftSmallint) or (cds.Fields[I].DataType = ftLargeInt) or (cds.Fields[I].DataType = ftCurrency) or (cds.Fields[I].DataType = ftbcd) then
+        cds.Fields[I].Asfloat := 0;
+    end;
 end;
 
 class function TUtil.MoverHint(Form: TForm): String;
@@ -189,6 +304,19 @@ begin
   finally
     IdHashMessageDigest5.Free;
   end;
+end;
+
+class function TUtil.TestarRetorno(const Operacao, Retorno: String): Boolean;
+begin
+  if (Trim(Retorno) <> '') then
+    begin
+      if (Operacao <> 'D') then
+        TUtil.ExibirMensagem('Corrija o(s) seguintes erros: ' + #13 + Retorno, 'E')
+      else
+        TUtil.ExibirMensagem('Não foi possível excluir: ' + #13 + Retorno, 'E')
+    end;
+
+  Result := (Trim(Retorno) = '');
 end;
 
 end.
