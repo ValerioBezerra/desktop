@@ -17,9 +17,10 @@ uses
   Vcl.Styles,
   uFrmAUT003Consulta in 'uFrmAUT003Consulta.pas' {frmAUT003Consulta},
   uFrmPadrao in '..\..\KingLib\uFrmPadrao.pas' {frmPadrao},
-  uFrmAUT002 in 'uFrmAUT002.pas' {frmAUT002},
+  uFrmAUT003 in 'uFrmAUT003.pas' {frmAUT003},
   uCCKingAutorizacao in 'uCCKingAutorizacao.pas',
-  uFrmAUT002Consulta in 'uFrmAUT002Consulta.pas' {frmAUT002Consulta};
+  uFrmAUT002Consulta in 'uFrmAUT002Consulta.pas' {frmAUT002Consulta},
+  uFrmAUT002 in 'uFrmAUT002.pas' {frmAUT002};
 
 {$R *.res}
 
@@ -27,7 +28,7 @@ begin
   Application.Initialize;
   Application.ShowMainForm      := False;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Aqua Light Slate');
+  TStyleManager.TrySetStyle('Amethyst Kamri');
   Application.CreateForm(TcmKingAutorizacao, cmKingAutorizacao);
   Application.Run;
   TKingAutorizacao.AbrirPrograma;

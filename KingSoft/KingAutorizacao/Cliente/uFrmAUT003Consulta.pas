@@ -13,14 +13,14 @@ type
     neAUT_AUTPER_USU: TKsNumberEdit;
     edAUT_DESCRICAO_PER: TEdit;
     Label1: TLabel;
-    sbCDV_002: TSpeedButton;
+    sbAUT_002: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure btnApagarClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure btnPesquisarClick(Sender: TObject);
-    procedure sbCDV_002Click(Sender: TObject);
+    procedure sbAUT_002Click(Sender: TObject);
     procedure neAUT_AUTPER_USUExit(Sender: TObject);
     procedure neAUT_AUTPER_USUKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -38,7 +38,7 @@ implementation
 
 {$R *.dfm}
 
-uses uCMKingAutorizacao, uCCKingAutorizacao, uUtil, uFrmAUT002,
+uses uCMKingAutorizacao, uCCKingAutorizacao, uUtil, uFrmAUT003,
   uFrmAUT002Consulta;
 
 procedure TfrmAUT003Consulta.btnApagarClick(Sender: TObject);
@@ -63,10 +63,10 @@ begin
   inherited;
   try
     PreencherCdsPadrao(cdsConsulta.FieldByName('AUT_ID_USU').AsInteger);
-    Application.CreateForm(TfrmAUT002, frmAUT002);
-    frmAUT002.OperacaoPadrao := 'U';
-    frmAUT002.ShowModal;
-    frmAUT002.Free;
+    Application.CreateForm(TfrmAUT003, frmAUT003);
+    frmAUT003.OperacaoPadrao := 'U';
+    frmAUT003.ShowModal;
+    frmAUT003.Free;
   finally
     btnPesquisarClick(self);
   end;
@@ -77,10 +77,10 @@ begin
   inherited;
   try
     PreencherCdsPadrao(0);
-    Application.CreateForm(TfrmAUT002, frmAUT002);
-    frmAUT002.OperacaoPadrao := 'I';
-    frmAUT002.ShowModal;
-    frmAUT002.Free;
+    Application.CreateForm(TfrmAUT003, frmAUT003);
+    frmAUT003.OperacaoPadrao := 'I';
+    frmAUT003.ShowModal;
+    frmAUT003.Free;
   finally
     btnPesquisarClick(self);
   end;
@@ -148,7 +148,7 @@ procedure TfrmAUT003Consulta.neAUT_AUTPER_USUKeyDown(Sender: TObject;
 begin
   inherited;
   if (Ord(Key) = VK_F1) then
-    sbCDV_002Click(Self);
+    sbAUT_002Click(Self);
 end;
 
 procedure TfrmAUT003Consulta.PreencherCdsPadrao(Id: Integer);
@@ -163,7 +163,7 @@ begin
     cdsPadrao.Edit;
 end;
 
-procedure TfrmAUT003Consulta.sbCDV_002Click(Sender: TObject);
+procedure TfrmAUT003Consulta.sbAUT_002Click(Sender: TObject);
 begin
   inherited;
   Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);

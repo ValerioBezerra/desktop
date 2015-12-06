@@ -12,7 +12,7 @@ type
   TfrmAUT002 = class(TfrmPadrao)
     Label1: TLabel;
     Label2: TLabel;
-    dbeAUT_ID_PER: TDBEdit;
+    dbeAUT_DESCRICAO_PER: TDBEdit;
     dbneAUT_ID_PER: TKsDBNumberEdit;
     procedure FormCreate(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
@@ -46,7 +46,7 @@ begin
   if (erroPadrao) then
     begin
       cdsPadrao.Edit;
-      dbeAUT_ID_PER.SetFocus;
+      dbeAUT_DESCRICAO_PER.SetFocus;
     end;
 end;
 

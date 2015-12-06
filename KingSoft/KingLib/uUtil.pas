@@ -20,7 +20,7 @@ type
     class procedure IniciarClientDataSet(cds: TClientDataSet);
     class procedure ExibirMensagem(const Mensagem: String; Tipo: Char = ' ');
     class function  ExibirPergunta(const Mensagem: String): Boolean;
-    class function  TestarRetorno(const Operacao, Retorno: String): Boolean;
+    class function  TestarRetorno(const Operacao, AvisoExtra: String; Retorno: String): Boolean;
     class function  RetornarMD5(const Valor: String): String;
     class function  MoverHint(Form: TForm): String;
 end;
@@ -306,8 +306,10 @@ begin
   end;
 end;
 
-class function TUtil.TestarRetorno(const Operacao, Retorno: String): Boolean;
+class function TUtil.TestarRetorno(const Operacao, AvisoExtra: String; Retorno: String): Boolean;
 begin
+  Retorno := Retorno + AvisoExtra;
+
   if (Trim(Retorno) <> '') then
     begin
       if (Operacao <> 'D') then

@@ -3,24 +3,27 @@ inherited frmAUT003Consulta: TfrmAUT003Consulta
   ClientWidth = 635
   OnKeyDown = FormKeyDown
   ExplicitWidth = 641
+  ExplicitHeight = 286
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 635
+    ExplicitWidth = 635
   end
   inherited pnlPrincipal: TPanel
     Width = 515
+    ExplicitWidth = 515
     inherited gpFiltro: TGroupBox
       Height = 50
       ExplicitHeight = 50
       object Label1: TLabel [0]
-        Left = 264
+        Left = 263
         Top = 10
         Width = 24
         Height = 13
         Caption = 'Perfil'
       end
-      object sbCDV_002: TSpeedButton [1]
+      object sbAUT_002: TSpeedButton [1]
         Left = 294
         Top = 21
         Width = 23
@@ -77,7 +80,7 @@ inherited frmAUT003Consulta: TfrmAUT003Consulta
           FD9BEC090909E3E3FDFDFDFDFDFDFDFDFDF707080807F7F7FDFDFDFDFDFDFDFD
           FDFDFDE4E4E3FDFDFDFDFDFDFDFDFDFDFDFDFDF7F7F7FDFDFDFD}
         NumGlyphs = 2
-        OnClick = sbCDV_002Click
+        OnClick = sbAUT_002Click
       end
       inherited cbContido: TCheckBox
         Left = 192
@@ -203,9 +206,11 @@ inherited frmAUT003Consulta: TfrmAUT003Consulta
   end
   inherited stbInformacao: TStatusBar
     Width = 635
+    ExplicitWidth = 635
   end
   inherited pnlBotoes: TPanel
     Left = 515
+    ExplicitLeft = 515
     inherited btnNovo: TBitBtn
       OnClick = btnNovoClick
     end
@@ -215,6 +220,7 @@ inherited frmAUT003Consulta: TfrmAUT003Consulta
   end
   inherited Panel2: TPanel
     Left = 627
+    ExplicitLeft = 627
   end
   inherited cdsConsulta: TClientDataSet
     CommandText = 
