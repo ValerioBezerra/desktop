@@ -17,6 +17,7 @@ object DataModule1: TDataModule1
     Top = 40
   end
   object Transacao: TIBTransaction
+    Active = True
     DefaultDatabase = Banco
     Left = 128
     Top = 40
@@ -446,5 +447,95 @@ object DataModule1: TDataModule1
     DataSet = cdsESTMOV
     Left = 595
     Top = 303
+  end
+  object qryORCAMENTO: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from ORCAMENTO')
+    Left = 411
+    Top = 375
+  end
+  object dspORCAMENTO: TDataSetProvider
+    DataSet = qryORCAMENTO
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 475
+    Top = 375
+  end
+  object cdsORCAMENTO: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from ORCAMENTO'
+    Params = <>
+    ProviderName = 'dspORCAMENTO'
+    Left = 531
+    Top = 375
+  end
+  object dsORCAMENTO: TDataSource
+    DataSet = cdsORCAMENTO
+    Left = 595
+    Top = 375
+  end
+  object qryITEORC: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from ORCAMENTO')
+    Left = 403
+    Top = 431
+  end
+  object dspITEORC: TDataSetProvider
+    DataSet = qryITEORC
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 467
+    Top = 431
+  end
+  object cdsITEORC: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from ORCAMENTO'
+    Params = <>
+    ProviderName = 'dspITEORC'
+    Left = 523
+    Top = 431
+  end
+  object dsITEORC: TDataSource
+    DataSet = cdsITEORC
+    Left = 587
+    Top = 431
+  end
+  object qryTERORC: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from ORCAMENTO')
+    Left = 411
+    Top = 487
+  end
+  object dspTERORC: TDataSetProvider
+    DataSet = qryTERORC
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 475
+    Top = 487
+  end
+  object cdsTERORC: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from ORCAMENTO'
+    Params = <>
+    ProviderName = 'dspTERORC'
+    Left = 531
+    Top = 487
+  end
+  object dsTERORC: TDataSource
+    DataSet = cdsTERORC
+    Left = 595
+    Top = 487
   end
 end

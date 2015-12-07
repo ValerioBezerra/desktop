@@ -3063,6 +3063,7 @@ object frmORCAMENTO: TfrmORCAMENTO
       307827D3EF06EA04803D47F1EAE46EC77745D4F7F239AF0CE79589DBC2D89D4C
       DF41F4FF012D56C2E7CA2973810000000049454E44AE426082}
     Proportional = True
+    OnClick = Image2Click
   end
   object edSEQ_ORC: TEdit
     Left = 16
@@ -3071,6 +3072,7 @@ object frmORCAMENTO: TfrmORCAMENTO
     Height = 21
     NumbersOnly = True
     TabOrder = 0
+    OnExit = edSEQ_ORCExit
   end
   object Button1: TButton
     Left = 144
@@ -3091,11 +3093,14 @@ object frmORCAMENTO: TfrmORCAMENTO
     TabOrder = 2
   end
   object DBEdit1: TDBEdit
-    Left = 15
+    Left = 18
     Top = 76
     Width = 50
     Height = 21
+    DataField = 'CODCLI_ORC'
+    DataSource = DataModule1.dsORCAMENTO
     TabOrder = 3
+    OnExit = DBEdit1Exit
   end
   object DateTimePicker1: TDateTimePicker
     Left = 16

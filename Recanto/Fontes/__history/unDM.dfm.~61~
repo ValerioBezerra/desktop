@@ -1,16 +1,17 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Height = 651
-  Width = 954
+  Height = 751
+  Width = 1033
   object Banco: TIBDatabase
     Connected = True
     DatabaseName = 
-      'C:\Users\Elison\Documents\GitHub\desktop\Recanto\Banco\RECANTO.F' +
-      'DB'
+      '127.0.0.1:C:\Users\Elison\Documents\GitHub\desktop\Recanto\Banco' +
+      '\RECANTO.FDB'
     Params.Strings = (
       'user_name=sysdba'
       'password=masterkey')
     LoginPrompt = False
+    DefaultTransaction = Transacao
     ServerType = 'IBServer'
     Left = 56
     Top = 40
@@ -58,7 +59,7 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'select * from ESTITE')
+      'select * from ESTTMO')
     Left = 313
     Top = 27
   end
@@ -69,9 +70,8 @@ object DataModule1: TDataModule1
     Top = 27
   end
   object cdsCONSULTA: TClientDataSet
-    Active = True
     Aggregates = <>
-    CommandText = 'select * from ESTITE'
+    CommandText = 'select * from ESTTMO'
     Params = <>
     ProviderName = 'dspCONSULTA'
     Left = 433
@@ -100,7 +100,6 @@ object DataModule1: TDataModule1
     Top = 296
   end
   object cdsCLIENTE: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 'select * from CLIENTE'
     Params = <>
@@ -131,7 +130,6 @@ object DataModule1: TDataModule1
     Top = 352
   end
   object cdsFORNECEDOR: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 'select * from FORNECEDOR'
     Params = <>
@@ -348,7 +346,6 @@ object DataModule1: TDataModule1
     Top = 523
   end
   object cdsESTGRP: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 'select * from ESTGRP'
     Params = <>
@@ -390,5 +387,125 @@ object DataModule1: TDataModule1
     DataSet = cdsESTITE
     Left = 217
     Top = 577
+  end
+  object qryESTTMO: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from ESTITE')
+    Left = 36
+    Top = 637
+  end
+  object dspESTTMO: TDataSetProvider
+    DataSet = qryESTTMO
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 100
+    Top = 637
+  end
+  object cdsESTTMO: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from ESTTMO'
+    Params = <>
+    ProviderName = 'dspESTTMO'
+    Left = 156
+    Top = 637
+  end
+  object dsESTTMO: TDataSource
+    DataSet = cdsESTTMO
+    Left = 220
+    Top = 637
+  end
+  object qryESTMOV: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from ESTMOV')
+    Left = 411
+    Top = 303
+  end
+  object dspESTMOV: TDataSetProvider
+    DataSet = qryESTMOV
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 475
+    Top = 303
+  end
+  object cdsESTMOV: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from ESTMOV'
+    Params = <>
+    ProviderName = 'dspESTMOV'
+    Left = 531
+    Top = 303
+  end
+  object dsESTMOV: TDataSource
+    DataSet = cdsESTMOV
+    Left = 595
+    Top = 303
+  end
+  object qryORCAMENTO: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from ORCAMENTO')
+    Left = 411
+    Top = 375
+  end
+  object dspORCAMENTO: TDataSetProvider
+    DataSet = qryORCAMENTO
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 475
+    Top = 375
+  end
+  object cdsORCAMENTO: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from ORCAMENTO'
+    Params = <>
+    ProviderName = 'dspORCAMENTO'
+    Left = 531
+    Top = 375
+  end
+  object dsORCAMENTO: TDataSource
+    DataSet = cdsORCAMENTO
+    Left = 595
+    Top = 375
+  end
+  object qryITEORC: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from ORCAMENTO')
+    Left = 403
+    Top = 431
+  end
+  object dspITEORC: TDataSetProvider
+    DataSet = qryITEORC
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 467
+    Top = 431
+  end
+  object cdsITEORC: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from ORCAMENTO'
+    Params = <>
+    ProviderName = 'dspITEORC'
+    Left = 523
+    Top = 431
+  end
+  object dsITEORC: TDataSource
+    DataSet = cdsITEORC
+    Left = 587
+    Top = 431
   end
 end

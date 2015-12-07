@@ -34,15 +34,6 @@ type
     dspPAGTIT: TDataSetProvider;
     cdsPAGTIT: TClientDataSet;
     dsPAGTIT: TDataSource;
-    cdsPAGTITSEQ_PAGTIT: TIntegerField;
-    cdsPAGTITORIGEM_PAGTIT: TIntegerField;
-    cdsPAGTITDATAEMISSAO_PAGTTIT: TDateField;
-    cdsPAGTITDATAVENC_PAGTIT: TDateField;
-    cdsPAGTITVALORTOTAL_PAGTIT: TBCDField;
-    cdsPAGTITVALORPAGO_PAGTIT: TBCDField;
-    cdsPAGTITNOME_FOR: TWideStringField;
-    cdsPAGTITVALORABERTO: TBCDField;
-    cdsPAGTITCODIGO_FOR: TIntegerField;
     qryTELASCONSULTA: TIBQuery;
     dspTELASCONSULTA: TDataSetProvider;
     cdsTELASCONSULTA: TClientDataSet;
@@ -51,15 +42,6 @@ type
     dspRECTIT: TDataSetProvider;
     cdsRECTIT: TClientDataSet;
     dsRECTIT: TDataSource;
-    cdsRECTITSEQ_RECTIT: TIntegerField;
-    cdsRECTITORIGEM_RECTIT: TIntegerField;
-    cdsRECTITDATAEMISSAO_RECTIT: TDateField;
-    cdsRECTITDATAVENC_RECTIT: TDateField;
-    cdsRECTITVALORTOTAL_RECTIT: TBCDField;
-    cdsRECTITVALORPAGO_RECTIT: TBCDField;
-    cdsRECTITNOME_CLI: TWideStringField;
-    cdsRECTITCODIGO_CLI: TIntegerField;
-    cdsRECTITVALORABERTO: TBCDField;
     qryHOSTER: TIBQuery;
     dspHOSTER: TDataSetProvider;
     cdsHOSTER: TClientDataSet;
@@ -68,6 +50,30 @@ type
     cdsHOSTERNOME_TER: TWideStringField;
     cdsHOSTERPRECO_TER: TBCDField;
     cdsHOSTERDURACAO_TER: TTimeField;
+    qryESTGRP: TIBQuery;
+    dspESTGRP: TDataSetProvider;
+    cdsESTGRP: TClientDataSet;
+    dsESTGRP: TDataSource;
+    qryESTITE: TIBQuery;
+    dspESTITE: TDataSetProvider;
+    cdsESTITE: TClientDataSet;
+    dsESTITE: TDataSource;
+    qryESTTMO: TIBQuery;
+    dspESTTMO: TDataSetProvider;
+    cdsESTTMO: TClientDataSet;
+    dsESTTMO: TDataSource;
+    qryESTMOV: TIBQuery;
+    dspESTMOV: TDataSetProvider;
+    cdsESTMOV: TClientDataSet;
+    dsESTMOV: TDataSource;
+    qryORCAMENTO: TIBQuery;
+    dspORCAMENTO: TDataSetProvider;
+    cdsORCAMENTO: TClientDataSet;
+    dsORCAMENTO: TDataSource;
+    qryITEORC: TIBQuery;
+    dspITEORC: TDataSetProvider;
+    cdsITEORC: TClientDataSet;
+    dsITEORC: TDataSource;
   private
     { Private declarations }
   public

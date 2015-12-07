@@ -5,8 +5,8 @@ object DataModule1: TDataModule1
   object Banco: TIBDatabase
     Connected = True
     DatabaseName = 
-      'C:\Users\Elison\Documents\GitHub\desktop\Recanto\Banco\RECANTO.F' +
-      'DB'
+      '127.0.0.1:C:\Users\Elison\Documents\GitHub\desktop\Recanto\Banco' +
+      '\RECANTO.FDB'
     Params.Strings = (
       'user_name=sysdba'
       'password=masterkey')
@@ -17,7 +17,6 @@ object DataModule1: TDataModule1
     Top = 40
   end
   object Transacao: TIBTransaction
-    Active = True
     DefaultDatabase = Banco
     Left = 128
     Top = 40
@@ -59,7 +58,7 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'select * from ESTITE')
+      'select * from ESTTMO')
     Left = 313
     Top = 27
   end
@@ -70,9 +69,8 @@ object DataModule1: TDataModule1
     Top = 27
   end
   object cdsCONSULTA: TClientDataSet
-    Active = True
     Aggregates = <>
-    CommandText = 'select * from ESTITE'
+    CommandText = 'select * from ESTTMO'
     Params = <>
     ProviderName = 'dspCONSULTA'
     Left = 433
@@ -101,7 +99,6 @@ object DataModule1: TDataModule1
     Top = 296
   end
   object cdsCLIENTE: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 'select * from CLIENTE'
     Params = <>
@@ -132,7 +129,6 @@ object DataModule1: TDataModule1
     Top = 352
   end
   object cdsFORNECEDOR: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 'select * from FORNECEDOR'
     Params = <>
@@ -349,7 +345,6 @@ object DataModule1: TDataModule1
     Top = 523
   end
   object cdsESTGRP: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 'select * from ESTGRP'
     Params = <>
@@ -421,5 +416,35 @@ object DataModule1: TDataModule1
     DataSet = cdsESTTMO
     Left = 220
     Top = 637
+  end
+  object qryESTMOV: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from ESTMOV')
+    Left = 411
+    Top = 303
+  end
+  object dspESTMOV: TDataSetProvider
+    DataSet = qryESTMOV
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 475
+    Top = 303
+  end
+  object cdsESTMOV: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from ESTMOV'
+    Params = <>
+    ProviderName = 'dspESTMOV'
+    Left = 531
+    Top = 303
+  end
+  object dsESTMOV: TDataSource
+    DataSet = cdsESTMOV
+    Left = 595
+    Top = 303
   end
 end

@@ -1,4 +1,4 @@
-object fmrConsCLIENTE: TfmrConsCLIENTE
+object fmrConsCliente: TfmrConsCliente
   Left = 0
   Top = 0
   Caption = 'Consultar Cliente'

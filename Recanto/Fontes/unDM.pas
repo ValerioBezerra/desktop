@@ -66,6 +66,18 @@ type
     dspESTMOV: TDataSetProvider;
     cdsESTMOV: TClientDataSet;
     dsESTMOV: TDataSource;
+    qryORCAMENTO: TIBQuery;
+    dspORCAMENTO: TDataSetProvider;
+    cdsORCAMENTO: TClientDataSet;
+    dsORCAMENTO: TDataSource;
+    qryITEORC: TIBQuery;
+    dspITEORC: TDataSetProvider;
+    cdsITEORC: TClientDataSet;
+    dsITEORC: TDataSource;
+    qryTERORC: TIBQuery;
+    dspTERORC: TDataSetProvider;
+    cdsTERORC: TClientDataSet;
+    dsTERORC: TDataSource;
   private
     { Private declarations }
   public

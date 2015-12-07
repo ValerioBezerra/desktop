@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls;
 
 type
-  TfmrConsCLIENTE = class(TForm)
+  TfmrConsCliente = class(TForm)
     DBGrid1: TDBGrid;
     edConsultar: TEdit;
     btConsultar: TButton;
@@ -21,7 +21,7 @@ type
   end;
 
 var
-  fmrConsCLIENTE: TfmrConsCLIENTE;
+  fmrConsCliente: TfmrConsCliente;
 
 implementation
 
@@ -29,7 +29,7 @@ implementation
 
 uses unDM;
 
-procedure TfmrConsCLIENTE.btConsultarClick(Sender: TObject);
+procedure TfmrConsCliente.btConsultarClick(Sender: TObject);
 begin
      with DataModule1.cdsCLIENTE do
      begin
@@ -39,12 +39,12 @@ begin
      end;
 end;
 
-procedure TfmrConsCLIENTE.DBGrid1DblClick(Sender: TObject);
+procedure TfmrConsCliente.DBGrid1DblClick(Sender: TObject);
 begin
            Close;
 end;
 
-procedure TfmrConsCLIENTE.FormCreate(Sender: TObject);
+procedure TfmrConsCliente.FormCreate(Sender: TObject);
 begin
          with DataModule1.cdsCLIENTE do
          begin

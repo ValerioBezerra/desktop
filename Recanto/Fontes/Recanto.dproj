@@ -195,10 +195,6 @@
             <Form>frmMOVRECTIT</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unConsCLIENTE.pas">
-            <Form>fmrConsCLIENTE</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="unFOR.pas">
             <Form>frmFOR</Form>
             <FormType>dfm</FormType>
@@ -229,6 +225,14 @@
         </DCCReference>
         <DCCReference Include="unORCAMENTO.pas">
             <Form>frmORCAMENTO</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unConsORCAMENTO.pas">
+            <Form>frmConsORCAMENTO</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unConsCLIENTE.pas">
+            <Form>fmrConsCliente</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

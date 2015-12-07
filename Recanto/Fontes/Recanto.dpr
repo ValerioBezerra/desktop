@@ -29,7 +29,6 @@ uses
   unCadCLI in 'unCadCLI.pas' {frmCadCLI},
   unRECTIT in 'unRECTIT.pas' {frmRECTIT},
   unMOVRECTIT in 'unMOVRECTIT.pas' {frmMOVRECTIT},
-  unConsCLIENTE in 'unConsCLIENTE.pas' {fmrConsCLIENTE},
   unFOR in 'unFOR.pas' {frmFOR},
   unCadFOR in 'unCadFOR.pas' {frmCadFOR},
   unPAGTIT in 'unPAGTIT.pas' {frmPAGTIT},
@@ -37,7 +36,9 @@ uses
   unRELCLI in 'unRELCLI.pas' {frmRELCLI},
   unRELPREVREC in 'unRELPREVREC.pas' {frmRELPREVREC},
   unMOVPAGBXA in 'unMOVPAGBXA.pas' {frmPadraoManutencao_1},
-  unORCAMENTO in 'unORCAMENTO.pas' {frmORCAMENTO};
+  unORCAMENTO in 'unORCAMENTO.pas' {frmORCAMENTO},
+  unConsORCAMENTO in 'unConsORCAMENTO.pas' {frmConsORCAMENTO},
+  unConsCLIENTE in 'unConsCLIENTE.pas' {fmrConsCliente};
 
 {$R *.res}
 
@@ -49,6 +50,5 @@ begin
   Application.CreateForm(TfrmPadrao_, frmPadrao_);
   Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
   Application.CreateForm(TfrmPadraoManutencao_1, frmPadraoManutencao_1);
-  Application.CreateForm(TfrmORCAMENTO, frmORCAMENTO);
   Application.Run;
 end.
