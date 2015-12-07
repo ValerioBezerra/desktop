@@ -15,11 +15,15 @@ uses
   uFrmPadraoConsulta in '..\..\KingLib\uFrmPadraoConsulta.pas' {frmPadraoConsulta},
   Vcl.Themes,
   Vcl.Styles,
-  uFrmAUT003Consulta in 'uFrmAUT003Consulta.pas' {frmAUT003Consulta},
+  uFrmAUT005Consulta in 'uFrmAUT005Consulta.pas' {frmAUT005Consulta},
   uFrmPadrao in '..\..\KingLib\uFrmPadrao.pas' {frmPadrao},
   uFrmAUT003 in 'uFrmAUT003.pas' {frmAUT003},
   uCCKingAutorizacao in 'uCCKingAutorizacao.pas',
+  uFrmAUT004Consulta in 'uFrmAUT004Consulta.pas' {frmAUT004Consulta},
+  uFrmAUT004 in 'uFrmAUT004.pas' {frmAUT004},
   uFrmAUT002Consulta in 'uFrmAUT002Consulta.pas' {frmAUT002Consulta},
+  uFrmAUT005 in 'uFrmAUT005.pas' {frmAUT005},
+  uFrmAUT003Consulta in 'uFrmAUT003Consulta.pas' {frmAUT003Consulta},
   uFrmAUT002 in 'uFrmAUT002.pas' {frmAUT002};
 
 {$R *.res}

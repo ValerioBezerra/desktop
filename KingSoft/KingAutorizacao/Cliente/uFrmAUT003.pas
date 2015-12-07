@@ -17,7 +17,7 @@ type
     dbeAUT_LOGIN_USU: TDBEdit;
     Label2: TLabel;
     Label3: TLabel;
-    sbAUT_002: TSpeedButton;
+    sbAUT002: TSpeedButton;
     edAUT_DESCRICAO_PER: TEdit;
     dbneAUT_AUTPER_USU: TKsDBNumberEdit;
     Label4: TLabel;
@@ -28,7 +28,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure sbAUT_002Click(Sender: TObject);
+    procedure sbAUT002Click(Sender: TObject);
     procedure dbneAUT_AUTPER_USUExit(Sender: TObject);
     procedure dbneAUT_AUTPER_USUKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -49,21 +49,39 @@ implementation
 uses uCMKingAutorizacao, uUtil, uFrmAUT002Consulta;
 
 procedure TfrmAUT003.btnSalvarClick(Sender: TObject);
+var
+  Extras: TStringList;
 begin
-  cdsPadrao.Post;
-  erroPadrao := not(cmKingAutorizacao.TestarDados(TUtil.Empresa.Id, TabelaPadrao, OperacaoPadrao, cdsPadrao.Data));
+  try
+    cdsPadrao.Post;
 
-  if not(erroPadrao) then
-    begin
-      inherited;
-      Close;
-    end;
+    Extras := TStringList.Create;
+    Extras.Add(edAUT_SENHA_USU.Text);
+    Extras.Add(edAUT_SENHA_USU_CONFIRMAR.Text);
 
-  if (erroPadrao) then
-    begin
-      cdsPadrao.Edit;
-      dbeAUT_NOME_USU.SetFocus;
-    end;
+    erroPadrao := not(cmKingAutorizacao.TestarDados(TUtil.Empresa.Id, TabelaPadrao, OperacaoPadrao, cdsPadrao.Data, Extras));
+
+    if not(erroPadrao) then
+      begin
+        if (OperacaoPadrao = 'I') then
+          begin
+            cdsPadrao.Edit;
+            cdsPadrao.FieldByName('AUT_SENHA_USU').AsString := TUtil.RetornarMD5(edAUT_SENHA_USU.Text);
+            cdsPadrao.Post;
+          end;
+
+        inherited;
+        Close;
+      end;
+
+    if (erroPadrao) then
+      begin
+        cdsPadrao.Edit;
+        dbeAUT_NOME_USU.SetFocus;
+      end;
+  finally
+    Extras.Free;
+  end;
 end;
 
 procedure TfrmAUT003.dbneAUT_AUTPER_USUExit(Sender: TObject);
@@ -85,7 +103,7 @@ procedure TfrmAUT003.dbneAUT_AUTPER_USUKeyDown(Sender: TObject; var Key: Word;
 begin
   inherited;
   if (Ord(Key) = VK_F1) then
-    sbAUT_002Click(Self);
+    sbAUT002Click(Self);
 end;
 
 procedure TfrmAUT003.FormCreate(Sender: TObject);
@@ -111,9 +129,13 @@ begin
     cdsPadrao.FieldByName('AUT_ATIVO_USU').AsInteger := 1
   else
     dbneAUT_AUTPER_USUExit(Self);
+
+  dbeAUT_LOGIN_USU.Enabled          := (cdsPadrao.State = dsInsert);
+  edAUT_SENHA_USU.Enabled           := (cdsPadrao.State = dsInsert);
+  edAUT_SENHA_USU_CONFIRMAR.Enabled := (cdsPadrao.State = dsInsert);
 end;
 
-procedure TfrmAUT003.sbAUT_002Click(Sender: TObject);
+procedure TfrmAUT003.sbAUT002Click(Sender: TObject);
 begin
   inherited;
   Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);
@@ -127,5 +149,6 @@ begin
       dbneAUT_AUTPER_USUExit(Self);
     end;
 end;
+
 
 end.

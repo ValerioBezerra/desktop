@@ -13,17 +13,28 @@ type
     neAUT_AUTPER_USU: TKsNumberEdit;
     edAUT_DESCRICAO_PER: TEdit;
     Label1: TLabel;
-    sbAUT_002: TSpeedButton;
+    sbAUT002: TSpeedButton;
+    cdsConsultaATIVO: TBooleanField;
+    cdsConsultaAUT_ID_USU: TIntegerField;
+    cdsConsultaAUT_NOME_USU: TStringField;
+    cdsConsultaAUT_AUTPER_USU: TIntegerField;
+    cdsConsultaAUT_SENHA_USU: TStringField;
+    cdsConsultaAUT_KING_USU: TSmallintField;
+    cdsConsultaAUT_ATIVO_USU: TSmallintField;
+    cdsConsultaAUT_LOGIN_USU: TStringField;
+    cdsConsultaAUT_ID_PER: TIntegerField;
+    cdsConsultaAUT_DESCRICAO_PER: TStringField;
     procedure FormCreate(Sender: TObject);
     procedure btnApagarClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure btnPesquisarClick(Sender: TObject);
-    procedure sbAUT_002Click(Sender: TObject);
+    procedure sbAUT002Click(Sender: TObject);
     procedure neAUT_AUTPER_USUExit(Sender: TObject);
     procedure neAUT_AUTPER_USUKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure cdsConsultaCalcFields(DataSet: TDataSet);
   private
     { Private declarations }
     procedure PreencherCdsPadrao(Id: Integer);
@@ -96,6 +107,12 @@ begin
   inherited;
 end;
 
+procedure TfrmAUT003Consulta.cdsConsultaCalcFields(DataSet: TDataSet);
+begin
+  inherited;
+  cdsConsulta.FieldByName('ATIVO').AsBoolean := (cdsConsulta.FieldByName('AUT_ATIVO_USU').AsInteger = 1);
+end;
+
 procedure TfrmAUT003Consulta.FormCreate(Sender: TObject);
 begin
   inherited;
@@ -148,7 +165,7 @@ procedure TfrmAUT003Consulta.neAUT_AUTPER_USUKeyDown(Sender: TObject;
 begin
   inherited;
   if (Ord(Key) = VK_F1) then
-    sbAUT_002Click(Self);
+    sbAUT002Click(Self);
 end;
 
 procedure TfrmAUT003Consulta.PreencherCdsPadrao(Id: Integer);
@@ -163,7 +180,7 @@ begin
     cdsPadrao.Edit;
 end;
 
-procedure TfrmAUT003Consulta.sbAUT_002Click(Sender: TObject);
+procedure TfrmAUT003Consulta.sbAUT002Click(Sender: TObject);
 begin
   inherited;
   Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);

@@ -35,6 +35,9 @@ type
     cdsTestarDados: TClientDataSet;
     function Consultar(Tabela, Where: String): Boolean;
     function TestarAUT_PER(Parametro: TParametro): String;
+    function TestarAUT_USU(Parametro: TParametro): String;
+    function TestarAUT_MOD(Parametro: TParametro): String;
+    function TestarAUT_PRO(Parametro: TParametro): String;
   public
     { Public declarations }
     function TestarDados(Parametro: TParametro; Dados: OleVariant): String;
@@ -92,6 +95,61 @@ begin
   FDConnection.StartTransaction;
 end;
 
+function TSMKingAutorizacao.TestarAUT_MOD(Parametro: TParametro): String;
+var
+  Retorno: String;
+  Separador: String;
+begin
+  Retorno   := '';
+  Separador := '';
+
+  if (Parametro.Operacao <> 'D') then
+    begin
+      if ((Parametro.Operacao = 'I') and (Trim(cdsTestarDados.FieldByName('AUT_SIGLA_MOD').AsString) = '')) then
+        begin
+          Retorno   := Retorno + Separador + ' - Sigla não preenchida.';
+          Separador := #13;
+        end
+      else
+        begin
+          if (Consultar('AUT_MOD', 'WHERE AUT_ID_MOD <> ' + IntToStr(cdsTestarDados.FieldByName('AUT_ID_MOD').AsInteger) +
+                                   '  AND AUT_SIGLA_MOD = ' + QuotedStr(cdsTestarDados.FieldByName('AUT_SIGLA_MOD').AsString))) then
+            begin
+              Retorno   := Retorno + Separador + ' - Sigla já cadastrada para outro módulo.';
+              Separador := #13;
+            end;
+        end;
+
+      if (Trim(cdsTestarDados.FieldByName('AUT_DESCRICAO_MOD').AsString) = '') then
+        begin
+          Retorno   := Retorno + Separador + ' - Descrição não preenchida.';
+          Separador := #13;
+        end;
+
+      if (Trim(cdsTestarDados.FieldByName('AUT_EXECUTAVEL_MOD').AsString) = '') then
+        begin
+          Retorno   := Retorno + Separador + ' - Executável não preenchido.';
+          Separador := #13;
+        end;
+
+      if (cdsTestarDados.FieldByName('AUT_ORDEM_MOD').AsInteger = 0) then
+        begin
+          Retorno   := Retorno + Separador + ' - Ordem não preenchida.';
+          Separador := #13;
+        end;
+    end
+  else
+    begin
+      if (Consultar('AUT_PRO', 'WHERE AUT_AUTMOD_PRO = ' + IntToStr(cdsTestarDados.FieldByName('AUT_ID_MOD').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Há programa(s) cadastrado(s) com este módulo.';
+          Separador := #13;
+        end;
+    end;
+
+  Result := Retorno;
+end;
+
 function TSMKingAutorizacao.TestarAUT_PER(Parametro: TParametro): String;
 var
   Retorno: String;
@@ -102,14 +160,14 @@ begin
 
   if (Parametro.Operacao <> 'D') then
     begin
-      if ((cdsTestarDados.FieldByName('AUT_DESCRICAO_PER').AsString) = '') then
+      if (Trim(cdsTestarDados.FieldByName('AUT_DESCRICAO_PER').AsString) = '') then
         begin
           Retorno   := Retorno + Separador + ' - Descrição não preenchida.';
           Separador := #13;
         end;
     end
   else
-    begin  
+    begin
       if (Consultar('AUT_USU', 'WHERE AUT_AUTPER_USU = ' + IntToStr(cdsTestarDados.FieldByName('AUT_ID_PER').AsInteger))) then
         begin
           Retorno   := Retorno + Separador + ' - Há usuário(s) cadastrado(s) com este perfil.';
@@ -125,6 +183,129 @@ begin
   Result := Retorno;
 end;
 
+function TSMKingAutorizacao.TestarAUT_PRO(Parametro: TParametro): String;
+var
+  Retorno: String;
+  Separador: String;
+begin
+  Retorno   := '';
+  Separador := '';
+
+  if (Parametro.Operacao <> 'D') then
+    begin
+      if ((Parametro.Operacao = 'I') and not(Consultar('AUT_MOD', 'WHERE AUT_ID_MOD = ' + IntToStr(cdsTestarDados.FieldByName('AUT_AUTMOD_PRO').AsInteger)))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Módulo não cadastrado.';
+          Separador := #13;
+        end;
+
+      if ((Parametro.Operacao = 'I') and (Trim(cdsTestarDados.FieldByName('AUT_CODIGO_PRO').AsString) = '')) then
+        begin
+          Retorno   := Retorno + Separador + ' - Código não preenchido.';
+          Separador := #13;
+        end
+      else
+        begin
+          if (Consultar('AUT_PRO', 'WHERE AUT_ID_PRO <> ' + IntToStr(cdsTestarDados.FieldByName('AUT_ID_PRO').AsInteger) +
+                                   '  AND AUT_AUTMOD_PRO = ' + IntToStr(cdsTestarDados.FieldByName('AUT_AUTMOD_PRO').AsInteger) +
+                                   '  AND AUT_CODIGO_PRO = ' + QuotedStr(cdsTestarDados.FieldByName('AUT_CODIGO_PRO').AsString))) then
+            begin
+              Retorno   := Retorno + Separador + ' - Código já cadastrado para outro programa deste módulo.';
+              Separador := #13;
+            end;
+        end;
+
+      if (Trim(cdsTestarDados.FieldByName('AUT_DESCRICAO_PRO').AsString) = '') then
+        begin
+          Retorno   := Retorno + Separador + ' - Descrição não preenchida.';
+          Separador := #13;
+        end;
+    end
+  else
+    begin
+      if (Consultar('AUT_APE', 'WHERE AUT_AUTPRO_APE = ' + IntToStr(cdsTestarDados.FieldByName('AUT_ID_PRO').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Há autorizações de perfil para este programa.';
+          Separador := #13;
+        end;
+
+      if (Consultar('AUT_AUS', 'WHERE AUT_AUTPRO_AUS = ' + IntToStr(cdsTestarDados.FieldByName('AUT_ID_PRO').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Há autorizações de usuário para este programa.';
+          Separador := #13;
+        end;
+    end;
+
+  Result := Retorno;
+end;
+
+function TSMKingAutorizacao.TestarAUT_USU(Parametro: TParametro): String;
+var
+  Retorno: String;
+  Separador: String;
+begin
+  Retorno   := '';
+  Separador := '';
+
+  if (Parametro.Operacao <> 'D') then
+    begin
+      if (Trim(cdsTestarDados.FieldByName('AUT_NOME_USU').AsString) = '') then
+        begin
+          Retorno   := Retorno + Separador + ' - Nome não preenchido.';
+          Separador := #13;
+        end;
+
+      if not(Consultar('AUT_PER', 'WHERE AUT_ID_PER = ' + IntToStr(cdsTestarDados.FieldByName('AUT_AUTPER_USU').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Perfil não cadastrado.';
+          Separador := #13;
+        end;
+
+      if ((Parametro.Operacao = 'I') and (Trim(cdsTestarDados.FieldByName('AUT_LOGIN_USU').AsString) = '')) then
+        begin
+          Retorno   := Retorno + Separador + ' - Login não preenchido.';
+          Separador := #13;
+        end
+      else
+        begin
+          if (Consultar('AUT_USU', 'WHERE AUT_ID_USU <> ' + IntToStr(cdsTestarDados.FieldByName('AUT_ID_USU').AsInteger) +
+                                   '  AND AUT_LOGIN_USU = ' + QuotedStr(cdsTestarDados.FieldByName('AUT_LOGIN_USU').AsString))) then
+            begin
+              Retorno   := Retorno + Separador + ' - Login já cadastrado para outro usuário.';
+              Separador := #13;
+            end;
+        end;
+
+      if ((Parametro.Operacao = 'I') and (Trim(Parametro.Extras[0]) = '')) then
+        begin
+          Retorno   := Retorno + Separador + ' - Senha não preenchida.';
+          Separador := #13;
+        end;
+
+      if ((Parametro.Operacao = 'I') and (Trim(Parametro.Extras[1]) = '')) then
+        begin
+          Retorno   := Retorno + Separador + ' - Confirmação da senha não preenchida.';
+          Separador := #13;
+        end;
+
+      if ((Parametro.Operacao = 'I') and (Trim(Parametro.Extras[0]) <> '') and (Trim(Parametro.Extras[1]) <> '') and (Trim(Parametro.Extras[0]) <> Trim(Parametro.Extras[1]))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Senhas diferentes.';
+          Separador := #13;
+        end;
+    end
+  else
+    begin
+      if (Consultar('AUT_AUS', 'WHERE AUT_AUTUSU_AUS = ' + IntToStr(cdsTestarDados.FieldByName('AUT_ID_USU').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Há autorizações para este usuário.';
+          Separador := #13;
+        end;
+    end;
+
+  Result := Retorno;
+end;
+
 function TSMKingAutorizacao.TestarDados(Parametro: TParametro; Dados: OleVariant): String;
 begin
   cdsTestarDados := TClientDataSet.Create(Self);
@@ -132,6 +313,12 @@ begin
 
   if (Parametro.Tabela = 'AUT_PER') then
     Result := TestarAUT_PER(Parametro);
+  if (Parametro.Tabela = 'AUT_USU') then
+    Result := TestarAUT_USU(Parametro);
+  if (Parametro.Tabela = 'AUT_MOD') then
+    Result := TestarAUT_MOD(Parametro);
+  if (Parametro.Tabela = 'AUT_PRO') then
+    Result := TestarAUT_PRO(Parametro);
 end;
 
 end.

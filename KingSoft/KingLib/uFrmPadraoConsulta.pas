@@ -99,7 +99,7 @@ begin
   if (cdsConsulta.Active) then
     begin
       btnEditar.Enabled    := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Editar);
-      btnApagar.Enabled    := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Editar);
+      btnApagar.Enabled    := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Apagar);
       btnConfirmar.Enabled := not(cdsConsulta.IsEmpty);
     end;
 end;

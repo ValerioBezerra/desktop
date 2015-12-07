@@ -36,7 +36,7 @@ type
     destructor Destroy; override;
     property InstanceOwner: Boolean read FInstanceOwner write FInstanceOwner;
     property SMKingAutorizacaoClient: TSMKingAutorizacaoClient read GetSMKingAutorizacaoClient write FSMKingAutorizacaoClient;
-    function TestarDados(AIdEmpresa: Integer; ATabela, AOperacao: String; ADados: Variant; AvisoExtra: String = ''): Boolean;
+    function TestarDados(AIdEmpresa: Integer; ATabela, AOperacao: String; ADados: Variant; AExtras: TStringList = nil): Boolean;
 
 end;
 
@@ -81,9 +81,9 @@ begin
   Result := FSMKingAutorizacaoClient;
 end;
 
-function TcmKingAutorizacao.TestarDados(AIdEmpresa: Integer; ATabela, AOperacao: String; ADados: Variant; AvisoExtra: String): Boolean;
+function TcmKingAutorizacao.TestarDados(AIdEmpresa: Integer; ATabela, AOperacao: String; ADados: Variant; AExtras: TStringList): Boolean;
 begin
-  Result := TUtil.TestarRetorno(AOperacao, SMKingAutorizacaoClient.TestarDados(TParametro.Create(AIdEmpresa, ATabela, AOperacao), ADados), AvisoExtra);
+  Result := TUtil.TestarRetorno(AOperacao, SMKingAutorizacaoClient.TestarDados(TParametro.Create(AIdEmpresa, ATabela, AOperacao, AExtras), ADados));
 end;
 
 end.
