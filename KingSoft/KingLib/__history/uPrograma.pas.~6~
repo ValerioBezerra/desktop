@@ -1,0 +1,29 @@
+unit uPrograma;
+
+interface
+
+uses
+  Forms, Windows, SysUtils, IdGlobal, IdHash, IdHashMessageDigest, uModulo;
+
+type
+  TPrograma = class
+  private
+    FId: Integer;
+    FModulo: TModulo;
+    FCodigo: String;
+    FDescricao: String;
+    FMenuPrincipal: Boolean;
+  public
+    property Id: Integer read FId write FId;
+    property Modulo: TModulo read FModulo write FModulo;
+    property Codigo: String read FCodigo write FCodigo;
+    property Descricao: String read FDescricao write FDescricao;
+    property MenuPrincipal: Boolean read FMenuPrincipal write FMenuPrincipal;
+end;
+
+implementation
+
+{ TPrograma }
+
+end.
+

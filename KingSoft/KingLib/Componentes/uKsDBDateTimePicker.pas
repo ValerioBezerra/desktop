@@ -1,0 +1,108 @@
+unit uKsDBDateTimePicker;
+
+interface
+
+uses
+SysUtils, Classes, Controls, ComCtrls, Forms, Dialogs, Graphics, DBCtrls,
+DB, stdctrls;
+
+type
+  TKsDBDateTimePicker = class(TDateTimePicker)
+  private
+    { Private declarations }
+    FDataLink : TFieldDataLink;
+    function  GetDataField:String;
+    function  GetDataSource:TDataSource;
+    function  GetField: TField;
+    procedure SetDataField(const Value : string);
+    procedure SetDataSource(const Value : TDataSource);
+    procedure DataChange(Sender:TObject);
+    procedure UpdateData(Sender:TObject);
+    procedure Change;override;
+  protected
+    { Protected declarations }
+  public
+    { Public declarations }
+    constructor Create(AOwner:TComponent);override;
+    destructor Destroy;override;
+    property Field: TField read GetField;
+   published
+    { Published declarations }
+    property DataSource : TDataSource read GetDataSource write SetDataSource;
+    property DataField : String read GetDataField write SetDataField;
+end;
+
+procedure Register;
+
+implementation
+
+{ TDBDateTimePicker }
+
+procedure TKsDBDateTimePicker.Change;
+begin
+  FDataLink.Modified;
+  inherited Change;
+  Try
+    FDataLink.Edit;
+    FDataLink.UpdateRecord;
+  Except
+  End;
+end;
+
+constructor TKsDBDateTimePicker.Create(AOwner: TComponent);
+begin
+  inherited;
+  FDataLink := TFieldDataLink.Create;
+  FDataLink.OnDataChange := DataChange;
+  FDataLink.OnUpdateData := UpdateData;
+  FDataLink.Control := self;
+  Width := 100;
+end;
+
+procedure TKsDBDateTimePicker.DataChange(Sender: TObject);
+begin
+  Date := FDataLink.Field.AsDateTime;
+end;
+
+destructor TKsDBDateTimePicker.Destroy;
+begin
+  FDataLink.Free;
+  inherited;
+end;
+
+function TKsDBDateTimePicker.GetDataField: String;
+begin
+  Result := FDataLink.FieldName;
+end;
+
+function TKsDBDateTimePicker.GetDataSource: TDataSource;
+begin
+  Result := FDataLink.DataSource;
+end;
+
+function TKsDBDateTimePicker.GetField: TField;
+begin
+  Result := FDataLink.Field;
+end;
+
+procedure TKsDBDateTimePicker.SetDataField(const Value: string);
+begin
+  FDataLink.FieldName := Value;
+end;
+
+procedure TKsDBDateTimePicker.SetDataSource(const Value: TDataSource);
+begin
+  FDataLink.DataSource := Value;
+end;
+
+procedure TKsDBDateTimePicker.UpdateData(Sender: TObject);
+begin
+  FDataLink.Field.AsDateTime := FDataLink.Field.AsDateTime;
+end;
+
+procedure Register;
+begin
+  RegisterComponents('KingSoft', [TKsDBDateTimePicker]);
+end;
+
+end.

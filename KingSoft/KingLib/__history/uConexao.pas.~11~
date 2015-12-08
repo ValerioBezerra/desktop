@@ -1,0 +1,60 @@
+unit conexao;
+
+interface
+
+uses
+  SysUtils, Forms, Dialogs, IniFiles;
+
+type
+  TConexao = class
+  private
+    FDataBase: String;
+    FHostName: String;
+    FServer: String;
+    procedure SetDataBase(const Value: String);
+    procedure SetHostName(const Value: String);
+    procedure SetServer(const Value: String);
+  public
+    constructor Create;
+    property DataBase: String read FDataBase write SetDataBase;
+    property Server: String read FServer write SetServer;
+    property HostName: String read FHostName write SetHostName;
+end;
+
+implementation
+
+{ TConexao }
+
+constructor TConexao.Create;
+var
+  IniFile: TIniFile;
+begin
+  if (FileExists(ExtractFilePath(Application.ExeName) + 'config.ini')) then
+    begin
+      IniFile  := TIniFile.Create(ExtractFilePath(Application.ExeName) + 'config.ini');
+      DataBase := IniFile.ReadString('Conexao', 'DataBase', '');
+      Server   := IniFile.ReadString('Conexao', 'Server', '');
+      HostName := IniFile.ReadString('Conexao', 'HostName', '');
+      IniFile.Free;
+    end
+  else
+    ShowMessage('Arquivo config.ini não encontrado');
+end;
+
+procedure TConexao.SetDataBase(const Value: String);
+begin
+  FDataBase := Value;
+end;
+
+procedure TConexao.SetHostName(const Value: String);
+begin
+  FHostName := Value;
+end;
+
+procedure TConexao.SetServer(const Value: String);
+begin
+  FServer := Value;
+end;
+
+end.
+

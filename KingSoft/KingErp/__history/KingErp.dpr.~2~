@@ -1,0 +1,17 @@
+program KingErp;
+
+uses
+  Vcl.Forms,
+  uLogin in 'uLogin.pas' {frmLogin},
+  Vcl.Themes,
+  Vcl.Styles;
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Light');
+  Application.CreateForm(TfrmLogin, frmLogin);
+  Application.Run;
+end.

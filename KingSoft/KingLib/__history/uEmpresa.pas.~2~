@@ -1,0 +1,22 @@
+unit uEmpresa;
+
+interface
+
+uses
+  Forms, Windows, SysUtils, IdGlobal, IdHash, IdHashMessageDigest;
+
+type
+  TEmpresa = class
+  private
+  public
+end;
+
+implementation
+
+{ TSicronizacao }
+
+
+{ TUtil }
+
+end.
+

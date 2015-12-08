@@ -1,0 +1,23 @@
+unit uPerfil;
+
+interface
+
+uses
+  Forms, Windows, SysUtils, IdGlobal, IdHash, IdHashMessageDigest;
+
+type
+  TPerfil = class
+  private
+    FId: Integer;
+    FDescricao: String;
+  public
+    property Id: Integer read FId write FId;
+    property Descricao: String read FDescricao write FDescricao;
+end;
+
+implementation
+
+{ TPerfil }
+
+end.
+

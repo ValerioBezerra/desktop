@@ -1,0 +1,206 @@
+unit uFrmPadraoConsulta;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ComCtrls,
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, uKsDBGrid, Data.DB, Datasnap.DBClient;
+
+type
+  TfrmPadraoConsulta = class(TForm)
+    Panel1: TPanel;
+    pnlPrincipal: TPanel;
+    gpFiltro: TGroupBox;
+    cbContido: TCheckBox;
+    edConsulta: TEdit;
+    cbConsulta: TComboBox;
+    stbInformacao: TStatusBar;
+    pnlBotoes: TPanel;
+    btnNovo: TBitBtn;
+    btnEditar: TBitBtn;
+    btnApagar: TBitBtn;
+    btnPesquisar: TBitBtn;
+    btnConfirmar: TBitBtn;
+    btnFechar: TBitBtn;
+    Panel2: TPanel;
+    KsDBGrid: TKsDBGrid;
+    Timer: TTimer;
+    cdsConsulta: TClientDataSet;
+    dsConsulta: TDataSource;
+    procedure FormShow(Sender: TObject);
+    procedure btnFecharClick(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure btnApagarClick(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
+    procedure btnConfirmarClick(Sender: TObject);
+    procedure cdsConsultaAfterOpen(DataSet: TDataSet);
+    procedure TimerTimer(Sender: TObject);
+    procedure edConsultaChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure KsDBGridKeyPress(Sender: TObject; var Key: Char);
+    procedure KsDBGridDblClick(Sender: TObject);
+  protected
+    Campos, Tabela, Join, CampoConsulta, Where, OrderBy, TabelaPadrao: String;
+  private
+    { Private declarations }
+    procedure ExecutarSQL;
+  public
+    { Public declarations }
+    cdsPadrao: TClientDataSet;
+    ErroPadrao, PesquisarOnShow, MostrarConfirmar, Confirmou: Boolean;
+    OperacaoPadrao: String;
+  end;
+
+var
+  frmPadraoConsulta: TfrmPadraoConsulta;
+
+implementation
+
+{$R *.dfm}
+
+uses uUtil;
+
+{ TfrmPadraoConsulta }
+
+procedure TfrmPadraoConsulta.btnApagarClick(Sender: TObject);
+begin
+  try
+    cdsPadrao.Delete;
+    ErroPadrao     := (cdsPadrao.ApplyUpdates(0) > 0);
+    OperacaoPadrao := 'D';
+  except
+    on E: Exception do
+      begin
+        ErroPadrao := True;
+        TUtil.ExibirMensagem(E.Message, 'E');
+      end;
+  end;
+end;
+
+procedure TfrmPadraoConsulta.btnConfirmarClick(Sender: TObject);
+begin
+  Confirmou := True;
+  Close;
+end;
+
+procedure TfrmPadraoConsulta.btnFecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmPadraoConsulta.btnPesquisarClick(Sender: TObject);
+begin
+  ExecutarSQL;
+end;
+
+procedure TfrmPadraoConsulta.cdsConsultaAfterOpen(DataSet: TDataSet);
+begin
+  if (cdsConsulta.Active) then
+    begin
+      btnEditar.Enabled    := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Editar);
+      btnApagar.Enabled    := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Editar);
+      btnConfirmar.Enabled := not(cdsConsulta.IsEmpty);
+    end;
+end;
+
+procedure TfrmPadraoConsulta.edConsultaChange(Sender: TObject);
+begin
+  if (cdsConsulta.Active) then
+    KsDBGrid.DataSource.DataSet.Locate(campoConsulta, edConsulta.Text, [loPartialKey, loCaseInsensitive]);
+end;
+
+procedure TfrmPadraoConsulta.ExecutarSQL;
+var
+  Select: String;
+begin
+  Select := 'SELECT ' + Campos + ' FROM ' + Tabela;
+
+  if (Trim(Join) <> '') then
+    Select := Select + ' ' + Join;
+
+  if not(cbContido.Checked) then
+    Select := Select + ' WHERE UPPER(' + CampoConsulta + ') LIKE UPPER(' + QuotedStr(edConsulta.Text + '%') + ')'
+  else
+    Select := Select + ' WHERE UPPER(' + campoConsulta + ') LIKE UPPER(' + QuotedStr('%' + edConsulta.Text + '%') + ')';
+
+  if (Trim(self.Where) <> '') then
+    Select := Select + Where;
+
+  if (Trim(OrderBy) <> '') then
+    Select := Select + ' ORDER BY ' + OrderBy;
+
+  cdsConsulta.Close;
+  cdsConsulta.CommandText := Select;
+  cdsConsulta.Open;
+
+  if (cdsConsulta.Active) then
+    begin
+      stbInformacao.Panels[1].Text := 'Nº de Registros: ' + IntToStr(cdsConsulta.RecordCount);
+
+      if not(cdsConsulta.IsEmpty) then
+        begin
+          cdsConsulta.First;
+          KsDBGrid.SetFocus;
+        end;
+    end;
+end;
+
+procedure TfrmPadraoConsulta.FormCreate(Sender: TObject);
+begin
+  Campos           := '';
+  Tabela           := '';
+  Join             := '';
+  Where            := '';
+  OrderBy          := '';
+  CampoConsulta    := '';
+  PesquisarOnShow  := True;
+  MostrarConfirmar := False;
+  Confirmou        := False;
+end;
+
+procedure TfrmPadraoConsulta.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (Ord(Key) = VK_ESCAPE) then
+    btnFecharClick(Self);
+
+  if (Ord(Key) = VK_RETURN) then
+    begin
+      if not(ActiveControl is TCustomDBGrid) then
+        begin
+          Key := #0;
+          Perform(WM_NEXTDLGCTL, 0, 0);
+        end;
+    end;
+end;
+
+procedure TfrmPadraoConsulta.FormShow(Sender: TObject);
+begin
+  Caption                      := 'KingErp - ' + TUtil.Programa.Modulo.Descricao + ' - Consulta - ' + TUtil.Programa.Descricao;
+  stbInformacao.Panels[0].Text := TUtil.Programa.Modulo.Sigla + TUtil.Programa.Codigo;
+  btnNovo.Enabled              := TUtil.Programa.Incluir;
+
+  if (PesquisarOnShow) then
+    executarSQL;
+
+  btnConfirmar.Visible := MostrarConfirmar;
+end;
+
+procedure TfrmPadraoConsulta.KsDBGridDblClick(Sender: TObject);
+begin
+  if ((btnConfirmar.Visible) and (btnConfirmar.Enabled)) then
+    btnConfirmarClick(Self);
+end;
+
+procedure TfrmPadraoConsulta.KsDBGridKeyPress(Sender: TObject; var Key: Char);
+begin
+  if ((Ord(Key) = VK_RETURN) and (btnConfirmar.Visible) and (btnConfirmar.Enabled)) then
+    btnConfirmarClick(Self);
+end;
+
+procedure TfrmPadraoConsulta.TimerTimer(Sender: TObject);
+begin
+  stbInformacao.Panels[2].Text := TUtil.MoverHint(Self);
+end;
+
+end.

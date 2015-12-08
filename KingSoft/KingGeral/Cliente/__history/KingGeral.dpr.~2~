@@ -1,0 +1,17 @@
+program KingGeral;
+
+uses
+  Vcl.Forms,
+  uKingGeral in 'uKingGeral.pas' {Form1},
+  CCKingGeral in 'CCKingGeral.pas',
+  CMKingGeral in 'CMKingGeral.pas' {ClientModule1: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TClientModule1, ClientModule1);
+  Application.Run;
+end.
