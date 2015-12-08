@@ -33,6 +33,7 @@ type
     procedure DBEdit1Exit(Sender: TObject);
     procedure Image2Click(Sender: TObject);
     procedure edSEQ_ORCExit(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
   private
     { Private declarations }
     TotalItens,TotalTerapias: Currency;
@@ -49,7 +50,7 @@ implementation
 
 {$R *.dfm}
 
-uses unDM, unConsCLIENTE;
+uses unDM, unConsCLIENTE, unConsORCAMENTO;
 
 procedure TfrmORCAMENTO.CalcularTotalItens;
 begin
@@ -120,6 +121,24 @@ begin
          edTotalGeral.Text :=  CurrToStr(TotalTerapias + TotalItens);
        end;
      end;
+end;
+
+procedure TfrmORCAMENTO.Image1Click(Sender: TObject);
+begin
+ if not DataModule1.cdsORCAMENTO.Active then
+  begin
+      Application.CreateForm(TfrmConsORCAMENTO,frmConsORCAMENTO);
+         frmConsORCAMENTO.ShowModal;
+         if not DataModule1.cdsORCAMENTO.IsEmpty then
+         begin
+              edSEQ_ORC.Text := DataModule1.cdsORCAMENTO.FieldByName('SEQ_ORC').AsString;
+              edSEQ_ORCExit(Self);
+            //  edSenhaUsuario.SetFocus;
+         end;
+
+  end
+  else
+       showmessage('Não é possível consultar com orçamento em edição');
 end;
 
 procedure TfrmORCAMENTO.Image2Click(Sender: TObject);

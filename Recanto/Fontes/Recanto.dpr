@@ -38,7 +38,8 @@ uses
   unMOVPAGBXA in 'unMOVPAGBXA.pas' {frmPadraoManutencao_1},
   unORCAMENTO in 'unORCAMENTO.pas' {frmORCAMENTO},
   unConsORCAMENTO in 'unConsORCAMENTO.pas' {frmConsORCAMENTO},
-  unConsCLIENTE in 'unConsCLIENTE.pas' {fmrConsCliente};
+  unConsCLIENTE in 'unConsCLIENTE.pas' {fmrConsCliente},
+  unITEORC in 'unITEORC.pas' {frmITEORC};
 
 {$R *.res}
 

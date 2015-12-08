@@ -31,10 +31,12 @@ uses unDM;
 
 procedure TfrmConsORCAMENTO.btConsultarClick(Sender: TObject);
 begin
-     with DataModule1.cdsCLIENTE do
+     with DataModule1.cdsORCAMENTO do
      begin
        close;
-       CommandText := 'select * from cliente where nome_cli like ''%' + edConsultar.Text + '%''';
+       CommandText := ' select * from orcamento ' +
+                      ' left outer join cliente on cliente.codigo_cli = orcamento.codcli_orc ' +
+                      ' where nome_cli like ''%' + edConsultar.Text + '%''';
        Open;
      end;
 end;
@@ -46,10 +48,11 @@ end;
 
 procedure TfrmConsORCAMENTO.FormCreate(Sender: TObject);
 begin
-         with DataModule1.cdsCLIENTE do
+         with DataModule1.cdsORCAMENTO do
          begin
            Close;
-           CommandText := 'select * from cliente';
+           CommandText :=  ' select * from orcamento ' +
+                      ' left outer join cliente on cliente.codigo_cli = orcamento.codcli_orc ' ;
            Open;
          end;
 end;

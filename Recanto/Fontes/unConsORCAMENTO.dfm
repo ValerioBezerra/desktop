@@ -20,7 +20,7 @@ object frmConsORCAMENTO: TfrmConsORCAMENTO
     Top = 8
     Width = 552
     Height = 185
-    DataSource = DataModule1.dsCLIENTE
+    DataSource = DataModule1.dsORCAMENTO
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -31,14 +31,20 @@ object frmConsORCAMENTO: TfrmConsORCAMENTO
     Columns = <
       item
         Expanded = False
-        FieldName = 'CODIGO_CLI'
+        FieldName = 'SEQ_ORC'
         Title.Caption = 'C'#243'digo'
         Visible = True
       end
       item
         Expanded = False
+        FieldName = 'DATA_ORC'
+        Title.Caption = 'Emiss'#227'o'
+        Visible = True
+      end
+      item
+        Expanded = False
         FieldName = 'NOME_CLI'
-        Title.Caption = 'Nome'
+        Title.Caption = 'Cliente'
         Width = 240
         Visible = True
       end>
