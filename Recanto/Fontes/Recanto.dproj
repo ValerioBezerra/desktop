@@ -231,12 +231,16 @@
             <Form>frmConsORCAMENTO</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="unConsCLIENTE.pas">
-            <Form>fmrConsCliente</Form>
+        <DCCReference Include="unConsITE.pas">
+            <Form>frmConsITE</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unITEORC.pas">
             <Form>frmITEORC</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unConsCLIENTE.pas">
+            <Form>fmrConsCliente</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

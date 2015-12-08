@@ -3075,16 +3075,17 @@ object frmORCAMENTO: TfrmORCAMENTO
     TabOrder = 0
     OnExit = edSEQ_ORCExit
   end
-  object Button1: TButton
+  object btItens: TButton
     Left = 144
     Top = 22
     Width = 113
     Height = 25
-    Caption = 'Produtos'
+    Caption = 'Itens'
     Enabled = False
     TabOrder = 1
+    OnClick = btItensClick
   end
-  object Button2: TButton
+  object btTerapias: TButton
     Left = 263
     Top = 22
     Width = 113

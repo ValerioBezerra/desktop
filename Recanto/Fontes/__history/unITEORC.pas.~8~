@@ -1,0 +1,83 @@
+unit unITEORC;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls;
+
+type
+  TfrmITEORC = class(TForm)
+    edSEQORC_ITEORC: TEdit;
+    Label1: TLabel;
+    DBGrid1: TDBGrid;
+    edSEQ_ITEORC: TEdit;
+    Label2: TLabel;
+    edCODITE_ITEORC: TEdit;
+    Label3: TLabel;
+    Image1: TImage;
+    edDESCRICAO_ITE: TEdit;
+    edQTD_ITEORC: TEdit;
+    Label4: TLabel;
+    edVLRUNI_ITEORC: TEdit;
+    Label5: TLabel;
+    edVLR_TOTAL: TEdit;
+    Label6: TLabel;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    procedure Image1Click(Sender: TObject);
+    procedure edCODITE_ITEORCExit(Sender: TObject);
+  private
+    { Private declarations }
+    procedure CarregarItens;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmITEORC: TfrmITEORC;
+
+implementation
+
+{$R *.dfm}
+
+uses unDM, unConsITE;
+
+procedure TfrmITEORC.CarregarItens;
+begin
+     DataModule1.cdsTELASCONSULTA.Close;
+     DataModule1.cdsTELASCONSULTA.CommandText := ' select * from iteorc '+
+                                                 ' left outer join estite on estite codigo_ite = CODITE_ITEORC';
+     DataModule1.cdsTELASCONSULTA.Open;
+end;
+
+procedure TfrmITEORC.edCODITE_ITEORCExit(Sender: TObject);
+begin
+  with DataModule1.cdsCONSULTA do
+     begin
+       close;
+       CommandText := 'select * from estite where codigo_ite = ' + edCODITE_ITEORC.Text;
+       Open;
+       if not IsEmpty then
+          edDESCRICAO_ITE.Text := FieldByName('DESCRICAO_ITE').AsString
+       else
+           edDESCRICAO_ITE.Text  := 'Item não cadastrado';
+     end;
+end;
+
+procedure TfrmITEORC.Image1Click(Sender: TObject);
+begin
+   Application.CreateForm(TFrmConsITE,FrmConsITE);
+     FrmConsITE.ShowModal;
+     if not DataModule1.cdsESTITE.IsEmpty then
+     begin
+          edCODITE_ITEORC.Text := DataModule1.cdsESTITE.FieldByName('CODIGO_ITE').AsString;
+          edCODITE_ITEORCExit(Self);
+  //        edSenhaUsuario.SetFocus;
+     end;
+end;
+
+end.

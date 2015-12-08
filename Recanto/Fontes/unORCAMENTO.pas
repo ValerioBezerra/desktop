@@ -12,8 +12,8 @@ type
     edSEQ_ORC: TEdit;
     Label1: TLabel;
     Image1: TImage;
-    Button1: TButton;
-    Button2: TButton;
+    btItens: TButton;
+    btTerapias: TButton;
     DBEdit1: TDBEdit;
     Label2: TLabel;
     DateTimePicker1: TDateTimePicker;
@@ -34,6 +34,7 @@ type
     procedure Image2Click(Sender: TObject);
     procedure edSEQ_ORCExit(Sender: TObject);
     procedure Image1Click(Sender: TObject);
+    procedure btItensClick(Sender: TObject);
   private
     { Private declarations }
     TotalItens,TotalTerapias: Currency;
@@ -50,7 +51,15 @@ implementation
 
 {$R *.dfm}
 
-uses unDM, unConsCLIENTE, unConsORCAMENTO;
+uses unDM, unConsCLIENTE, unConsORCAMENTO, unITEORC;
+
+procedure TfrmORCAMENTO.btItensClick(Sender: TObject);
+begin
+    Application.CreateForm(TFrmITEORC,FRMITEORC);
+    FrmIteorc.edSEQORC_ITEORC.Text := edSEQ_ORC.Text;
+    FrmIteOrc.ShowModal;
+
+end;
 
 procedure TfrmORCAMENTO.CalcularTotalItens;
 begin
@@ -119,6 +128,8 @@ begin
          CalcularTotalItens;
          CalcularTotalTerapias;
          edTotalGeral.Text :=  CurrToStr(TotalTerapias + TotalItens);
+         btItens.Enabled := True;
+         btTerapias.Enabled := True;
        end;
      end;
 end;
