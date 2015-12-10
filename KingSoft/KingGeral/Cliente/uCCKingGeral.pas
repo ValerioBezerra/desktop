@@ -1,27 +1,31 @@
-//
+// 
 // Created by the DataSnap proxy generator.
-// 12/11/2015 11:02:45 PM
+// 10/12/2015 1:13:46 AM
 // 
 
 unit uCCKingGeral;
 
 interface
 
-uses System.JSON, Data.DBXCommon, Data.DBXClient, Data.DBXDataSnap, Data.DBXJSON, Datasnap.DSProxy, System.Classes, System.SysUtils, Data.DB, Data.SqlExpr, Data.DBXDBReaders, Data.DBXCDSReaders, Data.DBXJSONReflect;
+uses System.JSON, Data.DBXCommon, Data.DBXClient, Data.DBXDataSnap, Data.DBXJSON, Datasnap.DSProxy, System.Classes, System.SysUtils, Data.DB, Data.SqlExpr, Data.DBXDBReaders, Data.DBXCDSReaders, uParametro, Data.DBXJSONReflect;
 
 type
   TSMKingGeralClient = class(TDSAdminClient)
   private
     FDSServerModuleCreateCommand: TDBXCommand;
-    FEchoStringCommand: TDBXCommand;
-    FReverseStringCommand: TDBXCommand;
+    FTestarDadosCommand: TDBXCommand;
+    FStartTransactionCommand: TDBXCommand;
+    FCommitCommand: TDBXCommand;
+    FRollBackCommand: TDBXCommand;
   public
     constructor Create(ADBXConnection: TDBXConnection); overload;
     constructor Create(ADBXConnection: TDBXConnection; AInstanceOwner: Boolean); overload;
     destructor Destroy; override;
     procedure DSServerModuleCreate(Sender: TObject);
-    function EchoString(Value: string): string;
-    function ReverseString(Value: string): string;
+    function TestarDados(Parametro: TParametro; Dados: OleVariant): string;
+    procedure StartTransaction;
+    procedure Commit;
+    procedure RollBack;
   end;
 
 implementation
@@ -51,32 +55,67 @@ begin
   FDSServerModuleCreateCommand.ExecuteUpdate;
 end;
 
-function TSMKingGeralClient.EchoString(Value: string): string;
+function TSMKingGeralClient.TestarDados(Parametro: TParametro; Dados: OleVariant): string;
 begin
-  if FEchoStringCommand = nil then
+  if FTestarDadosCommand = nil then
   begin
-    FEchoStringCommand := FDBXConnection.CreateCommand;
-    FEchoStringCommand.CommandType := TDBXCommandTypes.DSServerMethod;
-    FEchoStringCommand.Text := 'TSMKingGeral.EchoString';
-    FEchoStringCommand.Prepare;
+    FTestarDadosCommand := FDBXConnection.CreateCommand;
+    FTestarDadosCommand.CommandType := TDBXCommandTypes.DSServerMethod;
+    FTestarDadosCommand.Text := 'TSMKingGeral.TestarDados';
+    FTestarDadosCommand.Prepare;
   end;
-  FEchoStringCommand.Parameters[0].Value.SetWideString(Value);
-  FEchoStringCommand.ExecuteUpdate;
-  Result := FEchoStringCommand.Parameters[1].Value.GetWideString;
+  if not Assigned(Parametro) then
+    FTestarDadosCommand.Parameters[0].Value.SetNull
+  else
+  begin
+    FMarshal := TDBXClientCommand(FTestarDadosCommand.Parameters[0].ConnectionHandler).GetJSONMarshaler;
+    try
+      FTestarDadosCommand.Parameters[0].Value.SetJSONValue(FMarshal.Marshal(Parametro), True);
+      if FInstanceOwner then
+        Parametro.Free
+    finally
+      FreeAndNil(FMarshal)
+    end
+    end;
+  FTestarDadosCommand.Parameters[1].Value.AsVariant := Dados;
+  FTestarDadosCommand.ExecuteUpdate;
+  Result := FTestarDadosCommand.Parameters[2].Value.GetWideString;
 end;
 
-function TSMKingGeralClient.ReverseString(Value: string): string;
+procedure TSMKingGeralClient.StartTransaction;
 begin
-  if FReverseStringCommand = nil then
+  if FStartTransactionCommand = nil then
   begin
-    FReverseStringCommand := FDBXConnection.CreateCommand;
-    FReverseStringCommand.CommandType := TDBXCommandTypes.DSServerMethod;
-    FReverseStringCommand.Text := 'TSMKingGeral.ReverseString';
-    FReverseStringCommand.Prepare;
+    FStartTransactionCommand := FDBXConnection.CreateCommand;
+    FStartTransactionCommand.CommandType := TDBXCommandTypes.DSServerMethod;
+    FStartTransactionCommand.Text := 'TSMKingGeral.StartTransaction';
+    FStartTransactionCommand.Prepare;
   end;
-  FReverseStringCommand.Parameters[0].Value.SetWideString(Value);
-  FReverseStringCommand.ExecuteUpdate;
-  Result := FReverseStringCommand.Parameters[1].Value.GetWideString;
+  FStartTransactionCommand.ExecuteUpdate;
+end;
+
+procedure TSMKingGeralClient.Commit;
+begin
+  if FCommitCommand = nil then
+  begin
+    FCommitCommand := FDBXConnection.CreateCommand;
+    FCommitCommand.CommandType := TDBXCommandTypes.DSServerMethod;
+    FCommitCommand.Text := 'TSMKingGeral.Commit';
+    FCommitCommand.Prepare;
+  end;
+  FCommitCommand.ExecuteUpdate;
+end;
+
+procedure TSMKingGeralClient.RollBack;
+begin
+  if FRollBackCommand = nil then
+  begin
+    FRollBackCommand := FDBXConnection.CreateCommand;
+    FRollBackCommand.CommandType := TDBXCommandTypes.DSServerMethod;
+    FRollBackCommand.Text := 'TSMKingGeral.RollBack';
+    FRollBackCommand.Prepare;
+  end;
+  FRollBackCommand.ExecuteUpdate;
 end;
 
 
@@ -95,8 +134,10 @@ end;
 destructor TSMKingGeralClient.Destroy;
 begin
   FDSServerModuleCreateCommand.DisposeOf;
-  FEchoStringCommand.DisposeOf;
-  FReverseStringCommand.DisposeOf;
+  FTestarDadosCommand.DisposeOf;
+  FStartTransactionCommand.DisposeOf;
+  FCommitCommand.DisposeOf;
+  FRollBackCommand.DisposeOf;
   inherited;
 end;
 

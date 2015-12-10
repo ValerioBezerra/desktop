@@ -3,31 +3,44 @@ unit uKingGeral;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+  SysUtils, Forms;
 
 type
-  TForm1 = class(TForm)
-    procedure FormShow(Sender: TObject);
-  private
-    { Private declarations }
+  TKingGeral = class
   public
-    { Public declarations }
-  end;
-
-var
-  Form1: TForm1;
+    class procedure AbrirPrograma;
+end;
 
 implementation
 
-{$R *.dfm}
+{ TKingAutorizacao }
 
-procedure TForm1.FormShow(Sender: TObject);
+uses uUtil, uCMKingGeral;
+
+
+
+{ TKingAutorizacao }
+
+class procedure TKingGeral.AbrirPrograma;
 begin
-  ShowMessage(ParamStr(1));
-  ShowMessage(ParamStr(2));
-  ShowMessage(ParamStr(3));
-  ShowMessage(ParamStr(4));
+  try
+    TUtil.CarregarClasses(cmKingGeral.cdsConsulta);
+
+    if (TUtil.Programa.Modulo.Sigla = 'GER') then
+      begin
+        if (TUtil.Programa.Codigo = '001') then
+          begin
+//            Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);
+//            frmAUT002Consulta.ShowModal;
+          end;
+      end;
+  except
+    on E: Exception do
+      begin
+        TUtil.ExibirMensagem(E.Message, 'E');
+      end;
+  end;
 end;
 
 end.
+

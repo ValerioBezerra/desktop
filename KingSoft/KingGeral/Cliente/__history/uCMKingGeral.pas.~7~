@@ -15,16 +15,16 @@ type
     dsConsulta: TDataSource;
     cdsGER_PAI: TClientDataSet;
     dsGER_PAI: TDataSource;
-    cdsGER_EST: TClientDataSet;
-    dsGER_EST: TDataSource;
-    cdsGER_CID: TClientDataSet;
-    dsGER_CID: TDataSource;
-    cdsGER_BAI: TClientDataSet;
-    dsGER_BAI: TDataSource;
-    cdsGER_TLG: TClientDataSet;
-    dsGER_TLG: TDataSource;
-    cdsGER_LOG: TClientDataSet;
-    dsGER_LOG: TDataSource;
+    cdsAUT_USU: TClientDataSet;
+    dsAUT_USU: TDataSource;
+    cdsAUT_MOD: TClientDataSet;
+    dsAUT_MOD: TDataSource;
+    cdsAUT_PRO: TClientDataSet;
+    dsAUT_PRO: TDataSource;
+    cdsAUT_APE: TClientDataSet;
+    dsAUT_APE: TDataSource;
+    cdsAUT_AUS: TClientDataSet;
+    dsAUT_AUS: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
   private
     FInstanceOwner: Boolean;

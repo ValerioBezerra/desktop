@@ -40,6 +40,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
+        <VCL_Custom_Styles>&quot;Amethyst Kamri|VCLSTYLE|$(PUBLIC)\Documents\Embarcadero\Studio\15.0\Styles\AmethystKamri.vsf&quot;</VCL_Custom_Styles>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <SanitizedProjectName>KingGeral</SanitizedProjectName>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
@@ -86,16 +87,29 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="uKingGeral.pas">
-            <Form>Form1</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="uCCKingGeral.pas"/>
         <DCCReference Include="uCMKingGeral.pas">
             <Form>cmKingGeral</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="uCCKingGeral.pas"/>
+        <DCCReference Include="..\..\KingLib\uEmpresa.pas"/>
+        <DCCReference Include="..\..\KingLib\uFrmPadrao.pas">
+            <Form>frmPadrao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\..\KingLib\uFrmPadraoConsulta.pas">
+            <Form>frmPadraoConsulta</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\..\KingLib\uModulo.pas"/>
+        <DCCReference Include="..\..\KingLib\uParametro.pas"/>
+        <DCCReference Include="..\..\KingLib\uPerfil.pas"/>
+        <DCCReference Include="..\..\KingLib\uPrograma.pas"/>
+        <DCCReference Include="..\..\KingLib\uUsuario.pas"/>
+        <DCCReference Include="..\..\KingLib\uUtil.pas"/>
+        <DCCReference Include="uKingGeral.pas"/>
+        <DCCReference Include="..\..\KingLib\uSicronizacao.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -122,6 +136,12 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment>
+                <DeployFile LocalName="C:\KingErp\KingGeral.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>KingGeral.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Win32\Debug\KingGeral.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>KingGeral.exe</RemoteName>
@@ -463,7 +483,7 @@
                 <Platform value="Win64">False</Platform>
             </Platforms>
             <DataSnapProxyLookup>
-                <uCCKingGeral>{18CDDB5A-710C-42D7-87E8-0254725B764C}</uCCKingGeral>
+                <uCCKingGeral>{D6EDD77C-E8BD-4D80-A4DD-3EF6802A6EFB}</uCCKingGeral>
             </DataSnapProxyLookup>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>

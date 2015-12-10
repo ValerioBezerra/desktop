@@ -12,19 +12,6 @@ type
     SQLConnection: TSQLConnection;
     DSProviderConnection: TDSProviderConnection;
     cdsConsulta: TClientDataSet;
-    dsConsulta: TDataSource;
-    cdsGER_PAI: TClientDataSet;
-    dsGER_PAI: TDataSource;
-    cdsGER_EST: TClientDataSet;
-    dsGER_EST: TDataSource;
-    cdsGER_CID: TClientDataSet;
-    dsGER_CID: TDataSource;
-    cdsGER_BAI: TClientDataSet;
-    dsGER_BAI: TDataSource;
-    cdsGER_TLG: TClientDataSet;
-    dsGER_TLG: TDataSource;
-    cdsGER_LOG: TClientDataSet;
-    dsGER_LOG: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
   private
     FInstanceOwner: Boolean;
@@ -36,7 +23,7 @@ type
     destructor Destroy; override;
     property InstanceOwner: Boolean read FInstanceOwner write FInstanceOwner;
     property SMKingGeralClient: TSMKingGeralClient read GetSMKingGeralClient write FSMKingGeralClient;
-    function TestarDados(AIdEmpresa: Integer; ATabela, AOperacao: String; ADados: Variant; AExtras: TStringList = nil): Boolean;
+
 end;
 
 var
@@ -46,7 +33,7 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses uSicronizacao, uUtil, uParametro;
+uses uSicronizacao;
 
 {$R *.dfm}
 
@@ -78,12 +65,6 @@ begin
     FSMKingGeralClient:= TSMKingGeralClient.Create(SQLConnection.DBXConnection, FInstanceOwner);
   end;
   Result := FSMKingGeralClient;
-end;
-
-function TcmKingGeral.TestarDados(AIdEmpresa: Integer; ATabela,
-  AOperacao: String; ADados: Variant; AExtras: TStringList): Boolean;
-begin
-  Result := TUtil.TestarRetorno(AOperacao, SMKingGeralClient.TestarDados(TParametro.Create(AIdEmpresa, ATabela, AOperacao, AExtras), ADados));
 end;
 
 end.

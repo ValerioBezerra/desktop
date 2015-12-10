@@ -10,13 +10,11 @@ object cmKingGeral: TcmKingGeral
       'Port=201501'
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/')
-    Connected = True
     Left = 48
     Top = 40
   end
   object DSProviderConnection: TDSProviderConnection
     ServerClassName = 'TSMKingGeral'
-    Connected = True
     SQLConnection = SQLConnection
     Left = 152
     Top = 40
@@ -35,87 +33,87 @@ object cmKingGeral: TcmKingGeral
     Left = 348
     Top = 64
   end
-  object cdsGER_PAI: TClientDataSet
+  object cdsAUT_PER: TClientDataSet
     Aggregates = <>
-    CommandText = 'SELECT * FROM GER_PAI WHERE 1 = 0'
+    CommandText = 'SELECT * FROM AUT_PER WHERE 1 = 0'
     Params = <>
-    ProviderName = 'dspGER_PAI'
+    ProviderName = 'dspAUT_PER'
     RemoteServer = DSProviderConnection
     Left = 44
     Top = 120
   end
-  object dsGER_PAI: TDataSource
-    DataSet = cdsGER_PAI
+  object dsAUT_PER: TDataSource
+    DataSet = cdsAUT_PER
     Left = 44
     Top = 168
   end
-  object cdsGER_EST: TClientDataSet
+  object cdsAUT_USU: TClientDataSet
     Aggregates = <>
-    CommandText = 'SELECT * FROM GER_EST WHERE 1 = 0'
+    CommandText = 'SELECT * FROM AUT_USU WHERE 1 = 0'
     Params = <>
-    ProviderName = 'dspGER_EST'
+    ProviderName = 'dspAUT_USU'
     RemoteServer = DSProviderConnection
     Left = 132
     Top = 120
   end
-  object dsGER_EST: TDataSource
-    DataSet = cdsGER_EST
+  object dsAUT_USU: TDataSource
+    DataSet = cdsAUT_USU
     Left = 132
     Top = 168
   end
-  object cdsGER_CID: TClientDataSet
+  object cdsAUT_MOD: TClientDataSet
     Aggregates = <>
-    CommandText = 'SELECT * FROM GER_CID WHERE 1 = 0'
+    CommandText = 'SELECT * FROM AUT_MOD WHERE 1 = 0'
     Params = <>
-    ProviderName = 'dspGER_CID'
+    ProviderName = 'dspAUT_MOD'
     RemoteServer = DSProviderConnection
     Left = 220
     Top = 120
   end
-  object dsGER_CID: TDataSource
-    DataSet = cdsGER_CID
+  object dsAUT_MOD: TDataSource
+    DataSet = cdsAUT_MOD
     Left = 220
     Top = 168
   end
-  object cdsGER_BAI: TClientDataSet
+  object cdsAUT_PRO: TClientDataSet
     Aggregates = <>
-    CommandText = 'SELECT * FROM GER_BAI WHERE 1 = 0'
+    CommandText = 'SELECT * FROM AUT_PRO WHERE 1 = 0'
     Params = <>
-    ProviderName = 'dspGER_BAI'
+    ProviderName = 'dspAUT_PRO'
     RemoteServer = DSProviderConnection
     Left = 308
     Top = 120
   end
-  object dsGER_BAI: TDataSource
-    DataSet = cdsGER_BAI
+  object dsAUT_PRO: TDataSource
+    DataSet = cdsAUT_PRO
     Left = 308
     Top = 168
   end
-  object cdsGER_TLG: TClientDataSet
+  object cdsAUT_APE: TClientDataSet
     Aggregates = <>
-    CommandText = 'SELECT * FROM GER_TLG WHERE 1 = 0'
+    CommandText = 'SELECT * FROM AUT_APE WHERE 1 = 0'
     Params = <>
-    ProviderName = 'dspGER_TLG'
+    ProviderName = 'dspAUT_APE'
     RemoteServer = DSProviderConnection
     Left = 385
     Top = 120
   end
-  object dsGER_TLG: TDataSource
-    DataSet = cdsGER_TLG
+  object dsAUT_APE: TDataSource
+    DataSet = cdsAUT_APE
     Left = 385
     Top = 168
   end
-  object cdsGER_LOG: TClientDataSet
+  object cdsAUT_AUS: TClientDataSet
     Aggregates = <>
-    CommandText = 'SELECT * FROM GER_LOG WHERE 1 = 0'
+    CommandText = 'SELECT * FROM AUT_AUS WHERE 1 = 0'
     Params = <>
-    ProviderName = 'dspGER_LOG'
+    ProviderName = 'dspAUT_AUS'
     RemoteServer = DSProviderConnection
     Left = 473
     Top = 120
   end
-  object dsGER_LOG: TDataSource
-    DataSet = cdsGER_LOG
+  object dsAUT_AUS: TDataSource
+    DataSet = cdsAUT_AUS
     Left = 473
     Top = 168
   end

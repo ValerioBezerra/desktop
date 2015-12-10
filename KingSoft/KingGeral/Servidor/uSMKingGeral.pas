@@ -17,12 +17,24 @@ type
     fdqConsulta: TFDQuery;
     dspConsulta: TDataSetProvider;
     FDPhysFBDriverLink: TFDPhysFBDriverLink;
+    fdqGER_PAI: TFDQuery;
+    dspGER_PAI: TDataSetProvider;
+    fdqGER_EST: TFDQuery;
+    dspGER_EST: TDataSetProvider;
+    fdqGER_CID: TFDQuery;
+    dspGER_CID: TDataSetProvider;
+    fdqGER_BAI: TFDQuery;
+    dspGER_BAI: TDataSetProvider;
+    fdqGER_TLG: TFDQuery;
+    dspGER_TLG: TDataSetProvider;
+    fdqGER_LOG: TFDQuery;
+    dspGER_LOG: TDataSetProvider;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    function TestarDados(Parametro: TParametro): String;
+    function TestarDados(Parametro: TParametro; Dados: OleVariant): String;
     procedure StartTransaction;
     procedure Commit;
     procedure RollBack;
@@ -69,7 +81,7 @@ begin
   FDConnection.StartTransaction;
 end;
 
-function TSMKingGeral.TestarDados(Parametro: TParametro): String;
+function TSMKingGeral.TestarDados(Parametro: TParametro; Dados: OleVariant): String;
 begin
 
 end;

@@ -12,19 +12,6 @@ type
     SQLConnection: TSQLConnection;
     DSProviderConnection: TDSProviderConnection;
     cdsConsulta: TClientDataSet;
-    dsConsulta: TDataSource;
-    cdsGER_PAI: TClientDataSet;
-    dsGER_PAI: TDataSource;
-    cdsGER_EST: TClientDataSet;
-    dsGER_EST: TDataSource;
-    cdsGER_CID: TClientDataSet;
-    dsGER_CID: TDataSource;
-    cdsGER_BAI: TClientDataSet;
-    dsGER_BAI: TDataSource;
-    cdsGER_TLG: TClientDataSet;
-    dsGER_TLG: TDataSource;
-    cdsGER_LOG: TClientDataSet;
-    dsGER_LOG: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
   private
     FInstanceOwner: Boolean;
