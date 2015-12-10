@@ -15,8 +15,7 @@ uses
   uUtil in '..\..\KingLib\uUtil.pas',
   uKingGeral in 'uKingGeral.pas',
   Vcl.Themes,
-  Vcl.Styles,
-  uSicronizacao in '..\..\KingLib\uSicronizacao.pas';
+  Vcl.Styles;
 
 {$R *.res}
 

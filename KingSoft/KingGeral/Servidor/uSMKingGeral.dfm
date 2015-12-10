@@ -1,8 +1,8 @@
 object SMKingGeral: TSMKingGeral
   OldCreateOrder = False
   OnCreate = DSServerModuleCreate
-  Height = 250
-  Width = 360
+  Height = 423
+  Width = 693
   object FDConnection: TFDConnection
     Params.Strings = (
       'Database=C:\KingErp\Dados\KINGSOFT.FDB'
@@ -17,18 +17,84 @@ object SMKingGeral: TSMKingGeral
   end
   object fdqConsulta: TFDQuery
     Connection = FDConnection
-    Left = 32
-    Top = 104
+    Left = 632
+    Top = 16
   end
   object dspConsulta: TDataSetProvider
     DataSet = fdqConsulta
     Options = [poFetchBlobsOnDemand, poFetchDetailsOnDemand, poAllowCommandText]
-    Left = 33
-    Top = 151
+    Left = 633
+    Top = 63
   end
   object FDPhysFBDriverLink: TFDPhysFBDriverLink
     VendorLib = 'C:\Program Files (x86)\Firebird\Firebird_2_5\bin\fbclient.dll'
     Left = 128
     Top = 25
+  end
+  object fdqGER_PAI: TFDQuery
+    Connection = FDConnection
+    Left = 40
+    Top = 115
+  end
+  object dspGER_PAI: TDataSetProvider
+    DataSet = fdqGER_PAI
+    Options = [poFetchBlobsOnDemand, poFetchDetailsOnDemand, poAllowCommandText]
+    Left = 40
+    Top = 162
+  end
+  object fdqGER_EST: TFDQuery
+    Connection = FDConnection
+    Left = 119
+    Top = 115
+  end
+  object dspGER_EST: TDataSetProvider
+    DataSet = fdqGER_EST
+    Options = [poFetchBlobsOnDemand, poFetchDetailsOnDemand, poAllowCommandText]
+    Left = 119
+    Top = 162
+  end
+  object fdqGER_CID: TFDQuery
+    Connection = FDConnection
+    Left = 203
+    Top = 115
+  end
+  object dspGER_CID: TDataSetProvider
+    DataSet = fdqGER_CID
+    Options = [poFetchBlobsOnDemand, poFetchDetailsOnDemand, poAllowCommandText]
+    Left = 203
+    Top = 162
+  end
+  object fdqGER_BAI: TFDQuery
+    Connection = FDConnection
+    Left = 282
+    Top = 115
+  end
+  object dspGER_BAI: TDataSetProvider
+    DataSet = fdqGER_BAI
+    Options = [poFetchBlobsOnDemand, poFetchDetailsOnDemand, poAllowCommandText]
+    Left = 282
+    Top = 162
+  end
+  object fdqGER_TLG: TFDQuery
+    Connection = FDConnection
+    Left = 363
+    Top = 115
+  end
+  object dspGER_TLG: TDataSetProvider
+    DataSet = fdqGER_TLG
+    Options = [poFetchBlobsOnDemand, poFetchDetailsOnDemand, poAllowCommandText]
+    Left = 363
+    Top = 162
+  end
+  object fdqGER_LOG: TFDQuery
+    Connection = FDConnection
+    Left = 442
+    Top = 115
+  end
+  object dspGER_LOG: TDataSetProvider
+    DataSet = fdqGER_LOG
+    Options = [poFetchBlobsOnDemand, poFetchDetailsOnDemand, poAllowCommandText]
+    Left = 442
+    Top = 162
   end
 end
