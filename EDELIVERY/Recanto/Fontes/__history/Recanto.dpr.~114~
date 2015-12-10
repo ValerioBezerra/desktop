@@ -1,0 +1,32 @@
+program Recanto;
+
+uses
+  Vcl.Forms,
+  unDM in 'unDM.pas' {DataModule1: TDataModule},
+  unENT in 'unENT.pas' {frmENT},
+  unCadEnt in 'unCadEnt.pas' {frmCadEnt},
+  unConsCLIENTE in 'unConsCLIENTE.pas' {fmrConsCLIENTE},
+  frmPadrao in 'E:\Projetos\TiaMaluca\Fontes\frmPadrao.pas' {frmPadrao_},
+  frmPadraoManutencao in 'E:\Projetos\TiaMaluca\Fontes\frmPadraoManutencao.pas' {frmPadraoManutencao_},
+  unPrincipal in 'E:\Projetos\TiaMaluca\Fontes\unPrincipal.pas' {frmPrincipal},
+  unCLI in 'unCLI.pas' {frmCLI},
+  unCadPro in 'unCadPro.pas' {frmCadPro},
+  unPRO in 'unPRO.pas' {frmPRO},
+  unCardapio in 'unCardapio.pas' {frmCardapio},
+  unPedido in 'unPedido.pas' {frmPedido};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'TMDELIVERY';
+
+
+  AApplication.CreateForm(TfrmPrincipal, frmPrincipal);
+  AApplication.CreateForm(TDataModule1, DataModule1);
+  AApplication.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
+  AApplication.CreateForm(TfrmCardapio, frmCardapio);
+  Application.CreateForm(TfrmPedido, frmPedido);
+  ication.Run;
+end.

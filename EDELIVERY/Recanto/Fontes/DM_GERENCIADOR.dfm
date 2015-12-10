@@ -1,0 +1,110 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 445
+  Width = 716
+  object Banco: TIBDatabase
+    Connected = True
+    DatabaseName = 
+      'C:\Users\Elison\Documents\GitHub\desktop\Recanto\Banco\RECANTO.F' +
+      'DB'
+    Params.Strings = (
+      'user_name=sysdba'
+      'password=masterkey')
+    LoginPrompt = False
+    DefaultTransaction = Transacao
+    ServerType = 'IBServer'
+    Left = 72
+    Top = 24
+  end
+  object qryCONSULTA: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    Left = 40
+    Top = 120
+  end
+  object dspCONSULTA: TDataSetProvider
+    DataSet = qryCONSULTA
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 112
+    Top = 128
+  end
+  object cdsCONSULTA: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspCONSULTA'
+    Left = 184
+    Top = 120
+  end
+  object dsCONSULTA: TDataSource
+    DataSet = cdsCONSULTA
+    Left = 256
+    Top = 128
+  end
+  object qryUSUARIO: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select * from licenca')
+    Left = 45
+    Top = 176
+  end
+  object dspUSUARIO: TDataSetProvider
+    DataSet = qryUSUARIO
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 117
+    Top = 184
+  end
+  object cdsUSUARIO: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspUSUARIO'
+    Left = 189
+    Top = 176
+  end
+  object dsUSUARIO: TDataSource
+    DataSet = cdsUSUARIO
+    Left = 261
+    Top = 184
+  end
+  object Transacao: TIBTransaction
+    Active = True
+    DefaultDatabase = Banco
+    Left = 144
+    Top = 32
+  end
+  object qryLICENCA: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    Left = 49
+    Top = 241
+  end
+  object dspLICENCA: TDataSetProvider
+    DataSet = qryLICENCA
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 121
+    Top = 241
+  end
+  object cdsLICENCA: TClientDataSet
+    Active = True
+    Aggregates = <>
+    CommandText = 'select * from licenca'
+    Params = <>
+    ProviderName = 'dspUSUARIO'
+    Left = 193
+    Top = 241
+  end
+  object dsLICENCA: TDataSource
+    DataSet = cdsLICENCA
+    Left = 265
+    Top = 249
+  end
+end

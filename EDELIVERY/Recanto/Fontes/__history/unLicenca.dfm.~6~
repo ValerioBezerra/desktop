@@ -1,0 +1,73 @@
+object frmLicenca: TfrmLicenca
+  Left = 0
+  Top = 0
+  Caption = 'Gerenciador - Licen'#231'a'
+  ClientHeight = 121
+  ClientWidth = 489
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 26
+    Top = 8
+    Width = 113
+    Height = 13
+    Caption = 'Informe a nova licen'#231'a:'
+  end
+  object Label2: TLabel
+    Left = 344
+    Top = 8
+    Width = 59
+    Height = 13
+    Caption = 'Vencimento:'
+  end
+  object DBEdit1: TDBEdit
+    Left = 26
+    Top = 27
+    Width = 287
+    Height = 21
+    DataField = 'COD_LICENCA'
+    DataSource = DM.dsLICENCA
+    TabOrder = 0
+  end
+  object btValidar: TButton
+    Left = 48
+    Top = 72
+    Width = 75
+    Height = 25
+    Caption = 'Validar'
+    TabOrder = 1
+  end
+  object btSalvar: TButton
+    Left = 129
+    Top = 72
+    Width = 75
+    Height = 25
+    Caption = 'Salvar'
+    TabOrder = 2
+  end
+  object btSair: TButton
+    Left = 210
+    Top = 72
+    Width = 75
+    Height = 25
+    Caption = 'Sair'
+    TabOrder = 3
+  end
+  object edVencimento: TEdit
+    Left = 344
+    Top = 27
+    Width = 121
+    Height = 21
+    Color = clInactiveBorder
+    ReadOnly = True
+    TabOrder = 4
+  end
+end

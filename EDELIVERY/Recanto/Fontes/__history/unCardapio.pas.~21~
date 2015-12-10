@@ -1,0 +1,165 @@
+unit unCardapio;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.ComCtrls,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TfrmCardapio = class(TForm)
+    DBGrid1: TDBGrid;
+    DBGrid2: TDBGrid;
+    DBGrid3: TDBGrid;
+    DBGrid4: TDBGrid;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Image1: TImage;
+    Image2: TImage;
+    DateTimePicker1: TDateTimePicker;
+    procedure FormShow(Sender: TObject);
+    procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image2MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+  private
+    procedure CarregarProdutosPrincipais;
+    procedure CarregarProdutosAcompanhamento;
+    procedure PrepararPrincipais;
+    procedure PrepararAcompanhamentos;
+    procedure GravarPrincipal;
+    procedure GravarAcompanhamentos;
+    function  PrincipalGravado:Boolean;
+    function  AcompanhamentoGravado:Boolean;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCardapio: TfrmCardapio;
+
+implementation
+
+{$R *.dfm}
+
+uses unDM;
+
+procedure TfrmCardapio.FormShow(Sender: TObject);
+begin
+  CarregarProdutosPrincipais;
+  CarregarProdutosAcompanhamento;
+  PrepararPrincipais;
+  PrepararAcompanhamentos;
+
+
+
+end;
+
+procedure TfrmCardapio.Image1MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  if PrincipalGravado then
+      showmessage('Produto já gravado!')
+  else
+  begin
+     GravarPrincipal;
+     PrepararPrincipais;
+  end;
+
+end;
+
+procedure TfrmCardapio.Image2MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+   if AcompanhamentoGravado then
+      showmessage('Produto já gravado!')
+   else
+   begin
+      GravarAcompanhamentos;
+      PrepararAcompanhamentos;
+   end;
+end;
+
+procedure TfrmCardapio.CarregarProdutosPrincipais;
+begin
+  datamodule1.cdsPRO.Close;
+  datamodule1.cdsPRO.CommandText := 'select * from produtos where tipo_pro = 1';
+  datamodule1.cdspro.open;
+end;
+
+function TfrmCardapio.AcompanhamentoGravado: Boolean;
+begin
+ Datamodule1.cdsCONSULTA.Close;
+     datamodule1.cdsCONSULTA.CommandText := 'select * from produto_dia ' +
+                                            '  where codpro_prodia = ' +datamodule1.cdsTELASCONSULTA.FieldByName('cod_pro').AsString +
+                                            ' and data_prodia = ' + quotedstr(FormatDateTime('mm/dd/yyyy',DateTimePicker1.Date));
+     Datamodule1.cdsCONSULTA.Open;
+     Result := not Datamodule1.cdsCONSULTA.IsEmpty;
+end;
+
+procedure TfrmCardapio.CarregarProdutosAcompanhamento;
+begin
+  DataModule1.cdsTELASCONSULTA.Close;
+  datamodule1.cdsTELASCONSULTA.CommandText := ' select * from produtos where tipo_pro = 0';
+  datamodule1.cdsTELASCONSULTA.Open;
+end;
+
+procedure TfrmCardapio.PrepararPrincipais;
+begin
+  Datamodule1.cdsPRODIAP.Close;
+  datamodule1.cdsPRODIAP.CommandText := 'select * from produto_dia left outer join produtos on cod_pro = codpro_prodia ' +
+                                        ' where tipo_pro = 1 and data_prodia =' + quotedstr(FormatDateTime('mm/dd/yyyy',DateTimePicker1.Date));
+
+  datamodule1.cdsPRODIAP.Open;
+
+end;
+
+function TfrmCardapio.PrincipalGravado: Boolean;
+begin
+     Datamodule1.cdsCONSULTA.Close;
+     datamodule1.cdsCONSULTA.CommandText := 'select * from produto_dia ' +
+                                            '  where codpro_prodia = ' +datamodule1.cdsPRO.FieldByName('cod_pro').AsString +
+                                            ' and data_prodia = ' + quotedstr(FormatDateTime('mm/dd/yyyy',DateTimePicker1.Date));
+     Datamodule1.cdsCONSULTA.Open;
+     Result := not Datamodule1.cdsCONSULTA.IsEmpty;
+end;
+
+procedure TfrmCardapio.PrepararAcompanhamentos;
+begin
+  Datamodule1.cdsPRODIAA.Close;
+  datamodule1.cdsPRODIAA.CommandText := 'select * from produto_dia left outer join produtos on cod_pro = codpro_prodia' +
+                                        ' where tipo_pro = 0  and data_prodia =' + quotedstr(FormatDateTime('mm/dd/yyyy',DateTimePicker1.Date));
+  datamodule1.cdsPRODIAA.Open;
+
+end;
+
+procedure TfrmCardapio.GravarAcompanhamentos;
+begin
+  datamodule1.cdsGRAVAR.Close;
+  datamodule1.cdsGRAVAR.CommandText  := 'select * from produto_dia where data_prodia =' + quotedstr(FormatDateTime('mm/dd/yyyy',DateTimePicker1.Date));
+  datamodule1.cdsGRAVAR.Open;
+  datamodule1.cdsgravar.Insert;
+  datamodule1.cdsGRAVAR.FieldByName('codpro_prodia').Asinteger := datamodule1.cdsTELASCONSULTA.FieldByName('cod_pro').AsInteger;
+  datamodule1.cdsGRAVAR.FieldByName('data_prodia').AsString := (FormatDateTime('dd/MM/yyyy',DateTimePicker1.Date));
+  datamodule1.cdsGRAVAR.Post;
+  datamodule1.cdsGRAVAR.ApplyUpdates(0);
+end;
+
+procedure TfrmCardapio.GravarPrincipal;
+begin
+  datamodule1.cdsGRAVAR.Close;
+  datamodule1.cdsGRAVAR.CommandText  := 'select * from produto_dia where data_prodia =' + quotedstr(FormatDateTime('mm/dd/yyyy',DateTimePicker1.Date));
+  datamodule1.cdsGRAVAR.Open;
+  datamodule1.cdsgravar.Insert;
+  datamodule1.cdsGRAVAR.FieldByName('codpro_prodia').Asinteger := datamodule1.cdsPRO.FieldByName('cod_pro').AsInteger;
+  datamodule1.cdsGRAVAR.FieldByName('data_prodia').AsString := (FormatDateTime('dd/MM/yyyy',DateTimePicker1.Date));
+  datamodule1.cdsGRAVAR.Post;
+  datamodule1.cdsGRAVAR.ApplyUpdates(0);
+end;
+
+end.

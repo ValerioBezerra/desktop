@@ -1,0 +1,152 @@
+inherited frmCadCLI: TfrmCadCLI
+  Caption = 'Cadastro - Cliente'
+  ClientHeight = 432
+  ClientWidth = 616
+  OnCreate = FormCreate
+  ExplicitWidth = 622
+  ExplicitHeight = 461
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlBotoes: TPanel
+    Left = 495
+    Height = 382
+    ExplicitLeft = 495
+    ExplicitHeight = 382
+    inherited Panel5: TPanel
+      Height = 372
+      ExplicitHeight = 372
+    end
+    inherited Panel6: TPanel
+      Top = 372
+      ExplicitTop = 372
+    end
+    inherited Panel7: TPanel
+      Height = 372
+      ExplicitHeight = 372
+    end
+  end
+  inherited stbInformacao: TStatusBar
+    Top = 394
+    Width = 616
+    ExplicitTop = 394
+    ExplicitWidth = 616
+  end
+  inherited stbStatus: TStatusBar
+    Top = 413
+    Width = 616
+    ExplicitTop = 413
+    ExplicitWidth = 616
+  end
+  inherited Panel1: TPanel
+    Width = 616
+    ExplicitWidth = 616
+  end
+  inherited pnlPrincipal: TPanel
+    Width = 495
+    Height = 382
+    ExplicitWidth = 495
+    ExplicitHeight = 382
+    object Label1: TLabel
+      Left = 112
+      Top = 72
+      Width = 44
+      Height = 13
+      Caption = 'COD_CLI'
+      FocusControl = DBEdit1
+    end
+    object Label2: TLabel
+      Left = 112
+      Top = 112
+      Width = 51
+      Height = 13
+      Caption = 'NOME_CLI'
+      FocusControl = DBEdit2
+    end
+    object Label3: TLabel
+      Left = 112
+      Top = 152
+      Width = 39
+      Height = 13
+      Caption = 'TEL_CLI'
+      FocusControl = DBEdit3
+    end
+    object Label4: TLabel
+      Left = 112
+      Top = 192
+      Width = 40
+      Height = 13
+      Caption = 'CEL_CLI'
+      FocusControl = DBEdit4
+    end
+    object Label5: TLabel
+      Left = 112
+      Top = 232
+      Width = 54
+      Height = 13
+      Caption = 'ENDERECO'
+      FocusControl = DBEdit5
+    end
+    object Label6: TLabel
+      Left = 112
+      Top = 272
+      Width = 39
+      Height = 13
+      Caption = 'BAIRRO'
+      FocusControl = DBEdit6
+    end
+    object DBEdit1: TDBEdit
+      Left = 112
+      Top = 88
+      Width = 134
+      Height = 21
+      DataField = 'COD_CLI'
+      DataSource = DataModule1.dsCLIENTE
+      TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 112
+      Top = 128
+      Width = 329
+      Height = 21
+      DataField = 'NOME_CLI'
+      DataSource = DataModule1.dsCLIENTE
+      TabOrder = 1
+    end
+    object DBEdit3: TDBEdit
+      Left = 112
+      Top = 168
+      Width = 199
+      Height = 21
+      DataField = 'TEL_CLI'
+      DataSource = DataModule1.dsCLIENTE
+      TabOrder = 2
+    end
+    object DBEdit4: TDBEdit
+      Left = 112
+      Top = 208
+      Width = 199
+      Height = 21
+      DataField = 'CEL_CLI'
+      DataSource = DataModule1.dsCLIENTE
+      TabOrder = 3
+    end
+    object DBEdit5: TDBEdit
+      Left = 112
+      Top = 248
+      Width = 1304
+      Height = 21
+      DataField = 'ENDERECO'
+      DataSource = DataModule1.dsCLIENTE
+      TabOrder = 4
+    end
+    object DBEdit6: TDBEdit
+      Left = 112
+      Top = 288
+      Width = 394
+      Height = 21
+      DataField = 'BAIRRO'
+      DataSource = DataModule1.dsCLIENTE
+      TabOrder = 5
+    end
+  end
+end

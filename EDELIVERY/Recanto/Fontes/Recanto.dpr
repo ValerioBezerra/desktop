@@ -1,0 +1,31 @@
+program Recanto;
+
+uses
+  Vcl.Forms,
+  unDM in 'unDM.pas' {DataModule1: TDataModule},
+  unENT in 'unENT.pas' {frmENT},
+  unCadEnt in 'unCadEnt.pas' {frmCadEnt},
+  unConsCLIENTE in 'unConsCLIENTE.pas' {fmrConsCLIENTE},
+  unCLI in 'unCLI.pas' {frmCLI},
+  unCadPro in 'unCadPro.pas' {frmCadPro},
+  unPRO in 'unPRO.pas' {frmPRO},
+  unCardapio in 'unCardapio.pas' {frmCardapio},
+  unPedido in 'unPedido.pas' {frmPedido},
+  frmPadrao in 'C:\valerio\delphi\Formularios\frmPadrao.pas' {frmPadrao_},
+  frmPadraoManutencao in 'C:\valerio\delphi\Formularios\frmPadraoManutencao.pas' {frmPadraoManutencao_},
+  unPrincipal in 'unPrincipal.pas' {frmPrincipal};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'TMDELIVERY';
+
+
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TfrmPadrao_, frmPadrao_);
+  Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
+  Application.Run;
+end.

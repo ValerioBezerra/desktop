@@ -1,0 +1,14 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 322
+  Width = 505
+  object Banco: TIBDatabase
+    Params.Strings = (
+      'user_name=sysdba'
+      'password=masterkey')
+    LoginPrompt = False
+    ServerType = 'IBServer'
+    Left = 72
+    Top = 24
+  end
+end

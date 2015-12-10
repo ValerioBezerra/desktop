@@ -1,0 +1,23 @@
+program Recanto;
+
+uses
+  Vcl.Forms,
+  unDM in 'unDM.pas' {DataModule1: TDataModule},
+  unPRO in 'unPRO.pas' {frmPRO},
+  unCadPro in 'unCadPro.pas' {frmCadPro},
+  unConsCLIENTE in 'unConsCLIENTE.pas' {fmrConsCLIENTE},
+  frmPadrao in 'E:\Projetos\TiaMaluca\Fontes\frmPadrao.pas' {frmPadrao_},
+  frmPadraoManutencao in 'E:\Projetos\TiaMaluca\Fontes\frmPadraoManutencao.pas' {frmPadraoManutencao_},
+  unPrincipal in 'E:\Projetos\TiaMaluca\Fontes\unPrincipal.pas' {frmPrincipal},
+  unCLI in 'unCLI.pas' {frmCLI};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
+  Appplication.Run;
+end.
