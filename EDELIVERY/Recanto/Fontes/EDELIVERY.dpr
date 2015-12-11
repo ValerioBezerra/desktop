@@ -13,7 +13,8 @@ uses
   unPedido in 'unPedido.pas' {frmPedido},
   frmPadrao in 'C:\valerio\delphi\Formularios\frmPadrao.pas' {frmPadrao_},
   frmPadraoManutencao in 'C:\valerio\delphi\Formularios\frmPadraoManutencao.pas' {frmPadraoManutencao_},
-  unPrincipal in 'unPrincipal.pas' {frmPrincipal};
+  unPrincipal in 'unPrincipal.pas' {frmPrincipal},
+  unFinanceiro in 'unFinanceiro.pas' {frmFinanceiro};
 
 {$R *.res}
 
@@ -27,5 +28,6 @@ begin
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TfrmPadrao_, frmPadrao_);
   Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
+  Application.CreateForm(TfrmFinanceiro, frmFinanceiro);
   Application.Run;
 end.

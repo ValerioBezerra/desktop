@@ -21,6 +21,11 @@ type
     Label5: TLabel;
     Image6: TImage;
     Label6: TLabel;
+    Image7: TImage;
+    Label7: TLabel;
+    Image8: TImage;
+    Image9: TImage;
+    Label8: TLabel;
     procedure Image2MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
@@ -30,6 +35,8 @@ type
     procedure Image6MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Image3MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image7MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
@@ -44,7 +51,7 @@ implementation
 
 {$R *.dfm}
 
-uses unCli,unPro, unENT, unCardapio, unPedido;
+uses unCli,unPro, unENT, unCardapio, unPedido, unFinanceiro;
 
 procedure TfrmPrincipal.Image1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
@@ -79,6 +86,13 @@ procedure TfrmPrincipal.Image6MouseDown(Sender: TObject; Button: TMouseButton;
 begin
       Application.CreateForm(TFrmCARDAPIO,FrmCARDAPIO);
    FrmCARDAPIO.ShowModal;
+end;
+
+procedure TfrmPrincipal.Image7MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+      Application.CreateForm(TFrmFinanceiro,FrmFinanceiro);
+   FrmFinanceiro.ShowModal;
 end;
 
 end.
