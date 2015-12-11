@@ -1615,15 +1615,14 @@ object frmITEORC: TfrmITEORC
     Top = 64
     Width = 97
     Height = 21
-    Enabled = False
     TabOrder = 2
+    OnExit = edSEQ_ITEORCExit
   end
   object edCODITE_ITEORC: TEdit
     Left = 24
     Top = 104
     Width = 97
     Height = 21
-    Enabled = False
     NumbersOnly = True
     TabOrder = 3
     OnExit = edCODITE_ITEORCExit
@@ -1642,7 +1641,6 @@ object frmITEORC: TfrmITEORC
     Top = 144
     Width = 97
     Height = 21
-    Enabled = False
     NumbersOnly = True
     TabOrder = 5
   end
@@ -1651,7 +1649,6 @@ object frmITEORC: TfrmITEORC
     Top = 144
     Width = 97
     Height = 21
-    Enabled = False
     NumbersOnly = True
     TabOrder = 6
     OnExit = edVLRUNI_ITEORCExit
@@ -1665,38 +1662,39 @@ object frmITEORC: TfrmITEORC
     ReadOnly = True
     TabOrder = 7
   end
-  object Button1: TButton
+  object btnInserir: TButton
     Left = 480
     Top = 22
     Width = 99
     Height = 25
     Caption = 'Inserir'
     TabOrder = 8
+    OnClick = btnInserirClick
   end
-  object Button2: TButton
+  object btnExcluir: TButton
     Left = 480
-    Top = 53
-    Width = 99
-    Height = 25
-    Caption = 'Alterar'
-    Enabled = False
-    TabOrder = 9
-  end
-  object Button3: TButton
-    Left = 480
-    Top = 84
+    Top = 79
     Width = 99
     Height = 25
     Caption = 'Excluir'
     Enabled = False
-    TabOrder = 10
+    TabOrder = 9
   end
-  object Button4: TButton
+  object btnSair: TButton
     Left = 480
-    Top = 115
+    Top = 107
     Width = 99
     Height = 25
     Caption = 'Sair'
+    TabOrder = 10
+  end
+  object btnSalvar: TButton
+    Left = 481
+    Top = 52
+    Width = 99
+    Height = 25
+    Caption = 'Salvar'
+    Enabled = False
     TabOrder = 11
   end
 end
