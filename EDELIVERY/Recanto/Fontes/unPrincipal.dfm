@@ -24350,6 +24350,7 @@ object frmPrincipal: TfrmPrincipal
       EA4B25A297FFA6CE611390FE66CE71139082EFF9FB0248FF3F4561B7771D8F58
       F00000000049454E44AE426082}
     Proportional = True
+    OnMouseDown = Image9MouseDown
   end
   object Label8: TLabel
     Left = 488

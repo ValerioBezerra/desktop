@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage,ShellApi,
   Vcl.StdCtrls;
 
 type
@@ -37,6 +37,8 @@ type
     procedure Image3MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Image7MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image9MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
@@ -93,6 +95,12 @@ procedure TfrmPrincipal.Image7MouseDown(Sender: TObject; Button: TMouseButton;
 begin
       Application.CreateForm(TFrmFinanceiro,FrmFinanceiro);
    FrmFinanceiro.ShowModal;
+end;
+
+procedure TfrmPrincipal.Image9MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+     ShellExecute(handle,'open',PChar('REMOTO.exe'),'','',SW_SHOWNORMAL);
 end;
 
 end.
