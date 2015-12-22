@@ -10280,6 +10280,13 @@ object frmPedido: TfrmPedido
     Proportional = True
     OnMouseDown = Image3MouseDown
   end
+  object Label2: TLabel
+    Left = 16
+    Top = 72
+    Width = 58
+    Height = 13
+    Caption = 'Entregador:'
+  end
   object DateTimePicker1: TDateTimePicker
     Left = 419
     Top = 8
@@ -10368,6 +10375,16 @@ object frmPedido: TfrmPedido
       'Dinheiro'
       #192' Prazo')
     TabOrder = 6
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 80
+    Top = 64
+    Width = 145
+    Height = 21
+    KeyField = 'COD_ENT'
+    ListField = 'NOME_ENT'
+    ListSource = DataModule1.dsENT
+    TabOrder = 7
   end
   object ppReport1: TppReport
     AutoStop = False

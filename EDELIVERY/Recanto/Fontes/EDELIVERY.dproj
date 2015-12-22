@@ -72,6 +72,7 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <DCC_ExeOutput>C:\EDELIVERY\</DCC_ExeOutput>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
@@ -90,56 +91,43 @@
         </DelphiCompile>
         <DCCReference Include="unDM.pas">
             <Form>DataModule1</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="unENT.pas">
             <Form>frmENT</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unCadEnt.pas">
             <Form>frmCadEnt</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unConsCLIENTE.pas">
             <Form>fmrConsCLIENTE</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unCLI.pas">
             <Form>frmCLI</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unCadPro.pas">
             <Form>frmCadPro</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unPRO.pas">
             <Form>frmPRO</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unCardapio.pas">
             <Form>frmCardapio</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unPedido.pas">
             <Form>frmPedido</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="C:\valerio\delphi\Formularios\frmPadrao.pas">
             <Form>frmPadrao_</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="C:\valerio\delphi\Formularios\frmPadraoManutencao.pas">
             <Form>frmPadraoManutencao_</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unPrincipal.pas">
             <Form>frmPrincipal</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unFinanceiro.pas">
             <Form>frmFinanceiro</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
@@ -498,14 +486,14 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
-                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
             </Deployment>
             <Platforms>
                 <Platform value="Win32">True</Platform>

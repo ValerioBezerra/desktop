@@ -1,7 +1,7 @@
 program EDELIVERY;
 
 uses
-  Vcl.Forms,
+  Vcl.Forms, MidasLib,
   unDM in 'unDM.pas' {DataModule1: TDataModule},
   unENT in 'unENT.pas' {frmENT},
   unCadEnt in 'unCadEnt.pas' {frmCadEnt},

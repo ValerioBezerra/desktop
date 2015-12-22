@@ -3,8 +3,7 @@ object DataModule1: TDataModule1
   Height = 751
   Width = 1033
   object Banco: TIBDatabase
-    Connected = True
-    DatabaseName = 'C:\Users\Elison\Downloads\EDELIVERY\Recanto\Banco\TMDELIVERY.IB'
+    DatabaseName = 'C:\EDELIVERY\BANCO\TMDELIVERY.IB'
     Params.Strings = (
       'user_name=sysdba'
       'password=masterkey')
@@ -15,7 +14,6 @@ object DataModule1: TDataModule1
     Top = 40
   end
   object Transacao: TIBTransaction
-    Active = True
     DefaultDatabase = Banco
     Left = 128
     Top = 40
@@ -216,7 +214,7 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'select * from PRODUTOS')
+      'select * from ENTREGADOR')
     Left = 32
     Top = 416
   end
@@ -354,7 +352,6 @@ object DataModule1: TDataModule1
     Top = 211
   end
   object cdsRELATORIO: TClientDataSet
-    Active = True
     Aggregates = <>
     CommandText = 
       'select * from pedido left outer join produto_pedido on seqped_px' +
