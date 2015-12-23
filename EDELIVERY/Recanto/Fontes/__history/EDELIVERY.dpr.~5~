@@ -1,8 +1,7 @@
 program EDELIVERY;
 
 uses
-  Vcl.Forms,
-  MidasLib,
+  Vcl.Forms, MidasLib,
   unDM in 'unDM.pas' {DataModule1: TDataModule},
   unENT in 'unENT.pas' {frmENT},
   unCadEnt in 'unCadEnt.pas' {frmCadEnt},
@@ -15,8 +14,7 @@ uses
   frmPadrao in 'C:\valerio\delphi\Formularios\frmPadrao.pas' {frmPadrao_},
   frmPadraoManutencao in 'C:\valerio\delphi\Formularios\frmPadraoManutencao.pas' {frmPadraoManutencao_},
   unPrincipal in 'unPrincipal.pas' {frmPrincipal},
-  unFinanceiro in 'unFinanceiro.pas' {frmFinanceiro},
-  unRelatorios in 'unRelatorios.pas' {frmRelatorios};
+  unFinanceiro in 'unFinanceiro.pas' {frmFinanceiro};
 
 {$R *.res}
 
@@ -31,6 +29,5 @@ begin
   Application.CreateForm(TfrmPadrao_, frmPadrao_);
   Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
   Application.CreateForm(TfrmFinanceiro, frmFinanceiro);
-  Application.CreateForm(TfrmRelatorios, frmRelatorios);
   Application.Run;
 end.

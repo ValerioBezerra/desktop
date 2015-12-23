@@ -40,8 +40,6 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure Image9MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
-    procedure Image4MouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
   public
@@ -55,7 +53,7 @@ implementation
 
 {$R *.dfm}
 
-uses unCli,unPro, unENT, unCardapio, unPedido, unFinanceiro, unRelatorios;
+uses unCli,unPro, unENT, unCardapio, unPedido, unFinanceiro;
 
 procedure TfrmPrincipal.Image1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
@@ -76,13 +74,6 @@ procedure TfrmPrincipal.Image3MouseDown(Sender: TObject; Button: TMouseButton;
 begin
         Application.CreateForm(TFrmPedido,FrmPedido);
         FrmPedido.ShowModal;
-end;
-
-procedure TfrmPrincipal.Image4MouseDown(Sender: TObject; Button: TMouseButton;
-  Shift: TShiftState; X, Y: Integer);
-begin
-        Application.CreateForm(TFrmRelatorios,FrmRelatorios);
-        FrmRelatorios.ShowModal;
 end;
 
 procedure TfrmPrincipal.Image5MouseDown(Sender: TObject; Button: TMouseButton;

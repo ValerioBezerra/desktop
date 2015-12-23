@@ -26,11 +26,11 @@ begin
   Application.Title := 'TMDELIVERY';
 
 
-  Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TDataModule1, DataModule1);
-  Application.CreateForm(TfrmPadrao_, frmPadrao_);
+  AApplication.CreateForm(TfrmPrincipal, frmPrincipal);
+  AApplication.CreateForm(TDataModule1, DataModule1);
+  AApplication.CreateForm(TfrmPadrao_, frmPadrao_);
   Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
   Application.CreateForm(TfrmFinanceiro, frmFinanceiro);
   Application.CreateForm(TfrmRelatorios, frmRelatorios);
-  Application.Run;
+  lication.Run;
 end.

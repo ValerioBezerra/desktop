@@ -1,0 +1,37 @@
+unit unRelatorios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ppDesignLayer, ppParameter, ppProd,
+  ppClass, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppDBBDE, Vcl.StdCtrls,
+  Vcl.ComCtrls;
+
+type
+  TfrmRelatorios = class(TForm)
+    DateTimePicker1: TDateTimePicker;
+    DateTimePicker2: TDateTimePicker;
+    Button1: TButton;
+    Button2: TButton;
+    ppBDEPipeline1: TppBDEPipeline;
+    ppReport1: TppReport;
+    ppReport2: TppReport;
+    ppParameterList1: TppParameterList;
+    ppDesignLayers1: TppDesignLayers;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRelatorios: TfrmRelatorios;
+
+implementation
+
+{$R *.dfm}
+
+uses unDM;
+
+end.

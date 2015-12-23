@@ -16,7 +16,7 @@ uses
   frmPadraoManutencao in 'C:\valerio\delphi\Formularios\frmPadraoManutencao.pas' {frmPadraoManutencao_},
   unPrincipal in 'unPrincipal.pas' {frmPrincipal},
   unFinanceiro in 'unFinanceiro.pas' {frmFinanceiro},
-  unRelatorios in 'unRelatorios.pas' {frmRelatorios};
+  unRelatorios in 'unRelatorios.pas' {Form1};
 
 {$R *.res}
 
@@ -26,11 +26,11 @@ begin
   Application.Title := 'TMDELIVERY';
 
 
-  Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TDataModule1, DataModule1);
+  AApplication.CreateForm(TfrmPrincipal, frmPrincipal);
+  AApplication.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TfrmPadrao_, frmPadrao_);
   Application.CreateForm(TfrmPadraoManutencao_, frmPadraoManutencao_);
   Application.CreateForm(TfrmFinanceiro, frmFinanceiro);
-  Application.CreateForm(TfrmRelatorios, frmRelatorios);
-  Application.Run;
+  Application.CreateForm(TForm1, Form1);
+  plication.Run;
 end.
