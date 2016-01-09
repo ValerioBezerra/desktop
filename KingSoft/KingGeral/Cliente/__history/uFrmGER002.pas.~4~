@@ -1,0 +1,75 @@
+unit uFrmGER002;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFrmPadrao, Vcl.ExtCtrls, Vcl.ComCtrls,
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.DBCtrls, Vcl.Mask, uKsNumberEdit,
+  uKsDBNumberEdit;
+
+type
+  TfrmGER002 = class(TfrmPadrao)
+    Label1: TLabel;
+    Label2: TLabel;
+    dbeGER_NOME_EST: TDBEdit;
+    dbneGER_ID_EST: TKsDBNumberEdit;
+    Label3: TLabel;
+    dbneGER_GERPAI_EST: TKsDBNumberEdit;
+    sbAUT002: TSpeedButton;
+    edAUT_DESCRICAO_PER: TEdit;
+    dbeGER_UF_EST: TDBEdit;
+    Label4: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmGER002: TfrmGER002;
+
+implementation
+
+{$R *.dfm}
+
+uses uCMKingGeral, uUtil;
+
+procedure TfrmGER002.btnSalvarClick(Sender: TObject);
+begin
+  cdsPadrao.Post;
+  erroPadrao := not(cmKingGeral.TestarDados(TUtil.Empresa.Id, TabelaPadrao, OperacaoPadrao, cdsPadrao.Data));
+
+  if not(erroPadrao) then
+    begin
+      inherited;
+      Close;
+    end;
+
+  if (erroPadrao) then
+    begin
+      cdsPadrao.Edit;
+      dbeGER_NOME_PAI.SetFocus;
+    end;
+end;
+
+procedure TfrmGER002.FormCreate(Sender: TObject);
+begin
+  inherited;
+  cdsPadrao    := cmKingGeral.cdsGER_PAI;
+  TabelaPadrao := 'GER_PAI';
+end;
+
+
+procedure TfrmGER002.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  inherited;
+  if (Ord(Key) = VK_F2) then
+    btnSalvarClick(Sender);
+end;
+
+end.

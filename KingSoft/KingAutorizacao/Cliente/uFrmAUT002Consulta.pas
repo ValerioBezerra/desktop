@@ -84,9 +84,12 @@ begin
   CampoConsulta := 'AUT_DESCRICAO_PER';
   OrderBy       := 'AUT_DESCRICAO_PER';
 
-
   cdsPadrao    := cmKingAutorizacao.cdsAUT_PER;
   TabelaPadrao := 'AUT_PER';
+
+  cdsVerificarAutorizacao := cmKingAutorizacao.cdsConsulta;
+  SiglaModulo             := 'AUT';
+  CodigoPrograma          := '002';
 end;
 
 procedure TfrmAUT002Consulta.FormKeyDown(Sender: TObject; var Key: Word;

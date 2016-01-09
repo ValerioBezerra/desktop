@@ -125,6 +125,10 @@ begin
 
   cdsPadrao    := cmKingAutorizacao.cdsAUT_USU;
   TabelaPadrao := 'AUT_USU';
+
+  cdsVerificarAutorizacao := cmKingAutorizacao.cdsConsulta;
+  SiglaModulo             := 'AUT';
+  CodigoPrograma          := '003';
 end;
 
 procedure TfrmAUT003Consulta.FormKeyDown(Sender: TObject; var Key: Word;
@@ -183,16 +187,20 @@ end;
 procedure TfrmAUT003Consulta.sbAUT002Click(Sender: TObject);
 begin
   inherited;
-  Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);
-  frmAUT002Consulta.MostrarConfirmar := True;
-  frmAUT002Consulta.ShowModal;
+  try
+    Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);
+    frmAUT002Consulta.MostrarConfirmar := True;
+    frmAUT002Consulta.ShowModal;
 
-  if (frmAUT002Consulta.Confirmou) then
-    begin
-      neAUT_AUTPER_USU.SetFocus;
-      neAUT_AUTPER_USU.Text := frmAUT002Consulta.cdsConsulta.FieldByName('AUT_ID_PER').AsString;
-      neAUT_AUTPER_USUExit(Self);
-    end;
+    if (frmAUT002Consulta.Confirmou) then
+      begin
+        neAUT_AUTPER_USU.SetFocus;
+        neAUT_AUTPER_USU.Text := frmAUT002Consulta.cdsConsulta.FieldByName('AUT_ID_PER').AsString;
+        neAUT_AUTPER_USUExit(Self);
+      end;
+  finally
+    TUtil.CarregarModuloPrograma(cmKingAutorizacao.cdsConsulta);
+  end;
 end;
 
 end.

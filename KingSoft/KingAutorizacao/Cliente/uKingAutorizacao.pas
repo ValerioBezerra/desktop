@@ -23,31 +23,37 @@ uses uUtil, uCMKingAutorizacao, uFrmPadraoConsulta, uFrmAUT002Consulta,
 { TKingAutorizacao }
 
 class procedure TKingAutorizacao.AbrirPrograma;
+var
+  SiglaModulo: String;
+  CodigoPrograma: String;
 begin
   try
     TUtil.CarregarClasses(cmKingAutorizacao.cdsConsulta);
 
-    if (TUtil.Programa.Modulo.Sigla = 'AUT') then
+    SiglaModulo    := Copy(ParamStr(1), 1, 3);
+    CodigoPrograma := Copy(ParamStr(1), 4, 3);
+
+    if (SiglaModulo = 'AUT') then
       begin
-        if (TUtil.Programa.Codigo = '002') then
+        if (CodigoPrograma = '002') then
           begin
             Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);
             frmAUT002Consulta.ShowModal;
           end;
 
-        if (TUtil.Programa.Codigo = '003') then
+        if (CodigoPrograma = '003') then
           begin
             Application.CreateForm(TfrmAUT003Consulta, frmAUT003Consulta);
             frmAUT003Consulta.ShowModal;
           end;
 
-        if (TUtil.Programa.Codigo = '004') then
+        if (CodigoPrograma = '004') then
           begin
             Application.CreateForm(TfrmAUT004Consulta, frmAUT004Consulta);
             frmAUT004Consulta.ShowModal;
           end;
 
-        if (TUtil.Programa.Codigo = '005') then
+        if (CodigoPrograma = '005') then
           begin
             Application.CreateForm(TfrmAUT005Consulta, frmAUT005Consulta);
             frmAUT005Consulta.ShowModal;

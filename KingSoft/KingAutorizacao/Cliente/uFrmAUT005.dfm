@@ -9,7 +9,7 @@ inherited frmAUT005: TfrmAUT005
   TextHeight = 13
   inherited pnlBotoes: TPanel
     Height = 139
-    ExplicitHeight = 83
+    ExplicitHeight = 139
     inherited btnFechar: TBitBtn
       Top = 106
       ExplicitTop = 106
@@ -17,11 +17,11 @@ inherited frmAUT005: TfrmAUT005
   end
   inherited Panel2: TPanel
     Height = 139
-    ExplicitHeight = 83
+    ExplicitHeight = 139
   end
   inherited pnlPrincipal: TPanel
     Height = 139
-    ExplicitHeight = 83
+    ExplicitHeight = 139
     object Label1: TLabel
       Left = 16
       Top = 1
@@ -190,7 +190,7 @@ inherited frmAUT005: TfrmAUT005
   end
   inherited stbInformacao: TStatusBar
     Top = 151
-    ExplicitTop = 95
+    ExplicitTop = 151
   end
   inherited Timer: TTimer
     Top = 8

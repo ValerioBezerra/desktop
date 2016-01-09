@@ -1,0 +1,65 @@
+unit uKingGeral;
+
+interface
+
+uses
+  SysUtils, Forms;
+
+type
+  TKingGeral = class
+  public
+    class procedure AbrirPrograma;
+end;
+
+implementation
+
+{ TKingAutorizacao }
+
+uses uUtil, uCMKingGeral, uFrmGER001Consulta, uFrmGER002Consulta,
+  uFrmGER003Consulta;
+
+
+
+{ TKingAutorizacao }
+
+class procedure TKingGeral.AbrirPrograma;
+var
+  SiglaModulo: String;
+  CodigoPrograma: String;
+begin
+  try
+    TUtil.CarregarClasses(cmKingGeral.cdsConsulta);
+
+    SiglaModulo    := Copy(ParamStr(1), 1, 3);
+    CodigoPrograma := Copy(ParamStr(1), 4, 3);
+
+    if (TUtil.Programa.Modulo.Sigla = 'GER') then
+      begin
+        if (TUtil.Programa.Codigo = '001') then
+          begin
+            Application.CreateForm(TfrmGER001Consulta, frmGER001Consulta);
+            frmGER001Consulta.ShowModal;
+          end;
+
+        if (TUtil.Programa.Codigo = '002') then
+          begin
+            Application.CreateForm(TfrmGER002Consulta, frmGER002Consulta);
+            frmGER002Consulta.ShowModal;
+          end;
+
+        if (TUtil.Programa.Codigo = '003') then
+          begin
+            Application.CreateForm(TfrmGER003Consulta, frmGER003Consulta);
+            frmGER003Consulta.ShowModal;
+          end;
+      end;
+  except
+    on E: Exception do
+      begin
+        TUtil.ExibirMensagem(E.Message, 'E');
+      end;
+  end;
+end;
+
+end.
+

@@ -138,16 +138,20 @@ end;
 procedure TfrmAUT003.sbAUT002Click(Sender: TObject);
 begin
   inherited;
-  Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);
-  frmAUT002Consulta.MostrarConfirmar := True;
-  frmAUT002Consulta.ShowModal;
+  try
+    Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);
+    frmAUT002Consulta.MostrarConfirmar := True;
+    frmAUT002Consulta.ShowModal;
 
-  if (frmAUT002Consulta.Confirmou) then
-    begin
-      dbneAUT_AUTPER_USU.SetFocus;
-      cdsPadrao.FieldByName('AUT_AUTPER_USU').AsInteger := frmAUT002Consulta.cdsConsulta.FieldByName('AUT_ID_PER').AsInteger;
-      dbneAUT_AUTPER_USUExit(Self);
-    end;
+    if (frmAUT002Consulta.Confirmou) then
+      begin
+        dbneAUT_AUTPER_USU.SetFocus;
+        cdsPadrao.FieldByName('AUT_AUTPER_USU').AsInteger := frmAUT002Consulta.cdsConsulta.FieldByName('AUT_ID_PER').AsInteger;
+        dbneAUT_AUTPER_USUExit(Self);
+      end;
+  finally
+    TUtil.CarregarModuloPrograma(cmKingAutorizacao.cdsConsulta);
+  end;
 end;
 
 

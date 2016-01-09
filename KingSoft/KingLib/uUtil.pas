@@ -15,7 +15,7 @@ type
     class procedure CarregarClasses(cds: TClientDataSet);
     class procedure CarregarEmpresa(cds: TClientDataSet);
     class procedure CarregarUsuario(cds: TClientDataSet);
-    class procedure CarregarModuloPrograma(cds: TClientDataSet);
+    class procedure CarregarModuloPrograma(cds: TClientDataSet; SiglaModulo: String = ''; CodigoPrograma: String = '');
     class procedure CorElementoEmFoco(Formulario: TForm);
     class procedure IniciarClientDataSet(cds: TClientDataSet);
     class procedure ExibirMensagem(const Mensagem: String; Tipo: Char = ' ');
@@ -35,7 +35,6 @@ class procedure TUtil.CarregarClasses(cds: TClientDataSet);
 begin
   CarregarEmpresa(cds);
   CarregarUsuario(cds);
-  CarregarModuloPrograma(cds);
 end;
 
 class procedure TUtil.CarregarEmpresa(cds: TClientDataSet);
@@ -55,7 +54,7 @@ begin
     end;
 end;
 
-class procedure TUtil.CarregarModuloPrograma(cds: TClientDataSet);
+class procedure TUtil.CarregarModuloPrograma(cds: TClientDataSet; SiglaModulo: String; CodigoPrograma: String);
 begin
   cds.Close;
   cds.CommandText := ' SELECT AUT_ID_MOD, ' +
@@ -74,33 +73,55 @@ begin
                      ' INNER JOIN AUT_PRO ON AUT_ID_PRO = AUT_AUTPRO_APE ' +
                      ' INNER JOIN AUT_MOD ON AUT_ID_MOD = AUT_AUTMOD_PRO ' +
                      ' WHERE AUT_GEREMP_APE = ' + IntToStr(Empresa.Id) +
-                     '   AND AUT_AUTPER_APE = ' + IntToStr(Usuario.Perfil.Id) +
-                     '   AND AUT_SIGLA_MOD = ' + QuotedStr(Copy(ParamStr(1), 1, 3)) +
-                     '   AND AUT_CODIGO_PRO = ' + QuotedStr(Copy(ParamStr(1), 4, 3)) +
-                     ' UNION ' +
-                     ' SELECT AUT_ID_MOD, ' +
-                     '        AUT_SIGLA_MOD, ' +
-                     '        AUT_DESCRICAO_MOD, ' +
-                     '        AUT_EXECUTAVEL_MOD, ' +
-                     '        AUT_ORDEM_MOD, ' +
-                     '        AUT_ID_PRO, ' +
-                     '        AUT_CODIGO_PRO, ' +
-                     '        AUT_DESCRICAO_PRO, ' +
-                     '        AUT_MENUPRINCIPAL_PRO, ' +
-                     '        AUT_INCLUIR_AUS AS INCLUIR, ' +
-                     '        AUT_EDITAR_AUS AS EDITAR, ' +
-                     '        AUT_APAGAR_AUS AS APAGAR ' +
-                     ' FROM AUT_AUS ' +
-                     ' INNER JOIN AUT_PRO ON AUT_ID_PRO = AUT_AUTPRO_AUS ' +
-                     ' INNER JOIN AUT_MOD ON AUT_ID_MOD = AUT_AUTMOD_PRO ' +
-                     ' WHERE AUT_GEREMP_AUS = ' + IntToStr(Empresa.Id) +
-                     '   AND AUT_AUTUSU_AUS = ' + IntToStr(Usuario.Id) +
-                     '   AND AUT_SIGLA_MOD = ' + QuotedStr(Copy(ParamStr(1), 1, 3)) +
-                     '   AND AUT_CODIGO_PRO = ' + QuotedStr(Copy(ParamStr(1), 4, 3));
+                     '   AND AUT_AUTPER_APE = ' + IntToStr(Usuario.Perfil.Id);
+
+  if (Trim(SiglaModulo) = '') and (Trim(CodigoPrograma) = '')  then
+    begin
+      cds.CommandText := cds.CommandText + '   AND AUT_SIGLA_MOD = ' + QuotedStr(Copy(ParamStr(1), 1, 3)) +
+                                           '   AND AUT_CODIGO_PRO = ' + QuotedStr(Copy(ParamStr(1), 4, 3));
+    end
+  else
+    begin
+      cds.CommandText := cds.CommandText + '   AND AUT_SIGLA_MOD = ' + QuotedStr(SiglaModulo) +
+                                           '   AND AUT_CODIGO_PRO = ' + QuotedStr(CodigoPrograma);
+    end;
+
+  cds.CommandText := cds.CommandText + ' UNION ' +
+                                       ' SELECT AUT_ID_MOD, ' +
+                                       '        AUT_SIGLA_MOD, ' +
+                                       '        AUT_DESCRICAO_MOD, ' +
+                                       '        AUT_EXECUTAVEL_MOD, ' +
+                                       '        AUT_ORDEM_MOD, ' +
+                                       '        AUT_ID_PRO, ' +
+                                       '        AUT_CODIGO_PRO, ' +
+                                       '        AUT_DESCRICAO_PRO, ' +
+                                       '        AUT_MENUPRINCIPAL_PRO, ' +
+                                       '        AUT_INCLUIR_AUS AS INCLUIR, ' +
+                                       '        AUT_EDITAR_AUS AS EDITAR, ' +
+                                       '        AUT_APAGAR_AUS AS APAGAR ' +
+                                       ' FROM AUT_AUS ' +
+                                       ' INNER JOIN AUT_PRO ON AUT_ID_PRO = AUT_AUTPRO_AUS ' +
+                                       ' INNER JOIN AUT_MOD ON AUT_ID_MOD = AUT_AUTMOD_PRO ' +
+                                       ' WHERE AUT_GEREMP_AUS = ' + IntToStr(Empresa.Id) +
+                                       '   AND AUT_AUTUSU_AUS = ' + IntToStr(Usuario.Id);
+
+  if (Trim(SiglaModulo) = '') and (Trim(CodigoPrograma) = '')  then
+    begin
+      cds.CommandText := cds.CommandText + '   AND AUT_SIGLA_MOD = ' + QuotedStr(Copy(ParamStr(1), 1, 3)) +
+                                           '   AND AUT_CODIGO_PRO = ' + QuotedStr(Copy(ParamStr(1), 4, 3));
+    end
+  else
+    begin
+      cds.CommandText := cds.CommandText + '   AND AUT_SIGLA_MOD = ' + QuotedStr(SiglaModulo) +
+                                           '   AND AUT_CODIGO_PRO = ' + QuotedStr(CodigoPrograma);
+    end;
+
   cds.Open;
 
   if (cds.IsEmpty) then
-    raise Exception.Create('Usuário não tem autorização para este programa.')
+    begin
+      raise Exception.Create('Usuário não tem autorização para este programa.');
+    end
   else
     begin
       Programa                   := TPrograma.Create;

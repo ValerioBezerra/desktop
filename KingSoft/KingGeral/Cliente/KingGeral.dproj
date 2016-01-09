@@ -72,6 +72,8 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <Icon_MainIcon>KingGeral_Icon.ico</Icon_MainIcon>
+        <Debugger_RunParams>GER002 1 2 e10adc3949ba59abbe56e057f20f883e</Debugger_RunParams>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_ExeOutput>C:\KingErp\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -110,6 +112,30 @@
         <DCCReference Include="..\..\KingLib\uUtil.pas"/>
         <DCCReference Include="uKingGeral.pas"/>
         <DCCReference Include="..\..\KingLib\uSicronizacao.pas"/>
+        <DCCReference Include="uFrmGER003.pas">
+            <Form>frmGER003</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uFrmGER003Consulta.pas">
+            <Form>frmGER003Consulta</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uFrmGER001Consulta.pas">
+            <Form>frmGER001Consulta</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uFrmGER001.pas">
+            <Form>frmGER001</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uFrmGER002.pas">
+            <Form>frmGER002</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uFrmGER002Consulta.pas">
+            <Form>frmGER002Consulta</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

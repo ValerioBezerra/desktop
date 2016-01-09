@@ -16,7 +16,13 @@ uses
   uKingGeral in 'uKingGeral.pas',
   Vcl.Themes,
   Vcl.Styles,
-  uSicronizacao in '..\..\KingLib\uSicronizacao.pas';
+  uSicronizacao in '..\..\KingLib\uSicronizacao.pas',
+  uFrmGER003 in 'uFrmGER003.pas' {frmGER003},
+  uFrmGER003Consulta in 'uFrmGER003Consulta.pas' {frmGER003Consulta},
+  uFrmGER001Consulta in 'uFrmGER001Consulta.pas' {frmGER001Consulta},
+  uFrmGER001 in 'uFrmGER001.pas' {frmGER001},
+  uFrmGER002 in 'uFrmGER002.pas' {frmGER002},
+  uFrmGER002Consulta in 'uFrmGER002Consulta.pas' {frmGER002Consulta};
 
 {$R *.res}
 
