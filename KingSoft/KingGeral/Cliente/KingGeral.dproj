@@ -73,7 +73,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <Icon_MainIcon>KingGeral_Icon.ico</Icon_MainIcon>
-        <Debugger_RunParams>GER002 1 2 e10adc3949ba59abbe56e057f20f883e</Debugger_RunParams>
+        <Debugger_RunParams>GER003 1 2 e10adc3949ba59abbe56e057f20f883e</Debugger_RunParams>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_ExeOutput>C:\KingErp\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
