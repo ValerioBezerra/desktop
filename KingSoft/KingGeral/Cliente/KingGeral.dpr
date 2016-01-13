@@ -17,12 +17,16 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   uSicronizacao in '..\..\KingLib\uSicronizacao.pas',
-  uFrmGER003 in 'uFrmGER003.pas' {frmGER003},
-  uFrmGER003Consulta in 'uFrmGER003Consulta.pas' {frmGER003Consulta},
+  uFrmGER005 in 'uFrmGER005.pas' {frmGER005},
+  uFrmGER005Consulta in 'uFrmGER005Consulta.pas' {frmGER005Consulta},
   uFrmGER001Consulta in 'uFrmGER001Consulta.pas' {frmGER001Consulta},
   uFrmGER001 in 'uFrmGER001.pas' {frmGER001},
   uFrmGER002 in 'uFrmGER002.pas' {frmGER002},
-  uFrmGER002Consulta in 'uFrmGER002Consulta.pas' {frmGER002Consulta};
+  uFrmGER002Consulta in 'uFrmGER002Consulta.pas' {frmGER002Consulta},
+  uFrmGER006Consulta in 'uFrmGER006Consulta.pas' {frmGER006Consulta},
+  uFrmGER006 in 'uFrmGER006.pas' {frmGER006},
+  uFrmGER003 in 'uFrmGER003.pas' {frmGER003},
+  uFrmGER003Consulta in 'uFrmGER003Consulta.pas' {frmGER003Consulta};
 
 {$R *.res}
 
