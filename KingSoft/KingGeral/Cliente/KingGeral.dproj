@@ -73,7 +73,11 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <Icon_MainIcon>KingGeral_Icon.ico</Icon_MainIcon>
+<<<<<<< HEAD
         <Debugger_RunParams>GER006 1 2 e10adc3949ba59abbe56e057f20f883e</Debugger_RunParams>
+=======
+        <Debugger_RunParams>GER004 1 2 e10adc3949ba59abbe56e057f20f883e</Debugger_RunParams>
+>>>>>>> e821aa6083e228586e6cd44515844c5f81de317e
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_ExeOutput>C:\KingErp\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -112,12 +116,21 @@
         <DCCReference Include="..\..\KingLib\uUtil.pas"/>
         <DCCReference Include="uKingGeral.pas"/>
         <DCCReference Include="..\..\KingLib\uSicronizacao.pas"/>
+<<<<<<< HEAD
         <DCCReference Include="uFrmGER005.pas">
             <Form>frmGER005</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uFrmGER005Consulta.pas">
             <Form>frmGER005Consulta</Form>
+=======
+        <DCCReference Include="uFrmGER004.pas">
+            <Form>frmGER004</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uFrmGER004Consulta.pas">
+            <Form>frmGER004Consulta</Form>
+>>>>>>> e821aa6083e228586e6cd44515844c5f81de317e
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uFrmGER001Consulta.pas">
@@ -136,6 +149,7 @@
             <Form>frmGER002Consulta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+<<<<<<< HEAD
         <DCCReference Include="uFrmGER006Consulta.pas">
             <Form>frmGER006Consulta</Form>
             <FormType>dfm</FormType>
@@ -148,6 +162,8 @@
             <Form>frmGER003</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+=======
+>>>>>>> e821aa6083e228586e6cd44515844c5f81de317e
         <DCCReference Include="uFrmGER003Consulta.pas">
             <Form>frmGER003Consulta</Form>
             <FormType>dfm</FormType>

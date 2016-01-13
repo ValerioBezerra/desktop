@@ -22,13 +22,22 @@
     <Transaction>2015/12/10 01:14:52.000.643,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\ClientClassesUnit1.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uCCKingGeral.pas</Transaction>
     <Transaction>2015/12/10 01:15:56.000.916,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uFrmPadrao.pas</Transaction>
     <Transaction>2015/12/10 01:15:56.000.815,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uEmpresa.pas</Transaction>
+<<<<<<< HEAD
     <Transaction>2015/12/10 01:15:58.000.973,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uParametro.pas</Transaction>
     <Transaction>2015/12/10 01:15:58.000.935,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uFrmPadraoConsulta.pas</Transaction>
     <Transaction>2015/12/10 01:15:58.000.994,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uPerfil.pas</Transaction>
     <Transaction>2015/12/10 01:15:58.000.955,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uModulo.pas</Transaction>
     <Transaction>2015/12/10 01:15:59.000.059,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uUtil.pas</Transaction>
     <Transaction>2015/12/10 01:15:59.000.014,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uPrograma.pas</Transaction>
+=======
+    <Transaction>2015/12/10 01:15:58.000.935,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uFrmPadraoConsulta.pas</Transaction>
+    <Transaction>2015/12/10 01:15:58.000.955,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uModulo.pas</Transaction>
+    <Transaction>2015/12/10 01:15:58.000.994,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uPerfil.pas</Transaction>
+    <Transaction>2015/12/10 01:15:58.000.973,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uParametro.pas</Transaction>
+>>>>>>> e821aa6083e228586e6cd44515844c5f81de317e
     <Transaction>2015/12/10 01:15:59.000.035,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uUsuario.pas</Transaction>
+    <Transaction>2015/12/10 01:15:59.000.014,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uPrograma.pas</Transaction>
+    <Transaction>2015/12/10 01:15:59.000.059,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uUtil.pas</Transaction>
     <Transaction>2015/12/10 01:16:16.000.351,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uKingGeral.pas=</Transaction>
     <Transaction>2015/12/10 01:17:58.000.282,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uKingGeral.pas</Transaction>
     <Transaction>2015/12/10 01:26:46.000.052,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingLib\uSicronizacao.pas</Transaction>
@@ -46,6 +55,7 @@
     <Transaction>2016/01/09 15:42:33.000.793,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER002Consulta.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003Consulta.dfm</Transaction>
     <Transaction>2016/01/09 15:42:33.000.793,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER002Consulta.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003Consulta.pas</Transaction>
     <Transaction>2016/01/09 15:46:12.000.636,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER002Consulta.pas</Transaction>
+<<<<<<< HEAD
     <Transaction>2016/01/13 19:04:54.000.280,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER005Consulta.pas=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003Consulta.pas</Transaction>
     <Transaction>2016/01/13 19:04:54.000.280,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER005Consulta.dfm=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003Consulta.dfm</Transaction>
     <Transaction>2016/01/13 19:05:13.000.463,=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003Consulta.pas</Transaction>
@@ -58,5 +68,12 @@
     <Transaction>2016/01/13 20:13:38.043,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER006Consulta.pas=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003Consulta.pas</Transaction>
     <Transaction>2016/01/13 20:13:38.043,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER006Consulta.dfm=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003Consulta.dfm</Transaction>
     <Transaction>2016/01/13 20:14:09.884,=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003Consulta.pas</Transaction>
+=======
+    <Transaction>2016/01/12 21:19:55.000.487,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003Consulta.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004Consulta.dfm</Transaction>
+    <Transaction>2016/01/12 21:19:55.000.487,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003Consulta.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004Consulta.pas</Transaction>
+    <Transaction>2016/01/12 21:36:48.000.785,=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003Consulta.pas</Transaction>
+    <Transaction>2016/01/12 21:55:28.000.785,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003.dfm=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004.dfm</Transaction>
+    <Transaction>2016/01/12 21:55:28.000.785,C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER003.pas=C:\Users\valerio\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004.pas</Transaction>
+>>>>>>> e821aa6083e228586e6cd44515844c5f81de317e
   </Transactions>
 </BorlandProject>

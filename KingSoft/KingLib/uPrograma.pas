@@ -16,6 +16,7 @@ type
     FIncluir: Boolean;
     FEditar: Boolean;
     FApagar: Boolean;
+    FVisualizar: Boolean;
   public
     property Id: Integer read FId write FId;
     property Modulo: TModulo read FModulo write FModulo;
@@ -25,6 +26,7 @@ type
     property Incluir: Boolean read FIncluir write FIncluir;
     property Editar: Boolean read FEditar write FEditar;
     property Apagar: Boolean read FApagar write FApagar;
+    property Visualizar: Boolean read FVisualizar write FVisualizar;
 end;
 
 implementation

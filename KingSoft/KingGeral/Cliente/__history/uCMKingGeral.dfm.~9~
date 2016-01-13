@@ -1,0 +1,122 @@
+object cmKingGeral: TcmKingGeral
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 254
+  Width = 775
+  object SQLConnection: TSQLConnection
+    DriverName = 'DataSnap'
+    LoginPrompt = False
+    Params.Strings = (
+      'Port=201501'
+      'CommunicationProtocol=tcp/ip'
+      'DatasnapContext=datasnap/')
+    Connected = True
+    Left = 48
+    Top = 40
+  end
+  object DSProviderConnection: TDSProviderConnection
+    ServerClassName = 'TSMKingGeral'
+    Connected = True
+    SQLConnection = SQLConnection
+    Left = 152
+    Top = 40
+  end
+  object cdsConsulta: TClientDataSet
+    Aggregates = <>
+    CommandText = 'SELECT * FROM GER_EMP WHERE 1 = 0'
+    Params = <>
+    ProviderName = 'dspConsulta'
+    RemoteServer = DSProviderConnection
+    Left = 348
+    Top = 16
+  end
+  object dsConsulta: TDataSource
+    DataSet = cdsConsulta
+    Left = 348
+    Top = 64
+  end
+  object cdsGER_PAI: TClientDataSet
+    Aggregates = <>
+    CommandText = 'SELECT * FROM GER_PAI WHERE 1 = 0'
+    Params = <>
+    ProviderName = 'dspGER_PAI'
+    RemoteServer = DSProviderConnection
+    Left = 44
+    Top = 120
+  end
+  object dsGER_PAI: TDataSource
+    DataSet = cdsGER_PAI
+    Left = 44
+    Top = 168
+  end
+  object cdsGER_EST: TClientDataSet
+    Aggregates = <>
+    CommandText = 'SELECT * FROM GER_EST WHERE 1 = 0'
+    Params = <>
+    ProviderName = 'dspGER_EST'
+    RemoteServer = DSProviderConnection
+    Left = 132
+    Top = 120
+  end
+  object dsGER_EST: TDataSource
+    DataSet = cdsGER_EST
+    Left = 132
+    Top = 168
+  end
+  object cdsGER_CID: TClientDataSet
+    Aggregates = <>
+    CommandText = 'SELECT * FROM GER_CID WHERE 1 = 0'
+    Params = <>
+    ProviderName = 'dspGER_CID'
+    RemoteServer = DSProviderConnection
+    Left = 220
+    Top = 120
+  end
+  object dsGER_CID: TDataSource
+    DataSet = cdsGER_CID
+    Left = 220
+    Top = 168
+  end
+  object cdsGER_BAI: TClientDataSet
+    Aggregates = <>
+    CommandText = 'SELECT * FROM GER_BAI WHERE 1 = 0'
+    Params = <>
+    ProviderName = 'dspGER_BAI'
+    RemoteServer = DSProviderConnection
+    Left = 308
+    Top = 120
+  end
+  object dsGER_BAI: TDataSource
+    DataSet = cdsGER_BAI
+    Left = 308
+    Top = 168
+  end
+  object cdsGER_TLG: TClientDataSet
+    Aggregates = <>
+    CommandText = 'SELECT * FROM GER_TLG WHERE 1 = 0'
+    Params = <>
+    ProviderName = 'dspGER_TLG'
+    RemoteServer = DSProviderConnection
+    Left = 385
+    Top = 120
+  end
+  object dsGER_TLG: TDataSource
+    DataSet = cdsGER_TLG
+    Left = 385
+    Top = 168
+  end
+  object cdsGER_LOG: TClientDataSet
+    Aggregates = <>
+    CommandText = 'SELECT * FROM GER_LOG WHERE 1 = 0'
+    Params = <>
+    ProviderName = 'dspGER_LOG'
+    RemoteServer = DSProviderConnection
+    Left = 473
+    Top = 120
+  end
+  object dsGER_LOG: TDataSource
+    DataSet = cdsGER_LOG
+    Left = 473
+    Top = 168
+  end
+end
