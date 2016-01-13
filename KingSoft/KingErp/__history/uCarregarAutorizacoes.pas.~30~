@@ -9,11 +9,11 @@ uses
 type
   TfrmCarregarAutorizacoes = class(TForm)
     procedure FormShow(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
     { Public declarations }
+    RazaoSocialEmpresa: String;
   end;
 
 var
@@ -25,15 +25,10 @@ implementation
 
 uses uCMKingAutorizacao, uKingErp;
 
-procedure TfrmCarregarAutorizacoes.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  Action := caFree;
-end;
-
 procedure TfrmCarregarAutorizacoes.FormShow(Sender: TObject);
 begin
   Application.CreateForm(TfrmKingErp, frmKingErp);
+  frmKingErp.RazaoSocialEmpresa := frmCarregarAutorizacoes.RazaoSocialEmpresa;
 
   cmKingAutorizacao.cdsAUT_MOD.Filtered := False;
   cmKingAutorizacao.cdsAUT_MOD.Filter   := 'AUT_SIGLA_MOD <> ' + QuotedStr('AUT');
@@ -44,6 +39,9 @@ begin
   while not(cmKingAutorizacao.cdsAUT_MOD.Eof) do
     begin
       frmKingErp.AdicionarModuloCadastro;
+      frmKingErp.AdicionarModuloMovimentacao;
+      frmKingErp.AdicionarModuloProcesso;
+      frmKingErp.AdicionarModuloRelatorioGrafico;
       cmKingAutorizacao.cdsAUT_MOD.Next;
     end;
 
@@ -58,8 +56,7 @@ begin
       cmKingAutorizacao.cdsAUT_MOD.Next;
     end;
 
-  frmKingErp.ShowModal;
-  Self.Close;
+  Close;
 end;
 
 end.

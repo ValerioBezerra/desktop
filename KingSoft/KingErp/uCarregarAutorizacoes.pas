@@ -4,10 +4,11 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls;
 
 type
   TfrmCarregarAutorizacoes = class(TForm)
+    ProgressBar1: TProgressBar;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
@@ -33,11 +34,14 @@ begin
   cmKingAutorizacao.cdsAUT_MOD.Filtered := False;
   cmKingAutorizacao.cdsAUT_MOD.Filter   := 'AUT_SIGLA_MOD <> ' + QuotedStr('AUT');
   cmKingAutorizacao.cdsAUT_MOD.Filtered := True;
-
+   ProgressBar1.Max := cmKingAutorizacao.cdsAUT_MOD.RecordCount;
 
   cmKingAutorizacao.cdsAUT_MOD.First;
   while not(cmKingAutorizacao.cdsAUT_MOD.Eof) do
     begin
+      ProgressBar1.StepBy(1);
+      Application.ProcessMessages;
+
       frmKingErp.AdicionarModuloCadastro;
       frmKingErp.AdicionarModuloMovimentacao;
       frmKingErp.AdicionarModuloProcesso;
@@ -55,8 +59,10 @@ begin
       frmKingErp.AdicionarModuloAutorizacao;
       cmKingAutorizacao.cdsAUT_MOD.Next;
     end;
+    Application.ProcessMessages;
 
-  Close;
+  frmKingErp.Show;
+   Close;
 end;
 
 end.

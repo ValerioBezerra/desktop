@@ -3,6 +3,7 @@ object DataModule1: TDataModule1
   Height = 751
   Width = 1033
   object Banco: TIBDatabase
+    Connected = True
     DatabaseName = 'C:\EDELIVERY\BANCO\TMDELIVERY.IB'
     Params.Strings = (
       'user_name=sysdba'
@@ -352,6 +353,7 @@ object DataModule1: TDataModule1
     Top = 211
   end
   object cdsRELATORIO: TClientDataSet
+    Active = True
     Aggregates = <>
     CommandText = 
       'select * from pedido left outer join produto_pedido on seqped_px' +

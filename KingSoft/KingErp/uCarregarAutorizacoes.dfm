@@ -16,4 +16,11 @@ object frmCarregarAutorizacoes: TfrmCarregarAutorizacoes
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  object ProgressBar1: TProgressBar
+    Left = 16
+    Top = 24
+    Width = 417
+    Height = 33
+    TabOrder = 0
+  end
 end

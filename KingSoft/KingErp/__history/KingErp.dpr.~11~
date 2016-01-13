@@ -12,11 +12,7 @@ uses
   uUtil in '..\KingLib\uUtil.pas',
   uCarregarAutorizacoes in 'uCarregarAutorizacoes.pas' {frmCarregarAutorizacoes},
   uKingErp in 'uKingErp.pas' {frmKingErp},
-  uEmpresa in '..\KingLib\uEmpresa.pas',
-  uUsuario in '..\KingLib\uUsuario.pas',
-  uPerfil in '..\KingLib\uPerfil.pas',
-  uPrograma in '..\KingLib\uPrograma.pas',
-  uModulo in '..\KingLib\uModulo.pas';
+  uEmpresa in '..\KingLib\uEmpresa.pas';
 
 {$R *.res}
 

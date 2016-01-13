@@ -42,6 +42,17 @@ type
     ppLine1: TppLine;
     RadioGroup1: TRadioGroup;
     DBLookupComboBox1: TDBLookupComboBox;
+    Label2: TLabel;
+    ppLabel6: TppLabel;
+    ppDBText7: TppDBText;
+    Label3: TLabel;
+    edOBSERVACAO: TEdit;
+    ppLabel7: TppLabel;
+    ppDBText8: TppDBText;
+    ComboBox1: TComboBox;
+    Label4: TLabel;
+    ppLabel8: TppLabel;
+    ppDBText9: TppDBText;
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure edCodUsuarioExit(Sender: TObject);
@@ -135,6 +146,7 @@ begin
    PrepararPrincipais;
    PrepararAcompanhamentos;
    nroPedido := '0';
+   DataModule1.cdsENT.Open;
    ;
 end;
 
@@ -218,7 +230,10 @@ end;
 procedure TfrmPedido.ImprimirPedido;
 begin
    Datamodule1.cdsRELATORIO.Close;
-   DataModule1.cdsRELATORIO.CommandText := DataModule1.cdsRELATORIO.CommandText + ' where seq_ped =' + nroPedido;
+   DataModule1.cdsRELATORIO.CommandText := ' select * from pedido left outer join produto_pedido on seqped_pxp = seq_ped ' +
+                                           ' left outer join entregador on entregador.cod_ent = pedido.codent_ped ' +
+                                           ' left outer join produtos on cod_pro = codpro_pxp ' +
+                                           '  left outer join cliente on cod_cli = codcli_ped  where seq_ped =' + nroPedido;
    DataModule1.cdsRELATORIO.Open;
    ppReport1.Print;
 end;
@@ -249,7 +264,8 @@ begin
           DataModule1.cdsGravar.FieldByName('FPAG_PED').AsString := 'P';
         DataModule1.cdsGravar.FieldByName('PAGO_PED').AsInteger := 0;
    end;
-
+   DataModule1.cdsGRAVAR.FieldByName('OBSERVACAO_PED').AsString := edOBSERVACAO.Text;
+   DataModule1.cdsGRAVAR.FieldByName('QTDE_PED').AsString := ComboBox1.Text;
 
    DataModule1.cdsGRAVAR.Post;
    DataModule1.cdsGRAVAR.ApplyUpdates(0);
@@ -267,6 +283,7 @@ begin
    DataModule1.cdsGRAVAR.FieldByName('DATA_PED').AsString := (FormatDateTime('dd/MM/yyyy',DateTimePicker1.Date));
    DataModule1.cdsGRAVAR.FieldByName('CODCLI_PED').AsString := edCodUsuario.Text;
    DataModule1.cdsGRAVAR.FieldByName('VALOR_PED').AsCurrency := 8.00;
+   DataModule1.cdsGRAVAR.FieldByName('CODENT_PED').AsInteger := DataModule1.cdsENT.FieldByName('COD_ENT').AsInteger;
    DataModule1.cdsGRAVAR.Post;
    DataModule1.cdsGRAVAR.ApplyUpdates(0);
    DataModule1.Transacao.Commit;
@@ -306,6 +323,8 @@ begin
              ImprimirPedido;
            //ImprimirDireto('LPT1',Memo1.Lines.GetText);
            Memo1.Clear;
+           edOBSERVACAO.Clear;
+           ComboBox1.Text := '1';
          end;
 
    end;

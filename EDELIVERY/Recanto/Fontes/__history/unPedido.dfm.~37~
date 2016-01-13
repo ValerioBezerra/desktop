@@ -2,8 +2,8 @@ object frmPedido: TfrmPedido
   Left = 0
   Top = 0
   Caption = 'Pedido'
-  ClientHeight = 451
-  ClientWidth = 548
+  ClientHeight = 508
+  ClientWidth = 588
   Color = clGradientInactiveCaption
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -1528,8 +1528,8 @@ object frmPedido: TfrmPedido
     OnMouseDown = Image1MouseDown
   end
   object Image2: TImage
-    Left = 480
-    Top = 400
+    Left = 520
+    Top = 456
     Width = 49
     Height = 39
     Picture.Data = {
@@ -10280,6 +10280,20 @@ object frmPedido: TfrmPedido
     Proportional = True
     OnMouseDown = Image3MouseDown
   end
+  object Label2: TLabel
+    Left = 16
+    Top = 72
+    Width = 58
+    Height = 13
+    Caption = 'Entregador:'
+  end
+  object Label3: TLabel
+    Left = 18
+    Top = 456
+    Width = 58
+    Height = 13
+    Caption = 'Observa'#231#227'o'
+  end
   object DateTimePicker1: TDateTimePicker
     Left = 419
     Top = 8
@@ -10369,6 +10383,23 @@ object frmPedido: TfrmPedido
       #192' Prazo')
     TabOrder = 6
   end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 80
+    Top = 64
+    Width = 145
+    Height = 21
+    KeyField = 'COD_ENT'
+    ListField = 'NOME_ENT'
+    ListSource = DataModule1.dsENT
+    TabOrder = 7
+  end
+  object edOBSERVACAO: TEdit
+    Left = 18
+    Top = 475
+    Width = 279
+    Height = 21
+    TabOrder = 8
+  end
   object ppReport1: TppReport
     AutoStop = False
     DataPipeline = ppBDEPipeline1
@@ -10426,7 +10457,7 @@ object frmPedido: TfrmPedido
     object ppHeaderBand1: TppHeaderBand
       Background.Brush.Style = bsClear
       mmBottomOffset = 0
-      mmHeight = 32808
+      mmHeight = 35454
       mmPrintPosition = 0
       object ppLabel1: TppLabel
         DesignLayer = ppDesignLayer1
@@ -10492,7 +10523,7 @@ object frmPedido: TfrmPedido
         Transparent = True
         mmHeight = 4763
         mmLeft = 6350
-        mmTop = 9260
+        mmTop = 8202
         mmWidth = 14288
         BandType = 0
         LayerName = Foreground
@@ -10510,8 +10541,8 @@ object frmPedido: TfrmPedido
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 20108
-        mmTop = 9260
+        mmLeft = 22225
+        mmTop = 8202
         mmWidth = 32808
         BandType = 0
         LayerName = Foreground
@@ -10530,7 +10561,7 @@ object frmPedido: TfrmPedido
         Transparent = True
         mmHeight = 4763
         mmLeft = 6350
-        mmTop = 15081
+        mmTop = 18256
         mmWidth = 15610
         BandType = 0
         LayerName = Foreground
@@ -10548,9 +10579,9 @@ object frmPedido: TfrmPedido
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 23273
-        mmTop = 15081
-        mmWidth = 78578
+        mmLeft = 23283
+        mmTop = 18256
+        mmWidth = 78581
         BandType = 0
         LayerName = Foreground
       end
@@ -10568,7 +10599,7 @@ object frmPedido: TfrmPedido
         Transparent = True
         mmHeight = 4763
         mmLeft = 123561
-        mmTop = 15081
+        mmTop = 18256
         mmWidth = 18256
         BandType = 0
         LayerName = Foreground
@@ -10587,7 +10618,7 @@ object frmPedido: TfrmPedido
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
         mmLeft = 142875
-        mmTop = 15081
+        mmTop = 18256
         mmWidth = 48683
         BandType = 0
         LayerName = Foreground
@@ -10605,8 +10636,8 @@ object frmPedido: TfrmPedido
         FormField = False
         Transparent = True
         mmHeight = 4763
-        mmLeft = 6352
-        mmTop = 21431
+        mmLeft = 6350
+        mmTop = 24606
         mmWidth = 22225
         BandType = 0
         LayerName = Foreground
@@ -10625,7 +10656,7 @@ object frmPedido: TfrmPedido
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
         mmLeft = 29898
-        mmTop = 21431
+        mmTop = 24606
         mmWidth = 122238
         BandType = 0
         LayerName = Foreground
@@ -10643,8 +10674,8 @@ object frmPedido: TfrmPedido
         Transparent = True
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4763
-        mmLeft = 153721
-        mmTop = 21431
+        mmLeft = 153723
+        mmTop = 24606
         mmWidth = 96309
         BandType = 0
         LayerName = Foreground
@@ -10655,8 +10686,45 @@ object frmPedido: TfrmPedido
         Weight = 0.750000000000000000
         mmHeight = 4233
         mmLeft = 0
-        mmTop = 29633
+        mmTop = 32808
         mmWidth = 203465
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel6: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label6'
+        Caption = 'Entregador:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        FormField = False
+        Transparent = True
+        mmHeight = 5027
+        mmLeft = 6350
+        mmTop = 12964
+        mmWidth = 24342
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppDBText7: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText7'
+        DataField = 'NOME_ENT'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 4498
+        mmLeft = 31221
+        mmTop = 13494
+        mmWidth = 51329
         BandType = 0
         LayerName = Foreground
       end
@@ -10714,7 +10782,7 @@ object frmPedido: TfrmPedido
       FieldName = 'SEQ_PED'
       FieldLength = 0
       DataType = dtInteger
-      DisplayWidth = 10
+      DisplayWidth = 0
       Position = 0
     end
     object ppBDEPipeline1ppField2: TppField
@@ -10746,8 +10814,8 @@ object frmPedido: TfrmPedido
     object ppBDEPipeline1ppField5: TppField
       FieldAlias = 'FPAG_PED'
       FieldName = 'FPAG_PED'
-      FieldLength = 10
-      DisplayWidth = 10
+      FieldLength = 1
+      DisplayWidth = 1
       Position = 4
     end
     object ppBDEPipeline1ppField6: TppField
@@ -10761,8 +10829,8 @@ object frmPedido: TfrmPedido
     end
     object ppBDEPipeline1ppField7: TppField
       Alignment = taRightJustify
-      FieldAlias = 'SEQPED_PXP'
-      FieldName = 'SEQPED_PXP'
+      FieldAlias = 'CODENT_PED'
+      FieldName = 'CODENT_PED'
       FieldLength = 0
       DataType = dtInteger
       DisplayWidth = 10
@@ -10770,8 +10838,8 @@ object frmPedido: TfrmPedido
     end
     object ppBDEPipeline1ppField8: TppField
       Alignment = taRightJustify
-      FieldAlias = 'CODPRO_PXP'
-      FieldName = 'CODPRO_PXP'
+      FieldAlias = 'SEQPED_PXP'
+      FieldName = 'SEQPED_PXP'
       FieldLength = 0
       DataType = dtInteger
       DisplayWidth = 10
@@ -10779,72 +10847,81 @@ object frmPedido: TfrmPedido
     end
     object ppBDEPipeline1ppField9: TppField
       Alignment = taRightJustify
-      FieldAlias = 'COD_PRO'
-      FieldName = 'COD_PRO'
+      FieldAlias = 'CODPRO_PXP'
+      FieldName = 'CODPRO_PXP'
       FieldLength = 0
       DataType = dtInteger
       DisplayWidth = 10
       Position = 8
     end
     object ppBDEPipeline1ppField10: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'COD_PRO'
+      FieldName = 'COD_PRO'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 9
+    end
+    object ppBDEPipeline1ppField11: TppField
       FieldAlias = 'NOME_PRO'
       FieldName = 'NOME_PRO'
       FieldLength = 50
       DisplayWidth = 50
-      Position = 9
+      Position = 10
     end
-    object ppBDEPipeline1ppField11: TppField
+    object ppBDEPipeline1ppField12: TppField
       Alignment = taRightJustify
       FieldAlias = 'TIPO_PRO'
       FieldName = 'TIPO_PRO'
       FieldLength = 0
       DataType = dtInteger
       DisplayWidth = 10
-      Position = 10
+      Position = 11
     end
-    object ppBDEPipeline1ppField12: TppField
+    object ppBDEPipeline1ppField13: TppField
       Alignment = taRightJustify
       FieldAlias = 'COD_CLI'
       FieldName = 'COD_CLI'
       FieldLength = 0
       DataType = dtInteger
       DisplayWidth = 10
-      Position = 11
+      Position = 12
     end
-    object ppBDEPipeline1ppField13: TppField
+    object ppBDEPipeline1ppField14: TppField
       FieldAlias = 'NOME_CLI'
       FieldName = 'NOME_CLI'
       FieldLength = 25
       DisplayWidth = 25
-      Position = 12
-    end
-    object ppBDEPipeline1ppField14: TppField
-      FieldAlias = 'TEL_CLI'
-      FieldName = 'TEL_CLI'
-      FieldLength = 15
-      DisplayWidth = 15
       Position = 13
     end
     object ppBDEPipeline1ppField15: TppField
-      FieldAlias = 'CEL_CLI'
-      FieldName = 'CEL_CLI'
+      FieldAlias = 'TEL_CLI'
+      FieldName = 'TEL_CLI'
       FieldLength = 15
       DisplayWidth = 15
       Position = 14
     end
     object ppBDEPipeline1ppField16: TppField
+      FieldAlias = 'CEL_CLI'
+      FieldName = 'CEL_CLI'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 15
+    end
+    object ppBDEPipeline1ppField17: TppField
       FieldAlias = 'ENDERECO'
       FieldName = 'ENDERECO'
       FieldLength = 100
       DisplayWidth = 100
-      Position = 15
+      Position = 16
     end
-    object ppBDEPipeline1ppField17: TppField
+    object ppBDEPipeline1ppField18: TppField
       FieldAlias = 'BAIRRO'
       FieldName = 'BAIRRO'
       FieldLength = 30
       DisplayWidth = 30
-      Position = 16
+      Position = 17
     end
   end
 end
