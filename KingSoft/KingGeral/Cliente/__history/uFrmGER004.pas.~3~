@@ -1,0 +1,116 @@
+unit uFrmGER004;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFrmPadrao, Vcl.ExtCtrls, Vcl.ComCtrls,
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.DBCtrls, Vcl.Mask, uKsNumberEdit,
+  uKsDBNumberEdit;
+
+type
+  TfrmGER004 = class(TfrmPadrao)
+    Label1: TLabel;
+    Label2: TLabel;
+    dbeGER_NOME_CID: TDBEdit;
+    dbneGER_ID_CID: TKsDBNumberEdit;
+    Label3: TLabel;
+    dbneGER_GEREST_CID: TKsDBNumberEdit;
+    sbGER002: TSpeedButton;
+    edGER_NOME_EST: TEdit;
+    procedure FormCreate(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure dbneGER_GEREST_CIDExit(Sender: TObject);
+    procedure sbGER002Click(Sender: TObject);
+    procedure dbneGER_GEREST_CIDKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmGER004: TfrmGER004;
+
+implementation
+
+{$R *.dfm}
+
+uses uCMKingGeral, uUtil, uFrmGER002Consulta;
+
+procedure TfrmGER004.btnSalvarClick(Sender: TObject);
+begin
+  cdsPadrao.Post;
+  erroPadrao := not(cmKingGeral.TestarDados(TUtil.Empresa.Id, TabelaPadrao, OperacaoPadrao, cdsPadrao.Data));
+
+  if not(erroPadrao) then
+    begin
+      inherited;
+      Close;
+    end;
+
+  if (erroPadrao) then
+    begin
+      cdsPadrao.Edit;
+      dbeGER_NOME_CID.SetFocus;
+    end;
+end;
+
+procedure TfrmGER004.dbneGER_GEREST_CIDExit(Sender: TObject);
+begin
+  cmKingGeral.cdsConsulta.Close;
+  cmKingGeral.cdsConsulta.CommandText := ' SELECT * FROM GER_EST WHERE GER_ID_EST = ' + IntToStr(cdsPadrao.FieldByName('GER_GEREST_CID').AsInteger);
+  cmKingGeral.cdsConsulta.Open;
+
+  if (cmKingGeral.cdsConsulta.IsEmpty) then
+    edGER_NOME_EST.Text := 'Estado não cadastrado'
+  else
+    edGER_NOME_EST.Text := cmKingGeral.cdsConsulta.FieldByName('GER_NOME_EST').AsString;
+end;
+
+procedure TfrmGER004.dbneGER_GEREST_CIDKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  inherited;
+  if (Ord(Key) = VK_F1) then
+    sbGER002Click(Self);
+end;
+
+procedure TfrmGER004.FormCreate(Sender: TObject);
+begin
+  inherited;
+  cdsPadrao    := cmKingGeral.cdsGER_CID;
+  TabelaPadrao := 'GER_CID';
+end;
+
+
+procedure TfrmGER004.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  inherited;
+  if (Ord(Key) = VK_F2) then
+    btnSalvarClick(Sender);
+end;
+
+procedure TfrmGER004.sbGER002Click(Sender: TObject);
+begin
+  inherited;
+  try
+    Application.CreateForm(TfrmGER002Consulta, frmGER002Consulta);
+    frmGER002Consulta.MostrarConfirmar := True;
+    frmGER002Consulta.ShowModal;
+
+    if (frmGER002Consulta.Confirmou) then
+      begin
+        dbneGER_GEREST_CID.SetFocus;
+        cdsPadrao.FieldByName('GER_GEREST_CID').AsInteger := frmGER002Consulta.cdsConsulta.FieldByName('GER_ID_EST').AsInteger;
+        dbneGER_GEREST_CIDExit(Self);
+      end;
+  finally
+    TUtil.CarregarModuloPrograma(cmKingGeral.cdsConsulta);
+  end;
+end;
+
+end.

@@ -3,7 +3,6 @@ inherited frmGER003Consulta: TfrmGER003Consulta
   ClientWidth = 743
   OnKeyDown = FormKeyDown
   ExplicitWidth = 749
-  ExplicitHeight = 240
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel

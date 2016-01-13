@@ -1,9 +1,8 @@
-inherited frmGER003Consulta: TfrmGER003Consulta
-  Caption = 'frmGER003Consulta'
+inherited frmGER004Consulta: TfrmGER004Consulta
+  Caption = 'frmGER004Consulta'
   ClientWidth = 743
   OnKeyDown = FormKeyDown
   ExplicitWidth = 749
-  ExplicitHeight = 240
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
@@ -39,7 +38,7 @@ inherited frmGER003Consulta: TfrmGER003Consulta
       Columns = <
         item
           Expanded = False
-          FieldName = 'GER_ID_CID'
+          FieldName = 'GER_ID_BAI'
           Title.Alignment = taRightJustify
           Title.Caption = 'Id'
           Title.Font.Charset = DEFAULT_CHARSET
@@ -51,14 +50,14 @@ inherited frmGER003Consulta: TfrmGER003Consulta
         end
         item
           Expanded = False
-          FieldName = 'GER_NOME_CID'
+          FieldName = 'GER_NOME_BAI'
           Title.Caption = 'Nome'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
           Title.Font.Height = -11
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = [fsBold]
-          Width = 360
+          Width = 330
           Visible = True
         end
         item
@@ -71,13 +70,26 @@ inherited frmGER003Consulta: TfrmGER003Consulta
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = [fsBold]
           Width = 140
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'GER_UF_EST'
+          Title.Alignment = taCenter
+          Title.Caption = 'UF'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = [fsBold]
+          Width = 30
           Visible = True
         end>
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
       Columns = <
         item
           Expanded = False
-          FieldName = 'GER_ID_CID'
+          FieldName = 'GER_ID_BAI'
           Title.Alignment = taRightJustify
           Title.Caption = 'Id'
           Title.Font.Charset = DEFAULT_CHARSET
@@ -89,14 +101,14 @@ inherited frmGER003Consulta: TfrmGER003Consulta
         end
         item
           Expanded = False
-          FieldName = 'GER_NOME_CID'
+          FieldName = 'GER_NOME_BAI'
           Title.Caption = 'Nome'
           Title.Font.Charset = DEFAULT_CHARSET
           Title.Font.Color = clWindowText
           Title.Font.Height = -11
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = [fsBold]
-          Width = 360
+          Width = 330
           Visible = True
         end
         item
@@ -109,6 +121,19 @@ inherited frmGER003Consulta: TfrmGER003Consulta
           Title.Font.Name = 'Tahoma'
           Title.Font.Style = [fsBold]
           Width = 140
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'GER_UF_EST'
+          Title.Alignment = taCenter
+          Title.Caption = 'UF'
+          Title.Font.Charset = DEFAULT_CHARSET
+          Title.Font.Color = clWindowText
+          Title.Font.Height = -11
+          Title.Font.Name = 'Tahoma'
+          Title.Font.Style = [fsBold]
+          Width = 30
           Visible = True
         end>
     end
@@ -133,8 +158,9 @@ inherited frmGER003Consulta: TfrmGER003Consulta
   end
   inherited cdsConsulta: TClientDataSet
     CommandText = 
-      'SELECT * FROM GER_CID LEFT OUTER JOIN GER_EST ON GER_ID_EST = GE' +
-      'R_GEREST_CID WHERE 1 = 0'
+      'SELECT * FROM GER_BAI LEFT OUTER JOIN GER_CID ON GER_ID_CID = GE' +
+      'R_GERCID_BAI LEFT OUTER JOIN GER_EST ON GER_ID_EST = GER_GEREST_' +
+      'CID WHERE 1 = 0'
     ProviderName = 'dspConsulta'
     RemoteServer = cmKingGeral.DSProviderConnection
   end

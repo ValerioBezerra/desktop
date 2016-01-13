@@ -16,7 +16,7 @@ implementation
 { TKingAutorizacao }
 
 uses uUtil, uCMKingGeral, uFrmGER001Consulta, uFrmGER002Consulta,
-  uFrmGER003Consulta, uFrmGER004Consulta;
+  uFrmGER003Consulta;
 
 
 
@@ -51,12 +51,6 @@ begin
           begin
             Application.CreateForm(TfrmGER003Consulta, frmGER003Consulta);
             frmGER003Consulta.ShowModal;
-          end;
-
-        if (CodigoPrograma = '004') then
-          begin
-            Application.CreateForm(TfrmGER004Consulta, frmGER004Consulta);
-            frmGER004Consulta.ShowModal;
           end;
       end;
   except

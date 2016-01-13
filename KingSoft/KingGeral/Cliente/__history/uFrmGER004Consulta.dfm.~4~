@@ -1,9 +1,8 @@
-inherited frmGER003Consulta: TfrmGER003Consulta
-  Caption = 'frmGER003Consulta'
+inherited frmGER004Consulta: TfrmGER004Consulta
+  Caption = 'frmGER004Consulta'
   ClientWidth = 743
   OnKeyDown = FormKeyDown
   ExplicitWidth = 749
-  ExplicitHeight = 240
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
@@ -133,8 +132,8 @@ inherited frmGER003Consulta: TfrmGER003Consulta
   end
   inherited cdsConsulta: TClientDataSet
     CommandText = 
-      'SELECT * FROM GER_CID LEFT OUTER JOIN GER_EST ON GER_ID_EST = GE' +
-      'R_GEREST_CID WHERE 1 = 0'
+      'SELECT * FROM GER_BAI LEFT OUTER JOIN GER_CID ON GER_ID_CID = GE' +
+      'R_GERCID_BAI WHERE 1 = 0'
     ProviderName = 'dspConsulta'
     RemoteServer = cmKingGeral.DSProviderConnection
   end
