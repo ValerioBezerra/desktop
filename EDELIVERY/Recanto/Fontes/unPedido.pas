@@ -43,6 +43,17 @@ type
     RadioGroup1: TRadioGroup;
     DBLookupComboBox1: TDBLookupComboBox;
     Label2: TLabel;
+    ppLabel6: TppLabel;
+    ppDBText7: TppDBText;
+    Label3: TLabel;
+    edOBSERVACAO: TEdit;
+    ppLabel7: TppLabel;
+    ppDBText8: TppDBText;
+    ComboBox1: TComboBox;
+    Label4: TLabel;
+    ppLabel8: TppLabel;
+    ppDBText9: TppDBText;
+    Image4: TImage;
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure edCodUsuarioExit(Sender: TObject);
@@ -52,6 +63,8 @@ type
     procedure DBGrid1DblClick(Sender: TObject);
     procedure DBGrid2DblClick(Sender: TObject);
     procedure Image2MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image4MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
   private
     { Private declarations }
@@ -221,6 +234,7 @@ procedure TfrmPedido.ImprimirPedido;
 begin
    Datamodule1.cdsRELATORIO.Close;
    DataModule1.cdsRELATORIO.CommandText := ' select * from pedido left outer join produto_pedido on seqped_pxp = seq_ped ' +
+                                           ' left outer join entregador on entregador.cod_ent = pedido.codent_ped ' +
                                            ' left outer join produtos on cod_pro = codpro_pxp ' +
                                            '  left outer join cliente on cod_cli = codcli_ped  where seq_ped =' + nroPedido;
    DataModule1.cdsRELATORIO.Open;
@@ -253,7 +267,8 @@ begin
           DataModule1.cdsGravar.FieldByName('FPAG_PED').AsString := 'P';
         DataModule1.cdsGravar.FieldByName('PAGO_PED').AsInteger := 0;
    end;
-
+   DataModule1.cdsGRAVAR.FieldByName('OBSERVACAO_PED').AsString := edOBSERVACAO.Text;
+   DataModule1.cdsGRAVAR.FieldByName('QTDE_PED').AsString := ComboBox1.Text;
 
    DataModule1.cdsGRAVAR.Post;
    DataModule1.cdsGRAVAR.ApplyUpdates(0);
@@ -270,7 +285,7 @@ begin
    nroPedido := DataModule1.cdsGravar.FieldByName('SEQ_PED').AsString;
    DataModule1.cdsGRAVAR.FieldByName('DATA_PED').AsString := (FormatDateTime('dd/MM/yyyy',DateTimePicker1.Date));
    DataModule1.cdsGRAVAR.FieldByName('CODCLI_PED').AsString := edCodUsuario.Text;
-   DataModule1.cdsGRAVAR.FieldByName('VALOR_PED').AsCurrency := 8.00;
+   DataModule1.cdsGRAVAR.FieldByName('VALOR_PED').AsCurrency := 8.00 * Strtoint(ComboBox1.Text);
    DataModule1.cdsGRAVAR.FieldByName('CODENT_PED').AsInteger := DataModule1.cdsENT.FieldByName('COD_ENT').AsInteger;
    DataModule1.cdsGRAVAR.Post;
    DataModule1.cdsGRAVAR.ApplyUpdates(0);
@@ -311,6 +326,10 @@ begin
              ImprimirPedido;
            //ImprimirDireto('LPT1',Memo1.Lines.GetText);
            Memo1.Clear;
+           edOBSERVACAO.Clear;
+           ComboBox1.Text := '1';
+           edNomeCli.Clear;
+           edCodUsuario.Clear;
          end;
 
    end;
@@ -326,6 +345,35 @@ begin
     GravarPedido;
     GerarPedido;
    end;
+end;
+
+procedure TfrmPedido.Image4MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+var
+buttonSelected : Integer;
+begin
+GravarPagamentoPedido(nroPedido);
+  if nroPedido <> '0' then
+   begin
+
+        buttonSelected := MessageDlg('Imprimir o pedido ?',mtCustom,
+                                     [mbYes,mbNo], 0);
+
+
+         if buttonSelected = mrYes    then
+         begin
+
+             ImprimirPedido;
+           //ImprimirDireto('LPT1',Memo1.Lines.GetText);
+
+         end;
+
+   end;
+           Memo1.Clear;
+           edOBSERVACAO.Clear;
+           ComboBox1.Text := '1';
+           edNomeCli.Clear;
+           edCodUsuario.Clear;
 end;
 
 procedure TfrmPedido.PrepararPrincipais;

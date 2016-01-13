@@ -47,37 +47,36 @@ begin
                                                   '        AUT_ID_MOD, ' +
                                                   '        MAX(AUT_SIGLA_MOD) AS AUT_SIGLA_MOD, ' +
                                                   '        MAX(AUT_EXECUTAVEL_MOD) AS AUT_EXECUTAVEL_MOD, ' +
-                                                  '        AUT_GEREMP_APE AS EMPRESA ' +
+                                                  '        MAX(AUT_GEREMP_APE) AS EMPRESA ' +
                                                   ' FROM AUT_APE ' +
                                                   ' INNER JOIN AUT_PRO ON AUT_ID_PRO = AUT_AUTPRO_APE ' +
                                                   ' INNER JOIN AUT_MOD ON AUT_ID_MOD = AUT_AUTMOD_PRO ' +
                                                   ' WHERE AUT_GEREMP_APE = ' + IntToStr(CodigosEmpresas[cbEmpresas.ItemIndex]) +
                                                   '   AND AUT_AUTPER_APE = ' + IntToStr(cmKingAutorizacao.cdsAUT_USU.FieldByName('AUT_AUTPER_USU').AsInteger) +
-                                                  '   AND AUT_SIGLA_MOD <> ' + QuotedStr('AUT') +
-                                                  ' GROUP BY AUT_ID_MOD, AUT_GEREMP_APE ' +
+                                                  ' GROUP BY AUT_ID_MOD ' +
                                                   ' UNION ' +
                                                   ' SELECT MAX(AUT_ORDEM_MOD) AS AUT_ORDEM_MOD, ' +
                                                   '        MAX(AUT_DESCRICAO_MOD) AS AUT_DESCRICAO_MOD, ' +
                                                   '        AUT_ID_MOD, ' +
                                                   '        MAX(AUT_SIGLA_MOD) AS AUT_SIGLA_MOD, ' +
-                                                  '        AUT_GEREMP_AUS AS EMPRESA ' +
+                                                  '        MAX(AUT_EXECUTAVEL_MOD) AS AUT_EXECUTAVEL_MOD, ' +
+                                                  '        MAX(AUT_GEREMP_AUS) AS EMPRESA ' +
                                                   ' FROM AUT_AUS ' +
                                                   ' INNER JOIN AUT_PRO ON AUT_ID_PRO = AUT_AUTPRO_AUS ' +
                                                   ' INNER JOIN AUT_MOD ON AUT_ID_MOD = AUT_AUTMOD_PRO ' +
                                                   ' WHERE AUT_GEREMP_AUS = ' + IntToStr(CodigosEmpresas[cbEmpresas.ItemIndex]) +
                                                   '   AND AUT_AUTUSU_AUS = ' + IntToStr(cmKingAutorizacao.cdsAUT_USU.FieldByName('AUT_ID_USU').AsInteger) +
-                                                  '   AND AUT_SIGLA_MOD <> ' + QuotedStr('AUT') +
-                                                  ' GROUP BY AUT_ID_MOD, AUT_GEREMP_AUS ';
+                                                  ' GROUP BY AUT_ID_MOD ';
       cmKingAutorizacao.cdsAUT_MOD.Open;
 
       if (cmKingAutorizacao.cdsAUT_MOD.IsEmpty) then
         TUtil.ExibirMensagem('Usuário sem autorização nesta empresa', 'E')
       else
         begin
-          WindowState := wsMinimized;
           Application.CreateForm(TfrmCarregarAutorizacoes, frmCarregarAutorizacoes);
+          frmCarregarAutorizacoes.RazaoSocialEmpresa := cbEmpresas.Items[cbEmpresas.ItemIndex];
           frmCarregarAutorizacoes.ShowModal;
-          WindowState := wsNormal;
+          frmKingErp.ShowModal;
         end;
     end;
 end;

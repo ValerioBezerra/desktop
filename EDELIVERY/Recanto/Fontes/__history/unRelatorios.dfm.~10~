@@ -2,7 +2,7 @@ object frmRelatorios: TfrmRelatorios
   Left = 0
   Top = 0
   Caption = 'Relat'#243'rios'
-  ClientHeight = 182
+  ClientHeight = 158
   ClientWidth = 447
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET

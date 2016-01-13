@@ -75,8 +75,9 @@ begin
         begin
           Application.CreateForm(TfrmCarregarAutorizacoes, frmCarregarAutorizacoes);
           frmCarregarAutorizacoes.RazaoSocialEmpresa := cbEmpresas.Items[cbEmpresas.ItemIndex];
+
           frmCarregarAutorizacoes.ShowModal;
-          frmKingErp.ShowModal;
+        // frmKingErp.ShowModal;
         end;
     end;
 end;
