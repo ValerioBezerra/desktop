@@ -41,13 +41,14 @@ type
     procedure KsDBGridKeyPress(Sender: TObject; var Key: Char);
     procedure KsDBGridDblClick(Sender: TObject);
   protected
-    Campos, Tabela, Join, CampoConsulta, Where, OrderBy, TabelaPadrao: String;
+    Campos, Tabela, Join, CampoConsulta, Where, OrderBy, TabelaPadrao, SiglaModulo, CodigoPrograma: String;
   private
     { Private declarations }
     procedure ExecutarSQL;
   public
     { Public declarations }
     cdsPadrao: TClientDataSet;
+    cdsVerificarAutorizacao: TClientDataSet;
     ErroPadrao, PesquisarOnShow, MostrarConfirmar, Confirmou: Boolean;
     OperacaoPadrao: String;
   end;
@@ -99,7 +100,7 @@ begin
   if (cdsConsulta.Active) then
     begin
       btnEditar.Enabled    := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Editar);
-      btnApagar.Enabled    := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Editar);
+      btnApagar.Enabled    := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Apagar);
       btnConfirmar.Enabled := not(cdsConsulta.IsEmpty);
     end;
 end;
@@ -176,16 +177,31 @@ end;
 
 procedure TfrmPadraoConsulta.FormShow(Sender: TObject);
 begin
-  Caption                      := 'KingErp - ' + TUtil.Programa.Modulo.Descricao + ' - Consulta - ' + TUtil.Programa.Descricao;
-  stbInformacao.Panels[0].Text := TUtil.Programa.Modulo.Sigla + TUtil.Programa.Codigo;
-  btnNovo.Enabled              := TUtil.Programa.Incluir;
+  try
+    if (TUtil.CarregarModuloPrograma(cdsVerificarAutorizacao, SiglaModulo, CodigoPrograma)) then
+      begin
+        Caption                      := 'KingErp - ' + TUtil.Programa.Modulo.Descricao + ' - Consulta - ' + TUtil.Programa.Descricao;
+        stbInformacao.Panels[0].Text := TUtil.Programa.Modulo.Sigla + TUtil.Programa.Codigo;
+        btnNovo.Enabled              := TUtil.Programa.Incluir;
 
-  if (PesquisarOnShow) then
-    begin
-      executarSQL;
-    end;
+        if (PesquisarOnShow) then
+          begin
+            executarSQL;
 
-  btnConfirmar.Visible := MostrarConfirmar;
+            if ((edConsulta.Visible) and (edConsulta.Enabled)) then
+              edConsulta.SetFocus;
+          end;
+
+        btnConfirmar.Visible := MostrarConfirmar;
+      end
+    else
+      Close;
+  except
+    on E: Exception do
+      begin
+        TUtil.ExibirMensagem(E.Message, 'E');
+      end;
+  end;
 end;
 
 procedure TfrmPadraoConsulta.KsDBGridDblClick(Sender: TObject);

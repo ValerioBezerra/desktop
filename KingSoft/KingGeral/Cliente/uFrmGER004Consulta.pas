@@ -104,9 +104,9 @@ begin
     btnEditarClick(Sender);
   if ((Ord(Key) = VK_F4) and (btnApagar.Enabled)) then
     btnApagarClick(Sender);
-  if (Ord(Key) = VK_F5) then
+  if (Ord(Key) = VK_F6) then
     btnPesquisarClick(Sender);
-  if ((Ord(Key) = VK_F6) and (btnConfirmar.Visible) and (btnConfirmar.Enabled)) then
+  if ((Ord(Key) = VK_F7) and (btnConfirmar.Visible) and (btnConfirmar.Enabled)) then
     btnConfirmarClick(Sender);
 end;
 

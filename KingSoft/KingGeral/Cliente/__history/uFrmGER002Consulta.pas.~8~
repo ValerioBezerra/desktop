@@ -1,4 +1,4 @@
-unit uFrmGER003Consulta;
+unit uFrmGER002Consulta;
 
 interface
 
@@ -9,7 +9,7 @@ uses
   Data.DB, Datasnap.DBClient;
 
 type
-  TfrmGER003Consulta = class(TfrmPadraoConsulta)
+  TfrmGER002Consulta = class(TfrmPadraoConsulta)
     procedure FormCreate(Sender: TObject);
     procedure btnApagarClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
@@ -23,20 +23,20 @@ type
   end;
 
 var
-  frmGER003Consulta: TfrmGER003Consulta;
+  frmGER002Consulta: TfrmGER002Consulta;
 
 implementation
 
 {$R *.dfm}
 
-uses uCMKingGeral, uCCKingGeral, uUtil, uFrmGER003;
+uses uCMKingGeral, uCCKingGeral, uUtil, uFrmGER002;
 
-procedure TfrmGER003Consulta.btnApagarClick(Sender: TObject);
+procedure TfrmGER002Consulta.btnApagarClick(Sender: TObject);
 begin
   OperacaoPadrao := 'D';
   if (TUtil.ExibirPergunta('Tem certeza que deseja excluir?')) then
     begin
-      PreencherCdsPadrao(cdsConsulta.FieldByName('GER_ID_CID').AsInteger);
+      PreencherCdsPadrao(cdsConsulta.FieldByName('GER_ID_EST').AsInteger);
       erroPadrao := not(cmKingGeral.TestarDados(TUtil.Empresa.Id, TabelaPadrao, OperacaoPadrao, cdsPadrao.Data));
 
       if not(erroPadrao) then
@@ -48,52 +48,52 @@ begin
     end;
 end;
 
-procedure TfrmGER003Consulta.btnEditarClick(Sender: TObject);
+procedure TfrmGER002Consulta.btnEditarClick(Sender: TObject);
 begin
   inherited;
   try
-    PreencherCdsPadrao(cdsConsulta.FieldByName('GER_ID_CID').AsInteger);
-    Application.CreateForm(TfrmGER003, frmGER003);
-    frmGER003.OperacaoPadrao := 'U';
-    frmGER003.ShowModal;
-    frmGER003.Free;
+    PreencherCdsPadrao(cdsConsulta.FieldByName('GER_ID_EST').AsInteger);
+    Application.CreateForm(TfrmGER002, frmGER002);
+    frmGER002.OperacaoPadrao := 'U';
+    frmGER002.ShowModal;
+    frmGER002.Free;
   finally
     btnPesquisarClick(self);
   end;
 end;
 
-procedure TfrmGER003Consulta.btnNovoClick(Sender: TObject);
+procedure TfrmGER002Consulta.btnNovoClick(Sender: TObject);
 begin
   inherited;
   try
     PreencherCdsPadrao(0);
-    Application.CreateForm(TfrmGER003, frmGER003);
-    frmGER003.OperacaoPadrao := 'I';
-    frmGER003.ShowModal;
-    frmGER003.Free;
+    Application.CreateForm(TfrmGER002, frmGER002);
+    frmGER002.OperacaoPadrao := 'I';
+    frmGER002.ShowModal;
+    frmGER002.Free;
   finally
     btnPesquisarClick(self);
   end;
 end;
 
-procedure TfrmGER003Consulta.FormCreate(Sender: TObject);
+procedure TfrmGER002Consulta.FormCreate(Sender: TObject);
 begin
   inherited;
   Campos        := '*';
-  Tabela        := 'GER_CID';
-  Join          := 'LEFT OUTER JOIN GER_EST ON GER_ID_EST = GER_GEREST_CID';
-  CampoConsulta := 'GER_NOME_CID';
-  OrderBy       := 'GER_NOME_CID';
+  Tabela        := 'GER_EST';
+  Join          := 'LEFT OUTER JOIN GER_PAI ON GER_ID_PAI = GER_GERPAI_EST';
+  CampoConsulta := 'GER_NOME_EST';
+  OrderBy       := 'GER_UF_EST';
 
-  cdsPadrao    := cmKingGeral.cdsGER_CID;
-  TabelaPadrao := 'GER_CID';
+  cdsPadrao    := cmKingGeral.cdsGER_EST;
+  TabelaPadrao := 'GER_EST';
 
   cdsVerificarAutorizacao := cmKingGeral.cdsConsulta;
   SiglaModulo             := 'GER';
-  CodigoPrograma          := '003';
+  CodigoPrograma          := '002';
 end;
 
-procedure TfrmGER003Consulta.FormKeyDown(Sender: TObject; var Key: Word;
+procedure TfrmGER002Consulta.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
@@ -103,16 +103,16 @@ begin
     btnEditarClick(Sender);
   if ((Ord(Key) = VK_F4) and (btnApagar.Enabled)) then
     btnApagarClick(Sender);
-  if (Ord(Key) = VK_F6) then
+  if (Ord(Key) = VK_F5) then
     btnPesquisarClick(Sender);
-  if ((Ord(Key) = VK_F7) and (btnConfirmar.Visible) and (btnConfirmar.Enabled)) then
+  if ((Ord(Key) = VK_F6) and (btnConfirmar.Visible) and (btnConfirmar.Enabled)) then
     btnConfirmarClick(Sender);
 end;
 
-procedure TfrmGER003Consulta.PreencherCdsPadrao(Id: Integer);
+procedure TfrmGER002Consulta.PreencherCdsPadrao(Id: Integer);
 begin
   cdsPadrao.Close;
-  cdsPadrao.CommandText := ' SELECT * FROM GER_CID WHERE GER_ID_CID = ' + IntToStr(Id);
+  cdsPadrao.CommandText := ' SELECT * FROM GER_EST WHERE GER_ID_EST = ' + IntToStr(Id);
   cdsPadrao.Open;
 
   if (cdsPadrao.IsEmpty) then

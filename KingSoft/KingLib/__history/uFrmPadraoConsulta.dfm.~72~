@@ -16,7 +16,6 @@ object frmPadraoConsulta: TfrmPadraoConsulta
   OldCreateOrder = False
   Position = poMainFormCenter
   OnCreate = FormCreate
-  OnKeyDown = FormKeyDown
   OnKeyPress = FormKeyPress
   OnShow = FormShow
   PixelsPerInch = 96
@@ -29,7 +28,6 @@ object frmPadraoConsulta: TfrmPadraoConsulta
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitWidth = 626
   end
   object pnlPrincipal: TPanel
     Left = 0
@@ -39,10 +37,6 @@ object frmPadraoConsulta: TfrmPadraoConsulta
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = 3
-    ExplicitTop = 8
-    ExplicitWidth = 509
-    ExplicitHeight = 225
     object gpFiltro: TGroupBox
       Left = 10
       Top = 0
@@ -96,6 +90,8 @@ object frmPadraoConsulta: TfrmPadraoConsulta
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
+      OnDblClick = KsDBGridDblClick
+      OnKeyPress = KsDBGridKeyPress
     end
   end
   object stbInformacao: TStatusBar
@@ -109,13 +105,12 @@ object frmPadraoConsulta: TfrmPadraoConsulta
         Width = 100
       end
       item
+        Alignment = taCenter
         Width = 150
       end
       item
         Width = 300
       end>
-    ExplicitTop = 256
-    ExplicitWidth = 626
   end
   object pnlBotoes: TPanel
     Left = 513
@@ -126,9 +121,6 @@ object frmPadraoConsulta: TfrmPadraoConsulta
     BevelKind = bkTile
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitLeft = 384
-    ExplicitTop = 18
-    ExplicitHeight = 225
     object btnNovo: TBitBtn
       Left = 7
       Top = 7
@@ -150,7 +142,6 @@ object frmPadraoConsulta: TfrmPadraoConsulta
         3BB33773333773333773B333333B3333333B7333333733333337}
       NumGlyphs = 2
       TabOrder = 0
-      OnClick = btnNovoClick
     end
     object btnEditar: TBitBtn
       Left = 7
@@ -174,7 +165,6 @@ object frmPadraoConsulta: TfrmPadraoConsulta
         00333377737FFFFF773333303300000003333337337777777333}
       NumGlyphs = 2
       TabOrder = 1
-      OnClick = btnEditarClick
     end
     object btnApagar: TBitBtn
       Left = 7
@@ -356,8 +346,6 @@ object frmPadraoConsulta: TfrmPadraoConsulta
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 3
-    ExplicitLeft = 619
-    ExplicitHeight = 225
   end
   object Timer: TTimer
     Interval = 50

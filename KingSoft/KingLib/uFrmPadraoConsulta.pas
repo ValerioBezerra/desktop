@@ -28,6 +28,7 @@ type
     Timer: TTimer;
     cdsConsulta: TClientDataSet;
     dsConsulta: TDataSource;
+    btnVisualizar: TBitBtn;
     procedure FormShow(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -99,8 +100,9 @@ procedure TfrmPadraoConsulta.cdsConsultaAfterOpen(DataSet: TDataSet);
 begin
   if (cdsConsulta.Active) then
     begin
-      btnEditar.Enabled    := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Editar);
-      btnApagar.Enabled    := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Apagar);
+      btnEditar.Enabled      := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Editar);
+      btnApagar.Enabled      := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Apagar);
+      btnVisualizar.Enabled  := not(cdsConsulta.IsEmpty) and (TUtil.Programa.Visualizar);
       btnConfirmar.Enabled := not(cdsConsulta.IsEmpty);
     end;
 end;
@@ -178,21 +180,24 @@ end;
 procedure TfrmPadraoConsulta.FormShow(Sender: TObject);
 begin
   try
-    TUtil.CarregarModuloPrograma(cdsVerificarAutorizacao, SiglaModulo, CodigoPrograma);
-
-    Caption                      := 'KingErp - ' + TUtil.Programa.Modulo.Descricao + ' - Consulta - ' + TUtil.Programa.Descricao;
-    stbInformacao.Panels[0].Text := TUtil.Programa.Modulo.Sigla + TUtil.Programa.Codigo;
-    btnNovo.Enabled              := TUtil.Programa.Incluir;
-
-    if (PesquisarOnShow) then
+    if (TUtil.CarregarModuloPrograma(cdsVerificarAutorizacao, SiglaModulo, CodigoPrograma)) then
       begin
-        executarSQL;
+        Caption                      := 'KingErp - ' + TUtil.Programa.Modulo.Descricao + ' - Consulta - ' + TUtil.Programa.Descricao;
+        stbInformacao.Panels[0].Text := TUtil.Programa.Modulo.Sigla + TUtil.Programa.Codigo;
+        btnNovo.Enabled              := TUtil.Programa.Incluir;
 
-        if ((edConsulta.Visible) and (edConsulta.Enabled)) then
-          edConsulta.SetFocus;
-      end;
+        if (PesquisarOnShow) then
+          begin
+            executarSQL;
 
-    btnConfirmar.Visible := MostrarConfirmar;
+            if ((edConsulta.Visible) and (edConsulta.Enabled)) then
+              edConsulta.SetFocus;
+          end;
+
+        btnConfirmar.Visible := MostrarConfirmar;
+      end
+    else
+      Close;
   except
     on E: Exception do
       begin

@@ -38,7 +38,7 @@ implementation
 
 {$R *.dfm}
 
-uses uCMKingAutorizacao, uCCKingAutorizacao, uUtil, uFrmAUT003,
+uses uCMKingAutorizacao, uCCKingAutorizacao, uUtil, uFrmAUT005,
   uFrmAUT004Consulta;
 
 procedure TfrmAUT005Consulta.btnApagarClick(Sender: TObject);
@@ -63,10 +63,10 @@ begin
   inherited;
   try
     PreencherCdsPadrao(cdsConsulta.FieldByName('AUT_ID_PRO').AsInteger);
-    Application.CreateForm(TfrmAUT003, frmAUT003);
-    frmAUT003.OperacaoPadrao := 'U';
-    frmAUT003.ShowModal;
-    frmAUT003.Free;
+    Application.CreateForm(TfrmAUT005, frmAUT005);
+    frmAUT005.OperacaoPadrao := 'U';
+    frmAUT005.ShowModal;
+    frmAUT005.Free;
   finally
     btnPesquisarClick(self);
   end;
@@ -77,10 +77,10 @@ begin
   inherited;
   try
     PreencherCdsPadrao(0);
-    Application.CreateForm(TfrmAUT003, frmAUT003);
-    frmAUT003.OperacaoPadrao := 'I';
-    frmAUT003.ShowModal;
-    frmAUT003.Free;
+    Application.CreateForm(TfrmAUT005, frmAUT005);
+    frmAUT005.OperacaoPadrao := 'I';
+    frmAUT005.ShowModal;
+    frmAUT005.Free;
   finally
     btnPesquisarClick(self);
   end;
@@ -88,7 +88,7 @@ end;
 
 procedure TfrmAUT005Consulta.btnPesquisarClick(Sender: TObject);
 begin
-  Where := ' AND AUT_KING_PRO = 0 ';
+  Where := '';
 
   if (neAUT_AUTMOD_PRO.Value <> 0) then
     Where := Where + ' AND AUT_AUTMOD_PRO = ' + VarToStr(neAUT_AUTMOD_PRO.Value);
@@ -101,13 +101,16 @@ begin
   inherited;
   Campos        := '*';
   Tabela        := 'AUT_PRO';
-  CampoConsulta := 'AUT_NOME_PRO';
+  CampoConsulta := 'AUT_DESCRICAO_PRO';
   Join          := 'LEFT OUTER JOIN AUT_MOD ON AUT_ID_MOD = AUT_AUTMOD_PRO';
-  Where         := 'AND AUT_KING_PRO = 0 ';
-  OrderBy       := 'AUT_NOME_PRO';
+  OrderBy       := 'AUT_ORDEM_MOD, AUT_CODIGO_PRO';
 
   cdsPadrao    := cmKingAutorizacao.cdsAUT_PRO;
   TabelaPadrao := 'AUT_PRO';
+
+  cdsVerificarAutorizacao := cmKingAutorizacao.cdsConsulta;
+  SiglaModulo             := 'AUT';
+  CodigoPrograma          := '005';
 end;
 
 procedure TfrmAUT005Consulta.FormKeyDown(Sender: TObject; var Key: Word;
@@ -166,16 +169,20 @@ end;
 procedure TfrmAUT005Consulta.sbAUT004Click(Sender: TObject);
 begin
   inherited;
-  Application.CreateForm(TfrmAUT004Consulta, frmAUT004Consulta);
-  frmAUT004Consulta.MostrarConfirmar := True;
-  frmAUT004Consulta.ShowModal;
+  try
+    Application.CreateForm(TfrmAUT004Consulta, frmAUT004Consulta);
+    frmAUT004Consulta.MostrarConfirmar := True;
+    frmAUT004Consulta.ShowModal;
 
-  if (frmAUT004Consulta.Confirmou) then
-    begin
-      neAUT_AUTMOD_PRO.SetFocus;
-      neAUT_AUTMOD_PRO.Text := frmAUT004Consulta.cdsConsulta.FieldByName('AUT_ID_MOD').AsString;
-      neAUT_AUTMOD_PROExit(Self);
-    end;
+    if (frmAUT004Consulta.Confirmou) then
+      begin
+        neAUT_AUTMOD_PRO.SetFocus;
+        neAUT_AUTMOD_PRO.Text := frmAUT004Consulta.cdsConsulta.FieldByName('AUT_ID_MOD').AsString;
+        neAUT_AUTMOD_PROExit(Self);
+      end;
+  finally
+    TUtil.CarregarModuloPrograma(cmKingAutorizacao.cdsConsulta);
+  end;
 end;
 
 end.

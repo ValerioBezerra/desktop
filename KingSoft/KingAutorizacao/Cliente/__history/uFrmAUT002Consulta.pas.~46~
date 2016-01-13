@@ -13,9 +13,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnApagarClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
-    procedure btnNovoKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
     procedure btnEditarClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
     procedure PreencherCdsPadrao(Id: Integer);
@@ -52,7 +51,15 @@ end;
 procedure TfrmAUT002Consulta.btnEditarClick(Sender: TObject);
 begin
   inherited;
-//
+  try
+    PreencherCdsPadrao(cdsConsulta.FieldByName('AUT_ID_PER').AsInteger);
+    Application.CreateForm(TfrmAUT002, frmAUT002);
+    frmAUT002.OperacaoPadrao := 'U';
+    frmAUT002.ShowModal;
+    frmAUT002.Free;
+  finally
+    btnPesquisarClick(self);
+  end;
 end;
 
 procedure TfrmAUT002Consulta.btnNovoClick(Sender: TObject);
@@ -61,28 +68,12 @@ begin
   try
     PreencherCdsPadrao(0);
     Application.CreateForm(TfrmAUT002, frmAUT002);
-    frmAUT002.OperacaoPadrao    := 'I';
+    frmAUT002.OperacaoPadrao := 'I';
     frmAUT002.ShowModal;
     frmAUT002.Free;
   finally
     btnPesquisarClick(self);
   end;
-end;
-
-procedure TfrmAUT002Consulta.btnNovoKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-begin
-  inherited;
-  if (Ord(Key) = VK_F2) then
-    btnNovoClick(Sender);
-  if (Ord(Key) = VK_F3) then
-    btnEditarClick(Sender);
-  if (Ord(Key) = VK_F4) then
-    btnApagarClick(Sender);
-  if (Ord(Key) = VK_F5) then
-    btnPesquisarClick(Sender);
-  if ((Ord(Key) = VK_F6) and (btnConfirmar.Visible) and (btnConfirmar.Enabled)) then
-    btnConfirmarClick(Sender);
 end;
 
 procedure TfrmAUT002Consulta.FormCreate(Sender: TObject);
@@ -93,9 +84,28 @@ begin
   CampoConsulta := 'AUT_DESCRICAO_PER';
   OrderBy       := 'AUT_DESCRICAO_PER';
 
-
   cdsPadrao    := cmKingAutorizacao.cdsAUT_PER;
   TabelaPadrao := 'AUT_PER';
+
+  cdsVerificarAutorizacao := cmKingAutorizacao.cdsConsulta;
+  SiglaModulo             := 'AUT';
+  CodigoPrograma          := '002';
+end;
+
+procedure TfrmAUT002Consulta.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  inherited;
+  if ((Ord(Key) = VK_F2) and (btnNovo.Enabled)) then
+    btnNovoClick(Sender);
+  if ((Ord(Key) = VK_F3) and (btnEditar.Enabled)) then
+    btnEditarClick(Sender);
+  if ((Ord(Key) = VK_F4) and (btnApagar.Enabled)) then
+    btnApagarClick(Sender);
+  if (Ord(Key) = VK_F5) then
+    btnPesquisarClick(Sender);
+  if ((Ord(Key) = VK_F6) and (btnConfirmar.Visible) and (btnConfirmar.Enabled)) then
+    btnConfirmarClick(Sender);
 end;
 
 procedure TfrmAUT002Consulta.PreencherCdsPadrao(Id: Integer);

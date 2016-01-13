@@ -13,17 +13,28 @@ type
     neAUT_AUTPER_USU: TKsNumberEdit;
     edAUT_DESCRICAO_PER: TEdit;
     Label1: TLabel;
-    sbCDV_002: TSpeedButton;
+    sbAUT002: TSpeedButton;
+    cdsConsultaATIVO: TBooleanField;
+    cdsConsultaAUT_ID_USU: TIntegerField;
+    cdsConsultaAUT_NOME_USU: TStringField;
+    cdsConsultaAUT_AUTPER_USU: TIntegerField;
+    cdsConsultaAUT_SENHA_USU: TStringField;
+    cdsConsultaAUT_KING_USU: TSmallintField;
+    cdsConsultaAUT_ATIVO_USU: TSmallintField;
+    cdsConsultaAUT_LOGIN_USU: TStringField;
+    cdsConsultaAUT_ID_PER: TIntegerField;
+    cdsConsultaAUT_DESCRICAO_PER: TStringField;
     procedure FormCreate(Sender: TObject);
     procedure btnApagarClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure btnPesquisarClick(Sender: TObject);
-    procedure sbCDV_002Click(Sender: TObject);
+    procedure sbAUT002Click(Sender: TObject);
     procedure neAUT_AUTPER_USUExit(Sender: TObject);
     procedure neAUT_AUTPER_USUKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure cdsConsultaCalcFields(DataSet: TDataSet);
   private
     { Private declarations }
     procedure PreencherCdsPadrao(Id: Integer);
@@ -38,7 +49,7 @@ implementation
 
 {$R *.dfm}
 
-uses uCMKingAutorizacao, uCCKingAutorizacao, uUtil, uFrmAUT002,
+uses uCMKingAutorizacao, uCCKingAutorizacao, uUtil, uFrmAUT003,
   uFrmAUT002Consulta;
 
 procedure TfrmAUT003Consulta.btnApagarClick(Sender: TObject);
@@ -63,10 +74,10 @@ begin
   inherited;
   try
     PreencherCdsPadrao(cdsConsulta.FieldByName('AUT_ID_USU').AsInteger);
-    Application.CreateForm(TfrmAUT002, frmAUT002);
-    frmAUT002.OperacaoPadrao := 'U';
-    frmAUT002.ShowModal;
-    frmAUT002.Free;
+    Application.CreateForm(TfrmAUT003, frmAUT003);
+    frmAUT003.OperacaoPadrao := 'U';
+    frmAUT003.ShowModal;
+    frmAUT003.Free;
   finally
     btnPesquisarClick(self);
   end;
@@ -77,10 +88,10 @@ begin
   inherited;
   try
     PreencherCdsPadrao(0);
-    Application.CreateForm(TfrmAUT002, frmAUT002);
-    frmAUT002.OperacaoPadrao := 'I';
-    frmAUT002.ShowModal;
-    frmAUT002.Free;
+    Application.CreateForm(TfrmAUT003, frmAUT003);
+    frmAUT003.OperacaoPadrao := 'I';
+    frmAUT003.ShowModal;
+    frmAUT003.Free;
   finally
     btnPesquisarClick(self);
   end;
@@ -92,7 +103,14 @@ begin
 
   if (neAUT_AUTPER_USU.Value <> 0) then
     Where := Where + ' AND AUT_AUTPER_USU = ' + VarToStr(neAUT_AUTPER_USU.Value);
+
   inherited;
+end;
+
+procedure TfrmAUT003Consulta.cdsConsultaCalcFields(DataSet: TDataSet);
+begin
+  inherited;
+  cdsConsulta.FieldByName('ATIVO').AsBoolean := (cdsConsulta.FieldByName('AUT_ATIVO_USU').AsInteger = 1);
 end;
 
 procedure TfrmAUT003Consulta.FormCreate(Sender: TObject);
@@ -107,6 +125,10 @@ begin
 
   cdsPadrao    := cmKingAutorizacao.cdsAUT_USU;
   TabelaPadrao := 'AUT_USU';
+
+  cdsVerificarAutorizacao := cmKingAutorizacao.cdsConsulta;
+  SiglaModulo             := 'AUT';
+  CodigoPrograma          := '003';
 end;
 
 procedure TfrmAUT003Consulta.FormKeyDown(Sender: TObject; var Key: Word;
@@ -119,9 +141,9 @@ begin
     btnEditarClick(Sender);
   if ((Ord(Key) = VK_F4) and (btnApagar.Enabled)) then
     btnApagarClick(Sender);
-  if (Ord(Key) = VK_F5) then
+  if (Ord(Key) = VK_F7) then
     btnPesquisarClick(Sender);
-  if ((Ord(Key) = VK_F6) and (btnConfirmar.Visible) and (btnConfirmar.Enabled)) then
+  if ((Ord(Key) = VK_F8) and (btnConfirmar.Visible) and (btnConfirmar.Enabled)) then
     btnConfirmarClick(Sender);
 end;
 
@@ -147,7 +169,7 @@ procedure TfrmAUT003Consulta.neAUT_AUTPER_USUKeyDown(Sender: TObject;
 begin
   inherited;
   if (Ord(Key) = VK_F1) then
-    sbCDV_002Click(Self);
+    sbAUT002Click(Self);
 end;
 
 procedure TfrmAUT003Consulta.PreencherCdsPadrao(Id: Integer);
@@ -162,19 +184,23 @@ begin
     cdsPadrao.Edit;
 end;
 
-procedure TfrmAUT003Consulta.sbCDV_002Click(Sender: TObject);
+procedure TfrmAUT003Consulta.sbAUT002Click(Sender: TObject);
 begin
   inherited;
-  Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);
-  frmAUT002Consulta.MostrarConfirmar := True;
-  frmAUT002Consulta.ShowModal;
+  try
+    Application.CreateForm(TfrmAUT002Consulta, frmAUT002Consulta);
+    frmAUT002Consulta.MostrarConfirmar := True;
+    frmAUT002Consulta.ShowModal;
 
-  if (frmAUT002Consulta.Confirmou) then
-    begin
-      neAUT_AUTPER_USU.SetFocus;
-      neAUT_AUTPER_USU.Text := frmAUT002Consulta.cdsConsulta.FieldByName('AUT_ID_PER').AsString;
-      neAUT_AUTPER_USUExit(Self);
-    end;
+    if (frmAUT002Consulta.Confirmou) then
+      begin
+        neAUT_AUTPER_USU.SetFocus;
+        neAUT_AUTPER_USU.Text := frmAUT002Consulta.cdsConsulta.FieldByName('AUT_ID_PER').AsString;
+        neAUT_AUTPER_USUExit(Self);
+      end;
+  finally
+    TUtil.CarregarModuloPrograma(cmKingAutorizacao.cdsConsulta);
+  end;
 end;
 
 end.
