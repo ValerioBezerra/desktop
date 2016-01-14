@@ -3,8 +3,7 @@ object DataModule1: TDataModule1
   Height = 751
   Width = 1033
   object Banco: TIBDatabase
-    Connected = True
-    DatabaseName = 'C:\EDELIVERY\BANCO\TMDELIVERY.IB'
+    DatabaseName = 'C:\Users\Elison\Downloads\EDELIVERY\Recanto\Banco\TMDELIVERY.IB'
     Params.Strings = (
       'user_name=sysdba'
       'password=masterkey')
