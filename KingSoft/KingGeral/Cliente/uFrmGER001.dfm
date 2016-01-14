@@ -3,7 +3,6 @@ inherited frmGER001: TfrmGER001
   ClientHeight = 114
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
-  ExplicitWidth = 497
   ExplicitHeight = 143
   PixelsPerInch = 96
   TextHeight = 13

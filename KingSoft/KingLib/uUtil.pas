@@ -16,6 +16,7 @@ type
     class procedure CarregarEmpresa(cds: TClientDataSet);
     class procedure CarregarUsuario(cds: TClientDataSet);
     class procedure CorElementoEmFoco(Formulario: TForm);
+    class procedure HabilitarDesabilitarElementos(Formulario: TForm; HabilitarDesabilitar: Char);
     class procedure IniciarClientDataSet(cds: TClientDataSet);
     class procedure ExibirMensagem(const Mensagem: String; Tipo: Char = ' ');
     class function  ExibirPergunta(const Mensagem: String): Boolean;
@@ -282,6 +283,68 @@ end;
 class function TUtil.ExibirPergunta(const Mensagem: String): Boolean;
 begin
   Result := (Application.MessageBox(PChar(Mensagem), 'King Soft', MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES);
+end;
+
+class procedure TUtil.HabilitarDesabilitarElementos(Formulario: TForm; HabilitarDesabilitar: Char);
+var
+ I: Integer;
+begin
+  for I := 0 to Formulario.ComponentCount - 1 do
+    begin
+      if (Formulario.Components[I] is TDBEdit) and
+         ((Formulario.Components[I] as TDBEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TDBEdit).Enabled := (HabilitarDesabilitar = 'H');
+        end;
+
+      if (Formulario.Components[I] is TKsNumberEdit) and
+         ((Formulario.Components[I] as TKsNumberEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TKsNumberEdit).Enabled := (HabilitarDesabilitar = 'H');
+        end;
+
+      if (Formulario.Components[I] is TKsDBNumberEdit) and
+         ((Formulario.Components[I] as TKsDBNumberEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TKsDBNumberEdit).Enabled := (HabilitarDesabilitar = 'H');
+        end;
+
+      if (Formulario.Components[I] is TEdit) and
+         ((Formulario.Components[I] as TEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TEdit).Enabled := (HabilitarDesabilitar = 'H');
+        end;
+
+      if (Formulario.Components[I] is TDBMemo) and
+         ((Formulario.Components[I] as TDBMemo).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TDBMemo).Enabled := (HabilitarDesabilitar = 'H');
+        end;
+
+      if (Formulario.Components[I] is TMemo) and
+         ((Formulario.Components[I] as TMemo).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TMemo).Enabled := (HabilitarDesabilitar = 'H');
+        end;
+
+      if (Formulario.Components[I] is TMaskEdit) and
+         ((Formulario.Components[I] as TMaskEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TMaskEdit).Enabled := (HabilitarDesabilitar = 'H');
+        end;
+
+      if (Formulario.Components[I] is TKsDateEdit) and
+         ((Formulario.Components[I] as TKsDateEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TKsDateEdit).Enabled := (HabilitarDesabilitar = 'H');
+        end;
+
+      if (Formulario.Components[I] is TKsDBDateEdit) and
+         ((Formulario.Components[I] as TKsDBDateEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TKsDBDateEdit).Enabled := (HabilitarDesabilitar = 'H');
+        end;
+    end;
 end;
 
 class procedure TUtil.IniciarClientDataSet(cds: TClientDataSet);
