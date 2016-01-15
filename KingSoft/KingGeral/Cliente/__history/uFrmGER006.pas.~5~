@@ -22,8 +22,6 @@ type
     sbGER004: TSpeedButton;
     edGER_NOME_BAI: TEdit;
     Label4: TLabel;
-    dbeGER_CEP_LOG: TDBEdit;
-    Label5: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
