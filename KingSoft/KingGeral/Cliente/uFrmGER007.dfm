@@ -1,38 +1,39 @@
 inherited frmGER007: TfrmGER007
   Caption = 'frmGER007'
-  ClientHeight = 324
-  ClientWidth = 627
+  ClientHeight = 381
+  ClientWidth = 690
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
-  ExplicitWidth = 633
-  ExplicitHeight = 353
+  ExplicitWidth = 696
+  ExplicitHeight = 410
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
-    Width = 627
+    Width = 690
     ExplicitWidth = 627
   end
   inherited pnlBotoes: TPanel
-    Left = 507
-    Height = 293
+    Left = 570
+    Height = 350
     ExplicitLeft = 507
-    ExplicitHeight = 192
+    ExplicitHeight = 293
     inherited btnFechar: TBitBtn
       Top = 85
       ExplicitTop = 85
     end
   end
   inherited Panel2: TPanel
-    Left = 619
-    Height = 293
+    Left = 682
+    Height = 350
     ExplicitLeft = 619
-    ExplicitHeight = 192
+    ExplicitHeight = 293
   end
   inherited pnlPrincipal: TPanel
-    Width = 507
-    Height = 293
-    ExplicitWidth = 507
-    ExplicitHeight = 192
+    Width = 570
+    Height = 350
+    ExplicitTop = 13
+    ExplicitWidth = 570
+    ExplicitHeight = 423
     object Label1: TLabel
       Left = 10
       Top = 1
@@ -55,14 +56,14 @@ inherited frmGER007: TfrmGER007
     end
     object Label3: TLabel
       Left = 8
-      Top = 194
-      Width = 93
+      Top = 302
+      Width = 29
       Height = 13
-      Caption = 'Tipo de Logradouro'
+      Caption = 'Matriz'
     end
-    object sbGER005: TSpeedButton
+    object sbGER007: TSpeedButton
       Left = 39
-      Top = 206
+      Top = 314
       Width = 23
       Height = 23
       Glyph.Data = {
@@ -117,11 +118,11 @@ inherited frmGER007: TfrmGER007
         FD9BEC090909E3E3FDFDFDFDFDFDFDFDFDF707080807F7F7FDFDFDFDFDFDFDFD
         FDFDFDE4E4E3FDFDFDFDFDFDFDFDFDFDFDFDFDF7F7F7FDFDFDFD}
       NumGlyphs = 2
-      OnClick = sbGER005Click
+      OnClick = sbGER007Click
     end
     object sbGER004: TSpeedButton
       Left = 40
-      Top = 242
+      Top = 278
       Width = 23
       Height = 23
       Glyph.Data = {
@@ -180,7 +181,7 @@ inherited frmGER007: TfrmGER007
     end
     object Label4: TLabel
       Left = 8
-      Top = 229
+      Top = 265
       Width = 28
       Height = 13
       Caption = 'Bairro'
@@ -198,6 +199,27 @@ inherited frmGER007: TfrmGER007
       Width = 25
       Height = 13
       Caption = 'CNPJ'
+    end
+    object Label7: TLabel
+      Left = 11
+      Top = 160
+      Width = 19
+      Height = 13
+      Caption = 'CEP'
+    end
+    object Label8: TLabel
+      Left = 12
+      Top = 227
+      Width = 37
+      Height = 13
+      Caption = 'N'#250'mero'
+    end
+    object Label9: TLabel
+      Left = 96
+      Top = 227
+      Width = 52
+      Height = 13
+      Caption = 'Refer'#234'ncia'
     end
     object dbeGER_FANTASIA_EMP: TDBEdit
       Left = 8
@@ -224,49 +246,49 @@ inherited frmGER007: TfrmGER007
       ShowSeparator = True
       TabOrder = 0
     end
-    object dbneGER_GERTLG_LOG: TKsDBNumberEdit
+    object dbneGER_GEREMP_EMP: TKsDBNumberEdit
       Left = 8
-      Top = 207
+      Top = 315
       Width = 33
       Height = 21
       Hint = '(F1) Consultar Estado'
-      DataField = 'GER_GERTLG_LOG'
-      DataSource = cmKingGeral.dsGER_LOG
+      DataField = 'GER_GEREMP_EMP'
+      DataSource = cmKingGeral.dsGER_EMP
       Decimals = 0
       Negativo = False
       MaxLength = 3
       ShowSeparator = True
       TabOrder = 2
-      OnExit = dbneGER_GERTLG_LOGExit
-      OnKeyDown = dbneGER_GERTLG_LOGKeyDown
+      OnExit = dbneGER_GEREMP_EMPExit
+      OnKeyDown = dbneGER_GEREMP_EMPKeyDown
     end
-    object edGER_DESCRICAO_TLG: TEdit
+    object edGER_RAZAOSOCIAL_EMP: TEdit
       Left = 60
-      Top = 207
+      Top = 315
       Width = 287
       Height = 21
       Enabled = False
       TabOrder = 3
     end
-    object dbneGER_GERBAI_LOG: TKsDBNumberEdit
+    object dbneGER_GERBAI_EMP: TKsDBNumberEdit
       Left = 8
-      Top = 243
+      Top = 279
       Width = 33
       Height = 21
       Hint = '(F1) Consultar Estado'
-      DataField = 'GER_GERBAI_LOG'
-      DataSource = cmKingGeral.dsGER_LOG
+      DataField = 'GER_GERBAI_EMP'
+      DataSource = cmKingGeral.dsGER_EMP
       Decimals = 0
       Negativo = False
       MaxLength = 3
       ShowSeparator = True
       TabOrder = 4
-      OnExit = dbneGER_GERBAI_LOGExit
-      OnKeyDown = dbneGER_GERTLG_LOGKeyDown
+      OnExit = dbneGER_GERBAI_EMPExit
+      OnKeyDown = dbneGER_GEREMP_EMPKeyDown
     end
     object edGER_NOME_BAI: TEdit
       Left = 60
-      Top = 242
+      Top = 278
       Width = 287
       Height = 21
       Enabled = False
@@ -308,11 +330,84 @@ inherited frmGER007: TfrmGER007
       DataSource = cmKingGeral.dsGER_EMP
       TabOrder = 8
     end
+    object dbeGER_CEP_EMP: TDBEdit
+      Left = 10
+      Top = 175
+      Width = 121
+      Height = 21
+      DataField = 'GER_CEP_EMP'
+      DataSource = cmKingGeral.dsGER_EMP
+      TabOrder = 9
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 8
+      Top = 202
+      Width = 93
+      Height = 21
+      DataField = 'GER_GERTLG_EMP'
+      DataSource = cmKingGeral.dsGER_EMP
+      KeyField = 'GER_ID_TLG'
+      ListField = 'GER_DESCRICAO_TLG'
+      ListSource = cmKingGeral.dsGER_TLG
+      TabOrder = 10
+    end
+    object dbeGER_LOGRADOURO_EMP: TDBEdit
+      Left = 107
+      Top = 202
+      Width = 240
+      Height = 21
+      DataField = 'GER_LOGRADOURO_EMP'
+      DataSource = cmKingGeral.dsGER_EMP
+      TabOrder = 11
+    end
+    object dbeGER_NUMEROEND_EMP: TDBEdit
+      Left = 8
+      Top = 242
+      Width = 71
+      Height = 21
+      DataField = 'GER_NUMEROEND_EMP'
+      DataSource = cmKingGeral.dsGER_EMP
+      MaxLength = 5
+      TabOrder = 12
+    end
+    object dbeGER_REFERENCIAEND_EMP: TDBEdit
+      Left = 96
+      Top = 242
+      Width = 251
+      Height = 21
+      DataField = 'GER_REFERENCIAEND_EMP'
+      DataSource = cmKingGeral.dsGER_EMP
+      TabOrder = 13
+    end
+    object dbneGER_CODIGO_EMP: TKsDBNumberEdit
+      Left = 92
+      Top = 14
+      Width = 33
+      Height = 21
+      DataField = 'GER_CODIGO_EMP'
+      DataSource = cmKingGeral.dsGER_EMP
+      Decimals = 0
+      Negativo = False
+      ShowSeparator = True
+      TabOrder = 14
+    end
+    object dbneGER_CODFIL_EMP: TKsDBNumberEdit
+      Left = 144
+      Top = 14
+      Width = 33
+      Height = 21
+      DataField = 'GER_CODFIL_EMP'
+      DataSource = cmKingGeral.dsGER_EMP
+      Decimals = 0
+      Negativo = False
+      ShowSeparator = True
+      TabOrder = 15
+    end
   end
   inherited stbInformacao: TStatusBar
-    Top = 305
-    Width = 627
-    ExplicitTop = 204
+    Top = 362
+    Width = 690
+    ExplicitTop = 305
     ExplicitWidth = 627
   end
 end

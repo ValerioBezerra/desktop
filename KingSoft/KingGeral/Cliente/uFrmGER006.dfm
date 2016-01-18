@@ -9,7 +9,7 @@ inherited frmGER006: TfrmGER006
   TextHeight = 13
   inherited pnlBotoes: TPanel
     Height = 192
-    ExplicitHeight = 121
+    ExplicitHeight = 192
     inherited btnFechar: TBitBtn
       Top = 85
       ExplicitTop = 85
@@ -17,12 +17,10 @@ inherited frmGER006: TfrmGER006
   end
   inherited Panel2: TPanel
     Height = 192
-    ExplicitHeight = 121
+    ExplicitHeight = 192
   end
   inherited pnlPrincipal: TPanel
     Height = 192
-    ExplicitLeft = 483
-    ExplicitTop = 172
     ExplicitHeight = 192
     object Label1: TLabel
       Left = 10
@@ -183,24 +181,24 @@ inherited frmGER006: TfrmGER006
       Height = 13
       Caption = 'CEP'
     end
-    object dbeGER_NOME_CID: TDBEdit
+    object dbeGER_LOGRADOURO_LOG: TDBEdit
       Left = 8
       Top = 84
       Width = 339
       Height = 21
-      DataField = 'GER_NOME_CID'
-      DataSource = cmKingGeral.dsGER_CID
+      DataField = 'GER_LOGRADOURO_LOG'
+      DataSource = cmKingGeral.dsGER_LOG
       MaxLength = 50
       TabOrder = 1
     end
-    object dbneGER_ID_CID: TKsDBNumberEdit
+    object dbneGER_ID_LOG: TKsDBNumberEdit
       Left = 8
       Top = 14
       Width = 41
       Height = 21
       TabStop = False
-      DataField = 'GER_ID_CID'
-      DataSource = cmKingGeral.dsGER_CID
+      DataField = 'GER_ID_LOG'
+      DataSource = cmKingGeral.dsGER_LOG
       Decimals = 0
       Enabled = False
       Negativo = False
@@ -269,6 +267,6 @@ inherited frmGER006: TfrmGER006
   end
   inherited stbInformacao: TStatusBar
     Top = 204
-    ExplicitTop = 133
+    ExplicitTop = 204
   end
 end

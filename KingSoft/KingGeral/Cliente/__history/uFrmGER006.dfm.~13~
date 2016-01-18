@@ -1,19 +1,14 @@
-inherited frmGER007: TfrmGER007
-  Caption = 'frmGER007'
-  ClientHeight = 324
-  ClientWidth = 627
+inherited frmGER006: TfrmGER006
+  Caption = 'frmGER006'
+  ClientHeight = 223
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
-  ExplicitWidth = 633
-  ExplicitHeight = 353
+  ExplicitWidth = 497
+  ExplicitHeight = 252
   PixelsPerInch = 96
   TextHeight = 13
-  inherited Panel1: TPanel
-    Width = 627
-  end
   inherited pnlBotoes: TPanel
-    Left = 507
-    Height = 293
+    Height = 192
     ExplicitHeight = 192
     inherited btnFechar: TBitBtn
       Top = 85
@@ -21,13 +16,11 @@ inherited frmGER007: TfrmGER007
     end
   end
   inherited Panel2: TPanel
-    Left = 619
-    Height = 293
+    Height = 192
     ExplicitHeight = 192
   end
   inherited pnlPrincipal: TPanel
-    Width = 507
-    Height = 293
+    Height = 192
     ExplicitHeight = 192
     object Label1: TLabel
       Left = 10
@@ -45,20 +38,20 @@ inherited frmGER007: TfrmGER007
     object Label2: TLabel
       Left = 8
       Top = 71
-      Width = 71
+      Width = 27
       Height = 13
-      Caption = 'Nome Fantasia'
+      Caption = 'Nome'
     end
     object Label3: TLabel
       Left = 8
-      Top = 194
+      Top = 109
       Width = 93
       Height = 13
       Caption = 'Tipo de Logradouro'
     end
     object sbGER005: TSpeedButton
       Left = 39
-      Top = 206
+      Top = 121
       Width = 23
       Height = 23
       Glyph.Data = {
@@ -117,7 +110,7 @@ inherited frmGER007: TfrmGER007
     end
     object sbGER004: TSpeedButton
       Left = 40
-      Top = 242
+      Top = 157
       Width = 23
       Height = 23
       Glyph.Data = {
@@ -176,7 +169,7 @@ inherited frmGER007: TfrmGER007
     end
     object Label4: TLabel
       Left = 8
-      Top = 229
+      Top = 144
       Width = 28
       Height = 13
       Caption = 'Bairro'
@@ -184,35 +177,28 @@ inherited frmGER007: TfrmGER007
     object Label5: TLabel
       Left = 9
       Top = 34
-      Width = 60
+      Width = 19
       Height = 13
-      Caption = 'Raz'#227'o Social'
+      Caption = 'CEP'
     end
-    object Label6: TLabel
-      Left = 152
-      Top = 115
-      Width = 25
-      Height = 13
-      Caption = 'CNPJ'
-    end
-    object dbeGER_FANTASIA_EMP: TDBEdit
+    object dbeGER_LOGRADOURO_LOG: TDBEdit
       Left = 8
       Top = 84
       Width = 339
       Height = 21
-      DataField = 'GER_FANTASIA_EMP'
-      DataSource = cmKingGeral.dsGER_EMP
+      DataField = 'GER_LOGRADOURO_LOG'
+      DataSource = cmKingGeral.dsGER_LOG
       MaxLength = 50
       TabOrder = 1
     end
-    object dbneGER_ID_EMP: TKsDBNumberEdit
+    object dbneGER_ID_CID: TKsDBNumberEdit
       Left = 8
       Top = 14
       Width = 41
       Height = 21
       TabStop = False
-      DataField = 'GER_ID_EMP'
-      DataSource = cmKingGeral.dsGER_EMP
+      DataField = 'GER_ID_CID'
+      DataSource = cmKingGeral.dsGER_CID
       Decimals = 0
       Enabled = False
       Negativo = False
@@ -222,7 +208,7 @@ inherited frmGER007: TfrmGER007
     end
     object dbneGER_GERTLG_LOG: TKsDBNumberEdit
       Left = 8
-      Top = 207
+      Top = 122
       Width = 33
       Height = 21
       Hint = '(F1) Consultar Estado'
@@ -238,7 +224,7 @@ inherited frmGER007: TfrmGER007
     end
     object edGER_DESCRICAO_TLG: TEdit
       Left = 60
-      Top = 207
+      Top = 122
       Width = 287
       Height = 21
       Enabled = False
@@ -246,7 +232,7 @@ inherited frmGER007: TfrmGER007
     end
     object dbneGER_GERBAI_LOG: TKsDBNumberEdit
       Left = 8
-      Top = 243
+      Top = 158
       Width = 33
       Height = 21
       Hint = '(F1) Consultar Estado'
@@ -262,52 +248,25 @@ inherited frmGER007: TfrmGER007
     end
     object edGER_NOME_BAI: TEdit
       Left = 60
-      Top = 242
+      Top = 157
       Width = 287
       Height = 21
       Enabled = False
       TabOrder = 5
     end
-    object dbeGER_RAZAOSOCIAL_EMP: TDBEdit
+    object dbeGER_CEP_LOG: TDBEdit
       Left = 8
       Top = 49
-      Width = 339
+      Width = 81
       Height = 21
-      DataField = 'GER_RAZAOSOCIAL_EMP'
-      DataSource = cmKingGeral.dsGER_EMP
+      DataField = 'GER_CEP_LOG'
+      DataSource = cmKingGeral.dsGER_LOG
       MaxLength = 8
       TabOrder = 6
     end
-    object dbrgGER_TIPOPESSOA_EMP: TDBRadioGroup
-      Left = 10
-      Top = 111
-      Width = 119
-      Height = 42
-      Caption = 'Pessoa'
-      Columns = 2
-      DataField = 'GER_TIPOPESSOA_EMP'
-      DataSource = cmKingGeral.dsGER_EMP
-      Items.Strings = (
-        'F'#237'sica'
-        'Jur'#237'dica')
-      TabOrder = 7
-      Values.Strings = (
-        'F'
-        'J')
-    end
-    object dbeGER_CPFCNPJ_EMP: TDBEdit
-      Left = 152
-      Top = 132
-      Width = 195
-      Height = 21
-      DataField = 'GER_CPFCNPJ_EMP'
-      DataSource = cmKingGeral.dsGER_EMP
-      TabOrder = 8
-    end
   end
   inherited stbInformacao: TStatusBar
-    Top = 305
-    Width = 627
+    Top = 204
     ExplicitTop = 204
   end
 end

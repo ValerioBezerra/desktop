@@ -9,27 +9,33 @@ uses
   uKsDBNumberEdit;
 
 type
-  TfrmGER006 = class(TfrmPadrao)
+  TfrmGER007 = class(TfrmPadrao)
     Label1: TLabel;
     Label2: TLabel;
-    dbeGER_NOME_CID: TDBEdit;
-    dbneGER_ID_CID: TKsDBNumberEdit;
+    dbeGER_FANTASIA_EMP: TDBEdit;
+    dbneGER_ID_EMP: TKsDBNumberEdit;
     Label3: TLabel;
-    dbneGER_GERTLG_LOG: TKsDBNumberEdit;
+    dbneGER_GERTLG_EMP: TKsDBNumberEdit;
     sbGER005: TSpeedButton;
     edGER_DESCRICAO_TLG: TEdit;
     dbneGER_GERBAI_LOG: TKsDBNumberEdit;
     sbGER004: TSpeedButton;
     edGER_NOME_BAI: TEdit;
     Label4: TLabel;
-    dbeGER_CEP_LOG: TDBEdit;
+    dbeGER_RAZAOSOCIAL_EMP: TDBEdit;
     Label5: TLabel;
+    dbrgGER_TIPOPESSOA_EMP: TDBRadioGroup;
+    dbeGER_CPFCNPJ_EMP: TDBEdit;
+    Label6: TLabel;
+    dbeGER_CEP_EMP: TDBEdit;
+    Label7: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
     procedure FormCreate(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure dbneGER_GERTLG_LOGExit(Sender: TObject);
+    procedure dbneGER_GERTLG_EMPExit(Sender: TObject);
     procedure sbGER005Click(Sender: TObject);
-    procedure dbneGER_GERTLG_LOGKeyDown(Sender: TObject; var Key: Word;
+    procedure dbneGER_GERTLG_EMPKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure dbneGER_GERBAI_LOGExit(Sender: TObject);
     procedure sbGER004Click(Sender: TObject);
@@ -40,7 +46,7 @@ type
   end;
 
 var
-  frmGER006: TfrmGER006;
+  frmGER007: TfrmGER007;
 
 implementation
 
@@ -49,7 +55,7 @@ implementation
 uses uCMKingGeral, uUtil, uFrmGER002Consulta, uFrmGER005Consulta,
   uFrmGER004Consulta;
 
-procedure TfrmGER006.btnSalvarClick(Sender: TObject);
+procedure TfrmGER007.btnSalvarClick(Sender: TObject);
 begin
   cdsPadrao.Post;
   erroPadrao := not(cmKingGeral.TestarDados(TUtil.Empresa.Id, TabelaPadrao, OperacaoPadrao, cdsPadrao.Data));
@@ -63,11 +69,11 @@ begin
   if (erroPadrao) then
     begin
       cdsPadrao.Edit;
-      dbeGER_NOME_CID.SetFocus;
+      dbeGER_RAZAOSOCIAL_EMP.SetFocus;
     end;
 end;
 
-procedure TfrmGER006.dbneGER_GERBAI_LOGExit(Sender: TObject);
+procedure TfrmGER007.dbneGER_GERBAI_LOGExit(Sender: TObject);
 begin
 
     cmKingGeral.cdsConsulta.Close;
@@ -80,7 +86,7 @@ begin
     edGER_NOME_BAI.Text := cmKingGeral.cdsConsulta.FieldByName('GER_NOME_BAI').AsString;
 end;
 
-procedure TfrmGER006.dbneGER_GERTLG_LOGExit(Sender: TObject);
+procedure TfrmGER007.dbneGER_GERTLG_EMPExit(Sender: TObject);
 begin
   cmKingGeral.cdsConsulta.Close;
   cmKingGeral.cdsConsulta.CommandText := ' SELECT * FROM GER_TLG WHERE GER_ID_TLG = ' + IntToStr(cdsPadrao.FieldByName('GER_GERTLG_LOG').AsInteger);
@@ -92,7 +98,7 @@ begin
     edGER_DESCRICAO_TLG.Text := cmKingGeral.cdsConsulta.FieldByName('GER_DESCRICAO_TLG').AsString;
 end;
 
-procedure TfrmGER006.dbneGER_GERTLG_LOGKeyDown(Sender: TObject; var Key: Word;
+procedure TfrmGER007.dbneGER_GERTLG_EMPKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
@@ -100,7 +106,7 @@ begin
     sbGER005Click(Self);
 end;
 
-procedure TfrmGER006.FormCreate(Sender: TObject);
+procedure TfrmGER007.FormCreate(Sender: TObject);
 begin
   inherited;
   cdsPadrao    := cmKingGeral.cdsGER_LOG;
@@ -108,7 +114,7 @@ begin
 end;
 
 
-procedure TfrmGER006.FormKeyDown(Sender: TObject; var Key: Word;
+procedure TfrmGER007.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
@@ -116,7 +122,7 @@ begin
     btnSalvarClick(Sender);
 end;
 
-procedure TfrmGER006.sbGER004Click(Sender: TObject);
+procedure TfrmGER007.sbGER004Click(Sender: TObject);
 begin
     inherited;
   try
@@ -136,7 +142,7 @@ begin
 
 end;
 
-procedure TfrmGER006.sbGER005Click(Sender: TObject);
+procedure TfrmGER007.sbGER005Click(Sender: TObject);
 begin
   inherited;
   try

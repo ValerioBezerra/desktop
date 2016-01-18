@@ -113,7 +113,7 @@ object frmRelatorios: TfrmRelatorios
     object ppHeaderBand1: TppHeaderBand
       Background.Brush.Style = bsClear
       mmBottomOffset = 0
-      mmHeight = 21431
+      mmHeight = 25929
       mmPrintPosition = 0
       object ppLabel1: TppLabel
         DesignLayer = ppDesignLayer2
@@ -163,8 +163,8 @@ object frmRelatorios: TfrmRelatorios
         TextAlignment = taCentered
         Transparent = True
         mmHeight = 4498
-        mmLeft = 124884
-        mmTop = 15610
+        mmLeft = 5821
+        mmTop = 10319
         mmWidth = 11377
         BandType = 0
         LayerName = Foreground1
@@ -182,8 +182,8 @@ object frmRelatorios: TfrmRelatorios
         TextAlignment = taCentered
         Transparent = True
         mmHeight = 4498
-        mmLeft = 151342
-        mmTop = 15610
+        mmLeft = 33073
+        mmTop = 10319
         mmWidth = 11377
         BandType = 0
         LayerName = Foreground1
@@ -201,9 +201,9 @@ object frmRelatorios: TfrmRelatorios
         TextAlignment = taCentered
         Transparent = True
         mmHeight = 4498
-        mmLeft = 143934
-        mmTop = 15610
-        mmWidth = 2116
+        mmLeft = 24342
+        mmTop = 10319
+        mmWidth = 2117
         BandType = 0
         LayerName = Foreground1
       end
@@ -213,7 +213,7 @@ object frmRelatorios: TfrmRelatorios
         Weight = 0.750000000000000000
         mmHeight = 2117
         mmLeft = 1852
-        mmTop = 20108
+        mmTop = 23023
         mmWidth = 209286
         BandType = 0
         LayerName = Foreground1
@@ -232,7 +232,7 @@ object frmRelatorios: TfrmRelatorios
         Transparent = True
         mmHeight = 4498
         mmLeft = 7408
-        mmTop = 15610
+        mmTop = 18525
         mmWidth = 19050
         BandType = 0
         LayerName = Foreground1
@@ -251,7 +251,7 @@ object frmRelatorios: TfrmRelatorios
         Transparent = True
         mmHeight = 4498
         mmLeft = 33338
-        mmTop = 15610
+        mmTop = 18525
         mmWidth = 11906
         BandType = 0
         LayerName = Foreground1
@@ -270,8 +270,27 @@ object frmRelatorios: TfrmRelatorios
         Transparent = True
         mmHeight = 4498
         mmLeft = 90752
-        mmTop = 15610
+        mmTop = 18525
         mmWidth = 8731
+        BandType = 0
+        LayerName = Foreground1
+      end
+      object ppLabel9: TppLabel
+        DesignLayer = ppDesignLayer2
+        UserName = 'Label9'
+        Caption = 'Qtde'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 11
+        Font.Style = []
+        FormField = False
+        TextAlignment = taCentered
+        Transparent = True
+        mmHeight = 4498
+        mmLeft = 117740
+        mmTop = 18525
+        mmWidth = 8467
         BandType = 0
         LayerName = Foreground1
       end
@@ -336,6 +355,26 @@ object frmRelatorios: TfrmRelatorios
         DataPipelineName = 'ppBDEPipeline1'
         mmHeight = 4498
         mmLeft = 90752
+        mmTop = 1058
+        mmWidth = 17198
+        BandType = 4
+        LayerName = Foreground1
+      end
+      object ppDBText4: TppDBText
+        DesignLayer = ppDesignLayer2
+        UserName = 'DBText4'
+        DataField = 'QTDE_PED'
+        DataPipeline = ppBDEPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 11
+        Font.Style = []
+        TextAlignment = taCentered
+        Transparent = True
+        DataPipelineName = 'ppBDEPipeline1'
+        mmHeight = 4498
+        mmLeft = 116417
         mmTop = 1058
         mmWidth = 17198
         BandType = 4

@@ -3,8 +3,7 @@ object DataModule1: TDataModule1
   Height = 751
   Width = 1033
   object Banco: TIBDatabase
-    Connected = True
-    DatabaseName = '127.0.0.1:E:\Projetos\TiaMaluca\Banco\TMDELIVERY.IB'
+    DatabaseName = 'C:\Users\Elison\Downloads\EDELIVERY\Recanto\Banco\TMDELIVERY.IB'
     Params.Strings = (
       'user_name=sysdba'
       'password=masterkey')
@@ -15,7 +14,6 @@ object DataModule1: TDataModule1
     Top = 40
   end
   object Transacao: TIBTransaction
-    Active = True
     DefaultDatabase = Banco
     Left = 128
     Top = 40
@@ -58,13 +56,13 @@ object DataModule1: TDataModule1
     ParamCheck = True
     SQL.Strings = (
       'select * from ESTTMO')
-    Left = 313
+    Left = 391
     Top = 27
   end
   object dspCONSULTA: TDataSetProvider
     DataSet = qryCONSULTA
     Options = [poAllowCommandText, poUseQuoteChar]
-    Left = 377
+    Left = 455
     Top = 27
   end
   object cdsCONSULTA: TClientDataSet
@@ -72,12 +70,12 @@ object DataModule1: TDataModule1
     CommandText = 'select * from ESTTMO'
     Params = <>
     ProviderName = 'dspCONSULTA'
-    Left = 433
+    Left = 511
     Top = 27
   end
   object dsCONSULTA: TDataSource
     DataSet = cdsCONSULTA
-    Left = 497
+    Left = 575
     Top = 27
   end
   object qryCLIENTE: TIBQuery
@@ -144,13 +142,13 @@ object DataModule1: TDataModule1
       
         'select * from PAGTIT LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = ' +
         'CODFOR_PAGTIT')
-    Left = 313
+    Left = 391
     Top = 83
   end
   object dspTELASCONSULTA: TDataSetProvider
     DataSet = qryTELASCONSULTA
     Options = [poAllowCommandText, poUseQuoteChar]
-    Left = 377
+    Left = 455
     Top = 83
   end
   object cdsTELASCONSULTA: TClientDataSet
@@ -160,12 +158,12 @@ object DataModule1: TDataModule1
       'CODFOR_PAGTIT'
     Params = <>
     ProviderName = 'dspTELASCONSULTA'
-    Left = 433
+    Left = 511
     Top = 83
   end
   object dsTELASCONSULTA: TDataSource
     DataSet = cdsTELASCONSULTA
-    Left = 497
+    Left = 575
     Top = 83
   end
   object qryPRO: TIBQuery
@@ -216,7 +214,7 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'select * from PRODUTOS')
+      'select * from ENTREGADOR')
     Left = 32
     Top = 416
   end
@@ -246,7 +244,7 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'select * from PRODUTOS')
+      'select * from PRODUTO_DIA ')
     Left = 32
     Top = 480
   end
@@ -295,8 +293,79 @@ object DataModule1: TDataModule1
     CachedUpdates = False
     ParamCheck = True
     SQL.Strings = (
-      'select * from PRODUTOS')
+      'select * from ENTREGADOR')
     Left = 32
     Top = 544
+  end
+  object qryGravar: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      
+        'select * from PAGTIT LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = ' +
+        'CODFOR_PAGTIT')
+    Left = 391
+    Top = 147
+  end
+  object dspGRAVAR: TDataSetProvider
+    DataSet = qryGravar
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 455
+    Top = 147
+  end
+  object cdsGRAVAR: TClientDataSet
+    Aggregates = <>
+    CommandText = 
+      'select * from PAGTIT LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = ' +
+      'CODFOR_PAGTIT'
+    Params = <>
+    ProviderName = 'dspGRAVAR'
+    Left = 511
+    Top = 147
+  end
+  object dsGRAVAR: TDataSource
+    DataSet = cdsGRAVAR
+    Left = 575
+    Top = 147
+  end
+  object qryRELATORIO: TIBQuery
+    Database = Banco
+    Transaction = Transacao
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      
+        'select * from pedido left outer join produto_pedido on seqped_px' +
+        'p = seq_ped left outer join produtos on cod_pro = codpro_pxp lef' +
+        't outer join cliente on cod_cli = codcli_ped')
+    Left = 383
+    Top = 211
+  end
+  object dspRELATORIO: TDataSetProvider
+    DataSet = qryRELATORIO
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 447
+    Top = 211
+  end
+  object cdsRELATORIO: TClientDataSet
+    Active = True
+    Aggregates = <>
+    CommandText = 
+      'select * from pedido left outer join produto_pedido on seqped_px' +
+      'p = seq_ped left outer join produtos on cod_pro = codpro_pxp lef' +
+      't outer join cliente on cod_cli = codcli_ped'
+    Params = <>
+    ProviderName = 'dspRELATORIO'
+    Left = 503
+    Top = 211
+  end
+  object dsRELATORIO: TDataSource
+    DataSet = cdsRELATORIO
+    Left = 567
+    Top = 211
   end
 end

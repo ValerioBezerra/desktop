@@ -3,6 +3,7 @@ object DataModule1: TDataModule1
   Height = 751
   Width = 1033
   object Banco: TIBDatabase
+    Connected = True
     DatabaseName = 'C:\Users\Elison\Downloads\EDELIVERY\Recanto\Banco\TMDELIVERY.IB'
     Params.Strings = (
       'user_name=sysdba'
@@ -14,6 +15,7 @@ object DataModule1: TDataModule1
     Top = 40
   end
   object Transacao: TIBTransaction
+    Active = True
     DefaultDatabase = Banco
     Left = 128
     Top = 40
@@ -154,8 +156,8 @@ object DataModule1: TDataModule1
   object cdsTELASCONSULTA: TClientDataSet
     Aggregates = <>
     CommandText = 
-      'select * from PAGTIT LEFT OUTER JOIN FORNECEDOR ON CODIGO_FOR = ' +
-      'CODFOR_PAGTIT'
+      'select * from pedido left outer join cliente on cod_cli = codcli' +
+      '_ped'
     Params = <>
     ProviderName = 'dspTELASCONSULTA'
     Left = 511

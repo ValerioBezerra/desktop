@@ -15,10 +15,10 @@ type
     dbeGER_FANTASIA_EMP: TDBEdit;
     dbneGER_ID_EMP: TKsDBNumberEdit;
     Label3: TLabel;
-    dbneGER_GERTLG_LOG: TKsDBNumberEdit;
-    sbGER005: TSpeedButton;
-    edGER_DESCRICAO_TLG: TEdit;
-    dbneGER_GERBAI_LOG: TKsDBNumberEdit;
+    dbneGER_GEREMP_EMP: TKsDBNumberEdit;
+    sbGER007: TSpeedButton;
+    edGER_RAZAOSOCIAL_EMP: TEdit;
+    dbneGER_GERBAI_EMP: TKsDBNumberEdit;
     sbGER004: TSpeedButton;
     edGER_NOME_BAI: TEdit;
     Label4: TLabel;
@@ -27,14 +27,24 @@ type
     dbrgGER_TIPOPESSOA_EMP: TDBRadioGroup;
     dbeGER_CPFCNPJ_EMP: TDBEdit;
     Label6: TLabel;
+    dbeGER_CEP_EMP: TDBEdit;
+    Label7: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
+    dbeGER_LOGRADOURO_EMP: TDBEdit;
+    dbeGER_NUMEROEND_EMP: TDBEdit;
+    Label8: TLabel;
+    dbeGER_REFERENCIAEND_EMP: TDBEdit;
+    Label9: TLabel;
+    dbneGER_CODIGO_EMP: TKsDBNumberEdit;
+    dbneGER_CODFIL_EMP: TKsDBNumberEdit;
     procedure FormCreate(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure dbneGER_GERTLG_LOGExit(Sender: TObject);
-    procedure sbGER005Click(Sender: TObject);
-    procedure dbneGER_GERTLG_LOGKeyDown(Sender: TObject; var Key: Word;
+    procedure dbneGER_GEREMP_EMPExit(Sender: TObject);
+    procedure sbGER007Click(Sender: TObject);
+    procedure dbneGER_GEREMP_EMPKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure dbneGER_GERBAI_LOGExit(Sender: TObject);
+    procedure dbneGER_GERBAI_EMPExit(Sender: TObject);
     procedure sbGER004Click(Sender: TObject);
   private
     { Private declarations }
@@ -50,7 +60,7 @@ implementation
 {$R *.dfm}
 
 uses uCMKingGeral, uUtil, uFrmGER002Consulta, uFrmGER005Consulta,
-  uFrmGER004Consulta;
+  uFrmGER004Consulta, uFrmGER007Consulta;
 
 procedure TfrmGER007.btnSalvarClick(Sender: TObject);
 begin
@@ -70,11 +80,11 @@ begin
     end;
 end;
 
-procedure TfrmGER007.dbneGER_GERBAI_LOGExit(Sender: TObject);
+procedure TfrmGER007.dbneGER_GERBAI_EMPExit(Sender: TObject);
 begin
 
     cmKingGeral.cdsConsulta.Close;
-  cmKingGeral.cdsConsulta.CommandText := ' SELECT * FROM GER_BAI WHERE GER_ID_BAI = ' + IntToStr(cdsPadrao.FieldByName('GER_GERBAI_LOG').AsInteger);
+  cmKingGeral.cdsConsulta.CommandText := ' SELECT * FROM GER_BAI WHERE GER_ID_BAI = ' + IntToStr(cdsPadrao.FieldByName('GER_GERBAI_EMP').AsInteger);
   cmKingGeral.cdsConsulta.Open;
 
   if (cmKingGeral.cdsConsulta.IsEmpty) then
@@ -83,31 +93,34 @@ begin
     edGER_NOME_BAI.Text := cmKingGeral.cdsConsulta.FieldByName('GER_NOME_BAI').AsString;
 end;
 
-procedure TfrmGER007.dbneGER_GERTLG_LOGExit(Sender: TObject);
+procedure TfrmGER007.dbneGER_GEREMP_EMPExit(Sender: TObject);
 begin
   cmKingGeral.cdsConsulta.Close;
-  cmKingGeral.cdsConsulta.CommandText := ' SELECT * FROM GER_TLG WHERE GER_ID_TLG = ' + IntToStr(cdsPadrao.FieldByName('GER_GERTLG_LOG').AsInteger);
+  cmKingGeral.cdsConsulta.CommandText := ' SELECT * FROM GER_EMP WHERE GER_ID_EMP = ' + IntToStr(cdsPadrao.FieldByName('GER_GEREMP_EMP').AsInteger);
   cmKingGeral.cdsConsulta.Open;
 
   if (cmKingGeral.cdsConsulta.IsEmpty) then
-    edGER_DESCRICAO_TLG.Text := 'Tipo não cadastrado'
+    edGER_RAZAOSOCIAL_EMP.Text := 'Empresa não cadastrada'
   else
-    edGER_DESCRICAO_TLG.Text := cmKingGeral.cdsConsulta.FieldByName('GER_DESCRICAO_TLG').AsString;
+    edGER_RAZAOSOCIAL_EMP.Text := cmKingGeral.cdsConsulta.FieldByName('GER_RAZAOSOCIAL_EMP').AsString;
 end;
 
-procedure TfrmGER007.dbneGER_GERTLG_LOGKeyDown(Sender: TObject; var Key: Word;
+procedure TfrmGER007.dbneGER_GEREMP_EMPKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
   if (Ord(Key) = VK_F1) then
-    sbGER005Click(Self);
+    sbGER007Click(Self);
 end;
 
 procedure TfrmGER007.FormCreate(Sender: TObject);
 begin
   inherited;
-  cdsPadrao    := cmKingGeral.cdsGER_LOG;
-  TabelaPadrao := 'GER_LOG';
+  cdsPadrao    := cmKingGeral.cdsGER_EMP;
+  TabelaPadrao := 'GER_EMP';
+  cmKingGeral.cdsGER_TLG.Close;
+  CmKingGeral.cdsGER_TLG.CommandText := ' select * from ger_tlg';
+  cmKingGeral.cdsGER_TLG.Open;
 end;
 
 
@@ -129,9 +142,9 @@ begin
 
     if (frmGER004Consulta.Confirmou) then
       begin
-        dbneGER_GERBAI_LOG.SetFocus;
-        cdsPadrao.FieldByName('GER_GERBAI_LOG').AsInteger := frmGER004Consulta.cdsConsulta.FieldByName('GER_ID_BAI').AsInteger;
-        dbneGER_GERBAI_LOGExit(Self);
+        dbneGER_GERBAI_EMP.SetFocus;
+        cdsPadrao.FieldByName('GER_GERBAI_EMP').AsInteger := frmGER004Consulta.cdsConsulta.FieldByName('GER_ID_BAI').AsInteger;
+        dbneGER_GERBAI_EMPExit(Self);
       end;
   finally
     TUtil.CarregarModuloPrograma(cmKingGeral.cdsConsulta);
@@ -139,19 +152,19 @@ begin
 
 end;
 
-procedure TfrmGER007.sbGER005Click(Sender: TObject);
+procedure TfrmGER007.sbGER007Click(Sender: TObject);
 begin
   inherited;
   try
-    Application.CreateForm(TfrmGER005Consulta, frmGER005Consulta);
-    frmGER005Consulta.MostrarConfirmar := True;
-    frmGER005Consulta.ShowModal;
+    Application.CreateForm(TfrmGER007Consulta, frmGER007Consulta);
+    frmGER007Consulta.MostrarConfirmar := True;
+    frmGER007Consulta.ShowModal;
 
     if (frmGER005Consulta.Confirmou) then
       begin
-        dbneGER_GERTLG_LOG.SetFocus;
-        cdsPadrao.FieldByName('GER_GERTLG_LOG').AsInteger := frmGER005Consulta.cdsConsulta.FieldByName('GER_ID_TLG').AsInteger;
-        dbneGER_GERTLG_LOGExit(Self);
+        dbneGER_CODIGO_EMP.SetFocus;
+        cdsPadrao.FieldByName('GER_GEREMP_EMP').AsInteger := frmGER007Consulta.cdsConsulta.FieldByName('GER_ID_EMP').AsInteger;
+        dbneGER_GEREMP_EMPExit(Self);
       end;
   finally
     TUtil.CarregarModuloPrograma(cmKingGeral.cdsConsulta);

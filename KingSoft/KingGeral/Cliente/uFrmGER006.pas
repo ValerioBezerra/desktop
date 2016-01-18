@@ -12,8 +12,8 @@ type
   TfrmGER006 = class(TfrmPadrao)
     Label1: TLabel;
     Label2: TLabel;
-    dbeGER_NOME_CID: TDBEdit;
-    dbneGER_ID_CID: TKsDBNumberEdit;
+    dbeGER_LOGRADOURO_LOG: TDBEdit;
+    dbneGER_ID_LOG: TKsDBNumberEdit;
     Label3: TLabel;
     dbneGER_GERTLG_LOG: TKsDBNumberEdit;
     sbGER005: TSpeedButton;
@@ -63,7 +63,7 @@ begin
   if (erroPadrao) then
     begin
       cdsPadrao.Edit;
-      dbeGER_NOME_CID.SetFocus;
+      dbeGER_CEP_LOG.SetFocus;
     end;
 end;
 

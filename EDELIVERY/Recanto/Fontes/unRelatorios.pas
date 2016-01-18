@@ -42,6 +42,8 @@ type
     ppHeaderBand2: TppHeaderBand;
     ppDetailBand2: TppDetailBand;
     ppFooterBand2: TppFooterBand;
+    ppLabel9: TppLabel;
+    ppDBText4: TppDBText;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -74,7 +76,8 @@ begin
    DataModule1.cdsTELASCONSULTA.First;
    while not DataModule1.cdsTELASCONSULTA.Eof do
    begin
-     Total := Total + DataModule1.cdsTELASCONSULTA.FieldByName('VALOR_PED').AsCurrency;
+     Total := Total + (DataModule1.cdsTELASCONSULTA.FieldByName('VALOR_PED').AsCurrency *
+                       DataModule1.cdsTELASCONSULTA.FieldByName('QTDE_PED').AsCurrency ) ;
      DataModule1.cdsTELASCONSULTA.Next;
    end;
      VTotal.Caption := 'R$' + CurrtoStr(Total);
