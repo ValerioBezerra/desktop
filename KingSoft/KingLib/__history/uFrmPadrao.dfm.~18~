@@ -4,7 +4,7 @@ object frmPadrao: TfrmPadrao
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'frmPadrao'
-  ClientHeight = 255
+  ClientHeight = 131
   ClientWidth = 491
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -15,7 +15,9 @@ object frmPadrao: TfrmPadrao
   KeyPreview = True
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnCreate = FormCreate
   OnKeyPress = FormKeyPress
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -25,20 +27,20 @@ object frmPadrao: TfrmPadrao
     Height = 12
     Align = alTop
     BevelOuter = bvNone
-    TabOrder = 0
+    TabOrder = 2
   end
   object pnlBotoes: TPanel
     Left = 371
     Top = 12
     Width = 112
-    Height = 224
+    Height = 100
     Align = alRight
     BevelKind = bkTile
     BevelOuter = bvNone
-    TabOrder = 1
+    TabOrder = 3
     object btnFechar: TBitBtn
       Left = 7
-      Top = 188
+      Top = 68
       Width = 94
       Height = 25
       Caption = 'Fechar (ESC)'
@@ -56,7 +58,7 @@ object frmPadrao: TfrmPadrao
         0333337F3F7F33337F333301E10BBBBB0333337F7F7F33337F333301EE0BBBBB
         0333337F777FFFFF7F3333000000000003333377777777777333}
       NumGlyphs = 2
-      TabOrder = 0
+      TabOrder = 1
       OnClick = btnFecharClick
     end
     object btnSalvar: TBitBtn
@@ -79,7 +81,7 @@ object frmPadrao: TfrmPadrao
         00037F7F333333337F7F000FFFFFFFFF07037F7F33333333777F000FFFFFFFFF
         0003737FFFFFFFFF7F7330099999999900333777777777777733}
       NumGlyphs = 2
-      TabOrder = 1
+      TabOrder = 0
       OnClick = btnSalvarClick
     end
   end
@@ -87,33 +89,29 @@ object frmPadrao: TfrmPadrao
     Left = 483
     Top = 12
     Width = 8
-    Height = 224
+    Height = 100
     Align = alRight
     BevelOuter = bvNone
-    TabOrder = 2
+    TabOrder = 1
   end
   object pnlPrincipal: TPanel
     Left = 0
     Top = 12
     Width = 371
-    Height = 224
+    Height = 100
     Align = alClient
     BevelOuter = bvNone
-    TabOrder = 3
+    TabOrder = 0
   end
   object stbInformacao: TStatusBar
     Left = 0
-    Top = 236
+    Top = 112
     Width = 491
     Height = 19
     Panels = <
       item
         Alignment = taCenter
         Width = 100
-      end
-      item
-        Alignment = taCenter
-        Width = 150
       end
       item
         Width = 300
@@ -123,6 +121,6 @@ object frmPadrao: TfrmPadrao
     Interval = 50
     OnTimer = TimerTimer
     Left = 320
-    Top = 192
+    Top = 16
   end
 end

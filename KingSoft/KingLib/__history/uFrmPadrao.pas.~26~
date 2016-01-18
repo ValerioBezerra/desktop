@@ -22,16 +22,17 @@ type
     procedure TimerTimer(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   protected
     ErroPadrao: Boolean;
     cdsPadrao: TClientDataSet;
-    cdsVerificarAutorizacao: TClientDataSet;
     TabelaPadrao: String;
   private
     { Private declarations }
   public
     { Public declarations }
     OperacaoPadrao: String;
+    ApenasVisualizacao: Boolean;
   end;
 
 var
@@ -53,6 +54,11 @@ begin
   ErroPadrao := (cdsPadrao.ApplyUpdates(0) > 0);
 end;
 
+procedure TfrmPadrao.FormCreate(Sender: TObject);
+begin
+  ApenasVisualizacao := False;
+end;
+
 procedure TfrmPadrao.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   if (Ord(Key) = VK_ESCAPE) then
@@ -70,13 +76,22 @@ end;
 
 procedure TfrmPadrao.FormShow(Sender: TObject);
 begin
-  TUtil.CarregarModuloPrograma(cdsVerificarAutorizacao);
-
   Caption                      := 'KingErp - ' + TUtil.Programa.Modulo.Descricao + ' - ' + TUtil.Programa.Descricao;
   stbInformacao.Panels[0].Text := TUtil.Programa.Modulo.Sigla + TUtil.Programa.Codigo;
 
   if (cdsPadrao.State = dsInsert) then
     TUtil.IniciarClientDataSet(cdsPadrao);
+
+  if (ApenasVisualizacao) then
+    begin
+      TUtil.HabilitarDesabilitarElementos(Self, 'D');
+      btnSalvar.Visible := False;
+    end
+  else
+    begin
+      TUtil.HabilitarDesabilitarElementos(Self, 'H');
+      btnSalvar.Visible := True;
+    end;
 end;
 
 procedure TfrmPadrao.TimerTimer(Sender: TObject);

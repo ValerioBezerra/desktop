@@ -74,6 +74,12 @@ begin
 
   if (cdsPadrao.State = dsInsert) then
     TUtil.IniciarClientDataSet(cdsPadrao);
+
+  if (OperacaoPadrao = 'V') then
+    begin
+      TUtil.HabilitarDesabilitarElementos(Self, 'D');
+      btnSalvar.Enabled := False;
+    end;
 end;
 
 procedure TfrmPadrao.TimerTimer(Sender: TObject);

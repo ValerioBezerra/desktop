@@ -15,18 +15,20 @@ type
     Panel2: TPanel;
     pnlPrincipal: TPanel;
     stbInformacao: TStatusBar;
-    btnSalvar: TBitBtn;
     Timer: TTimer;
+    btnSalvar: TBitBtn;
     procedure btnFecharClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure TimerTimer(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
-  private
-    { Private declarations }
+    procedure FormCreate(Sender: TObject);
+  protected
     ErroPadrao: Boolean;
     cdsPadrao: TClientDataSet;
     TabelaPadrao: String;
+  private
+    { Private declarations }
   public
     { Public declarations }
     OperacaoPadrao: String;
@@ -51,6 +53,11 @@ begin
   ErroPadrao := (cdsPadrao.ApplyUpdates(0) > 0);
 end;
 
+procedure TfrmPadrao.FormCreate(Sender: TObject);
+begin
+  ApenasVisualizacao := False;
+end;
+
 procedure TfrmPadrao.FormKeyPress(Sender: TObject; var Key: Char);
 begin
   if (Ord(Key) = VK_ESCAPE) then
@@ -70,12 +77,25 @@ procedure TfrmPadrao.FormShow(Sender: TObject);
 begin
   Caption                      := 'KingErp - ' + TUtil.Programa.Modulo.Descricao + ' - ' + TUtil.Programa.Descricao;
   stbInformacao.Panels[0].Text := TUtil.Programa.Modulo.Sigla + TUtil.Programa.Codigo;
+
+  if (cdsPadrao.State = dsInsert) then
+    TUtil.IniciarClientDataSet(cdsPadrao);
+
+  if (OperacaoPadrao = 'V') then
+    begin
+      TUtil.HabilitarDesabilitarElementos(Self, 'D');
+      btnSalvar.Visible := False;
+    end
+  else
+    begin
+      TUtil.HabilitarDesabilitarElementos(Self, 'H');
+      btnSalvar.Visible := True;
+    end;
 end;
 
 procedure TfrmPadrao.TimerTimer(Sender: TObject);
 begin
-  stbInformacao.Panels[2].Text := TUtil.MoverHint(Self);
-  TUtil.CorElementoEmFoco(Self);
+  stbInformacao.Panels[1].Text := TUtil.MoverHint(Self);
 end;
 
 end.

@@ -80,9 +80,6 @@ inherited frmGER001Consulta: TfrmGER001Consulta
     inherited btnEditar: TBitBtn
       OnClick = btnEditarClick
     end
-    inherited btnVisualizar: TBitBtn
-      OnClick = btnVisualizarClick
-    end
   end
   inherited cdsConsulta: TClientDataSet
     CommandText = 'SELECT * FROM GER_PAI WHERE 1 = 0'

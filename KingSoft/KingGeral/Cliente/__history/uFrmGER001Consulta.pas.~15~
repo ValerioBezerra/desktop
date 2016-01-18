@@ -84,6 +84,7 @@ begin
     PreencherCdsPadrao(cdsConsulta.FieldByName('GER_ID_PAI').AsInteger);
     Application.CreateForm(TfrmGER001, frmGER001);
     frmGER001.OperacaoPadrao := 'V';
+    frmGER001.ApenasVisualizacao := True;
     frmGER001.ShowModal;
     frmGER001.Free;
   finally

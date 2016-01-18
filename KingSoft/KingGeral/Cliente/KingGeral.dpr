@@ -25,12 +25,19 @@ uses
   uFrmGER001 in 'uFrmGER001.pas' {frmGER001},
   uFrmGER002 in 'uFrmGER002.pas' {frmGER002},
   uFrmGER002Consulta in 'uFrmGER002Consulta.pas' {frmGER002Consulta},
+<<<<<<< HEAD
   uFrmGER007Consulta in 'uFrmGER007Consulta.pas' {frmGER007Consulta},
   uFrmGER007 in 'uFrmGER007.pas' {frmGER007},
   uFrmGER003 in 'uFrmGER003.pas' {frmGER003},
   uFrmGER003Consulta in 'uFrmGER003Consulta.pas' {frmGER003Consulta},
   uFrmGER006 in 'uFrmGER006.pas' {frmGER006},
   uFrmGER006Consulta in 'uFrmGER006Consulta.pas' {frmGER006Consulta};
+=======
+  uFrmGER006Consulta in 'uFrmGER006Consulta.pas' {frmGER006Consulta},
+  uFrmGER006 in 'uFrmGER006.pas' {frmGER006},
+  uFrmGER003 in 'uFrmGER003.pas' {frmGER003},
+  uFrmGER003Consulta in 'uFrmGER003Consulta.pas' {frmGER003Consulta};
+>>>>>>> 36ba314cf026bfe58bec35c37e765d2c18af8f47
 
 {$R *.res}
 

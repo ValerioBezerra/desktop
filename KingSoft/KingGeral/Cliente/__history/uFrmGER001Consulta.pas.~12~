@@ -15,6 +15,7 @@ type
     procedure btnNovoClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure btnVisualizarClick(Sender: TObject);
   private
     { Private declarations }
     procedure PreencherCdsPadrao(Id: Integer);
@@ -29,7 +30,7 @@ implementation
 
 {$R *.dfm}
 
-uses uCMKingAutorizacao, uCCKingAutorizacao, uUtil, uFrmGER002, uCMKingGeral;
+uses uCMKingGeral, uCCKingGeral, uUtil, uFrmGER001;
 
 procedure TfrmGER001Consulta.btnApagarClick(Sender: TObject);
 begin
@@ -37,7 +38,7 @@ begin
   if (TUtil.ExibirPergunta('Tem certeza que deseja excluir?')) then
     begin
       PreencherCdsPadrao(cdsConsulta.FieldByName('GER_ID_PAI').AsInteger);
-      erroPadrao := not(cmKingAutorizacao.TestarDados(TUtil.Empresa.Id, TabelaPadrao, OperacaoPadrao, cdsPadrao.Data));
+      erroPadrao := not(cmKingGeral.TestarDados(TUtil.Empresa.Id, TabelaPadrao, OperacaoPadrao, cdsPadrao.Data));
 
       if not(erroPadrao) then
         begin
@@ -53,10 +54,10 @@ begin
   inherited;
   try
     PreencherCdsPadrao(cdsConsulta.FieldByName('GER_ID_PAI').AsInteger);
-    Application.CreateForm(TfrmGER002, frmGER002);
-    frmGER002.OperacaoPadrao := 'U';
-    frmGER002.ShowModal;
-    frmGER002.Free;
+    Application.CreateForm(TfrmGER001, frmGER001);
+    frmGER001.OperacaoPadrao := 'U';
+    frmGER001.ShowModal;
+    frmGER001.Free;
   finally
     btnPesquisarClick(self);
   end;
@@ -67,10 +68,25 @@ begin
   inherited;
   try
     PreencherCdsPadrao(0);
-    Application.CreateForm(TfrmGER002, frmGER002);
-    frmGER002.OperacaoPadrao := 'I';
-    frmGER002.ShowModal;
-    frmGER002.Free;
+    Application.CreateForm(TfrmGER001, frmGER001);
+    frmGER001.OperacaoPadrao := 'I';
+    frmGER001.ShowModal;
+    frmGER001.Free;
+  finally
+    btnPesquisarClick(self);
+  end;
+end;
+
+procedure TfrmGER001Consulta.btnVisualizarClick(Sender: TObject);
+begin
+  inherited;
+  try
+    PreencherCdsPadrao(cdsConsulta.FieldByName('GER_ID_PAI').AsInteger);
+    Application.CreateForm(TfrmGER001, frmGER001);
+    frmGER001.OperacaoPadrao     := 'U';
+    frmGER001.ApenasVisualizacao := True;
+    frmGER001.ShowModal;
+    frmGER001.Free;
   finally
     btnPesquisarClick(self);
   end;
@@ -81,12 +97,15 @@ begin
   inherited;
   Campos        := '*';
   Tabela        := 'GER_PAI';
-  CampoConsulta := 'GER_DESCRICAO_PAI';
-  OrderBy       := 'GER_DESCRICAO_PAI';
+  CampoConsulta := 'GER_NOME_PAI';
+  OrderBy       := 'GER_NOME_PAI';
 
-
-  cdsPadrao    := cmKingAutorizacao.cdsGER_PAI;
+  cdsPadrao    := cmKingGeral.cdsGER_PAI;
   TabelaPadrao := 'GER_PAI';
+
+  cdsVerificarAutorizacao := cmKingGeral.cdsConsulta;
+  SiglaModulo             := 'GER';
+  CodigoPrograma          := '001';
 end;
 
 procedure TfrmGER001Consulta.FormKeyDown(Sender: TObject; var Key: Word;
@@ -99,9 +118,9 @@ begin
     btnEditarClick(Sender);
   if ((Ord(Key) = VK_F4) and (btnApagar.Enabled)) then
     btnApagarClick(Sender);
-  if (Ord(Key) = VK_F5) then
+  if (Ord(Key) = VK_F6) then
     btnPesquisarClick(Sender);
-  if ((Ord(Key) = VK_F6) and (btnConfirmar.Visible) and (btnConfirmar.Enabled)) then
+  if ((Ord(Key) = VK_F7) and (btnConfirmar.Visible) and (btnConfirmar.Enabled)) then
     btnConfirmarClick(Sender);
 end;
 

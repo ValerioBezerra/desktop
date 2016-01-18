@@ -31,6 +31,7 @@ type
   public
     { Public declarations }
     OperacaoPadrao: String;
+    ApenasVisualizacao: Boolean;
   end;
 
 var
@@ -78,7 +79,7 @@ end;
 
 procedure TfrmPadrao.TimerTimer(Sender: TObject);
 begin
-  stbInformacao.Panels[2].Text := TUtil.MoverHint(Self);
+  stbInformacao.Panels[1].Text := TUtil.MoverHint(Self);
 end;
 
 end.

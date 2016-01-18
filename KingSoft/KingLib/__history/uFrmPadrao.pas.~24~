@@ -22,16 +22,17 @@ type
     procedure TimerTimer(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   protected
     ErroPadrao: Boolean;
     cdsPadrao: TClientDataSet;
-    cdsVerificarAutorizacao: TClientDataSet;
     TabelaPadrao: String;
   private
     { Private declarations }
   public
     { Public declarations }
     OperacaoPadrao: String;
+    ApenasVisualizacao: Boolean;
   end;
 
 var
@@ -51,6 +52,11 @@ end;
 procedure TfrmPadrao.btnSalvarClick(Sender: TObject);
 begin
   ErroPadrao := (cdsPadrao.ApplyUpdates(0) > 0);
+end;
+
+procedure TfrmPadrao.FormCreate(Sender: TObject);
+begin
+  ApenasVisualizacao := False;
 end;
 
 procedure TfrmPadrao.FormKeyPress(Sender: TObject; var Key: Char);
@@ -75,6 +81,11 @@ begin
 
   if (cdsPadrao.State = dsInsert) then
     TUtil.IniciarClientDataSet(cdsPadrao);
+
+  if (ApenasVisualizacao) then
+    begin
+      btnSalvar.Visible := False;
+    end;
 end;
 
 procedure TfrmPadrao.TimerTimer(Sender: TObject);

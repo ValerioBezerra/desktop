@@ -25,7 +25,6 @@ type
   protected
     ErroPadrao: Boolean;
     cdsPadrao: TClientDataSet;
-    cdsVerificarAutorizacao: TClientDataSet;
     TabelaPadrao: String;
   private
     { Private declarations }
@@ -70,13 +69,22 @@ end;
 
 procedure TfrmPadrao.FormShow(Sender: TObject);
 begin
-  TUtil.CarregarModuloPrograma();
-
   Caption                      := 'KingErp - ' + TUtil.Programa.Modulo.Descricao + ' - ' + TUtil.Programa.Descricao;
   stbInformacao.Panels[0].Text := TUtil.Programa.Modulo.Sigla + TUtil.Programa.Codigo;
 
   if (cdsPadrao.State = dsInsert) then
     TUtil.IniciarClientDataSet(cdsPadrao);
+
+  if (OperacaoPadrao = 'V') then
+    begin
+      TUtil.HabilitarDesabilitarElementos(Self, 'D');
+      btnSalvar.Visible := False;
+    end
+  else
+    begin
+      TUtil.HabilitarDesabilitarElementos(Self, 'H');
+      btnSalvar.Visible := True;
+    end;
 end;
 
 procedure TfrmPadrao.TimerTimer(Sender: TObject);

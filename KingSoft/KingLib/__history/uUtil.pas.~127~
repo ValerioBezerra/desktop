@@ -16,6 +16,7 @@ type
     class procedure CarregarEmpresa(cds: TClientDataSet);
     class procedure CarregarUsuario(cds: TClientDataSet);
     class procedure CorElementoEmFoco(Formulario: TForm);
+    class procedure HabilitarDesabilitarElementos(Formulario: TForm; HabilitarDesabilitar: Char);
     class procedure IniciarClientDataSet(cds: TClientDataSet);
     class procedure ExibirMensagem(const Mensagem: String; Tipo: Char = ' ');
     class function  ExibirPergunta(const Mensagem: String): Boolean;
@@ -88,7 +89,7 @@ begin
 
   if (cds.IsEmpty) then
     begin
-      Result := False;
+      Retorno := False;
       raise Exception.Create('Programa não cadastrado. Entre em contato com a King Soft.');
     end
   else
@@ -104,10 +105,10 @@ begin
       Programa.Codigo            := cds.FieldByName('AUT_CODIGO_PRO').AsString;
       Programa.Descricao         := cds.FieldByName('AUT_DESCRICAO_PRO').AsString;
       Programa.MenuPrincipal     := (cds.FieldByName('AUT_MENUPRINCIPAL_PRO').AsInteger = 1);
-      Programa.Visualizar        := False;
       Programa.Incluir           := False;
       Programa.Editar            := False;
       Programa.Apagar            := False;
+      Programa.Visualizar        := False;
 
       cds.Close;
       cds.CommandText := ' SELECT AUT_INCLUIR_APE AS INCLUIR, ' +
@@ -131,22 +132,14 @@ begin
 
       if not(cds.IsEmpty) then
         begin
-          Programa.Visualizar := True;
           Programa.Incluir    := (cds.FieldByName('INCLUIR').AsInteger = 1);
           Programa.Editar     := (cds.FieldByName('EDITAR').AsInteger = 1);
           Programa.Apagar     := (cds.FieldByName('APAGAR').AsInteger = 1);
+          Programa.Visualizar := True;
         end;
     end;
 
-
-
-
-  if (cds.IsEmpty) then
-    begin
-    end
-  else
-    begin
-    end;
+  Result := Retorno;
 end;
 
 class procedure TUtil.CarregarUsuario(cds: TClientDataSet);
@@ -290,6 +283,72 @@ end;
 class function TUtil.ExibirPergunta(const Mensagem: String): Boolean;
 begin
   Result := (Application.MessageBox(PChar(Mensagem), 'King Soft', MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) = IDYES);
+end;
+
+class procedure TUtil.HabilitarDesabilitarElementos(Formulario: TForm; HabilitarDesabilitar: Char);
+var
+ I: Integer;
+begin
+  for I := 0 to Formulario.ComponentCount - 1 do
+    begin
+      if (Formulario.Components[I] is TDBEdit) and
+         ((Formulario.Components[I] as TDBEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TDBEdit).ReadOnly := (HabilitarDesabilitar = 'D');
+        end;
+
+      if (Formulario.Components[I] is TKsNumberEdit) and
+         ((Formulario.Components[I] as TKsNumberEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TKsNumberEdit).ReadOnly := (HabilitarDesabilitar = 'D');
+        end;
+
+      if (Formulario.Components[I] is TKsDBNumberEdit) and
+         ((Formulario.Components[I] as TKsDBNumberEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TKsDBNumberEdit).ReadOnly := (HabilitarDesabilitar = 'D');
+        end;
+
+      if (Formulario.Components[I] is TEdit) and
+         ((Formulario.Components[I] as TEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TEdit).ReadOnly := (HabilitarDesabilitar = 'D');
+        end;
+
+      if (Formulario.Components[I] is TDBMemo) and
+         ((Formulario.Components[I] as TDBMemo).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TDBMemo).ReadOnly := (HabilitarDesabilitar = 'D');
+        end;
+
+      if (Formulario.Components[I] is TMemo) and
+         ((Formulario.Components[I] as TMemo).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TMemo).ReadOnly := (HabilitarDesabilitar = 'D');
+        end;
+
+      if (Formulario.Components[I] is TMaskEdit) and
+         ((Formulario.Components[I] as TMaskEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TMaskEdit).ReadOnly := (HabilitarDesabilitar = 'D');
+        end;
+
+      if (Formulario.Components[I] is TKsDateEdit) and
+         ((Formulario.Components[I] as TKsDateEdit).Tag in [0,5]) then
+        begin
+          (Formulario.Components[I] as TKsDateEdit).ReadOnly := (HabilitarDesabilitar = 'D');
+        end;
+
+      if (Formulario.Components[I] is TKsDBDateEdit) and
+         ((Formulario.Components[I] as TKsDBDateEdit).Tag in [0,5]) and
+         ((Formulario.Components[I] as TKsDBDateEdit).Enabled and not((Formulario.Components[I] as TKsDBDateEdit).ReadOnly)) then
+        begin
+          if (Formulario.ActiveControl = Formulario.Components[I]) then
+            (Formulario.Components[I] as TKsDBDateEdit).Color := clSkyBlue
+          else
+            (Formulario.Components[I] as TKsDBDateEdit).Color := clWindow;
+        end;
+    end;
 end;
 
 class procedure TUtil.IniciarClientDataSet(cds: TClientDataSet);
