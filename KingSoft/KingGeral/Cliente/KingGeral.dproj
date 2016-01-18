@@ -77,15 +77,21 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
 =======
+=======
+>>>>>>> 36ba314cf026bfe58bec35c37e765d2c18af8f47
         <DCC_ExeOutput>C:\KingErp\</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Debugger_RunParams>GER001 1 2 e10adc3949ba59abbe56e057f20f883e</Debugger_RunParams>
+<<<<<<< HEAD
+>>>>>>> 36ba314cf026bfe58bec35c37e765d2c18af8f47
+=======
 >>>>>>> 36ba314cf026bfe58bec35c37e765d2c18af8f47
     </PropertyGroup>
     <ItemGroup>
@@ -180,8 +186,11 @@
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k210.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp210.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k210.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcbofficexp210.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+=======
+>>>>>>> 36ba314cf026bfe58bec35c37e765d2c18af8f47
 =======
 >>>>>>> 36ba314cf026bfe58bec35c37e765d2c18af8f47
                 </Excluded_Packages>
