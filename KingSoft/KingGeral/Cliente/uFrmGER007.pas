@@ -66,7 +66,7 @@ begin
   if (erroPadrao) then
     begin
       cdsPadrao.Edit;
-      dbeGER_NOME_CID.SetFocus;
+      dbeGER_RAZAOSOCIAL_EMP.SetFocus;
     end;
 end;
 

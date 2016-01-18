@@ -10,10 +10,12 @@ inherited frmGER007: TfrmGER007
   TextHeight = 13
   inherited Panel1: TPanel
     Width = 627
+    ExplicitWidth = 627
   end
   inherited pnlBotoes: TPanel
     Left = 507
     Height = 293
+    ExplicitLeft = 507
     ExplicitHeight = 192
     inherited btnFechar: TBitBtn
       Top = 85
@@ -23,11 +25,13 @@ inherited frmGER007: TfrmGER007
   inherited Panel2: TPanel
     Left = 619
     Height = 293
+    ExplicitLeft = 619
     ExplicitHeight = 192
   end
   inherited pnlPrincipal: TPanel
     Width = 507
     Height = 293
+    ExplicitWidth = 507
     ExplicitHeight = 192
     object Label1: TLabel
       Left = 10
@@ -309,5 +313,6 @@ inherited frmGER007: TfrmGER007
     Top = 305
     Width = 627
     ExplicitTop = 204
+    ExplicitWidth = 627
   end
 end
