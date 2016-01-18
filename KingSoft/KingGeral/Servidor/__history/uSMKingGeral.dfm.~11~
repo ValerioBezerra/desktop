@@ -97,15 +97,4 @@ object SMKingGeral: TSMKingGeral
     Left = 442
     Top = 162
   end
-  object fdqGER_EMP: TFDQuery
-    Connection = FDConnection
-    Left = 522
-    Top = 115
-  end
-  object dspGER_EMP: TDataSetProvider
-    DataSet = fdqGER_EMP
-    Options = [poFetchBlobsOnDemand, poFetchDetailsOnDemand, poAllowCommandText]
-    Left = 522
-    Top = 162
-  end
 end

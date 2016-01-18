@@ -126,7 +126,7 @@ object cmKingGeral: TcmKingGeral
     Left = 537
     Top = 120
   end
-  object dsGER_EMP: TDataSource
+  object DataSource1: TDataSource
     DataSet = cdsGER_EMP
     Left = 537
     Top = 168

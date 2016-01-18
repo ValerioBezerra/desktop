@@ -1,2 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject/>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/01/17 23:43:27.000.357,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER006.dfm=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER007.dfm</Transaction>
+    <Transaction>2016/01/17 23:43:27.000.356,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER006.pas=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER007.pas</Transaction>
+    <Transaction>2016/01/17 23:43:57.000.390,=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER006.pas</Transaction>
+    <Transaction>2016/01/17 23:45:39.000.080,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER006Consulta.pas=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER007Consulta.pas</Transaction>
+    <Transaction>2016/01/17 23:45:39.000.080,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER006Consulta.dfm=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER007Consulta.dfm</Transaction>
+    <Transaction>2016/01/17 23:46:00.000.354,=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER006Consulta.pas</Transaction>
+  </Transactions>
+</BorlandProject>

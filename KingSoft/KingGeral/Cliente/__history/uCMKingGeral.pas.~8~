@@ -25,8 +25,6 @@ type
     dsGER_TLG: TDataSource;
     cdsGER_LOG: TClientDataSet;
     dsGER_LOG: TDataSource;
-    cdsGER_EMP: TClientDataSet;
-    dsGER_EMP: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
   private
     FInstanceOwner: Boolean;

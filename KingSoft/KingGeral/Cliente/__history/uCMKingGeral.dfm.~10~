@@ -117,18 +117,4 @@ object cmKingGeral: TcmKingGeral
     Left = 473
     Top = 168
   end
-  object cdsGER_EMP: TClientDataSet
-    Aggregates = <>
-    CommandText = 'SELECT * FROM GER_EMP WHERE 1 = 0'
-    Params = <>
-    ProviderName = 'dspGER_EMP'
-    RemoteServer = DSProviderConnection
-    Left = 537
-    Top = 120
-  end
-  object dsGER_EMP: TDataSource
-    DataSet = cdsGER_EMP
-    Left = 537
-    Top = 168
-  end
 end

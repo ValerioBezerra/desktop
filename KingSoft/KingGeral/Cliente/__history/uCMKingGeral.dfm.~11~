@@ -121,12 +121,12 @@ object cmKingGeral: TcmKingGeral
     Aggregates = <>
     CommandText = 'SELECT * FROM GER_EMP WHERE 1 = 0'
     Params = <>
-    ProviderName = 'dspGER_EMP'
+    ProviderName = 'dspGER_LOG'
     RemoteServer = DSProviderConnection
     Left = 537
     Top = 120
   end
-  object dsGER_EMP: TDataSource
+  object DataSource1: TDataSource
     DataSet = cdsGER_EMP
     Left = 537
     Top = 168
