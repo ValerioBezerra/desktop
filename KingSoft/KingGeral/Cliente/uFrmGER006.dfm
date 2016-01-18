@@ -189,7 +189,7 @@ inherited frmGER006: TfrmGER006
       DataField = 'GER_LOGRADOURO_LOG'
       DataSource = cmKingGeral.dsGER_LOG
       MaxLength = 50
-      TabOrder = 1
+      TabOrder = 2
     end
     object dbneGER_ID_LOG: TKsDBNumberEdit
       Left = 8
@@ -218,7 +218,7 @@ inherited frmGER006: TfrmGER006
       Negativo = False
       MaxLength = 3
       ShowSeparator = True
-      TabOrder = 2
+      TabOrder = 3
       OnExit = dbneGER_GERTLG_LOGExit
       OnKeyDown = dbneGER_GERTLG_LOGKeyDown
     end
@@ -228,7 +228,7 @@ inherited frmGER006: TfrmGER006
       Width = 287
       Height = 21
       Enabled = False
-      TabOrder = 3
+      TabOrder = 5
     end
     object dbneGER_GERBAI_LOG: TKsDBNumberEdit
       Left = 8
@@ -252,7 +252,7 @@ inherited frmGER006: TfrmGER006
       Width = 287
       Height = 21
       Enabled = False
-      TabOrder = 5
+      TabOrder = 6
     end
     object dbeGER_CEP_LOG: TDBEdit
       Left = 8
@@ -262,7 +262,7 @@ inherited frmGER006: TfrmGER006
       DataField = 'GER_CEP_LOG'
       DataSource = cmKingGeral.dsGER_LOG
       MaxLength = 8
-      TabOrder = 6
+      TabOrder = 1
     end
   end
   inherited stbInformacao: TStatusBar

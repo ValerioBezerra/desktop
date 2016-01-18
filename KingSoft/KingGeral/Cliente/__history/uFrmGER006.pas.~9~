@@ -33,7 +33,6 @@ type
       Shift: TShiftState);
     procedure dbneGER_GERBAI_LOGExit(Sender: TObject);
     procedure sbGER004Click(Sender: TObject);
-    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,7 +46,7 @@ implementation
 
 {$R *.dfm}
 
-uses uCMKingGeral, uUtil,  uFrmGER005Consulta,
+uses uCMKingGeral, uUtil, uFrmGER002Consulta, uFrmGER005Consulta,
   uFrmGER004Consulta;
 
 procedure TfrmGER006.btnSalvarClick(Sender: TObject);
@@ -115,17 +114,6 @@ begin
   inherited;
   if (Ord(Key) = VK_F2) then
     btnSalvarClick(Sender);
-end;
-
-procedure TfrmGER006.FormShow(Sender: TObject);
-begin
-  inherited;
-  if OperacaoPadrao = 'U' then
-  begin
-     dbneGER_GERTLG_LOGExit(Self);
-     dbneGER_GERBAI_LOGExit(Self);
-  end;
-
 end;
 
 procedure TfrmGER006.sbGER004Click(Sender: TObject);

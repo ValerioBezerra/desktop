@@ -86,7 +86,7 @@ begin
   CampoConsulta := 'GER_LOGRADOURO_LOG';
   OrderBy       := 'GER_LOGRADOURO_LOG';
 
-  cdsPadrao    := cmKingGeral.cdsGER_LOG;
+  cdsPadrao    := cmKingGeral.cdsGER_CID;
   TabelaPadrao := 'GER_LOG';
 
   cdsVerificarAutorizacao := cmKingGeral.cdsConsulta;
