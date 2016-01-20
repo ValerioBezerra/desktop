@@ -1,2 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject/>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2016/01/19 22:32:57.437,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER009.pas=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004.pas</Transaction>
+    <Transaction>2016/01/19 22:32:57.438,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER009.dfm=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004.dfm</Transaction>
+    <Transaction>2016/01/19 22:33:19.181,=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004.pas</Transaction>
+  </Transactions>
+</BorlandProject>
