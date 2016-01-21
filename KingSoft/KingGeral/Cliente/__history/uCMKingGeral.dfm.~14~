@@ -133,7 +133,7 @@ object cmKingGeral: TcmKingGeral
     Left = 537
     Top = 168
   end
-  object cdsGER_TPP: TClientDataSet
+  object ClientDataSet1: TClientDataSet
     Aggregates = <>
     CommandText = 'SELECT * FROM GER_TPP WHERE 1 = 0'
     Params = <>
@@ -142,8 +142,8 @@ object cmKingGeral: TcmKingGeral
     Left = 593
     Top = 120
   end
-  object dsGER_TPP: TDataSource
-    DataSet = cdsGER_TPP
+  object DataSource1: TDataSource
+    DataSet = ClientDataSet1
     Left = 593
     Top = 168
   end

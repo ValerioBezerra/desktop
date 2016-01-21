@@ -28,7 +28,7 @@ type
     cdsGER_EMP: TClientDataSet;
     dsGER_EMP: TDataSource;
     cdsGER_TPP: TClientDataSet;
-    dsGER_TPP: TDataSource;
+    DataSource1: TDataSource;
     procedure DataModuleCreate(Sender: TObject);
   private
     FInstanceOwner: Boolean;

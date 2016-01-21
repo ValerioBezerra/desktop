@@ -31,6 +31,8 @@ type
     dspGER_LOG: TDataSetProvider;
     fdqGER_EMP: TFDQuery;
     dspGER_EMP: TDataSetProvider;
+    fdqGER_TPP: TFDQuery;
+    dspGER_TPP: TDataSetProvider;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }

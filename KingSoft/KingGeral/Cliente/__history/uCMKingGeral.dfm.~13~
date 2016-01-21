@@ -10,13 +10,11 @@ object cmKingGeral: TcmKingGeral
       'Port=201501'
       'CommunicationProtocol=tcp/ip'
       'DatasnapContext=datasnap/')
-    Connected = True
     Left = 48
     Top = 40
   end
   object DSProviderConnection: TDSProviderConnection
     ServerClassName = 'TSMKingGeral'
-    Connected = True
     SQLConnection = SQLConnection
     Left = 152
     Top = 40
@@ -131,20 +129,6 @@ object cmKingGeral: TcmKingGeral
   object dsGER_EMP: TDataSource
     DataSet = cdsGER_EMP
     Left = 537
-    Top = 168
-  end
-  object cdsGER_TPP: TClientDataSet
-    Aggregates = <>
-    CommandText = 'SELECT * FROM GER_TPP WHERE 1 = 0'
-    Params = <>
-    ProviderName = 'dspGER_TPP'
-    RemoteServer = DSProviderConnection
-    Left = 593
-    Top = 120
-  end
-  object dsGER_TPP: TDataSource
-    DataSet = cdsGER_TPP
-    Left = 593
     Top = 168
   end
 end

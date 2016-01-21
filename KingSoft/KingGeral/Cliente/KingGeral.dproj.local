@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2016/01/19 22:32:57.437,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER009.pas=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004.pas</Transaction>
-    <Transaction>2016/01/19 22:32:57.438,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER009.dfm=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004.dfm</Transaction>
-    <Transaction>2016/01/19 22:33:19.181,=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004.pas</Transaction>
+	<Transactions>
+    <Transaction>2016/01/19 22:32:57.000.438,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004.dfm=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER009.dfm</Transaction>
+    <Transaction>2016/01/19 22:32:57.000.437,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004.pas=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER009.pas</Transaction>
+    <Transaction>2016/01/19 22:33:19.000.181,=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER004.pas</Transaction>
+    <Transaction>2016/01/20 21:59:23.000.511,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER009Consulta.pas=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER007Consulta.pas</Transaction>
+    <Transaction>2016/01/20 21:59:23.000.511,C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER009Consulta.dfm=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER007Consulta.dfm</Transaction>
+    <Transaction>2016/01/20 22:03:49.000.073,=C:\Users\Elison\Documents\GitHub\desktop\KingSoft\KingGeral\Cliente\uFrmGER007Consulta.pas</Transaction>
   </Transactions>
 </BorlandProject>

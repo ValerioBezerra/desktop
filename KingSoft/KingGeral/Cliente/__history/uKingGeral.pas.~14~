@@ -19,7 +19,7 @@ uses uUtil, uCMKingGeral, uFrmGER001Consulta, uFrmGER002Consulta,
 
   uFrmGER003Consulta, uFrmGER005Consulta, uFrmGER006Consulta,
 
-  uFrmGER004Consulta, uFrmGER007Consulta, uFrmGER009Consulta;
+  uFrmGER004Consulta, uFrmGER007Consulta;
 
 
 
@@ -57,12 +57,6 @@ begin
             frmGER003Consulta.ShowModal;
           end;
 
-             if (CodigoPrograma = '004') then
-          begin
-            Application.CreateForm(TfrmGER004Consulta, frmGER004Consulta);
-            frmGER004Consulta.ShowModal;
-          end;
-
         if (CodigoPrograma = '005') then
           begin
             Application.CreateForm(TfrmGER005Consulta, frmGER005Consulta);
@@ -81,13 +75,11 @@ begin
             frmGER007Consulta.ShowModal;
           end;
 
-           if (CodigoPrograma = '009') then
+        if (CodigoPrograma = '004') then
           begin
-            Application.CreateForm(TfrmGER009Consulta, frmGER009Consulta);
-            frmGER009Consulta.ShowModal;
+            Application.CreateForm(TfrmGER004Consulta, frmGER004Consulta);
+            frmGER004Consulta.ShowModal;
           end;
-
-
 
       end;
   except

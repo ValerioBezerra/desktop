@@ -128,8 +128,8 @@
         <DCCReference Include="uFrmGER002Consulta.pas">
             <Form>frmGER002Consulta</Form>
         </DCCReference>
-        <DCCReference Include="uFrmGER007Consulta.pas">
-            <Form>frmGER007Consulta</Form>
+        <DCCReference Include="uFrmGER009Consulta.pas">
+            <Form>frmGER009Consulta</Form>
         </DCCReference>
         <DCCReference Include="uFrmGER007.pas">
             <Form>frmGER007</Form>
@@ -148,6 +148,10 @@
         </DCCReference>
         <DCCReference Include="uFrmGER004.pas">
             <Form>frmGER004</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uFrmGER007Consulta.pas">
+            <Form>frmGER007Consulta</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Debug">

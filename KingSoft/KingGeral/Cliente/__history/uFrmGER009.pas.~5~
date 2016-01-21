@@ -18,7 +18,10 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-   
+    procedure dbneGER_GERCID_BAIExit(Sender: TObject);
+    procedure sbGER003Click(Sender: TObject);
+    procedure dbneGER_GERCID_BAIKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
   public
