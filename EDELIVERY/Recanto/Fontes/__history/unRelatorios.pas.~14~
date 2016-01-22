@@ -33,6 +33,7 @@ type
     ppLine1: TppLine;
     ppDBText1: TppDBText;
     ppDBText2: TppDBText;
+    ppDBText3: TppDBText;
     ppLabel5: TppLabel;
     ppLabel6: TppLabel;
     ppLabel7: TppLabel;
@@ -45,10 +46,8 @@ type
     ppDBText4: TppDBText;
     ppLabel10: TppLabel;
     ppDBText5: TppDBText;
-    varTotalPedido: TppVariable;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure ppDetailBand1BeforePrint(Sender: TObject);
   private
     { Private declarations }
   public
@@ -95,12 +94,6 @@ procedure TfrmRelatorios.FormCreate(Sender: TObject);
 begin
    DateTimePicker1.DateTime := now;
    DateTimePicker2.DateTime := now;
-end;
-
-procedure TfrmRelatorios.ppDetailBand1BeforePrint(Sender: TObject);
-begin
-varTotalPedido.Value := DataModule1.cdsTELASCONSULTA.FieldByName('VALOR_PED').AsCurrency *
-                         DataModule1.cdsTELASCONSULTA.FieldByName('QTDE_PED').AsCurrency;
 end;
 
 end.

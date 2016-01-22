@@ -99,8 +99,8 @@ end;
 
 procedure TfrmRelatorios.ppDetailBand1BeforePrint(Sender: TObject);
 begin
-varTotalPedido.Value := DataModule1.cdsTELASCONSULTA.FieldByName('VALOR_PED').AsCurrency *
-                         DataModule1.cdsTELASCONSULTA.FieldByName('QTDE_PED').AsCurrency;
+varTotalPedido.Value := DataModule1.cdsCONSULTA.FieldByName('VALOR_PED').AsCurrency *
+                         DataModule1.cdsCONSULTA.FieldByName('QTDE_PED').AsCurrency;
 end;
 
 end.

@@ -38,8 +38,14 @@ type
     ppLabel6: TppLabel;
     ppLabel7: TppLabel;
     ppLabel8: TppLabel;
-    vTotal: TppVariable;
+    vTotal: TppLabel;
+    ppHeaderBand2: TppHeaderBand;
+    ppDetailBand2: TppDetailBand;
+    ppFooterBand2: TppFooterBand;
+    ppLabel9: TppLabel;
+    ppDBText4: TppDBText;
     procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -70,11 +76,21 @@ begin
    DataModule1.cdsTELASCONSULTA.First;
    while not DataModule1.cdsTELASCONSULTA.Eof do
    begin
-     Total := Total + DataModule1.cdsTELASCONSULTA.FieldByName('VALOR_PED').AsCurrency;
+     Total := Total + (DataModule1.cdsTELASCONSULTA.FieldByName('VALOR_PED').AsCurrency *
+                       DataModule1.cdsTELASCONSULTA.FieldByName('QTDE_PED').AsCurrency ) ;
      DataModule1.cdsTELASCONSULTA.Next;
    end;
-     VTotal.Text := 'R$' + CurrtoStr(Total);
+     VTotal.Caption := 'R$' + CurrtoStr(Total);
+     ppLabel2.Caption := DatetoStr(DateTimePicker1.Date);
+     ppLabel3.Caption := DatetoStr(DateTimePicker2.Date);
+     ppReport1.Print;
 
+end;
+
+procedure TfrmRelatorios.FormCreate(Sender: TObject);
+begin
+   DateTimePicker1.DateTime := now;
+   DateTimePicker2.DateTime := now;
 end;
 
 end.
