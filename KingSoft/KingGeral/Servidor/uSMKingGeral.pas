@@ -42,6 +42,9 @@ type
     function TestarGER_EST(Parametro: TParametro): String;
     function TestarGER_CID(Parametro: TParametro): String;
     function TestarGER_BAI(Parametro: TParametro): String;
+    function TestarGER_TLG(Parametro: TParametro): String;
+    function TestarGER_LOG(Parametro: TParametro): String;
+    function TestarGER_TPP(Parametro: TParametro): String;
   public
     { Public declarations }
     function TestarDados(Parametro: TParametro; Dados: OleVariant): String;
@@ -112,6 +115,8 @@ begin
     Result := TestarGER_CID(Parametro);
   if (Parametro.Tabela = 'GER_BAI') then
     Result := TestarGER_BAI(Parametro);
+  if (Parametro.Tabela = 'GER_TLG') then
+    Result := TestarGER_TLG(Parametro);
 end;
 
 function TSMKingGeral.TestarGER_BAI(Parametro: TParametro): String;
@@ -227,6 +232,47 @@ begin
   Result := Retorno;
 end;
 
+function TSMKingGeral.TestarGER_LOG(Parametro: TParametro): String;
+var
+  Retorno: String;
+  Separador: String;
+begin
+  Retorno   := '';
+  Separador := '';
+
+  if (Parametro.Operacao <> 'D') then
+    begin
+      if (Trim(cdsTestarDados.FieldByName('GER_CEP_LOG').AsString) = '') then
+        begin
+          Retorno   := Retorno + Separador + ' - CEP não preenchido.';
+          Separador := #13;
+        end;
+      if (Trim(cdsTestarDados.FieldByName('GER_LOGRADOURO_LOG').AsString) = '') then
+        begin
+          Retorno   := Retorno + Separador + ' - Logradouro não preenchido.';
+          Separador := #13;
+        end;
+      if not(Consultar('GER_TLG', 'WHERE GER_ID_TLG = ' + IntToStr(cdsTestarDados.FieldByName('GER_GERTLG_LOG').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Tipo de Logradouro não cadastrada.';
+          Separador := #13;
+        end;
+      if not(Consultar('GER_BAI', 'WHERE GER_ID_BAI = ' + IntToStr(cdsTestarDados.FieldByName('GER_GERBAI_LOG').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Bairro não cadastrada.';
+          Separador := #13;
+        end;
+    end
+  else
+    begin
+
+    end;
+
+  Result := Retorno;
+
+
+end;
+
 function TSMKingGeral.TestarGER_PAI(Parametro: TParametro): String;
 var
   Retorno: String;
@@ -253,6 +299,69 @@ begin
     end;
 
   Result := Retorno;
+end;
+
+function TSMKingGeral.TestarGER_TLG(Parametro: TParametro): String;
+var
+  Retorno: String;
+  Separador: String;
+begin
+  Retorno   := '';
+  Separador := '';
+
+  if (Parametro.Operacao <> 'D') then
+    begin
+      if (Trim(cdsTestarDados.FieldByName('GER_DESCRICAO_TLG').AsString) = '') then
+        begin
+          Retorno   := Retorno + Separador + ' - Descrição não preenchida.';
+          Separador := #13;
+        end;
+
+
+    end
+  else
+    begin
+      if (Consultar('GER_LOG', 'WHERE GER_GERTLG_LOG = ' + IntToStr(cdsTestarDados.FieldByName('GER_ID_TLG').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Há logradouro(s) cadastrado(s) com este tipo.';
+          Separador := #13;
+        end;
+    end;
+
+  Result := Retorno;
+
+
+end;
+
+function TSMKingGeral.TestarGER_TPP(Parametro: TParametro): String;
+var
+  Retorno: String;
+  Separador: String;
+begin
+  Retorno   := '';
+  Separador := '';
+
+  if (Parametro.Operacao <> 'D') then
+    begin
+      if (Trim(cdsTestarDados.FieldByName('GER_DESCRICAO_TPP').AsString) = '') then
+        begin
+          Retorno   := Retorno + Separador + ' - Descrição não preenchida.';
+          Separador := #13;
+        end;
+
+
+    end
+  else
+    begin
+        if (Consultar('GER_PXT', 'WHERE GER_GERTPP_PXT = ' + IntToStr(cdsTestarDados.FieldByName('GER_ID_TPP').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Existem Pessoas cadastradas com essse tipo.';
+          Separador := #13;
+        end;
+    end;
+
+  Result := Retorno;
+
 end;
 
 end.

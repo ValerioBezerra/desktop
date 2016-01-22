@@ -29,6 +29,10 @@ type
     dspGER_TLG: TDataSetProvider;
     fdqGER_LOG: TFDQuery;
     dspGER_LOG: TDataSetProvider;
+    fdqGER_EMP: TFDQuery;
+    dspGER_EMP: TDataSetProvider;
+    fdqGER_TPP: TFDQuery;
+    dspGER_TPP: TDataSetProvider;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -36,6 +40,8 @@ type
     function Consultar(Tabela, Where: String): Boolean;
     function TestarGER_PAI(Parametro: TParametro): String;
     function TestarGER_EST(Parametro: TParametro): String;
+    function TestarGER_CID(Parametro: TParametro): String;
+    function TestarGER_BAI(Parametro: TParametro): String;
   public
     { Public declarations }
     function TestarDados(Parametro: TParametro; Dados: OleVariant): String;
@@ -102,6 +108,78 @@ begin
     Result := TestarGER_PAI(Parametro);
   if (Parametro.Tabela = 'GER_EST') then
     Result := TestarGER_EST(Parametro);
+  if (Parametro.Tabela = 'GER_CID') then
+    Result := TestarGER_CID(Parametro);
+  if (Parametro.Tabela = 'GER_BAI') then
+    Result := TestarGER_BAI(Parametro);
+end;
+
+function TSMKingGeral.TestarGER_BAI(Parametro: TParametro): String;
+var
+  Retorno: String;
+  Separador: String;
+begin
+  Retorno   := '';
+  Separador := '';
+
+  if (Parametro.Operacao <> 'D') then
+    begin
+      if (Trim(cdsTestarDados.FieldByName('GER_NOME_BAI').AsString) = '') then
+        begin
+          Retorno   := Retorno + Separador + ' - Nome não preenchido.';
+          Separador := #13;
+        end;
+
+      if not(Consultar('GER_CID', 'WHERE GER_ID_CID = ' + IntToStr(cdsTestarDados.FieldByName('GER_GERCID_BAI').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Cidade não cadastrada.';
+          Separador := #13;
+        end;
+    end
+  else
+    begin
+      if (Consultar('GER_LOG', 'WHERE GER_GERBAI_LOG = ' + IntToStr(cdsTestarDados.FieldByName('GER_ID_BAI').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Há logradouro(s) cadastrado(s) com este bairro.';
+          Separador := #13;
+        end;
+    end;
+
+  Result := Retorno;
+end;
+
+function TSMKingGeral.TestarGER_CID(Parametro: TParametro): String;
+var
+  Retorno: String;
+  Separador: String;
+begin
+  Retorno   := '';
+  Separador := '';
+
+  if (Parametro.Operacao <> 'D') then
+    begin
+      if (Trim(cdsTestarDados.FieldByName('GER_NOME_CID').AsString) = '') then
+        begin
+          Retorno   := Retorno + Separador + ' - Nome não preenchido.';
+          Separador := #13;
+        end;
+
+      if not(Consultar('GER_EST', 'WHERE GER_ID_EST = ' + IntToStr(cdsTestarDados.FieldByName('GER_GEREST_CID').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Estado não cadastrado.';
+          Separador := #13;
+        end;
+    end
+  else
+    begin
+      if (Consultar('GER_BAI', 'WHERE GER_GERCID_BAI = ' + IntToStr(cdsTestarDados.FieldByName('GER_ID_CID').AsInteger))) then
+        begin
+          Retorno   := Retorno + Separador + ' - Há bairro(s) cadastrado(s) com esta cidade.';
+          Separador := #13;
+        end;
+    end;
+
+  Result := Retorno;
 end;
 
 function TSMKingGeral.TestarGER_EST(Parametro: TParametro): String;
