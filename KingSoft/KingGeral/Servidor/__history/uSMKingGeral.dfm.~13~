@@ -2,7 +2,7 @@ object SMKingGeral: TSMKingGeral
   OldCreateOrder = False
   OnCreate = DSServerModuleCreate
   Height = 423
-  Width = 925
+  Width = 693
   object FDConnection: TFDConnection
     Params.Strings = (
       'Database=C:\KingErp\Dados\KINGSOFT.FDB'
@@ -117,17 +117,6 @@ object SMKingGeral: TSMKingGeral
     DataSet = fdqGER_TPP
     Options = [poFetchBlobsOnDemand, poFetchDetailsOnDemand, poAllowCommandText]
     Left = 586
-    Top = 162
-  end
-  object fdqGER_FPG: TFDQuery
-    Connection = FDConnection
-    Left = 642
-    Top = 115
-  end
-  object dspGER_FPG: TDataSetProvider
-    DataSet = fdqGER_FPG
-    Options = [poFetchBlobsOnDemand, poFetchDetailsOnDemand, poAllowCommandText]
-    Left = 642
     Top = 162
   end
 end

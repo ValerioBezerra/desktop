@@ -33,6 +33,8 @@ type
     dspGER_EMP: TDataSetProvider;
     fdqGER_TPP: TFDQuery;
     dspGER_TPP: TDataSetProvider;
+    fdqGER_FPG: TFDQuery;
+    dspGER_FPG: TDataSetProvider;
     procedure DSServerModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -45,6 +47,7 @@ type
     function TestarGER_TLG(Parametro: TParametro): String;
     function TestarGER_LOG(Parametro: TParametro): String;
     function TestarGER_TPP(Parametro: TParametro): String;
+    function TestarGER_FPG(Parametro: TParametro): String;
   public
     { Public declarations }
     function TestarDados(Parametro: TParametro; Dados: OleVariant): String;
@@ -117,6 +120,12 @@ begin
     Result := TestarGER_BAI(Parametro);
   if (Parametro.Tabela = 'GER_TLG') then
     Result := TestarGER_TLG(Parametro);
+  if (Parametro.Tabela = 'GER_LOG') then
+    Result := TestarGER_LOG(Parametro);
+  if (Parametro.Tabela = 'GER_TPP') then
+    Result := TestarGER_TPP(Parametro);
+  if (Parametro.Tabela = 'GER_FPG') then
+    Result := TestarGER_FPG(Parametro);
 end;
 
 function TSMKingGeral.TestarGER_BAI(Parametro: TParametro): String;
@@ -230,6 +239,38 @@ begin
     end;
 
   Result := Retorno;
+end;
+
+function TSMKingGeral.TestarGER_FPG(Parametro: TParametro): String;
+var
+  Retorno: String;
+  Separador: String;
+begin
+  Retorno   := '';
+  Separador := '';
+
+  if (Parametro.Operacao <> 'D') then
+    begin
+      if (Trim(cdsTestarDados.FieldByName('GER_DESCRICAO_FPG').AsString) = '') then
+        begin
+          Retorno   := Retorno + Separador + ' - Descrição não preenchida.';
+          Separador := #13;
+        end;
+
+
+    end
+  else
+    begin
+//        if (Consultar('GER_PXT', 'WHERE GER_GERTPP_PXT = ' + IntToStr(cdsTestarDados.FieldByName('GER_ID_TPP').AsInteger))) then
+//        begin
+//          Retorno   := Retorno + Separador + ' - Existem Pessoas cadastradas com essse tipo.';
+//          Separador := #13;
+//        end;
+    end;
+
+  Result := Retorno;
+
+
 end;
 
 function TSMKingGeral.TestarGER_LOG(Parametro: TParametro): String;
